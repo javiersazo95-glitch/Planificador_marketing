@@ -55,14 +55,15 @@
         "formato": "Carrusel de 6 láminas",
         "redes": [
           "instagram",
-          "facebook"
+          "facebook",
+          "tiktok"
         ],
         "publico": "Compradores",
         "recomendada": true,
         "que": "Seis láminas que explican en cuatro pasos cómo buscar por patente y comprar sin equivocarte.",
         "objetivo": "Que más conductores prueben la búsqueda por patente.",
         "yo": "Ya dejé las 6 láminas listas en Drive, con el texto del post y los hashtags.",
-        "ustedes": "Nada: ya está programado en Facebook e Instagram para hoy a las 20:00. Responder los comentarios la primera hora.",
+        "ustedes": "Nada: ya está programado hoy (Facebook e Instagram 20:00, TikTok 21:30). Responder los comentarios la primera hora.",
         "resultado": "Meta inicial: 1.000 cuentas alcanzadas y 30 guardados en 3 días.",
         "guion": [
           "Lámina 1: «¿Compraste un repuesto que no le hacía a tu auto?»",
@@ -413,15 +414,19 @@
     },
     "tiktok": {
       "semaforo": "amarillo",
-      "porque": "Salieron dos reels hoy, pero aún no vemos sus números.",
+      "porque": "La cuenta @repuestop_oficial está conectada a Metricool y hay un carrusel programado hoy.",
       "numeros": [
         {
-          "etiqueta": "Reels de hoy",
+          "etiqueta": "Programado",
+          "valor": "C1 hoy 21:30"
+        },
+        {
+          "etiqueta": "Reels publicados",
           "valor": "2 (R7 y T-1)"
         }
       ],
       "consejo": "Esperar 3 días antes de sacar conclusiones y medir el lunes.",
-      "falta": "Conectar Metricool y anotar el nombre de la cuenta.",
+      "falta": "Revisar los reels con voz del plan Free.",
       "resultado": "Saber qué tipo de reel funciona mejor."
     },
     "youtube": {
