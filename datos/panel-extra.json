@@ -1,27 +1,27 @@
 {
   "_ayuda": "Datos que pinta el panel. Cada cosa dice QUÉ ES, QUÉ HAY QUE HACER y PARA QUÉ SIRVE, en frases simples. El detalle largo vive en datos/planes/ y novedades/. Si una acción se cumple subiendo material, pon en \"entrega\" el título exacto del ítem de \"material\" para que se marque sola.",
-  "recomendacion": "Hoy subamos el carrusel de la patente a las 20:00 y mañana el de talleres: los dos ya están listos.",
+  "recomendacion": "Los dos carruseles ya están programados: hoy a las 20:00 el de la patente y mañana el de talleres. Falta decidir la voz de los reels.",
   "acciones": [
     {
-      "texto": "Elegir qué se publica hoy y mañana",
+      "texto": "Revisar que el carrusel de la patente salga hoy a las 20:00",
       "quien": "Equipo",
-      "como": "Revisen las 3 piezas de abajo y díganme: plan completo (recomendado), solo los dos carruseles, o primero el de talleres.",
-      "para": "Sin su sí no preparo ni publico nada.",
-      "resultado": "Hoy mismo sale el primer post."
-    },
-    {
-      "texto": "Subir el carrusel de la patente hoy a las 20:00",
-      "quien": "Equipo",
-      "como": "1) Abran Drive > RepuesTop Marketing > contenido > 2026-11-13-carrusel-c1-patente > final. 2) En Instagram: Crear > Publicación y elijan las 6 imágenes en orden. 3) Peguen el texto de la pieza 1 y publiquen. 4) Repitan en Facebook. 5) Respondan los comentarios la primera hora.",
-      "para": "Es el primer post para atraer compradores, con los diseños aprobados.",
+      "como": "A las 20:00 miren Facebook e Instagram: debe aparecer el carrusel. Respondan los comentarios la primera hora. Si no sale, avísenme.",
+      "para": "Metricool lo publica solo, pero conviene confirmarlo.",
       "resultado": "Los conductores ven cómo buscar por patente y guardan el post."
     },
     {
-      "texto": "Conectar Metricool a Claude",
-      "quien": "Equipo (dueño de la cuenta)",
-      "como": "1) En app.metricool.com conecten Instagram (cuenta profesional), Facebook, TikTok y YouTube. 2) En Claude abran Conectores, busquen «Metricool» y toquen Conectar. 3) Actívenlo en esta conversación y avísenme.",
-      "para": "Así puedo ver los números de cada red y programar publicaciones con su permiso.",
-      "resultado": "El panel muestra números reales y los posts se programan desde aquí."
+      "texto": "Decidir si hacemos las 3 historias de hoy (21:00)",
+      "quien": "Equipo",
+      "como": "Díganme sí o no. Si es sí, preparo las 3 imágenes con la mascota Repuestín y ustedes las suben con el sticker de pregunta y el enlace.",
+      "para": "Conversar con quienes ya nos siguen y juntar ideas reales de repuestos difíciles.",
+      "resultado": "Meta inicial: 15 respuestas a la pregunta."
+    },
+    {
+      "texto": "Compartir el carrusel de talleres en grupos de Facebook",
+      "quien": "Equipo",
+      "como": "Mañana a las 10:00 sale en la página. Compártanlo en 2 o 3 grupos de talleres donde ya participen, con un comentario útil y sin spam.",
+      "para": "Llegar a talleres donde ya hay comunidad.",
+      "resultado": "Meta inicial: 3 talleres que crean su cuenta en 7 días."
     },
     {
       "texto": "Decidir qué hacer con la voz de los reels",
@@ -36,11 +36,18 @@
       "como": "Miren si siguen en Facebook, YouTube Shorts y TikTok. Decidan si se bajan hasta tener la voz con licencia o se dejan y se reemplazan después.",
       "para": "Los dos usan voces del plan Free.",
       "resultado": "Sin riesgo de licencia en las redes de RepuesTop."
+    },
+    {
+      "texto": "Conectar Metricool a Claude (opcional)",
+      "quien": "Equipo (dueño de la cuenta)",
+      "como": "En Claude abran Conectores, busquen «Metricool» y toquen Conectar. Después lo activan en la conversación y me avisan.",
+      "para": "Así programo y leo números sin abrir el navegador. Hoy ya puedo programar desde su sesión de Brave.",
+      "resultado": "Los números de cada red aparecen solos en el panel."
     }
   ],
   "hoy": {
     "titulo": "Posts para compradores y talleres",
-    "porque": "Los reels esperan la voz con licencia. Mientras tanto, los carruseles ya están listos y no necesitan voz.",
+    "porque": "Los reels esperan la voz con licencia. Mientras tanto, los carruseles ya están programados y no necesitan voz.",
     "piezas": [
       {
         "tarea": "20261113-92b4",
@@ -55,7 +62,7 @@
         "que": "Seis láminas que explican en cuatro pasos cómo buscar por patente y comprar sin equivocarte.",
         "objetivo": "Que más conductores prueben la búsqueda por patente.",
         "yo": "Ya dejé las 6 láminas listas en Drive, con el texto del post y los hashtags.",
-        "ustedes": "Subirlo hoy a las 20:00 (a mano, hasta conectar Metricool) y responder los comentarios la primera hora.",
+        "ustedes": "Nada: ya está programado en Facebook e Instagram para hoy a las 20:00. Responder los comentarios la primera hora.",
         "resultado": "Meta inicial: 1.000 cuentas alcanzadas y 30 guardados en 3 días.",
         "guion": [
           "Lámina 1: «¿Compraste un repuesto que no le hacía a tu auto?»",
@@ -97,7 +104,7 @@
         "que": "Seis láminas que muestran cómo registrar un taller y recibir citas de conductores.",
         "objetivo": "Que los primeros talleres creen su cuenta.",
         "yo": "Ya dejé las 6 láminas listas en Drive, con el texto del post y los hashtags.",
-        "ustedes": "Subirlo mañana sábado (Facebook 10:00, Instagram 11:00) y compartirlo en grupos de talleres donde ya participen.",
+        "ustedes": "Nada: ya está programado (Facebook 10:00 e Instagram 11:00). Compartirlo en grupos de talleres donde ya participen.",
         "resultado": "Meta inicial: 3 talleres que crean su cuenta en 7 días.",
         "guion": [
           "Lámina 1: «¿Tu taller aparece cuando te buscan?»",
@@ -372,19 +379,19 @@
   "redes": {
     "instagram": {
       "semaforo": "amarillo",
-      "porque": "Hay publicaciones listas, pero no medimos cuánta gente nos ve.",
+      "porque": "La cuenta ya está conectada a Metricool y hay publicaciones programadas, pero aún no hay datos.",
       "numeros": [
         {
-          "etiqueta": "Listo para subir",
-          "valor": "2 carruseles"
+          "etiqueta": "Programado",
+          "valor": "C1 hoy 20:00 · T1 mañana 11:00"
         },
         {
           "etiqueta": "Historias para hoy",
-          "valor": "3"
+          "valor": "3 (por decidir)"
         }
       ],
-      "consejo": "Subir el carrusel de la patente hoy a las 20:00 y responder los comentarios la primera hora.",
-      "falta": "Conectar Metricool para ver los números.",
+      "consejo": "Responder los comentarios la primera hora después de cada publicación.",
+      "falta": "Esperar a que Metricool termine de sincronizar los datos.",
       "resultado": "Ver cada semana si crecemos y qué tipo de post funciona mejor."
     },
     "facebook": {
@@ -396,12 +403,12 @@
           "valor": "2 (R7 y T-1)"
         },
         {
-          "etiqueta": "Listo para subir",
-          "valor": "2 carruseles"
+          "etiqueta": "Programado",
+          "valor": "C1 hoy 20:00 · T1 mañana 10:00"
         }
       ],
-      "consejo": "Mañana a las 10:00 subir el carrusel de talleres y compartirlo en grupos de talleres.",
-      "falta": "Conectar Metricool y revisar los reels con voz del plan Free.",
+      "consejo": "Mañana compartir el carrusel de talleres en grupos de talleres.",
+      "falta": "Revisar los reels con voz del plan Free.",
       "resultado": "Que los primeros talleres conozcan RepuesTop por esta red."
     },
     "tiktok": {
@@ -505,11 +512,6 @@
       "titulo": "Nombres de las cuentas de TikTok y YouTube",
       "porque": "Para enlazarlas y publicar en ellas.",
       "resultado": "Podemos publicar en las 4 redes."
-    },
-    {
-      "titulo": "Subir los carruseles C1 y T1",
-      "porque": "Metricool aún no está conectado.",
-      "resultado": "Los posts salen en su hora."
     }
   ],
   "fechas": [
