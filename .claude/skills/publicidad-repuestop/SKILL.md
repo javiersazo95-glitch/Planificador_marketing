@@ -36,6 +36,7 @@ Todas en `.claude/skills/publicidad-repuestop/scripts/` (Python + ffmpeg + Chrom
 - Ejecutar con `python -I <script>`. Las salidas caen junto al script: moverlas a `<Drive>/contenido/AAAA-MM-DD-tema/final/`.
 - Respaldo: la skill original del audit-kit (`C:/ProyectoRepuestop/audit-kit/skills/publicidad-repuestop`) queda intacta;
   solo se usa si algo de aquí falla. No mantener dos versiones con reglas distintas: las reglas válidas son las de este repo.
+- `censura/censurar_pantalla.py`: tapa patente, chasis, direcciones y nombres de tiendas en grabaciones de pantalla del equipo (guía en `censura/LEEME.md`). **Todo video grabado con datos reales se censura y se revisa a ojo antes de usarlo.**
 - Remotion (`estudio/`) queda como opción para escenas simples; ya usa la paleta nueva.
 
 ## Material que entrega el equipo

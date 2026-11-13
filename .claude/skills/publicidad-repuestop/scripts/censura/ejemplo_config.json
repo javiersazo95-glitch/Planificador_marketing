@@ -1,0 +1,28 @@
+{
+  "_ayuda": "Ejemplo real (grabacion de Repuestin en dev, 13-nov). Las cajas son [x0, y0, x1, y1] en pixeles del video (1080x2340). 'ref' es un cuadro sacado del mismo video. margen = [izq, arriba, der, abajo] que se agrega alrededor del texto encontrado. grupo: pon las plantillas nuevas en otro grupo para no recalcular las anteriores.",
+  "referencias": "referencias",
+  "cache": "cache_censura",
+  "plantillas": {
+    "patente_tabla":   { "ref": "ref_2.0.png",  "caja": [790, 275, 985, 335],   "grupo": "a" },
+    "patente_campo":   { "ref": "ref_1.0.png",  "caja": [300, 840, 600, 910],   "grupo": "a" },
+    "chip_patente":    { "ref": "ref_5.0.png",  "caja": [660, 385, 880, 425],   "grupo": "a" },
+    "chasis_form":     { "ref": "ref_2.0.png",  "caja": [515, 1280, 985, 1340], "grupo": "a" },
+    "chasis_chat":     { "ref": "ref_16.0.png", "caja": [140, 960, 610, 1040],  "grupo": "a" },
+    "chasis_detalle":  { "ref": "ref_69.0.png", "caja": [310, 1515, 672, 1565], "grupo": "a" },
+    "motor_detalle":   { "ref": "ref_69.0.png", "caja": [805, 1225, 1005, 1385], "grupo": "a" },
+    "patente_detalle": { "ref": "ref_69.0.png", "caja": [805, 1340, 940, 1382],  "grupo": "a" },
+    "tienda_mecanica": { "ref": "ref_21.png",   "caja": [255, 840, 605, 895],   "umbral": 0.75, "margen": [25, 18, 330, 85], "grupo": "b" },
+    "tienda_mabe":     { "ref": "ref_25.png",   "caja": [255, 1722, 600, 1765], "umbral": 0.75, "margen": [25, 18, 330, 85], "grupo": "b" },
+    "tienda_tiendapp": { "ref": "ref_27.png",   "caja": [250, 1325, 450, 1380], "umbral": 0.75, "margen": [25, 18, 560, 85], "grupo": "b" },
+    "dir_lista_1":     { "ref": "ref_49.png",   "caja": [160, 1595, 890, 1672], "margen": [25, 18, 25, 18], "grupo": "b" },
+    "dir_lista_2":     { "ref": "ref_49.png",   "caja": [160, 1775, 855, 1852], "margen": [25, 18, 25, 18], "grupo": "b" },
+    "dir_lista_3":     { "ref": "ref_49.png",   "caja": [160, 1958, 715, 2035], "margen": [25, 18, 25, 18], "grupo": "b" },
+    "dir_burbuja":     { "ref": "ref_57.png",   "caja": [585, 1235, 1000, 1287], "margen": [50, 30, 50, 30], "grupo": "b" },
+    "dir_tarjeta":     { "ref": "ref_58.png",   "caja": [140, 1462, 720, 1500], "margen": [25, 18, 25, 18], "grupo": "b" }
+  },
+  "extra": [
+    { "desde": 0.0,  "hasta": 0.5,  "caja": [470, 1985, 1040, 2075], "_por_que": "chasis cortado en el borde inferior del primer cuadro" },
+    { "desde": 19.2, "hasta": 20.3, "caja": [130, 590, 720, 780],    "_por_que": "chasis del mensaje saliendo bajo el encabezado del chat" },
+    { "desde": 62.1, "hasta": 63.3, "caja": [0, 200, 1080, 470],     "_por_que": "tarjeta de patente deslizando al cerrar el chat" }
+  ]
+}
