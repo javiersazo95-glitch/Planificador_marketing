@@ -6,7 +6,7 @@
   "titulo": "Carrusel talleres 1: Tu taller en el buscador, registro gratis",
   "red": "facebook,instagram",
   "publico": "talleres",
-  "estado": "propuesta",
+  "estado": "lista",
   "archivos": [],
   "notas": "Propuesta 13-nov. Registro gratis (verificar en produccion). Link repuestop.cl/taller/registro. Pendiente aprobar guion.",
   "resultado": null,
@@ -14,6 +14,10 @@
     {
       "fecha": "2026-11-13",
       "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-13",
+      "estado": "lista"
     }
   ]
 }

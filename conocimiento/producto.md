@@ -38,6 +38,17 @@ Empresa: COREBIT SpA. Contacto: contacto@repuestop.cl.
 - 06 al 09-nov: Fallas y agenda con talleres rediseñadas (ubicación, atención a domicilio, cita en un paso).
 - 06 al 08-nov: Repuestín en chats: la tienda ofrece repuestos y el comprador ve su perfil.
 
+## Talleres: qué se puede decir (verificado en repuestop.cl el 13-nov)
+- Página de registro `repuestop.cl/taller/registro` (en producción): «Haz crecer tu taller con RepuesTop». Beneficios: te encuentran
+  en tu comuna (buscador con servicios, horario y opiniones), recibes citas en tu agenda (el conductor reserva y tú confirmas),
+  diagnosticas fallas, compras repuestos para tus trabajos (por patente, a casas de repuestos verificadas).
+- **«Registrarte es gratis»** está en la página. Pasos: crear la cuenta (menos de 3 minutos), acreditar el taller (los documentos
+  se suben después, desde el perfil) y quedar visible y verificado.
+- **Hoy `/talleres` dice «Todavía no hay talleres publicados… serás de los primeros».** No usar cifras, testimonios ni capturas del
+  buscador de talleres.
+- **No decir «gratis» al diagnosticar fallas:** según los análisis del repo, el Diagnóstico se paga con Monedas (400 Monedas = $20.000
+  por 30 días). Confirmar con el equipo antes de mencionar costos o regalos (Fundador de talleres).
+
 ## Marca
 **Paleta oficial de redes (decisión 13-nov):** azul #0F4EC2, azul noche #1B2440, gris #3B4A5E, amarillo #F8C805
 y blanco. Fuentes: Plus Jakarta Sans en títulos y textos; Montserrat 700 en el wordmark. Coincide con el logo.

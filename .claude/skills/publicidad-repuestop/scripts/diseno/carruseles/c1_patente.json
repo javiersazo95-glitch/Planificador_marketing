@@ -1,0 +1,32 @@
+{
+  "_nota": "Carrusel C1 para compradores (aprobado el 13-nov). Línea final según el público: «Pago seguro con Flow».",
+  "portada": {
+    "quien": "Compradores",
+    "titulo": "¿Compraste un repuesto que <mark>no le hacía</mark> a tu auto?",
+    "sub": "Plata perdida y otra vuelta al centro.",
+    "celular": "plantilla:celular_patente.png"
+  },
+  "pasos": [
+    {
+      "titulo": "Pon tu <mark>patente</mark>",
+      "texto": "Escribe la patente de tu auto y completamos sus datos por ti.",
+      "puntos": [["coche", "Búsqueda por patente"], ["check", "Datos completados por ti"]]
+    },
+    {
+      "titulo": "Solo lo que <mark>le sirve</mark>",
+      "texto": "Filtramos los repuestos compatibles con tu auto, para que no pierdas tiempo con los que no le hacen.",
+      "puntos": [["escudo", "Filtrado por tu auto"], ["etiqueta", "Etiqueta «Para tu vehículo»"]]
+    },
+    {
+      "titulo": "Compara y <mark>elige</mark>",
+      "texto": "Mira repuestos de varias casas de repuestos y compara antes de decidir.",
+      "puntos": [["tienda", "Varias casas de repuestos"], ["etiqueta", "Precios a la vista"]]
+    },
+    {
+      "titulo": "Compra <mark>protegida</mark>",
+      "texto": "Pagas seguro, retiras con un PIN y, si algo sale mal, hay mediación.",
+      "puntos": [["escudo", "Pago seguro con Flow"], ["candado", "Retiro con PIN de 6 dígitos"]]
+    }
+  ],
+  "final": { "cta": "repuestop.cl", "linea": "Pago seguro con Flow" }
+}

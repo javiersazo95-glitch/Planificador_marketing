@@ -1,0 +1,32 @@
+{
+  "_nota": "Carrusel T1 para talleres (aprobado el 13-nov). Textos tomados de la página repuestop.cl/taller/registro (verificada en producción el 13-nov). No hay cifras ni testimonios: aún no hay talleres publicados.",
+  "portada": {
+    "quien": "Talleres",
+    "titulo": "¿Tu taller <mark>aparece</mark> cuando te buscan?",
+    "sub": "Que te encuentren en tu comuna. Sé de los primeros.",
+    "celular": "C:/ProyectoRepuestop/Planificador_marketing/capturas-tmp/2026-11-13-talleres/registro_portada.png"
+  },
+  "pasos": [
+    {
+      "titulo": "Crea tu <mark>cuenta</mark>",
+      "texto": "Hoy, en menos de 3 minutos. Registrarte es gratis.",
+      "puntos": [["usuario", "Registro gratis"], ["reloj", "Menos de 3 minutos"]]
+    },
+    {
+      "titulo": "Acredita tu <mark>taller</mark>",
+      "texto": "Sube tus documentos desde tu perfil y quedas visible y verificado.",
+      "puntos": [["documento", "Documentos desde tu perfil"], ["escudo", "Taller verificado"]]
+    },
+    {
+      "titulo": "Te encuentran en tu <mark>comuna</mark>",
+      "texto": "Apareces en el buscador de talleres con tus servicios, horario y opiniones.",
+      "puntos": [["pin", "Servicios y horario"], ["estrella", "Opiniones de clientes"]]
+    },
+    {
+      "titulo": "Recibe citas en tu <mark>agenda</mark>",
+      "texto": "Los conductores reservan hora y tú confirmas desde tu panel.",
+      "puntos": [["calendario", "Reserva del conductor"], ["check", "Confirmas tú"]]
+    }
+  ],
+  "final": { "cta": "repuestop.cl/taller/registro", "linea": "Registrarte es gratis" }
+}

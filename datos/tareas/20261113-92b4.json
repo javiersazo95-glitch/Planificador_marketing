@@ -6,7 +6,7 @@
   "titulo": "Carrusel compradores 1: Pon tu patente y compra el repuesto correcto (portada A + 4 M2 + final L2)",
   "red": "instagram,facebook",
   "publico": "compradores",
-  "estado": "propuesta",
+  "estado": "lista",
   "archivos": [],
   "notas": "Propuesta 13-nov. Linea final L2: Pago seguro con Flow. Pendiente aprobar guion.",
   "resultado": null,
@@ -14,6 +14,10 @@
     {
       "fecha": "2026-11-13",
       "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-13",
+      "estado": "lista"
     }
   ]
 }
