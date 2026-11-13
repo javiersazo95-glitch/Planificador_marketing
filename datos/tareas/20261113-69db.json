@@ -1,0 +1,25 @@
+{
+  "id": "20261113-69db",
+  "creada": "2026-11-13T13:42:19.932Z",
+  "fecha": "2026-11-13",
+  "tipo": "imagen",
+  "titulo": "Diseno fijo de post: portada A",
+  "red": "instagram,facebook",
+  "publico": "todos",
+  "estado": "aprobada",
+  "archivos": [
+    "contenido/2026-11-13-diseno-portada-A/final/portada_A.png"
+  ],
+  "notas": "Aprobado el 13-nov.",
+  "resultado": null,
+  "historial": [
+    {
+      "fecha": "2026-11-13",
+      "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-13",
+      "estado": "aprobada"
+    }
+  ]
+}

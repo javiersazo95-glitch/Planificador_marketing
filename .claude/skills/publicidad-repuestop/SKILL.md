@@ -33,6 +33,12 @@ sugerir de dónde sacarlo (grabación de pantalla, fotos de tienda, reseñas rea
 - Mostrar el producto real (capturas reales, pantalla del celular); nada de pantallas inventadas.
 - Cero cifras de tiendas o usuarios sin aprobación; cero descuentos o plazos de despacho no confirmados.
 - Fundador: confirmar vigencia (1 mes desde el 11-nov; 2 meses para quien postuló hasta el 10-nov) antes de usarlo.
+- **Compradores:** nunca hablar de retención del pago ni de cuándo cobra la tienda; solo «Pago seguro con Flow». Sin «Webpay».
+- **Repuestín** nunca muestra cuántas casas de repuestos hay; sí puede decir «Le escribí a N casas».
+- **Cierre de todo reel = cierre L2 animado:** logo grande, «Movemos Chile juntos» con franja amarilla, botón repuestop.cl y una línea según el público (tiendas: «1 mes gratis para tiendas nuevas»; compradores: «Pago seguro con Flow»). Con sonido real de motor y la voz «El Faraon»: «Repuestop, movemos Chile juntos». Ya no se usa cierre con mascota ni «Descarga gratis».
+- **Posts fijos:** portada A, intermedia M2, final L2.
+- **Paleta de redes:** azul #0F4EC2, azul noche #1B2440, gris #3B4A5E, amarillo #F8C805, blanco; Plus Jakarta Sans y Montserrat 700 en el wordmark (la web usa #0056BF + Outfit, no va en redes).
+- Voces: regenerar con ElevenLabs Starter antes de publicar (las aprobadas el 13-nov son de plan Free).
 - Marca en trámite: "RepuesTop" sin ®. Música con licencia libre o de la biblioteca de cada red.
 - Personas reales (mecánicos, clientes): pedir permiso por escrito antes de mostrar rostro o nombre.
 - Repuestín es la mascota: voz amable, ayuda sin presionar; nunca promete lo que la plataforma no hace.

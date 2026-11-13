@@ -14,7 +14,7 @@ Empresa: COREBIT SpA. Contacto: contacto@repuestop.cl.
 | 3 | **Comparar precios** | "Todas las tiendas de Chile en un solo lugar." | Compradores |
 | 4 | **Encargos** | "Publica lo que buscas y deja que las tiendas te hagan ofertas." | Compradores |
 | 5 | **Cotización por chat** | "Pregunta, cotiza y paga en el mismo chat; comparte la cotización en PDF." | Ambos |
-| 6 | **Compra protegida** | "Pagas seguro (Webpay/tarjetas vía Flow), retiro con PIN de 6 dígitos y mediación si algo sale mal." | Compradores |
+| 6 | **Compra protegida** | "Pago seguro con Flow, retiro con PIN de 6 dígitos y mediación si algo sale mal." | Compradores |
 | 7 | **Fallas y talleres** | "Cuenta qué le pasa a tu auto y los talleres te responden; agenda tu hora." | Compradores y talleres |
 | 8 | **Tiendas cerca** | "Encuentra casas de repuestos cerca de ti." | Compradores |
 
@@ -39,12 +39,23 @@ Empresa: COREBIT SpA. Contacto: contacto@repuestop.cl.
 - 06 al 08-nov: Repuestín en chats: la tienda ofrece repuestos y el comprador ve su perfil.
 
 ## Marca
-Colores: azul #0056BF, marino #0A2149, celeste #38bdf8, fondo #F8FAFC. Fuentes: Outfit (títulos) y Plus
-Jakarta Sans. Mascota: Repuestín. Tono: cercano, chileno, simple. Detalles en `config/marca.json`.
+**Paleta oficial de redes (decisión 13-nov):** azul #0F4EC2, azul noche #1B2440, gris #3B4A5E, amarillo #F8C805
+y blanco. Fuentes: Plus Jakarta Sans en títulos y textos; Montserrat 700 en el wordmark. Coincide con el logo.
+La web repuestop.cl usa otra paleta (#0056BF + Outfit): es solo de la web, no se usa en redes.
+Mascota: Repuestín. Tono: cercano, chileno, simple. Detalles en `config/marca.json`.
 
 ## Reglas al comunicar
 - No publicar cantidad de tiendas ni de usuarios (el sistema dejó de mostrarla a propósito).
 - No prometer despacho en X días ni descuentos que no existan.
+- **Pagos (compradores):** nunca hablar de retención del pago ni de cuándo cobra la tienda. Solo decir «Pago seguro con Flow».
+- **Repuestín** nunca muestra cuántas casas de repuestos hay. Sí puede decir «Le escribí a N casas».
+- **Todo reel cierra con el cierre L2 animado:** logo grande, «Movemos Chile juntos» con franja amarilla, botón
+  repuestop.cl y una línea según el público (tiendas: «1 mes gratis para tiendas nuevas»; compradores:
+  «Pago seguro con Flow»). Lleva sonido real de motor y la voz
+  «El Faraon» diciendo «Repuestop, movemos Chile juntos».
+- **Diseños fijos de post:** portada A, intermedia M2, final L2 (en `propuestas_diseno/` del repo repuestop; copias en Drive).
+- Ya no se usa cierre con mascota ni «Descarga gratis».
+- Voces: las de prueba se hicieron con ElevenLabs Free; regenerar con el plan Starter antes de publicar.
 - La marca está en trámite de registro en INAPI: usar "RepuesTop" sin ®.
 - Redes oficiales: Instagram @repuestop_oficial, Facebook RepuesTop, TikTok y YouTube (handles por confirmar).
 

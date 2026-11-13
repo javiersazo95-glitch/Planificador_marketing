@@ -1,0 +1,25 @@
+{
+  "id": "20261113-3875",
+  "creada": "2026-11-13T13:42:19.582Z",
+  "fecha": "2026-11-13",
+  "tipo": "reel",
+  "titulo": "Reel R7 'Le transferi a un desconocido' (cierre L2)",
+  "red": "instagram,tiktok,youtube",
+  "publico": "compradores",
+  "estado": "aprobada",
+  "archivos": [
+    "contenido/2026-11-13-reel-r7-transferencia/final/r7_transferencia_cierreL2.mp4"
+  ],
+  "notas": "Aprobada el 13-nov. Pendiente regenerar voces con ElevenLabs Starter antes de publicar.",
+  "resultado": null,
+  "historial": [
+    {
+      "fecha": "2026-11-13",
+      "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-13",
+      "estado": "aprobada"
+    }
+  ]
+}

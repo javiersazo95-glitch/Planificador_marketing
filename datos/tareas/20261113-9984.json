@@ -1,0 +1,26 @@
+{
+  "id": "20261113-9984",
+  "creada": "2026-11-13T13:42:20.372Z",
+  "fecha": "2026-11-13",
+  "tipo": "video",
+  "titulo": "Cierre L2 animado para reels",
+  "red": "instagram,tiktok,youtube",
+  "publico": "todos",
+  "estado": "aprobada",
+  "archivos": [
+    "contenido/2026-11-13-cierre-animado-L2/final/final_L2_cierre.mp4",
+    "contenido/2026-11-13-cierre-animado-L2/final/creditos_sonido.md"
+  ],
+  "notas": "Aprobado el 13-nov. Sonido: BigSoundBank CC0 y Mixkit (creditos_sonido.md). Aprobada el 13-nov. Pendiente regenerar voces con ElevenLabs Starter antes de publicar.",
+  "resultado": null,
+  "historial": [
+    {
+      "fecha": "2026-11-13",
+      "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-13",
+      "estado": "aprobada"
+    }
+  ]
+}
