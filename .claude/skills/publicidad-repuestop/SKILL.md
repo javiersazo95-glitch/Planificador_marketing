@@ -24,6 +24,20 @@ Mensajes al equipo: simples, sin jerga. Pocas opciones, una recomendada.
    si no, dejar la carpeta lista en `contenido/AAAA-MM-DD-tema/` con instrucciones para que el equipo suba.
 8. **Registrar** en `datos/tareas.json` con `node scripts/tareas.mjs` y medir a los 3 y 7 días.
 
+## Herramientas de producción (decisión 13-nov: son las oficiales)
+Todas en `.claude/skills/publicidad-repuestop/scripts/` (Python + ffmpeg + Chrome o Edge; Pillow, numpy, scipy, OpenCV).
+- `pieza.py`, `reel.py`, `sfx.py`, `demo_celular.py`: piezas, reels, sonidos y demo de celular (vienen del audit-kit).
+- `diseno/portadas.py` (portada A), `diseno/intermedias.py` (M2), `diseno/finales.py` (final L2 post y reel),
+  `diseno/anim_final.py` (cierre L2 animado), `diseno/sonido_real.py` (motor + voz «El Faraon»),
+  `diseno/cierre_reels.py` (pega el cierre a cada reel). Rutas comunes en `diseno/rutas.py`
+  (variables `REPUESTOP_NAVEGADOR` y `REPUESTOP_EDICION` si hay que cambiarlas).
+- `plantillas/` trae logos, fondos y sonidos. Los créditos de sonido (BigSoundBank CC0, Mixkit) están en `creditos_sonido.md`
+  (copia en Drive: `contenido/2026-11-13-cierre-animado-L2/final/`).
+- Ejecutar con `python -I <script>`. Las salidas caen junto al script: moverlas a `<Drive>/contenido/AAAA-MM-DD-tema/final/`.
+- Respaldo: la skill original del audit-kit (`C:/ProyectoRepuestop/audit-kit/skills/publicidad-repuestop`) queda intacta;
+  solo se usa si algo de aquí falla. No mantener dos versiones con reglas distintas: las reglas válidas son las de este repo.
+- Remotion (`estudio/`) queda como opción para escenas simples; ya usa la paleta nueva.
+
 ## Material que entrega el equipo
 Revisar `recursos/entrantes/`: describir lo que llegó (qué se ve, qué se escucha), proponer cómo usarlo
 (recorte, fondo, audio como voz en off, subtítulos) y editarlo. Si falta algo, pedirlo con un ejemplo concreto y
