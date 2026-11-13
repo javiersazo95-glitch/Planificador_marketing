@@ -59,7 +59,7 @@ sugerir de dónde sacarlo (grabación de pantalla, fotos de tienda, reseñas rea
   - Gerardo – Cool Latin American voice: narrador cercano y latino (T-1 «Cotizaciones» y R10 «Precio»).
   - Zabra – Energetic and Engaging Announcer: locutor de comercial con energía (R11).
   - El Faraon – Full, Clear, Mellow: solo para el lema del cierre L2, «Repuestop, movemos Chile juntos».
-  - Antes de publicar, regenerar con plan Starter o superior (el Free no tiene licencia comercial).
+  - **Nunca programar ni publicar una pieza con voces del plan Free** (sin licencia comercial). Antes de `/publicar`, confirmar que la cuenta de ElevenLabs tiene Starter o superior. El 13-nov R7 y T-1 salieron con voz Free por error: están pendientes de reemplazo.
 - **Grabaciones de pantalla del celular (regla del equipo, 13-nov):**
   - Nunca mostrar la barra superior del celular (notificaciones, reloj, íconos de otras apps), salvo notificaciones de RepuesTop. En `demo_celular.py`: `"quitar_franjas": [[0, 92]]` y `"pantalla": [1080, 2248]` en grabaciones de 1080×2340.
   - En el chat, el movimiento siempre va hacia abajo: nunca usar tramos donde el chat sube. Elegir tramos sin teclado ni saltos.

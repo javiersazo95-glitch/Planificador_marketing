@@ -6,7 +6,7 @@
   "titulo": "Reel T-1: cotizaciones (cierre L2)",
   "red": "instagram,tiktok,youtube",
   "publico": "tiendas",
-  "estado": "aprobada",
+  "estado": "publicada",
   "archivos": [
     "contenido/2026-11-13-reel-t1-cotizaciones/final/t1_cotizaciones_reel_cierreL2.mp4"
   ],
@@ -20,6 +20,10 @@
     {
       "fecha": "2026-11-13",
       "estado": "aprobada"
+    },
+    {
+      "fecha": "2026-11-13",
+      "estado": "publicada"
     }
   ]
 }
