@@ -6,7 +6,7 @@
   "titulo": "Reel: Repuestin busca tu repuesto (grabacion real censurada, cierre L2 compradores)",
   "red": "instagram,tiktok,youtube",
   "publico": "compradores",
-  "estado": "propuesta",
+  "estado": "en_produccion",
   "archivos": [
     "C:/Users/SMK GAMING/Downloads/Repuestop/Edicion/redes/repuestin_dev_censurado.mp4"
   ],
@@ -16,6 +16,10 @@
     {
       "fecha": "2026-11-13",
       "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-13",
+      "estado": "en_produccion"
     }
   ]
 }
