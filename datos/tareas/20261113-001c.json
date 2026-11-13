@@ -6,7 +6,7 @@
   "titulo": "Historias IG: Que repuesto te costo mas encontrar? (3 historias con Repuestin)",
   "red": "instagram",
   "publico": "compradores",
-  "estado": "propuesta",
+  "estado": "lista",
   "archivos": [],
   "notas": "Propuesta 13-nov 16:52 para hoy 21:00. Reemplaza la idea de la tarea 2 con una encuesta. Material: mascota Repuestin (Market/public/repuestin.webp), sin cifras.",
   "resultado": null,
@@ -14,6 +14,10 @@
     {
       "fecha": "2026-11-13",
       "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-13",
+      "estado": "lista"
     }
   ]
 }

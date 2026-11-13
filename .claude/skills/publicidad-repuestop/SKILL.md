@@ -36,6 +36,7 @@ Todas en `.claude/skills/publicidad-repuestop/scripts/` (Python + ffmpeg + Chrom
 - Ejecutar con `python -I <script>`. Las salidas caen junto al script: moverlas a `<Drive>/contenido/AAAA-MM-DD-tema/final/`.
 - Respaldo: la skill original del audit-kit (`C:/ProyectoRepuestop/audit-kit/skills/publicidad-repuestop`) queda intacta;
   solo se usa si algo de aquí falla. No mantener dos versiones con reglas distintas: las reglas válidas son las de este repo.
+- `diseno/historias.py`: historias de Instagram 1080×1920 con la mascota Repuestín (`python -I historias.py encuesta <carpeta>`). Deja libre el espacio para los stickers nativos (pregunta, enlace), que pone el equipo al subir. Zonas seguras: 250 px arriba y 340 abajo. La mascota se lee (solo lectura) del repo Market según `config/local.json`.
 - `diseno/carrusel.py` + `diseno/carruseles/*.json`: carruseles de 6 láminas 1080×1350 (portada A, 4 intermedias M2, final L2) desde una ficha de textos. Uso: `python -I carrusel.py carruseles/c1_patente.json <carpeta>`. Línea final según el público (compradores: «Pago seguro con Flow»; talleres: «Registrarte es gratis»).
 - `censura/censurar_pantalla.py`: tapa patente, chasis, direcciones y nombres de tiendas en grabaciones de pantalla del equipo (guía en `censura/LEEME.md`). **Todo video grabado con datos reales se censura y se revisa a ojo antes de usarlo.**
 - Remotion (`estudio/`) queda como opción para escenas simples; ya usa la paleta nueva.

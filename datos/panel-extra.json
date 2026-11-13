@@ -10,11 +10,11 @@
       "resultado": "Los conductores ven cómo buscar por patente y guardan el post."
     },
     {
-      "texto": "Decidir si hacemos las 3 historias de hoy (21:00)",
+      "texto": "Subir las 3 historias de Instagram hoy a las 21:00",
       "quien": "Equipo",
-      "como": "Díganme sí o no. Si es sí, preparo las 3 imágenes con la mascota Repuestín y ustedes las suben con el sticker de pregunta y el enlace.",
+      "como": "1) Abran Drive > RepuesTop Marketing > contenido > 2026-11-13-historias-repuestin-encuesta > final. 2) En Instagram: Historia y elijan 01.png. 3) En la historia 2 (02.png) pongan el sticker «Preguntas» en el espacio libre de abajo. 4) En la historia 3 (03.png) pongan el sticker «Enlace» con repuestop.cl sobre el botón azul. 5) Suban las tres en orden.",
       "para": "Conversar con quienes ya nos siguen y juntar ideas reales de repuestos difíciles.",
-      "resultado": "Meta inicial: 15 respuestas a la pregunta."
+      "resultado": "Meta inicial: 15 respuestas a la pregunta en 24 horas."
     },
     {
       "texto": "Compartir el carrusel de talleres en grupos de Facebook",
@@ -83,8 +83,8 @@
         "publico": "Quienes ya nos siguen",
         "que": "Tres historias para conversar con los seguidores y juntar ideas reales de repuestos difíciles.",
         "objetivo": "Que los seguidores respondan y conozcan a Repuestín.",
-        "yo": "Preparo las 3 imágenes con la mascota Repuestín y la textura de marca.",
-        "ustedes": "Subirlas hoy a las 21:00 y poner el sticker de pregunta y el enlace.",
+        "yo": "Ya dejé las 3 imágenes listas en Drive, con la mascota Repuestín y la textura de marca.",
+        "ustedes": "Subirlas hoy a las 21:00 y poner el sticker de pregunta (historia 2) y el de enlace (historia 3).",
         "resultado": "Meta inicial: 15 respuestas a la pregunta en 24 horas.",
         "guion": [
           "Historia 1: «Hola, soy Repuestín 👋 Te ayudo a encontrar tu repuesto»",
@@ -387,7 +387,7 @@
         },
         {
           "etiqueta": "Historias para hoy",
-          "valor": "3 (por decidir)"
+          "valor": "3 listas (21:00)"
         }
       ],
       "consejo": "Responder los comentarios la primera hora después de cada publicación.",
