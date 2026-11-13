@@ -1,0 +1,41 @@
+{
+  "actualizado": "2026-11-13",
+  "presupuesto_anuncios_mensual_clp": 0,
+  "redes": {
+    "instagram": {
+      "existe": true,
+      "handle": "repuestop_oficial",
+      "url": "https://www.instagram.com/repuestop_oficial/",
+      "conectada": false
+    },
+    "facebook": {
+      "existe": true,
+      "url": "https://www.facebook.com/people/RepuesTop/61592575473272/",
+      "conectada": false
+    },
+    "tiktok": {
+      "existe": true,
+      "handle": "pendiente",
+      "conectada": false
+    },
+    "youtube": {
+      "existe": true,
+      "handle": "pendiente",
+      "nota": "El video tutorial actual esta en YouTube (id QGvfVGSFOAA)",
+      "conectada": false
+    },
+    "google_ads": {
+      "existe": false
+    },
+    "google_maps": {
+      "existe": false,
+      "nota": "Crear Perfil de Empresa en Google (gratis)"
+    },
+    "search_console": {
+      "existe": true,
+      "nota": "Verificado en el sitio"
+    }
+  },
+  "herramienta_conexion": "Metricool (pendiente de conectar)",
+  "panel_url": "https://claude.ai/artifact/K7cNbm8yKYR2La73P2fhxC"
+}

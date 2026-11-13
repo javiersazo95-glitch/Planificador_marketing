@@ -1,0 +1,19 @@
+# Copias espejo de los repos de RepuesTop (cada computador hace la suya)
+.espejos/
+# Dependencias y salidas generadas
+node_modules/
+estudio/out/
+panel/panel.html
+capturas-tmp/
+# Configuracion propia de cada computador (ruta de Google Drive)
+config/local.json
+.claude/settings.local.json
+# Material pesado: vive en Google Drive, no en GitHub
+recursos/entrantes/*
+!recursos/entrantes/.gitkeep
+contenido/**/*.mp4
+contenido/**/*.mov
+contenido/**/*.wav
+contenido/**/*.mp3
+# Restos de pruebas antiguas
+datos/entregas.json

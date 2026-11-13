@@ -1,0 +1,11 @@
+{
+  "name": "planificador-marketing",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "playwright": "1.49.1"
+  },
+  "scripts": {
+    "panel": "node scripts/servidor-panel.mjs --abrir"
+  }
+}

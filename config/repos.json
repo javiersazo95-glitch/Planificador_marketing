@@ -1,0 +1,29 @@
+{
+  "repos": [
+    {
+      "id": "monorepo",
+      "descripcion": "Backend + app movil (Play Store)",
+      "ruta": "C:/Users/Leprosy1513/Documents/Codex/RespuesTop-mono-repo",
+      "github": "https://github.com/RespuesTop/RespuesTop-mono-repo.git",
+      "rama_produccion": "main",
+      "rama_trabajo": "dev"
+    },
+    {
+      "id": "market",
+      "descripcion": "Web repuestop.cl (compradores)",
+      "ruta": "C:/Users/Leprosy1513/Documents/Javiersazo95-glitch/Repuestop_Market",
+      "github": "https://github.com/javiersazo95-glitch/Repuestop_Market.git",
+      "rama_produccion": "main",
+      "rama_trabajo": "dev"
+    },
+    {
+      "id": "panel",
+      "descripcion": "Panel de tiendas inventario.repuestop.cl",
+      "ruta": "C:/Users/Leprosy1513/Documents/Javiersazo95-glitch/vendedor_panel",
+      "github": "https://github.com/javiersazo95-glitch/vendedor_panel.git",
+      "rama_produccion": "main",
+      "rama_trabajo": "dev"
+    }
+  ],
+  "solo_lectura": true
+}

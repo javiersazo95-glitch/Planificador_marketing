@@ -1,0 +1,499 @@
+{
+  "_ayuda": "Datos que pinta el panel. Cada cosa dice QUÉ ES, QUÉ HAY QUE HACER y PARA QUÉ SIRVE, en frases simples. El detalle largo vive en datos/planes/ y novedades/.",
+  "recomendacion": "Hoy publiquemos el reel de Repuestín: es lo más nuevo y lo más fácil de mostrar.",
+  "acciones": [
+    {
+      "texto": "Elegir qué publicamos hoy",
+      "como": "Miren las 3 propuestas de abajo y díganme cuál hacemos (recomiendo el reel).",
+      "para": "Sin su sí no preparo ni publico nada.",
+      "quien": "Equipo",
+      "resultado": "Partimos hoy mismo con la pieza elegida."
+    },
+    {
+      "texto": "Grabar 30 segundos de pantalla usando Repuestín",
+      "como": "En el celular, activen la grabación de pantalla, entren a repuestop.cl, toquen «¿No encuentras tu repuesto?» y escríbanle algo a Repuestín. Envíenme el video.",
+      "para": "Es la base del reel: mostrar la app real convence más que cualquier dibujo.",
+      "quien": "Equipo",
+      "resultado": "Tengo el material para entregarles el reel listo hoy."
+    },
+    {
+      "texto": "Conectar Metricool",
+      "como": "Crear la cuenta gratis en metricool.com, vincular Instagram, Facebook, TikTok y YouTube, y avisarme.",
+      "para": "Así puedo ver cuánta gente nos ve y publicar desde aquí con su permiso.",
+      "quien": "Equipo",
+      "resultado": "El panel muestra números reales de cada red y puedo programar publicaciones."
+    }
+  ],
+  "hoy": {
+    "titulo": "Lanzamiento de Repuestín",
+    "porque": "Repuestín salió ayer en la web y la app, y el fin de semana es cuando más gente arregla su auto.",
+    "piezas": [
+      {
+        "tarea": 1,
+        "titulo": "¿No encuentras tu repuesto? Pregúntale a Repuestín",
+        "formato": "Reel 20 s",
+        "redes": [
+          "instagram",
+          "tiktok",
+          "youtube"
+        ],
+        "publico": "Conductores",
+        "recomendada": true,
+        "que": "Video vertical corto que muestra a alguien que no encuentra un repuesto, le escribe a Repuestín y recibe ayuda.",
+        "objetivo": "Que los conductores sepan que existe Repuestín y entren a probarlo.",
+        "yo": "Escribo el guion, armo el video con subtítulos, música y la marca, y redacto el texto del post.",
+        "ustedes": "Grabar 30 s de pantalla del celular usando Repuestín.",
+        "guion": [
+          "0–3 s: «¿Buscaste en 5 tiendas y nada?»",
+          "3–8 s: se toca el botón «¿No encuentras tu repuesto?»",
+          "8–16 s: se le escribe a Repuestín y responde con tiendas",
+          "16–20 s: logo y «Descarga RepuesTop gratis»"
+        ],
+        "resultado": "Meta inicial: 1.000 reproducciones y primeras visitas a la web desde redes en 3 días."
+      },
+      {
+        "tarea": 2,
+        "titulo": "Conoce a Repuestín",
+        "formato": "3 historias",
+        "redes": [
+          "instagram"
+        ],
+        "publico": "Seguidores",
+        "que": "Tres historias de Instagram que presentan a la mascota y hacen una pregunta a los seguidores.",
+        "objetivo": "Que la gente que ya nos sigue converse con nosotros y conozca al personaje.",
+        "yo": "Diseño las 3 historias con la imagen de Repuestín y la encuesta.",
+        "ustedes": "Nada, solo aprobar.",
+        "guion": [
+          "Historia 1: «Les presento a Repuestín»",
+          "Historia 2: «Te ayuda a encontrar repuestos difíciles»",
+          "Historia 3: encuesta «¿Qué repuesto te costó más encontrar?»"
+        ],
+        "resultado": "Meta inicial: 30 respuestas a la encuesta, que además nos dan ideas de contenido."
+      },
+      {
+        "tarea": 3,
+        "titulo": "Programa Fundador: 0% comisión el primer mes",
+        "formato": "Imagen",
+        "redes": [
+          "facebook"
+        ],
+        "publico": "Tiendas",
+        "que": "Imagen para dueños de repuesteras que explica que el primer mes no pagan comisión a RepuesTop.",
+        "objetivo": "Sumar más tiendas, porque hoy el catálogo tiene categorías vacías.",
+        "yo": "Diseño la imagen y el texto del post apuntando a /vender.",
+        "ustedes": "Confirmar que el programa Fundador sigue vigente y con cupo.",
+        "guion": [
+          "Título: «Tus clientes ya buscan por patente»",
+          "Bajada: «0% de comisión RepuesTop tu primer mes»",
+          "Botón: «Suma tu tienda en repuestop.cl/vender»"
+        ],
+        "resultado": "Meta inicial: 3 tiendas consultando o postulando a /vender en la semana."
+      }
+    ]
+  },
+  "semana": {
+    "rango": "16 al 22 de noviembre",
+    "explica": "Les doy dos caminos para la próxima semana. Elijan uno (o mezclamos) y yo preparo cada pieza día a día.",
+    "recomendado": "A",
+    "panoramas": [
+      {
+        "id": "A",
+        "nombre": "Todos conocen a Repuestín",
+        "publico": "Compradores",
+        "resumen": "Una semana de videos y posts para que los conductores conozcan el asistente y la búsqueda por patente.",
+        "objetivo": "Que más personas visiten repuestop.cl y prueben Repuestín.",
+        "esfuerzo": "Bajo",
+        "esfuerzo_detalle": "Solo 2 grabaciones de pantalla del celular.",
+        "resultado": "Más visitas y más gente probando Repuestín. Meta: duplicar el alcance de la semana anterior.",
+        "dias": [
+          {
+            "dia": "Lun",
+            "pieza": "Reel Repuestín",
+            "redes": [
+              "instagram",
+              "tiktok"
+            ],
+            "detalle": "Video: le preguntas a Repuestín y te busca el repuesto.",
+            "objetivo": "Presentar a Repuestín a conductores que no nos conocen.",
+            "pasos": [
+              "Ustedes: grabar 30 s de pantalla usando Repuestín",
+              "Yo: armo el reel con subtítulos, música y marca",
+              "Ustedes: aprueban el video y el texto",
+              "Yo: lo programo a las 19:30 en Instagram y TikTok"
+            ],
+            "resultado": "Meta: 1.000 reproducciones y primeras visitas a la web en 3 días."
+          },
+          {
+            "dia": "Mar",
+            "pieza": "Carrusel 5 cosas",
+            "redes": [
+              "instagram",
+              "facebook"
+            ],
+            "detalle": "Láminas con 5 cosas que Repuestín hace por ti.",
+            "objetivo": "Explicar con calma todo lo que hace Repuestín.",
+            "pasos": [
+              "Yo: diseño 6 láminas (portada + 5 beneficios + cierre)",
+              "Ustedes: revisan que todo sea correcto",
+              "Yo: lo publico en Instagram y Facebook a mediodía"
+            ],
+            "resultado": "Meta: 20 guardados (la gente guarda lo útil para después)."
+          },
+          {
+            "dia": "Mié",
+            "pieza": "Reel patente",
+            "redes": [
+              "instagram",
+              "tiktok"
+            ],
+            "detalle": "Video: pones tu patente y ves solo lo que le sirve a tu auto.",
+            "objetivo": "Mostrar la función estrella: poner la patente y ver solo lo que sirve.",
+            "pasos": [
+              "Ustedes: grabar 20 s de pantalla buscando con una patente propia",
+              "Yo: armo el reel y tapo la patente real",
+              "Ustedes: aprueban",
+              "Yo: lo programo a las 19:30"
+            ],
+            "resultado": "Meta: 1.500 reproducciones y clics al enlace de la web."
+          },
+          {
+            "dia": "Jue",
+            "pieza": "Encuesta",
+            "redes": [
+              "instagram"
+            ],
+            "detalle": "Historia con pregunta para conversar con seguidores.",
+            "objetivo": "Conversar con los seguidores y saber qué repuestos les cuestan.",
+            "pasos": [
+              "Yo: diseño 3 historias con encuesta",
+              "Ustedes: aprueban",
+              "Yo: las publico en la mañana y anoto las respuestas"
+            ],
+            "resultado": "Meta: 30 respuestas, que se convierten en ideas de contenido."
+          },
+          {
+            "dia": "Vie",
+            "pieza": "Reel humor",
+            "redes": [
+              "tiktok"
+            ],
+            "detalle": "Video chistoso: «cuando el maestro dice que es el alternador».",
+            "objetivo": "Hacer reír y que el video se comparta con amigos.",
+            "pasos": [
+              "Yo: escribo el guion y propongo cómo grabarlo",
+              "Ustedes: graban 15 s con un celular (alguien del equipo actuando)",
+              "Yo: edito con subtítulos y música",
+              "Yo: lo programo el viernes en la tarde"
+            ],
+            "resultado": "Meta: 30 compartidos y nuevos seguidores en TikTok."
+          },
+          {
+            "dia": "Sáb",
+            "pieza": "Tips del auto",
+            "redes": [
+              "facebook"
+            ],
+            "detalle": "Post con consejos para revisar el auto el fin de semana.",
+            "objetivo": "Dar consejos útiles del auto para ganar confianza.",
+            "pasos": [
+              "Yo: escribo el post con 5 revisiones simples",
+              "Ustedes: aprueban",
+              "Yo: lo publico el sábado a las 10:00"
+            ],
+            "resultado": "Meta: comentarios y compartidos en grupos de Facebook."
+          },
+          {
+            "dia": "Dom",
+            "pieza": "Repaso",
+            "redes": [],
+            "detalle": "Reviso qué funcionó y armo el plan siguiente.",
+            "objetivo": "Ver qué funcionó y decidir la semana siguiente.",
+            "pasos": [
+              "Yo: reviso los números de cada publicación",
+              "Yo: actualizo el panel con lo que funcionó",
+              "Ustedes: eligen el camino de la próxima semana"
+            ],
+            "resultado": "Un plan nuevo basado en lo que de verdad funcionó."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "nombre": "Más tiendas en RepuesTop",
+        "publico": "Tiendas",
+        "resumen": "Una semana dirigida a dueños de repuesteras para que se sumen con el programa Fundador.",
+        "objetivo": "Que más tiendas postulen y suban sus repuestos, para llenar el catálogo.",
+        "esfuerzo": "Medio",
+        "esfuerzo_detalle": "Necesito ver cómo una tienda sube su Excel y, si hay, un testimonio.",
+        "resultado": "Más tiendas postulando y más catálogo. Meta: 5 tiendas nuevas postulando.",
+        "dias": [
+          {
+            "dia": "Lun",
+            "pieza": "Fundador 0%",
+            "redes": [
+              "facebook",
+              "instagram"
+            ],
+            "detalle": "Imagen: primer mes sin comisión de RepuesTop.",
+            "objetivo": "Contar a las repuesteras que el primer mes no pagan comisión.",
+            "pasos": [
+              "Ustedes: confirmar que Fundador sigue vigente y con cupo",
+              "Yo: diseño la imagen y el texto",
+              "Yo: lo publico en Facebook e Instagram con enlace a /vender"
+            ],
+            "resultado": "Meta: 3 tiendas preguntando o postulando."
+          },
+          {
+            "dia": "Mar",
+            "pieza": "Sube tu Excel",
+            "redes": [
+              "facebook"
+            ],
+            "detalle": "Video: subes todo tu catálogo desde tu propio Excel.",
+            "objetivo": "Mostrar que subir el catálogo es fácil, sin escribir producto por producto.",
+            "pasos": [
+              "Ustedes: grabar pantalla subiendo un Excel en el panel de tiendas",
+              "Yo: edito un video de 30 s con los pasos",
+              "Yo: lo publico en Facebook"
+            ],
+            "resultado": "Quitar el miedo a lo difícil: más tiendas que empiezan a postular."
+          },
+          {
+            "dia": "Mié",
+            "pieza": "Clientes con patente",
+            "redes": [
+              "facebook"
+            ],
+            "detalle": "Post: los clientes te encuentran por la patente de su auto.",
+            "objetivo": "Explicar que los clientes llegan sabiendo qué repuesto le sirve a su auto.",
+            "pasos": [
+              "Yo: diseño el post con una captura de la búsqueda por patente",
+              "Ustedes: aprueban",
+              "Yo: lo publico en Facebook"
+            ],
+            "resultado": "Que las tiendas vean que les llegan clientes listos para comprar."
+          },
+          {
+            "dia": "Jue",
+            "pieza": "Búsquedas perdidas",
+            "redes": [
+              "instagram"
+            ],
+            "detalle": "Video: la tienda ve qué buscaron y no encontraron.",
+            "objetivo": "Mostrar que la tienda ve lo que los clientes buscaron y no encontraron.",
+            "pasos": [
+              "Ustedes: captura del ranking y búsquedas perdidas de una tienda de prueba",
+              "Yo: armo un video corto",
+              "Yo: lo publico en Instagram"
+            ],
+            "resultado": "Que las tiendas sientan que están perdiendo ventas si no están."
+          },
+          {
+            "dia": "Vie",
+            "pieza": "Preguntas frecuentes",
+            "redes": [
+              "facebook"
+            ],
+            "detalle": "Carrusel con las dudas típicas de las tiendas.",
+            "objetivo": "Responder las dudas típicas antes de postular.",
+            "pasos": [
+              "Ustedes: me cuentan las 5 preguntas que más hacen las tiendas",
+              "Yo: diseño el carrusel",
+              "Yo: lo publico en Facebook"
+            ],
+            "resultado": "Menos dudas y postulaciones más rápidas."
+          },
+          {
+            "dia": "Sáb",
+            "pieza": "Historia cupo",
+            "redes": [
+              "instagram"
+            ],
+            "detalle": "Historia sobre el cupo Fundador (solo con cifra aprobada).",
+            "objetivo": "Dar urgencia: el cupo Fundador es limitado.",
+            "pasos": [
+              "Ustedes: aprueban si se puede mostrar cuántos cupos quedan",
+              "Yo: diseño la historia",
+              "Yo: la publico en Instagram"
+            ],
+            "resultado": "Que las tiendas indecisas postulen ahora."
+          },
+          {
+            "dia": "Dom",
+            "pieza": "Repaso",
+            "redes": [],
+            "detalle": "Reviso qué funcionó y armo el plan siguiente.",
+            "objetivo": "Ver qué funcionó y decidir la semana siguiente.",
+            "pasos": [
+              "Yo: reviso cuántas tiendas postularon",
+              "Yo: actualizo el panel",
+              "Ustedes: eligen el camino de la próxima semana"
+            ],
+            "resultado": "Un plan nuevo basado en lo que de verdad funcionó."
+          }
+        ]
+      }
+    ]
+  },
+  "novedades": [
+    {
+      "fecha": "12 nov",
+      "titulo": "Repuestín llegó a la web y la app",
+      "explica": "El asistente entiende lo que le escribes y busca tiendas que tengan tu repuesto.",
+      "idea": "Reel: pregúntale lo que buscas"
+    },
+    {
+      "fecha": "11 nov",
+      "titulo": "App versión 6 en Play Store",
+      "explica": "Ya está publicada la nueva versión de la app para Android.",
+      "idea": "Post: actualiza tu app"
+    },
+    {
+      "fecha": "10 nov",
+      "titulo": "Google ya puede mostrar el catálogo",
+      "explica": "Cada repuesto publicado puede aparecer en las búsquedas de Google.",
+      "idea": "Más visitas gratis con el tiempo"
+    },
+    {
+      "fecha": "9 nov",
+      "titulo": "Fallas y citas con talleres renovadas",
+      "explica": "Cuentas qué le pasa a tu auto, un taller responde y agendas hora en un paso.",
+      "idea": "Serie: mi auto hace un ruido"
+    }
+  ],
+  "redes": {
+    "instagram": {
+      "semaforo": "amarillo",
+      "porque": "La cuenta existe, pero aún no medimos cuánta gente nos ve.",
+      "consejo": "Publicar 4 reels por semana sobre la patente y Repuestín.",
+      "falta": "Conectar Metricool para ver los números.",
+      "resultado": "Ver cada semana si crecemos y qué tipo de video funciona mejor."
+    },
+    "facebook": {
+      "semaforo": "amarillo",
+      "porque": "La página existe, pero aún no medimos resultados.",
+      "consejo": "Usarlo para hablarle a tiendas y talleres, que están más ahí.",
+      "falta": "Conectar Metricool y fijar un día de publicación.",
+      "resultado": "Que lleguen mensajes de tiendas y talleres interesados."
+    },
+    "tiktok": {
+      "semaforo": "amarillo",
+      "porque": "Hay cuenta, pero no sabemos su nombre ni está enlazada en la web.",
+      "consejo": "Subir el mismo reel de Instagram, sin marca de agua.",
+      "falta": "Confirmar el nombre de la cuenta y conectarla.",
+      "resultado": "Llegar a gente nueva que aún no nos conoce."
+    },
+    "youtube": {
+      "semaforo": "amarillo",
+      "porque": "Hay canal con el tutorial, pero no publicamos videos cortos.",
+      "consejo": "Subir cada reel también como Short.",
+      "falta": "Confirmar el nombre del canal y conectarlo.",
+      "resultado": "Que nos encuentren también buscando en YouTube."
+    },
+    "google": {
+      "semaforo": "rojo",
+      "porque": "No hay ficha de empresa en Google ni forma de medir visitas.",
+      "consejo": "Crear gratis el Perfil de Empresa en Google (aparece en Maps).",
+      "falta": "Crear el perfil e instalar la medición en la web.",
+      "resultado": "Aparecer en Google Maps cuando alguien busque repuestos cerca."
+    }
+  },
+  "alerta": {
+    "titulo": "El catálogo tiene categorías con 0 repuestos",
+    "explica": "Si traemos muchos compradores y no encuentran nada, se van y no vuelven. Por eso, en paralelo, conviene sumar tiendas (camino B).",
+    "resultado": "Que quien llegue a buscar encuentre repuestos y vuelva."
+  },
+  "desarrollo": [
+    {
+      "titulo": "Instalar medición en repuestop.cl",
+      "porque": "Sin Google Analytics ni píxeles no sabemos qué red trae visitas ni ventas.",
+      "resultado": "Sabremos qué publicación trae visitas y ventas, y dónde conviene invertir."
+    },
+    {
+      "titulo": "Corregir el enlace de Instagram en la web",
+      "porque": "Un enlace apunta a una cuenta equivocada (repuestop.cl en vez de repuestop_oficial).",
+      "resultado": "Quien haga clic llega a la cuenta correcta y nos sigue."
+    },
+    {
+      "titulo": "Cambiar el WhatsApp de relleno",
+      "porque": "Hay un número de prueba en la web; quien escriba no llegará a nadie.",
+      "resultado": "Los clientes pueden escribirnos de verdad."
+    },
+    {
+      "titulo": "Agregar TikTok y YouTube al pie de la web",
+      "porque": "Para que los visitantes encuentren y sigan esas cuentas.",
+      "resultado": "Más seguidores en TikTok y YouTube desde la web."
+    },
+    {
+      "titulo": "Subir más capturas a Play Store",
+      "porque": "Hay 2 y conviene 4 o más: la ficha convence más y más gente descarga.",
+      "resultado": "Más descargas de la app."
+    },
+    {
+      "titulo": "Decidir si se publican cifras",
+      "porque": "Hoy la web oculta cuántas tiendas hay; no las uso en publicidad sin su aprobación.",
+      "resultado": "Podremos usar cifras reales para dar confianza (o no, si deciden ocultarlas)."
+    }
+  ],
+  "material": [
+    {
+      "titulo": "Grabar pantalla usando Repuestín (30 s)",
+      "porque": "Es la base del reel de hoy.",
+      "resultado": "Reel de Repuestín listo para publicar."
+    },
+    {
+      "titulo": "Grabar pantalla buscando por patente (20 s)",
+      "porque": "Para el reel del miércoles.",
+      "resultado": "Reel de la patente listo para el miércoles."
+    },
+    {
+      "titulo": "Confirmar cupo y vigencia de Fundador",
+      "porque": "Para no prometer algo que ya no existe.",
+      "resultado": "Publicación para tiendas sin riesgo de prometer algo falso."
+    },
+    {
+      "titulo": "Nombres de las cuentas de TikTok y YouTube",
+      "porque": "Para enlazarlas y publicar en ellas.",
+      "resultado": "Podemos publicar en las 4 redes."
+    }
+  ],
+  "fechas": [
+    {
+      "fecha": "27 nov",
+      "texto": "Black Friday",
+      "porque": "La gente compra más: buen momento para mostrar que se comparan precios."
+    },
+    {
+      "fecha": "Dic",
+      "texto": "Revisión antes de vacaciones",
+      "porque": "Antes de viajar se cambian frenos, aceite y neumáticos."
+    },
+    {
+      "fecha": "Mar",
+      "texto": "Permiso de circulación",
+      "porque": "Mucha gente arregla el auto para la revisión técnica."
+    }
+  ],
+  "ideas": [
+    {
+      "titulo": "Mi auto hace un ruido",
+      "porque": "Serie para mostrar cómo los talleres responden fallas.",
+      "resultado": "Queda lista para cuando haya espacio en el calendario."
+    },
+    {
+      "titulo": "Publica lo que buscas",
+      "porque": "Mostrar los encargos: las tiendas te hacen ofertas.",
+      "resultado": "Queda lista para cuando haya espacio en el calendario."
+    },
+    {
+      "titulo": "Mitos del taller con humor",
+      "porque": "Videos que se comparten mucho y nos dan a conocer.",
+      "resultado": "Queda lista para cuando haya espacio en el calendario."
+    },
+    {
+      "titulo": "Tutorial: sube tu catálogo con Excel",
+      "porque": "Video largo para YouTube que ayuda a sumar tiendas.",
+      "resultado": "Queda lista para cuando haya espacio en el calendario."
+    }
+  ]
+}

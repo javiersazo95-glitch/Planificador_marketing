@@ -1,0 +1,49 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C C:/Users/Leprosy1513/Documents/Codex/RespuesTop-mono-repo log:*)",
+      "Bash(git -C C:/Users/Leprosy1513/Documents/Codex/RespuesTop-mono-repo show:*)",
+      "Bash(git -C C:/Users/Leprosy1513/Documents/Codex/RespuesTop-mono-repo diff:*)",
+      "Bash(git -C C:/Users/Leprosy1513/Documents/Javiersazo95-glitch/Repuestop_Market log:*)",
+      "Bash(git -C C:/Users/Leprosy1513/Documents/Javiersazo95-glitch/Repuestop_Market show:*)",
+      "Bash(git -C C:/Users/Leprosy1513/Documents/Javiersazo95-glitch/Repuestop_Market diff:*)",
+      "Bash(git -C C:/Users/Leprosy1513/Documents/Javiersazo95-glitch/vendedor_panel log:*)",
+      "Bash(git -C C:/Users/Leprosy1513/Documents/Javiersazo95-glitch/vendedor_panel show:*)",
+      "Bash(git -C C:/Users/Leprosy1513/Documents/Javiersazo95-glitch/vendedor_panel diff:*)",
+      "Bash(node scripts/*)"
+    ],
+    "deny": [
+      "Edit(C:/Users/Leprosy1513/Documents/Codex/RespuesTop-mono-repo/**)",
+      "Write(C:/Users/Leprosy1513/Documents/Codex/RespuesTop-mono-repo/**)",
+      "Edit(C:/Users/Leprosy1513/Documents/Javiersazo95-glitch/Repuestop_Market/**)",
+      "Write(C:/Users/Leprosy1513/Documents/Javiersazo95-glitch/Repuestop_Market/**)",
+      "Edit(C:/Users/Leprosy1513/Documents/Javiersazo95-glitch/vendedor_panel/**)",
+      "Write(C:/Users/Leprosy1513/Documents/Javiersazo95-glitch/vendedor_panel/**)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/equipo.mjs\" traer",
+            "timeout": 60,
+            "statusMessage": "Trayendo la memoria del equipo desde GitHub..."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/equipo.mjs\" subir --silencioso",
+            "timeout": 90
+          }
+        ]
+      }
+    ]
+  }
+}

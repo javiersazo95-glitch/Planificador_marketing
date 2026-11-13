@@ -1,0 +1,16 @@
+{
+  "name": "estudio-repuestop",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "ver": "remotion studio src/index.jsx",
+    "render": "remotion render src/index.jsx Reel out/reel.mp4 --browser-executable=\"C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe\"",
+    "imagen": "remotion still src/index.jsx Lamina out/lamina.png --browser-executable=\"C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe\""
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.250",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.250"
+  }
+}

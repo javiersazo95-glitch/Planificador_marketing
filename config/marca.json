@@ -1,0 +1,25 @@
+{
+  "nombre": "RepuesTop",
+  "empresa": "COREBIT SpA",
+  "web": "https://repuestop.cl",
+  "play_store": "https://play.google.com/store/apps/details?id=cl.repuestop.app",
+  "panel_tiendas": "https://inventario.repuestop.cl",
+  "contacto": "contacto@repuestop.cl",
+  "colores": { "azul": "#0056BF", "azul_oscuro": "#00459A", "azul_claro": "#EAF2FF", "marino": "#0A2149", "celeste": "#38bdf8", "verde": "#059669", "fondo": "#F8FAFC", "texto": "#0F172A" },
+  "fuentes": { "titulos": "Outfit", "texto": "Plus Jakarta Sans" },
+  "logos": {
+    "principal": "C:/Users/Leprosy1513/Documents/Javiersazo95-glitch/Repuestop_Market/public/repuestop_official_logo.png",
+    "horizontal": "C:/Users/Leprosy1513/Documents/Javiersazo95-glitch/Repuestop_Market/public/repuestop_horizontal_logo.png",
+    "icono": "C:/Users/Leprosy1513/Documents/Javiersazo95-glitch/Repuestop_Market/public/repuestop_icon.png",
+    "mascota_repuestin": "C:/Users/Leprosy1513/Documents/Javiersazo95-glitch/Repuestop_Market/public/repuestin.webp",
+    "capturas_reales": "C:/Users/Leprosy1513/Documents/Javiersazo95-glitch/Repuestop_Market/public/about-assets"
+  },
+  "tono": "Cercano, chileno, simple, tecnologico pero humano. Frases cortas. Cero tecnicismos.",
+  "reglas": [
+    "No publicar cifras de tiendas ni de usuarios salvo que el equipo las apruebe (el sistema dejo de mostrarlas a proposito).",
+    "No prometer plazos de entrega ni descuentos que no existan.",
+    "Programa Fundador: 0% comision RepuesTop por tiempo limitado, cupo de 100 tiendas; confirmar vigencia antes de publicar."
+  ],
+  "cta_compradores": "Descarga RepuesTop gratis o entra a repuestop.cl",
+  "cta_tiendas": "Suma tu tienda en repuestop.cl/vender"
+}

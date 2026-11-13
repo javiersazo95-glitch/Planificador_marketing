@@ -1,0 +1,59 @@
+{
+  "siguiente_id": 4,
+  "tareas": [
+    {
+      "id": 1,
+      "fecha": "2026-11-13",
+      "tipo": "reel",
+      "titulo": "Reel: No encuentras tu repuesto? Preguntale a Repuestin",
+      "red": "instagram,tiktok,youtube",
+      "publico": "conductores",
+      "estado": "propuesta",
+      "archivos": [],
+      "notas": "",
+      "resultado": null,
+      "historial": [
+        {
+          "fecha": "2026-11-13",
+          "estado": "propuesta"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "fecha": "2026-11-13",
+      "tipo": "historia",
+      "titulo": "Historia: Conoce a Repuestin",
+      "red": "instagram",
+      "publico": "seguidores",
+      "estado": "propuesta",
+      "archivos": [],
+      "notas": "",
+      "resultado": null,
+      "historial": [
+        {
+          "fecha": "2026-11-13",
+          "estado": "propuesta"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "fecha": "2026-11-13",
+      "tipo": "imagen",
+      "titulo": "Post Facebook: Programa Fundador",
+      "red": "facebook",
+      "publico": "tiendas",
+      "estado": "propuesta",
+      "archivos": [],
+      "notas": "",
+      "resultado": null,
+      "historial": [
+        {
+          "fecha": "2026-11-13",
+          "estado": "propuesta"
+        }
+      ]
+    }
+  ]
+}
