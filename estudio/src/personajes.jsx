@@ -16,6 +16,8 @@ const ANIMOS = {
 const Pelo = ({ estilo, color }) => {
   if (estilo === 'atras') return <path d="M-95 -540 C-100 -655 100 -655 95 -540 C80 -600 30 -622 -10 -616 C-55 -610 -88 -586 -95 -540Z" fill={color} />;
   if (estilo === 'entradas') return (<g fill={color}><path d="M-96 -520 C-104 -600 -60 -628 -22 -606 C-40 -590 -78 -576 -96 -520Z" /><path d="M96 -520 C104 -600 60 -628 22 -606 C40 -590 78 -576 96 -520Z" /></g>);
+  if (estilo === 'chasquilla') return <path d="M-98 -530 C-108 -650 100 -656 98 -540 C90 -578 60 -580 30 -566 C0 -556 -60 -566 -98 -530Z" fill={color} />;
+  if (estilo === 'rapado') return <path d="M-92 -540 C-96 -626 96 -626 92 -540 C84 -592 -84 -592 -92 -540Z" fill={color} opacity={0.9} />;
   if (estilo === 'ninguno') return null;
   return <path d="M-96 -532 C-100 -640 90 -650 96 -540 C70 -585 20 -592 -18 -576 C-50 -566 -80 -556 -96 -532Z" fill={color} />;
 };
@@ -26,7 +28,14 @@ export const Humano = ({
   camisa = C.azul, franja = null, pantalon = C.marino, zapatos = '#fff',
   lentes = false, bigote = false, barba = false, gorra = null, cerveza = false, overol = false, ancho = 1,
   chalas = false, guaipe = false, boletas = false, mochila = false, lapiz = false,
+  cara = 'redonda', nariz = 1, canas = false, cejasGrosor = 7,
 }) => {
+  const forma = {
+    redonda: <circle cx={0} cy={-520} r={92} fill={piel} />,
+    cuadrada: <path d="M-90 -566 Q-92 -616 0 -618 Q92 -616 90 -566 L88 -500 Q82 -432 0 -426 Q-82 -432 -88 -500 Z" fill={piel} />,
+    ovalada: <ellipse cx={0} cy={-520} rx={84} ry={99} fill={piel} />,
+    ancha: <path d="M-98 -560 Q-100 -614 0 -616 Q100 -614 98 -560 L96 -508 Q90 -440 0 -434 Q-90 -440 -96 -508 Z" fill={piel} />,
+  }[cara];
   const a = ANIMOS[animo] || ANIMOS.neutro;
   const t = frame / 5;
   const paso = caminar ? Math.sin(t * Math.PI) : 0;
@@ -69,23 +78,26 @@ export const Humano = ({
       {/* cuello y cabeza */}
       <rect x={-22} y={-452} width={44} height={40} fill={piel} />
       <g transform={`translate(0,${respira * 0.5})`}>
-        <circle cx={0} cy={-520} r={92} fill={piel} />
+        {forma}
         <ellipse cx={-92} cy={-515} rx={14} ry={22} fill={piel} />
         <ellipse cx={92} cy={-515} rx={14} ry={22} fill={piel} />
         <Pelo estilo={gorra ? 'ninguno' : peloEstilo} color={pelo} />
-        {barba ? <path d="M-84 -500 C-84 -420 84 -420 84 -500 C70 -450 -70 -450 -84 -500Z" fill={pelo} opacity={0.85} /> : null}
+        {canas && !gorra ? (<g fill="#C9CCD3"><path d="M-93 -556 C-97 -592 -80 -608 -62 -610 C-70 -590 -78 -574 -93 -556Z" /><path d="M93 -556 C97 -592 80 -608 62 -610 C70 -590 78 -574 93 -556Z" /></g>) : null}
+        {barba ? <path d="M-84 -500 C-84 -420 84 -420 84 -500 C70 -450 -70 -450 -84 -500Z" fill={pelo} opacity={barba === 'rastrojo' ? 0.28 : 0.85} /> : null}
         {/* ojos */}
         {[-32, 32].map((x, i) => (
           <g key={i}>
             <circle cx={x} cy={-520} r={a.ojosGrandes ? 21 : 17} fill="#fff" />
-            <circle cx={x + (i ? 3 : -3) + (animo === 'triste' || animo === 'cansado' ? 0 : 0)} cy={-517 + (a.lid ? 3 : 0)} r={a.ojosGrandes ? 6 : 8} fill={C.marino} />
+            <circle cx={x + (i ? 3 : -3)} cy={-517 + (a.lid ? 3 : 0)} r={a.ojosGrandes ? 8 : 10} fill="#2A1A12" />
             {a.lid ? <rect x={x - 19} y={-540} width={38} height={20 * a.lid + 4} fill={piel} /> : null}
             {a.ojeras ? <path d={`M${x - 14} -500 Q${x} -494 ${x + 14} -500`} stroke="#B98A6B" strokeWidth={5} fill="none" strokeLinecap="round" /> : null}
           </g>
         ))}
         {/* cejas */}
-        <g transform={`translate(-34,-558) rotate(${a.cejaI})`}><rect x={-20} y={-3} width={40} height={7} rx={3} fill={pelo} /></g>
-        <g transform={`translate(34,${-558 + a.alzaD}) rotate(${a.cejaD})`}><rect x={-20} y={-3} width={40} height={7} rx={3} fill={pelo} /></g>
+        <g transform={`translate(-34,-558) rotate(${a.cejaI})`}><rect x={-22} y={-cejasGrosor / 2} width={44} height={cejasGrosor} rx={cejasGrosor / 2} fill={pelo} /></g>
+        <g transform={`translate(34,${-558 + a.alzaD}) rotate(${a.cejaD})`}><rect x={-22} y={-cejasGrosor / 2} width={44} height={cejasGrosor} rx={cejasGrosor / 2} fill={pelo} /></g>
+        {/* nariz */}
+        {nariz ? (<g transform={`translate(0,-490) scale(${nariz}) translate(0,490)`}><path d="M-5 -526 Q-13 -498 -24 -490 Q-14 -480 0 -484 Q14 -480 24 -490 Q13 -498 5 -526 Z" fill="#000" opacity={0.13} /><ellipse cx={-9} cy={-490} rx={5} ry={3.5} fill="#000" opacity={0.28} /><ellipse cx={9} cy={-490} rx={5} ry={3.5} fill="#000" opacity={0.28} /></g>) : null}
         {a.mejillas ? (<g><circle cx={-58} cy={-488} r={13} fill="#F29B8C" opacity={0.4 * a.mejillas} /><circle cx={58} cy={-488} r={13} fill="#F29B8C" opacity={0.4 * a.mejillas} /></g>) : null}
         {/* boca */}
         {a.boca === 'O'
