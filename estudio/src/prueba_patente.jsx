@@ -3,13 +3,13 @@
 import React from 'react';
 import { AbsoluteFill, Sequence, OffthreadVideo, staticFile, useCurrentFrame, interpolate, spring } from 'remotion';
 
-const C = { azul: '#0F4EC2', marino: '#1B2440', gris: '#3B4A5E', amarillo: '#F8C805', blanco: '#FFFFFF' };
-const FUENTE = "'Plus Jakarta Sans','Segoe UI',Arial,sans-serif";
+export const C = { azul: '#0F4EC2', marino: '#1B2440', gris: '#3B4A5E', amarillo: '#F8C805', blanco: '#FFFFFF' };
+export const FUENTE = "'Plus Jakarta Sans','Segoe UI',Arial,sans-serif";
 const FPS = 30;
 export const PRUEBA_FRAMES = 300;
 
-const lerp = (a, b, t) => a + (b - a) * t;
-const clamp01 = (x) => Math.max(0, Math.min(1, x));
+export const lerp = (a, b, t) => a + (b - a) * t;
+export const clamp01 = (x) => Math.max(0, Math.min(1, x));
 
 /* ---------- Fondo de tienda (se desplaza para simular que camina) ---------- */
 const CAJAS = ['#F8C805', '#E5483A', '#FFFFFF', '#1B2440', '#7FB2FF', '#F8C805', '#FFFFFF'];
@@ -40,7 +40,7 @@ const Letrero = ({ x, texto }) => (
     <text x={235} y={76} textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={64} fill="#fff">{texto}</text>
   </g>
 );
-const Tienda = ({ frame }) => {
+export const Tienda = ({ frame }) => {
   const periodo = 1080;
   const dx = -((frame * 5) % periodo);
   const bloque = (off) => (
@@ -64,7 +64,7 @@ const Tienda = ({ frame }) => {
 };
 
 /* ---------- Personaje ---------- */
-const Persona = ({ frame, animo, camina }) => {
+export const Persona = ({ frame, animo, camina }) => {
   const t = frame / 5; // ritmo de pasos
   const paso = camina ? Math.sin(t * Math.PI) : 0;
   const rebote = camina ? Math.abs(Math.cos(t * Math.PI)) * 10 : 0;
@@ -125,7 +125,7 @@ const Persona = ({ frame, animo, camina }) => {
 };
 
 /* ---------- Nube con lluvia y ampolleta ---------- */
-const Nube = ({ frame, opacidad }) => (
+export const Nube = ({ frame, opacidad }) => (
   <g opacity={opacidad}>
     <g fill="#6B7A90">
       <circle cx={-70} cy={0} r={52} /><circle cx={0} cy={-30} r={68} /><circle cx={80} cy={0} r={56} /><rect x={-122} y={0} width={258} height={50} rx={25} />
@@ -137,7 +137,7 @@ const Nube = ({ frame, opacidad }) => (
     })}
   </g>
 );
-const Ampolleta = ({ escala }) => (
+export const Ampolleta = ({ escala }) => (
   <g transform={`scale(${escala})`}>
     <circle cx={0} cy={0} r={80} fill={C.amarillo} opacity={0.28} />
     <circle cx={0} cy={0} r={52} fill={C.amarillo} />
@@ -147,7 +147,7 @@ const Ampolleta = ({ escala }) => (
 );
 
 /* ---------- Subtitulo ---------- */
-const Subtitulo = ({ palabras, desde = 0 }) => {
+export const Subtitulo = ({ palabras, desde = 0 }) => {
   const f = useCurrentFrame();
   const e = spring({ frame: f - desde, fps: FPS, config: { damping: 14, stiffness: 160 } });
   return (

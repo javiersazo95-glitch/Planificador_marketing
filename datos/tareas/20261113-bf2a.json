@@ -1,0 +1,19 @@
+{
+  "id": "20261113-bf2a",
+  "creada": "2026-11-13T19:33:55.655Z",
+  "fecha": "2026-11-13",
+  "tipo": "reel",
+  "titulo": "Reel: Recorriste tiendas... busca por tu patente (borrador sin voz)",
+  "red": "",
+  "publico": "",
+  "estado": "propuesta",
+  "archivos": [],
+  "notas": "35 s. Animacion 2D en codigo (estudio/src/reel_patente.jsx), pantalla grabada en dev con patente de prueba ABCD11. Falta voz Fer (estudio/guion_voz_reel_patente.md) y re-grabar en produccion o tapar datos de dev (Temu, precios de prueba). Claim 'unico en Chile' reemplazado por 'el marketplace de repuestos de Chile': confirmar con el equipo.",
+  "resultado": null,
+  "historial": [
+    {
+      "fecha": "2026-11-13",
+      "estado": "propuesta"
+    }
+  ]
+}
