@@ -1,0 +1,30 @@
+// Elenco del reel R1 «El cuñado mecánico»: aspecto, defectos de comportamiento, frases y objetos chilenos.
+// Regla del guion: el humor es la maña, nunca el físico, el origen ni el oficio.
+import { C } from './prueba_patente.jsx';
+
+export const ELENCO = {
+  cunado: {
+    nombre: 'El cuñado', rol: 'El que «sabe de autos»', color: '#E5483A',
+    props: { piel: '#E7B089', pelo: '#3D2B1F', peloEstilo: 'atras', camisa: '#F4F1E8', pantalon: '#3B4A5E', lentes: true, bigote: true, cerveza: true, chalas: true, guaipe: true, ancho: 1.12 },
+    animos: ['canchero', 'neutro', 'sorpresa', 'timido'],
+    defectos: ['Sabe de todo… sin haber abierto nunca un capó', 'Jamás admite que se equivocó', 'Siempre «tiene un amigo» que lo arregla más barato', 'Cuenta la historia de su primer auto antes de ayudar'],
+    frases: ['«Mira, yo te lo digo porque cacho de autos.»', '«Eso es el alternador, po.»', '«No te preocupí, yo lo arreglo al tiro.»'],
+    objetos: 'chalas con calcetines · guaipe al hombro · lentes de sol',
+  },
+  dueno: {
+    nombre: 'El dueño del auto', rol: 'Ya cambió tres alternadores', color: C.azul,
+    props: { piel: '#F2BE92', pelo: '#2B2B33', peloEstilo: 'corto', camisa: '#8FB1E8', pantalon: C.marino, zapatos: '#fff', mochila: true, boletas: true },
+    animos: ['cansado', 'triste', 'sorpresa', 'feliz'],
+    defectos: ['Le hace caso al último que le habló', 'Deja la revisión para cuando «ya no parte»', 'Guarda todas las boletas… y nunca las mira', 'Dice «ya po» a todo para no discutir'],
+    frases: ['«Ya po… hagámosle.»', '«Pucha, otra vez no.»', '«Estoy chato, ya cambié tres.»'],
+    objetos: 'mochila · fajo de boletas · ojeras',
+  },
+  mecanico: {
+    nombre: 'El maestro del taller', rol: 'Taller acreditado en la app', color: '#1FA463',
+    props: { piel: '#C98E63', pelo: '#2A1A12', peloEstilo: 'corto', gorra: C.amarillo, overol: true, barba: true, zapatos: '#2A2F3C', lapiz: true },
+    animos: ['neutro', 'feliz', 'canchero', 'sorpresa'],
+    defectos: ['Se emociona explicando el motor «con peras y manzanas»', 'Habla en diminutivos: «una revisadita», «una cosita»', 'Trata a todos de «jefe» o «patrón»', 'Antes de opinar, mira la pieza vieja'],
+    frases: ['«Tranquilo, jefe, vamos viendo.»', '«Mire, jefe, esto no es el alternador.»', '«Eso se revisa al tiro, no hay drama.»'],
+    objetos: 'gorra · overol · lápiz en el pecho',
+  },
+};

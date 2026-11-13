@@ -71,7 +71,7 @@ const Raiz = () => (
       calculateMetadata={({ props }) => ({ durationInFrames: total(props) })} />
     <Composition id="PruebaPatente" component={PruebaPatente} width={1080} height={1920} fps={FPS} durationInFrames={PRUEBA_FRAMES} />
     <Composition id="ReelPatente" component={ReelPatente} width={1080} height={1920} fps={FPS} durationInFrames={REEL_PATENTE_FRAMES} />
-    <Still id="ElencoR1" component={LaminaPersonajes} width={1920} height={1080} />
+    <Still id="ElencoR1" component={LaminaPersonajes} width={1920} height={1480} />
     <Still id="Lamina" component={Lamina} width={1080} height={1350} />
   </>
 );

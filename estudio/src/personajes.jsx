@@ -25,6 +25,7 @@ export const Humano = ({
   piel = '#F2BE92', pelo = '#5A3A22', peloEstilo = 'corto',
   camisa = C.azul, franja = null, pantalon = C.marino, zapatos = '#fff',
   lentes = false, bigote = false, barba = false, gorra = null, cerveza = false, overol = false, ancho = 1,
+  chalas = false, guaipe = false, boletas = false, mochila = false, lapiz = false,
 }) => {
   const a = ANIMOS[animo] || ANIMOS.neutro;
   const t = frame / 5;
@@ -40,19 +41,25 @@ export const Humano = ({
       {[[-34, 1, ropaPant], [34, -1, ropaPant]].map(([x, s, c], i) => (
         <g key={i} transform={`translate(${x * ancho},-250) rotate(${paso * 24 * s})`}>
           <rect x={-26} y={0} width={52} height={230} rx={22} fill={c} opacity={i ? 0.92 : 1} />
-          <ellipse cx={8} cy={236} rx={50} ry={20} fill={zapatos} />
+          {chalas ? (<g><rect x={-22} y={196} width={44} height={42} rx={14} fill="#fff" /><rect x={-34} y={252} width={90} height={12} rx={6} fill="#6B4A2B" /><path d="M-18 244 Q8 214 34 244" stroke="#8A5B34" strokeWidth={9} fill="none" strokeLinecap="round" /></g>)
+            : <ellipse cx={8} cy={236} rx={50} ry={20} fill={zapatos} />}
         </g>
       ))}
+      {mochila ? (<g><rect x={-118} y={-420} width={236} height={190} rx={34} fill="#3B4A5E" /><rect x={-118} y={-300} width={236} height={14} fill="#2A3544" /></g>) : null}
       {/* brazo de atras */}
       <g transform={`translate(${-82 * ancho},-400) rotate(${-paso * 28})`}>
         <rect x={-20} y={0} width={40} height={170} rx={20} fill={ropa} />
         <circle cx={0} cy={178} r={24} fill={piel} />
+        {boletas ? (<g transform="translate(6,150)">{[-14, 0, 14].map((r, i) => (<g key={i} transform={`rotate(${r} 0 40)`}><rect x={-26} y={-30} width={52} height={74} rx={4} fill="#fff" stroke="#C9D3E3" strokeWidth={3} /><rect x={-16} y={-18} width={32} height={4} fill="#9AA6BA" /><rect x={-16} y={-8} width={24} height={4} fill="#9AA6BA" /><rect x={-16} y={2} width={30} height={4} fill="#E5483A" /></g>))}</g>) : null}
       </g>
       {/* torso */}
       <rect x={-92 * ancho} y={-430} width={184 * ancho} height={200} rx={44} fill={ropa} />
       {franja ? <rect x={-92 * ancho} y={-340} width={184 * ancho} height={22} fill={franja} opacity={0.95} /> : null}
       {overol ? (<g><rect x={-60} y={-430} width={22} height={90} fill="#245A93" /><rect x={38} y={-430} width={22} height={90} fill="#245A93" />
         <rect x={-34} y={-360} width={68} height={50} rx={8} fill="#245A93" /><rect x={-20} y={-350} width={40} height={14} rx={4} fill="#fff" /></g>) : null}
+      {mochila ? (<g><rect x={-62} y={-430} width={24} height={150} fill="#2A3544" /><rect x={38} y={-430} width={24} height={150} fill="#2A3544" /></g>) : null}
+      {guaipe ? (<g transform={`translate(${46 * ancho},0)`}><path d="M10 -440 L84 -424 L96 -300 L58 -312 L40 -372 Z" fill="#E5483A" /><path d="M24 -430 L88 -416 M32 -402 L92 -388 M44 -372 L94 -356" stroke="#fff" strokeOpacity={0.55} strokeWidth={5} /></g>) : null}
+      {lapiz ? <rect x={46} y={-352} width={10} height={44} rx={3} fill={C.amarillo} /> : null}
       {/* brazo de adelante (con cerveza si corresponde) */}
       <g transform={`translate(${82 * ancho},-400) rotate(${cerveza ? -38 : paso * 28})`}>
         <rect x={-20} y={0} width={40} height={170} rx={20} fill={ropa} />

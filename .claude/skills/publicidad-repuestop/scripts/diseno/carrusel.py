@@ -5,6 +5,7 @@ Uso:  python -I carrusel.py carruseles/c1_patente.json <carpeta de salida>
 
 Ficha (JSON, en UTF-8):
 {
+  "alto": 1350,                      # 1350 = 4:5 (Instagram, Facebook) · 1920 = 9:16 (TikTok)
   "total": 6,
   "portada": { "quien": "Compradores", "titulo": "¿Compraste un repuesto que <mark>no le hacía</mark> a tu auto?",
                "sub": "Plata perdida y otra vuelta al centro.", "celular": "ruta/captura.png" | "plantilla:celular_patente.png" },
@@ -48,8 +49,9 @@ ICONOS = {
     "llave": ico('<path d="M14.5 6.5a4 4 0 1 1-1 7.5L8 19.5H5v-3l5.5-5.5a4 4 0 0 1 4-4.5z"/>'),
 }
 
-BASE = f"""*{{box-sizing:border-box;margin:0;padding:0}}
-body{{width:1080px;height:1350px;overflow:hidden;font-family:'Plus Jakarta Sans';color:#1B2440;position:relative;
+def mk_base(H):
+    return f"""*{{box-sizing:border-box;margin:0;padding:0}}
+body{{width:1080px;height:{H}px;overflow:hidden;font-family:'Plus Jakarta Sans';color:#1B2440;position:relative;
   background:#fff url({A}/patron_azul.svg) repeat;background-size:420px}}
 h1,p{{text-wrap:balance}}h1{{letter-spacing:-.03em;font-weight:800}}
 h1 mark{{background:linear-gradient(transparent 62%,#F8C805 62%,#F8C805 92%,transparent 92%);color:inherit}}
@@ -57,6 +59,22 @@ h1 mark{{background:linear-gradient(transparent 62%,#F8C805 62%,#F8C805 92%,tran
 .wm{{font:700 40px Montserrat;letter-spacing:-.02em;color:#3B4A5E}}.wm b{{color:#0F4EC2;font-weight:700}}
 .idx{{position:absolute;right:84px;top:84px;font-weight:700;font-size:26px;color:#3B4A5E;opacity:.7}}
 .desliza{{position:absolute;left:84px;bottom:90px;background:#0F4EC2;color:#fff;font-weight:800;font-size:34px;padding:22px 40px;border-radius:999px}}"""
+
+
+BASE = mk_base(1350)
+H = 1350
+
+
+def vert(tipo):
+    """Ajustes para 9:16 (1080x1920): más aire arriba y abajo, que es donde TikTok pone su interfaz."""
+    if H < 1500:
+        return ""
+    return {
+        "portada": ".marca{top:230px}.idx{top:244px}.quien{top:420px}h1{top:480px;font-size:96px}"
+                   ".sub{top:910px;width:460px;font-size:38px}.cel{left:520px;top:980px;width:470px;height:860px}.desliza{bottom:430px}",
+        "intermedia": ".marca{top:230px}.idx{top:244px}.card{top:340px;bottom:480px}.desliza{bottom:370px}.pasos{bottom:392px}",
+        "final": ".c{top:520px}.pie{bottom:430px}",
+    }[tipo]
 
 
 def marca(i, n):
@@ -73,7 +91,7 @@ h1{{position:absolute;left:84px;right:84px;top:285px;font-size:92px;line-height:
 .sub{{position:absolute;left:84px;top:640px;width:430px;font-weight:600;font-size:36px;line-height:1.3;color:#3B4A5E}}
 .cel{{position:absolute;left:560px;top:600px;width:440px;height:820px;border:14px solid #1B2440;border-radius:56px;overflow:hidden;
   background:#fff;box-shadow:0 30px 70px rgba(27,36,64,.22);transform:rotate(4deg)}}.cel img{{width:100%;display:block}}
-</style>{marca(1, n)}<div class="quien">{p['quien']}</div><h1>{p['titulo']}</h1><p class="sub">{p['sub']}</p>
+{vert('portada')}</style>{marca(1, n)}<div class="quien">{p['quien']}</div><h1>{p['titulo']}</h1><p class="sub">{p['sub']}</p>
 <div class="cel"><img src="{cel_uri}"></div><div class="desliza">Desliza →</div>"""
 
 
@@ -93,7 +111,7 @@ def intermedia(c, k, n):
 .txt{{font-weight:600;font-size:38px;line-height:1.32;color:#3B4A5E;margin-bottom:56px}}
 .desliza{{left:auto;right:84px}}
 .pasos{{position:absolute;left:84px;bottom:112px;display:flex;gap:14px}}.pasos i{{width:22px;height:22px;border-radius:50%;background:#C9D6EE}}.pasos i.on{{background:#0F4EC2;width:60px;border-radius:11px}}
-</style>{marca(k + 2, n)}<div class="card"><span class="chip">Paso {k + 1} de {total}</span><h1>{paso['titulo']}</h1><p class="txt">{paso['texto']}</p><ul class="puntos">{puntos}</ul></div>
+{vert('intermedia')}</style>{marca(k + 2, n)}<div class="card"><span class="chip">Paso {k + 1} de {total}</span><h1>{paso['titulo']}</h1><p class="txt">{paso['texto']}</p><ul class="puntos">{puntos}</ul></div>
 <div class="pasos">{avance}</div><div class="desliza">Desliza →</div>"""
 
 
@@ -108,7 +126,7 @@ def final(c):
 .pie{{position:absolute;left:0;right:0;bottom:90px;display:flex;flex-direction:column;align-items:center;gap:22px}}
 .cta{{background:#0F4EC2;color:#fff;font-weight:800;font-size:44px;padding:22px 54px;border-radius:999px}}
 .of{{font-weight:600;font-size:32px;color:#3B4A5E}}
-</style><div class="c"><img class="ico" src="{A}/logo_icono.svg"><span class="wm">Repues<b>Top</b></span>
+{vert('final')}</style><div class="c"><img class="ico" src="{A}/logo_icono.svg"><span class="wm">Repues<b>Top</b></span>
 <p class="lema"><span>Movemos Chile juntos</span></p></div>
 <div class="pie"><span class="cta">{f['cta']}</span><span class="of">{f['linea']}</span></div>"""
 
@@ -117,7 +135,7 @@ def png(salida, html):
     h = salida.with_suffix(".html")
     h.write_text(f'<!doctype html><html lang="es"><head><meta charset="utf-8"><link href="{FUENTES}" rel="stylesheet"></head><body>{html}</body></html>', encoding="utf-8")
     subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars", "--virtual-time-budget=8000",
-                    "--force-device-scale-factor=1", "--window-size=1080,1350", f"--screenshot={salida}", h.as_uri()],
+                    "--force-device-scale-factor=1", f"--window-size=1080,{H}", f"--screenshot={salida}", h.as_uri()],
                    check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     h.unlink()
 
@@ -125,7 +143,10 @@ def png(salida, html):
 def main():
     if len(sys.argv) != 3:
         raise SystemExit(__doc__)
+    global H, BASE
     c = json.load(open(sys.argv[1], encoding="utf-8"))
+    H = int(c.get("alto", 1350))          # 1350 = 4:5 (Instagram/Facebook); 1920 = 9:16 (TikTok)
+    BASE = mk_base(H)
     out = Path(sys.argv[2])
     out.mkdir(parents=True, exist_ok=True)
     n = 2 + len(c["pasos"])
