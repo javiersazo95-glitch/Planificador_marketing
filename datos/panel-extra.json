@@ -1,6 +1,6 @@
 {
   "_ayuda": "Datos que pinta el panel. Cada cosa dice QUÉ ES, QUÉ HAY QUE HACER y PARA QUÉ SIRVE, en frases simples. El detalle largo vive en datos/planes/ y novedades/. Si una acción se cumple subiendo material, pon en \"entrega\" el título exacto del ítem de \"material\" para que se marque sola.",
-  "recomendacion": "Los dos carruseles ya están programados: hoy a las 20:00 el de la patente y mañana el de talleres. Falta decidir la voz de los reels.",
+  "recomendacion": "Todo está programado: el carrusel de la patente esta noche, el de talleres mañana y el reel de la patente el domingo. Falta decidir la voz con licencia.",
   "acciones": [
     {
       "texto": "Revisar que el carrusel de la patente salga hoy a las 20:00",
@@ -15,6 +15,13 @@
       "como": "1) Abran Drive > RepuesTop Marketing > contenido > 2026-11-13-historias-repuestin-encuesta > final. 2) En Instagram: Historia y elijan 01.png. 3) En la historia 2 (02.png) pongan el sticker «Preguntas» en el espacio libre de abajo. 4) En la historia 3 (03.png) pongan el sticker «Enlace» con repuestop.cl sobre el botón azul. 5) Suban las tres en orden.",
       "para": "Conversar con quienes ya nos siguen y juntar ideas reales de repuestos difíciles.",
       "resultado": "Meta inicial: 15 respuestas a la pregunta en 24 horas."
+    },
+    {
+      "texto": "Revisar que el reel de la patente salga el domingo a las 12:30",
+      "quien": "Equipo",
+      "como": "El domingo a las 12:30 miren Instagram, Facebook, TikTok y YouTube: debe aparecer el reel en las cuatro. Respondan los comentarios la primera hora. Si falta alguno, avísenme.",
+      "para": "Metricool lo publica solo, pero conviene confirmarlo. Ojo: lleva voz del plan Free y algunos datos de prueba.",
+      "resultado": "Meta inicial: 1.000 reproducciones en 3 días."
     },
     {
       "texto": "Compartir el carrusel de talleres en grupos de Facebook",
@@ -389,6 +396,10 @@
         {
           "etiqueta": "Historias para hoy",
           "valor": "3 listas (21:00)"
+        },
+        {
+          "etiqueta": "Reel patente",
+          "valor": "domingo 12:30"
         }
       ],
       "consejo": "Responder los comentarios la primera hora después de cada publicación.",
@@ -406,6 +417,10 @@
         {
           "etiqueta": "Programado",
           "valor": "C1 hoy 20:00 · T1 mañana 10:00"
+        },
+        {
+          "etiqueta": "Reel patente",
+          "valor": "domingo 12:30"
         }
       ],
       "consejo": "Mañana compartir el carrusel de talleres en grupos de talleres.",
@@ -421,8 +436,8 @@
           "valor": "C1 hoy 21:30"
         },
         {
-          "etiqueta": "Reels publicados",
-          "valor": "2 (R7 y T-1)"
+          "etiqueta": "Reel patente",
+          "valor": "domingo 12:30"
         }
       ],
       "consejo": "Esperar 3 días antes de sacar conclusiones y medir el lunes.",
@@ -436,6 +451,10 @@
         {
           "etiqueta": "Shorts de hoy",
           "valor": "2 (R7 y T-1)"
+        },
+        {
+          "etiqueta": "Reel patente",
+          "valor": "domingo 12:30"
         }
       ],
       "consejo": "Reusar los reels como Shorts y medirlos el lunes.",
