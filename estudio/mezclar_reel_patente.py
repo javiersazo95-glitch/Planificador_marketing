@@ -20,7 +20,7 @@ MUSICA = Path(r"C:\Users\SMK GAMING\Downloads\Repuestop\Edicion\redes\musica\pix
 OUT = AQUI / "out"
 VOZ_DIR = AQUI / "public" / "voz"
 TOTAL = 29.4                      # = TIEMPOS.total de reel_patente.jsx
-VOZ_INICIOS = [0.3, 5.4, 10.6, 14.2, 19.5, 25.8]   # = TIEMPOS.voz
+VOZ_INICIOS = [0.3, 5.4, 10.6, 14.3, 19.5, 25.8]   # = TIEMPOS.voz
 
 # (efecto, segundo, dB)
 EFECTOS = [
