@@ -80,7 +80,7 @@ export function cambiarEstado(id, estado, { nota = '', resultado, tarea } = {}) 
     e.resultado = `${id}/resultado/${basename(origen)}`;
   }
   e.estado = estado;
-  if (tarea) e.tarea = Number(tarea);
+  if (tarea) e.tarea = String(tarea);
   e.historial.push({ fecha: ahora(), estado, nota });
   escribir(ruta, e); return e;
 }

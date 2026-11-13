@@ -5,12 +5,13 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { cargar as cargarEntregas, almacen } from './entregas.mjs';
+import { cargar as cargarTareas } from './tareas.mjs';
 
 const raiz = join(dirname(fileURLToPath(import.meta.url)), '..');
 const leer = (r, def) => { try { return JSON.parse(readFileSync(join(raiz, r), 'utf8')); } catch { return def; } };
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-const tareas = leer('datos/tareas.json', { tareas: [] }).tareas;
+const tareas = cargarTareas();
 const cfgRedes = leer('config/redes.json', { redes: {} }).redes || {};
 const marca = leer('config/marca.json', {});
 const x = leer('datos/panel-extra.json', {});
@@ -102,7 +103,7 @@ const exp = (o, claves) => {
 
 const hoy = x.hoy || {};
 const piezas = (hoy.piezas || []).map(p => {
-  const t = porId[p.tarea];
+  const t = porId[String(p.tarea)];
   return `<article class="pieza${p.recomendada ? ' reco' : ''}">
     ${p.recomendada ? `<span class="cinta">${ic('estrella')}Recomendada</span>` : ''}
     <div class="pieza-top"><div class="pieza-redes">${(p.redes || []).map(r => glifo(r)).join('')}</div>${pillEstado(t?.estado)}</div>
@@ -126,16 +127,16 @@ const marcaEntregado = titulo => {
   return `<span class="ya-ent ${e.estado === 'listo' ? 'listo' : ''}">${ic('check')}${e.estado === 'listo' ? 'Hecho' : 'Ya entregado'}${quien} · ${esc(({ recibido: 'esperando al agente', revisando: 'en revisión', trabajando: 'el agente trabaja en ello', listo: 'pieza lista' })[e.estado] || '')}</span>`;
 };
 
-const acciones = (x.acciones || []).map((a, n) => `<li class="accion${entregado(a.texto) ? ' hecha' : ''}">
-    <span class="paso">${entregado(a.texto) ? ic('check') : n + 1}</span>
+const acciones = (x.acciones || []).map((a, n) => { const clave = a.entrega || a.texto; return `<li class="accion${entregado(clave) ? ' hecha' : ''}">
+    <span class="paso">${entregado(clave) ? ic('check') : n + 1}</span>
     <div class="accion-cuerpo">
-      <div class="accion-cab"><h3>${esc(a.texto)}</h3>${a.quien ? `<span class="chip">${ic('persona')}${esc(a.quien)}</span>` : ''}${marcaEntregado(a.texto)}</div>
-      ${entregado(a.texto) ? '' : exp(a, ['como', 'para', 'resultado'])}
+      <div class="accion-cab"><h3>${esc(a.texto)}</h3>${a.quien ? `<span class="chip">${ic('persona')}${esc(a.quien)}</span>` : ''}${marcaEntregado(clave)}</div>
+      ${entregado(clave) ? '' : exp(a, ['como', 'para', 'resultado'])}
     </div>
-  </li>`).join('');
+  </li>`; }).join('');
 const opcionesPara = [
   ...(x.material || []).map(m => typeof m === 'string' ? m : m.titulo),
-  ...(x.acciones || []).filter(a => /equipo/i.test(a.quien || '')).map(a => a.texto),
+  ...(x.acciones || []).filter(a => a.entrega).map(a => a.entrega),
 ].filter((v, i, a) => v && a.indexOf(v) === i);
 const jsonSeguro = o => JSON.stringify(o).replace(/</g, '\\u003c');
 

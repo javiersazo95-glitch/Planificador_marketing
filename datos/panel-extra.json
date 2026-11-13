@@ -1,5 +1,5 @@
 {
-  "_ayuda": "Datos que pinta el panel. Cada cosa dice QUÉ ES, QUÉ HAY QUE HACER y PARA QUÉ SIRVE, en frases simples. El detalle largo vive en datos/planes/ y novedades/.",
+  "_ayuda": "Datos que pinta el panel. Cada cosa dice QUÉ ES, QUÉ HAY QUE HACER y PARA QUÉ SIRVE, en frases simples. El detalle largo vive en datos/planes/ y novedades/. Si una acción se cumple subiendo material, pon en \"entrega\" el título exacto del ítem de \"material\" para que se marque sola.",
   "recomendacion": "Hoy publiquemos el reel de Repuestín: es lo más nuevo y lo más fácil de mostrar.",
   "acciones": [
     {
@@ -14,7 +14,8 @@
       "como": "En el celular, activen la grabación de pantalla, entren a repuestop.cl, toquen «¿No encuentras tu repuesto?» y escríbanle algo a Repuestín. Envíenme el video.",
       "para": "Es la base del reel: mostrar la app real convence más que cualquier dibujo.",
       "quien": "Equipo",
-      "resultado": "Tengo el material para entregarles el reel listo hoy."
+      "resultado": "Tengo el material para entregarles el reel listo hoy.",
+      "entrega": "Grabar pantalla usando Repuestín (30 s)"
     },
     {
       "texto": "Conectar Metricool",

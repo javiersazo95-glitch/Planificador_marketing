@@ -1,0 +1,18 @@
+{
+  "id": "3",
+  "fecha": "2026-11-13",
+  "tipo": "imagen",
+  "titulo": "Post Facebook: Programa Fundador",
+  "red": "facebook",
+  "publico": "tiendas",
+  "estado": "propuesta",
+  "archivos": [],
+  "notas": "",
+  "resultado": null,
+  "historial": [
+    {
+      "fecha": "2026-11-13",
+      "estado": "propuesta"
+    }
+  ]
+}

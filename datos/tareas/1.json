@@ -1,0 +1,18 @@
+{
+  "id": "1",
+  "fecha": "2026-11-13",
+  "tipo": "reel",
+  "titulo": "Reel: No encuentras tu repuesto? Preguntale a Repuestin",
+  "red": "instagram,tiktok,youtube",
+  "publico": "conductores",
+  "estado": "propuesta",
+  "archivos": [],
+  "notas": "",
+  "resultado": null,
+  "historial": [
+    {
+      "fecha": "2026-11-13",
+      "estado": "propuesta"
+    }
+  ]
+}
