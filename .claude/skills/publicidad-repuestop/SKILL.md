@@ -54,6 +54,12 @@ sugerir de dónde sacarlo (grabación de pantalla, fotos de tienda, reseñas rea
 - **Posts fijos:** portada A, intermedia M2, final L2.
 - **Paleta de redes:** azul #0F4EC2, azul noche #1B2440, gris #3B4A5E, amarillo #F8C805, blanco; Plus Jakarta Sans y Montserrat 700 en el wordmark (la web usa #0056BF + Outfit, no va en redes).
 - Voces: regenerar con ElevenLabs Starter antes de publicar (las aprobadas el 13-nov son de plan Free).
+- **Voces de ElevenLabs (nombre exacto en la cuenta; decisión del equipo, 13-nov):**
+  - **Fer – Chilean, Laid-back & Natural:** la mejor y la que se usa más (voz chilena, relajada y natural). Es la voz por defecto de los reels nuevos. Escribir «Repuestop» (no «RepuesTop») en el texto para la voz.
+  - Gerardo – Cool Latin American voice: narrador cercano y latino (T-1 «Cotizaciones» y R10 «Precio»).
+  - Zabra – Energetic and Engaging Announcer: locutor de comercial con energía (R11).
+  - El Faraon – Full, Clear, Mellow: solo para el lema del cierre L2, «Repuestop, movemos Chile juntos».
+  - Antes de publicar, regenerar con plan Starter o superior (el Free no tiene licencia comercial).
 - **Grabaciones de pantalla del celular (regla del equipo, 13-nov):**
   - Nunca mostrar la barra superior del celular (notificaciones, reloj, íconos de otras apps), salvo notificaciones de RepuesTop. En `demo_celular.py`: `"quitar_franjas": [[0, 92]]` y `"pantalla": [1080, 2248]` en grabaciones de 1080×2340.
   - En el chat, el movimiento siempre va hacia abajo: nunca usar tramos donde el chat sube. Elegir tramos sin teclado ni saltos.
