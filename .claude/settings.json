@@ -30,6 +30,12 @@
             "command": "node \"$CLAUDE_PROJECT_DIR/scripts/equipo.mjs\" traer",
             "timeout": 60,
             "statusMessage": "Trayendo la memoria del equipo desde GitHub..."
+          },
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/revisar-equipo.mjs\" --breve",
+            "timeout": 90,
+            "statusMessage": "Revisando si este computador está listo..."
           }
         ]
       }

@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 
 const raiz = join(dirname(fileURLToPath(import.meta.url)), '..');
 const cfg = JSON.parse(readFileSync(join(raiz, 'config/repos.json'), 'utf8'));
+const local = (() => { try { return JSON.parse(readFileSync(join(raiz, 'config/local.json'), 'utf8')); } catch { return {}; } })(); // rutas propias de cada computador
 const estadoPath = join(raiz, 'estado/ultima-lectura.json');
 const args = process.argv.slice(2);
 const dias = Number((args.find(a => a.startsWith('--dias=')) || '--dias=30').split('=')[1]);
@@ -24,7 +25,7 @@ function espejo(r) {
     else git(dir, 'fetch', '--quiet', '--prune', 'origin');
     return { dir, fuente: 'github' };
   } catch {
-    return { dir: join(r.ruta, '.git'), fuente: 'local(solo lectura)' };
+    return { dir: join((local.repos && local.repos[r.id]) || r.ruta, '.git'), fuente: 'local(solo lectura)' };
   }
 }
 

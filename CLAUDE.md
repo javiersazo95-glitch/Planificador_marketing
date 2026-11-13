@@ -27,6 +27,13 @@ Ese comando sincroniza (`node scripts/sincronizar.mjs`), lee lo nuevo desde la �
 (`datos/tareas.json`) y propone el plan de hoy (lunes: plan de la semana con 2 panoramas). Si el usuario
 empieza sin el comando y el tema es publicidad, ejecútalo igual.
 
+## Al abrir el agente: revisar el computador
+Al iniciar cada sesión, un gancho ejecuta `node scripts/revisar-equipo.mjs --breve` y su resultado llega a tu
+contexto como "REVISIÓN DEL COMPUTADOR". **Si falta algo, tu primer mensaje al usuario es decirle qué le falta**,
+en simple y en orden de importancia, y ofrecerte a guiarlo (o a hacerlo tú con su permiso: `npm install`,
+`git config`, «configura Drive»). Revisa además si el conector Metricool está disponible. El comando `/revisar`
+hace la revisión completa en cualquier momento. Si todo está listo, no lo menciones y sigue con lo pedido.
+
 ## Trabajo en equipo: todo compartido
 Varias personas usan este repo, cada una en su computador. Para que todos vean lo mismo:
 - **Memoria del agente (planes, historial, novedades, lecturas) → GitHub.** Un gancho trae lo último al iniciar la
@@ -50,7 +57,7 @@ simple de qué estás haciendo:
 
 ## Comandos
 `/marketing` arranque y propuesta · `/panel` panel de estado · `/guion` libreto · `/reel` producir video ·
-`/publicar` programar en redes · `/recursos` usar fotos/audios entregados.
+`/publicar` programar en redes · `/recursos` usar fotos/audios entregados · `/revisar` qué le falta a este computador.
 
 ## Skills
 `marketing-repuestop` (estrategia, públicos, calendario, métricas) y `publicidad-repuestop` (guiones, copys,
