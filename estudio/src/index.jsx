@@ -4,6 +4,7 @@
 import React from 'react';
 import { PruebaPatente, PRUEBA_FRAMES } from './prueba_patente.jsx';
 import { ReelPatente, REEL_PATENTE_FRAMES } from './reel_patente.jsx';
+import { LaminaPersonajes } from './lamina_personajes.jsx';
 import { registerRoot, Composition, Still, AbsoluteFill, Sequence, Img, staticFile, useCurrentFrame, interpolate } from 'remotion';
 
 // Paleta oficial de redes (13-nov): azul #0F4EC2, azul noche #1B2440, gris #3B4A5E, amarillo #F8C805, blanco.
@@ -70,6 +71,7 @@ const Raiz = () => (
       calculateMetadata={({ props }) => ({ durationInFrames: total(props) })} />
     <Composition id="PruebaPatente" component={PruebaPatente} width={1080} height={1920} fps={FPS} durationInFrames={PRUEBA_FRAMES} />
     <Composition id="ReelPatente" component={ReelPatente} width={1080} height={1920} fps={FPS} durationInFrames={REEL_PATENTE_FRAMES} />
+    <Still id="ElencoR1" component={LaminaPersonajes} width={1920} height={1080} />
     <Still id="Lamina" component={Lamina} width={1080} height={1350} />
   </>
 );
