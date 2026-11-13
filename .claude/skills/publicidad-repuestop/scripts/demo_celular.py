@@ -13,6 +13,7 @@ Ficha (rutas relativas a la ficha):
 {
   "fondo": "azul" | "blanco" | "textura" | "claro" | "navy",
   "fps": 30,
+  "alto": 1250, "sy": 250,                        # opcional: celular mas chico para dejar libre la franja de subtitulos
   "pantalla": [1080, 2063],                       # opcional: proporción del contenido tras quitar franjas
   (por toma) "quitar_franjas": [[70, 212], [2205, 2340]]   # quita barra del navegador y navegación de Android
   "tomas": [
@@ -250,6 +251,10 @@ def render(ficha, out, preview=None):
     ficha_path = Path(ficha).resolve()
     spec = json.loads(ficha_path.read_text(encoding="utf-8"))
     fps = int(spec.get("fps", 30))
+    if spec.get("alto"):                            # alto del celular en px (por defecto 1400); "sy" = borde superior
+        global SH, SY
+        SH = int(spec["alto"])
+        SY = int(spec.get("sy", (H - SH) // 2 - 10))
     if spec.get("pantalla"):                        # [ancho, alto] del contenido ya recortado
         geometria(*spec["pantalla"])
     base, alfa = fondo_y_marco(spec.get("fondo", "azul"))

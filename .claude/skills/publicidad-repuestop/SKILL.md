@@ -54,6 +54,11 @@ sugerir de dónde sacarlo (grabación de pantalla, fotos de tienda, reseñas rea
 - **Posts fijos:** portada A, intermedia M2, final L2.
 - **Paleta de redes:** azul #0F4EC2, azul noche #1B2440, gris #3B4A5E, amarillo #F8C805, blanco; Plus Jakarta Sans y Montserrat 700 en el wordmark (la web usa #0056BF + Outfit, no va en redes).
 - Voces: regenerar con ElevenLabs Starter antes de publicar (las aprobadas el 13-nov son de plan Free).
+- **Grabaciones de pantalla del celular (regla del equipo, 13-nov):**
+  - Nunca mostrar la barra superior del celular (notificaciones, reloj, íconos de otras apps), salvo notificaciones de RepuesTop. En `demo_celular.py`: `"quitar_franjas": [[0, 92]]` y `"pantalla": [1080, 2248]` en grabaciones de 1080×2340.
+  - En el chat, el movimiento siempre va hacia abajo: nunca usar tramos donde el chat sube. Elegir tramos sin teclado ni saltos.
+  - No acelerar el chat ni meter todo: mostrar solo lo más relevante, a ritmo normal y con una pausa final para leer (cuadro congelado). Es mejor un reel más corto que uno apurado.
+  - Subtítulos fuera de los botones de la app: celular más chico (`"alto": 1250, "sy": 250`).
 - Marca en trámite: "RepuesTop" sin ®. Música con licencia libre o de la biblioteca de cada red.
 - Personas reales (mecánicos, clientes): pedir permiso por escrito antes de mostrar rostro o nombre.
 - Repuestín es la mascota: voz amable, ayuda sin presionar; nunca promete lo que la plataforma no hace.
