@@ -75,13 +75,26 @@ export const TomaCapo = ({ Fondo }) => {
 };
 
 /* ---------- tablero (para los planos de detalle) ---------- */
+const Ventila = ({ x, y }) => (
+  <g transform={`translate(${x},${y})`}>
+    <circle r={82} fill="#10131F" /><circle r={82} fill="none" stroke="#3A4458" strokeWidth={8} />
+    {[-36, -12, 12, 36].map((k) => <rect key={k} x={-62} y={k - 5} width={124} height={10} rx={5} fill="#2C3548" />)}
+    <circle cx={28} cy={-2} r={9} fill="#9AA6BA" />
+  </g>
+);
 const Tablero = ({ children }) => (
   <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{ position: 'absolute', inset: 0 }}>
     <defs><linearGradient id="parab2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#8EC8FF" /><stop offset="1" stopColor="#E3F1FF" /></linearGradient></defs>
     <rect width={1080} height={820} fill="url(#parab2)" />
     <rect x={0} y={700} width={1080} height={140} fill="#6B7788" /><rect x={90} y={560} width={220} height={150} rx={10} fill="#DDE6F2" /><rect x={760} y={520} width={240} height={190} rx={10} fill="#C7D6EA" />
+    {/* parabrisas: techo, parantes y espejo */}
+    <rect x={0} y={0} width={1080} height={110} fill="#1F2635" />
+    <path d="M0 0 L190 0 L80 850 L0 850 Z" fill="#1F2635" /><path d="M1080 0 L890 0 L1000 850 L1080 850 Z" fill="#1F2635" />
+    <rect x={532} y={104} width={16} height={46} fill="#10131F" /><rect x={420} y={140} width={240} height={84} rx={18} fill="#10131F" /><rect x={432} y={150} width={216} height={64} rx={12} fill="#4C5A72" />
+    {/* tablero */}
     <path d="M0 820 Q540 740 1080 820 L1080 1920 L0 1920 Z" fill="#232A3A" />
     <path d="M0 820 Q540 740 1080 820 L1080 856 Q540 778 0 856 Z" fill="#3A4458" />
+    <Ventila x={150} y={1010} /><Ventila x={930} y={1010} />
     {children}
   </svg>
 );
@@ -93,8 +106,25 @@ export const TomaRadio = () => {
   const parp = Math.floor(f / 6) % 2 === 0;
   return (
     <Tablero>
-      {/* rejillas de ventilacion */}
-      {[0, 1].map((i) => <g key={i} transform={`translate(${i ? 880 : 200},1040)`}>{[0, 1, 2, 3].map((k) => <rect key={k} x={-70} y={k * 26 - 40} width={140} height={14} rx={7} fill="#10131F" />)}</g>)}
+      {/* consola central: botón de balizas, clima, palanca y freno de mano */}
+      <g transform="translate(540,1000)"><path d="M0 -42 L40 28 L-40 28 Z" fill="none" stroke="#E5483A" strokeWidth={9} strokeLinejoin="round" /><path d="M0 -20 L20 16 L-20 16 Z" fill="none" stroke="#E5483A" strokeWidth={5} strokeLinejoin="round" /></g>
+      <g transform="translate(540,1520)">
+        <rect x={-340} y={-30} width={680} height={150} rx={30} fill="#10131F" /><rect x={-340} y={-30} width={680} height={150} rx={30} fill="none" stroke="#3A4458" strokeWidth={6} />
+        <rect x={-70} y={-8} width={140} height={46} rx={10} fill="#1A2232" /><text x={0} y={28} textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={34} fill="#2A9D5B">22°</text>
+        {[-250, -160, 160, 250].map((x) => <g key={x}><circle cx={x} cy={44} r={44} fill="#2C3548" /><circle cx={x} cy={44} r={30} fill="#3A4458" /><rect x={x - 3} y={18} width={6} height={22} fill="#9AA6BA" /></g>)}
+        <rect x={-110} y={62} width={50} height={32} rx={10} fill="#2C3548" /><rect x={60} y={62} width={50} height={32} rx={10} fill="#2C3548" />
+      </g>
+      <g transform="translate(540,1800)">
+        <path d="M-150 -80 Q0 -140 150 -80 L190 120 L-190 120 Z" fill="#1A2030" />
+        <rect x={-9} y={-120} width={18} height={150} fill="#10131F" /><circle cx={0} cy={-132} r={42} fill="#10131F" /><circle cx={-10} cy={-142} r={12} fill="#3A4458" opacity={0.7} />
+        <text x={0} y={70} textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={40} fill="#6B7788">P R N D</text>
+      </g>
+      <g transform="translate(790,1790) rotate(-18)"><rect x={-18} y={-120} width={36} height={170} rx={14} fill="#10131F" /><rect x={-22} y={-132} width={44} height={30} rx={10} fill="#3A4458" /></g>
+      {/* guantera, a la derecha */}
+      <g transform="translate(940,1560)"><rect x={-140} y={-170} width={280} height={330} rx={40} fill="#1B2232" /><rect x={-140} y={-170} width={280} height={330} rx={40} fill="none" stroke="#3A4458" strokeWidth={6} /><rect x={-40} y={-140} width={80} height={20} rx={10} fill="#3A4458" /></g>
+      {/* volante, abajo a la izquierda */}
+      <path d="M-120 1980 Q-60 1560 230 1560" stroke="#10131F" strokeWidth={70} fill="none" strokeLinecap="round" />
+      <path d="M-120 1980 Q-60 1560 230 1560" stroke="#2C3548" strokeWidth={10} fill="none" strokeLinecap="round" opacity={0.7} />
       {/* radio grande */}
       <g transform="translate(540,1240)">
         <rect x={-340} y={-200} width={680} height={400} rx={40} fill="#10131F" /><rect x={-340} y={-200} width={680} height={400} rx={40} fill="none" stroke="#3A4458" strokeWidth={8} />
@@ -140,34 +170,52 @@ export const TomaBencina = () => {
   );
 };
 
+/* ---------- auto de lado, proporciones reales (frente a la derecha) ---------- */
+export const AutoLado = () => (
+  <g>
+    <ellipse cx={0} cy={2} rx={350} ry={20} fill="#000" opacity={0.22} />
+    {/* carroceria */}
+    <path d="M-320 -62 L-320 -150 Q-318 -178 -292 -184 L-206 -194 L-152 -264 Q-140 -284 -112 -286 L68 -286 Q100 -286 120 -262 L176 -196 L282 -178 Q318 -168 320 -136 L320 -62 Z" fill="#E5483A" />
+    {/* ventanas */}
+    <path d="M-196 -198 L-150 -258 Q-146 -266 -132 -266 L-60 -266 L-60 -198 Z" fill="#1B2440" />
+    <path d="M-30 -198 L-30 -266 L66 -266 Q80 -266 90 -250 L130 -198 Z" fill="#1B2440" />
+    <path d="M-150 -258 L-110 -262" stroke="#fff" strokeOpacity={0.25} strokeWidth={6} strokeLinecap="round" />
+    {/* detalles */}
+    <path d="M-45 -198 L-45 -76" stroke="#C23A2E" strokeWidth={6} />
+    <rect x={-84} y={-176} width={30} height={9} rx={4} fill="#C23A2E" /><rect x={-4} y={-176} width={30} height={9} rx={4} fill="#C23A2E" />
+    <path d="M-320 -92 L320 -92" stroke="#C23A2E" strokeWidth={14} />
+    <rect x={-320} y={-76} width={640} height={20} rx={8} fill="#8E2B22" />
+    <path d="M110 -202 L136 -214 L150 -204 L128 -196 Z" fill="#1B2440" />
+    <rect x={296} y={-156} width={26} height={34} rx={10} fill="#F8C805" /><rect x={-322} y={-150} width={14} height={40} rx={6} fill="#B3261E" />
+    {/* pasos de rueda y ruedas (diametro real = 0.4 de la altura del auto) */}
+    {[-195, 190].map((x) => (
+      <g key={x}>
+        <circle cx={x} cy={-58} r={72} fill="#10131F" />
+        <circle cx={x} cy={-58} r={60} fill="#1B2440" /><circle cx={x} cy={-58} r={38} fill="#9AA6BA" />
+        {[0, 72, 144, 216, 288].map((a) => <rect key={a} x={x - 4} y={-92} width={8} height={26} rx={4} fill="#C9D0DC" transform={`rotate(${a} ${x} -58)`} />)}
+        <circle cx={x} cy={-58} r={9} fill="#3B4A5E" />
+      </g>
+    ))}
+  </g>
+);
+
 /* ---------- Toma 2b: ruido en la rueda (cuñado agachado escuchando) ---------- */
 export const TomaRueda = ({ Fondo }) => {
   const f = useCurrentFrame();
-  const tiembla = Math.sin(f * 2.1) * 3;
-  const ruido = (i) => ({ x: 520 + i * 120 + Math.sin((f + i * 9) / 5) * 8, y: 960 - ((f * 5 + i * 40) % 150), o: 1 - ((f * 5 + i * 40) % 150) / 150 });
+  const tiembla = Math.sin(f * 2.1) * 2;
   return (
     <>
       <Fondo />
       <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{ position: 'absolute', inset: 0 }}>
-        {/* costado del auto */}
-        <g transform={`translate(${tiembla},0)`}>
-          <path d="M250 890 L330 724 Q346 702 382 702 L760 702 Q802 702 822 744 L905 890 Z" fill="#E5483A" />
-          <path d="M300 890 L362 748 L562 748 L562 890 Z M592 890 L592 748 L770 748 L842 890 Z" fill="#1B2440" />
-          <path d="M120 1190 L120 990 Q130 910 230 890 L1100 890 L1100 1190 Z" fill="#E5483A" />
-          <path d="M577 760 L577 1100" stroke="#C23A2E" strokeWidth={8} />
-          <rect x={540} y={1010} width={72} height={14} rx={7} fill="#C23A2E" />
-          <path d="M120 1100 L1100 1100" stroke="#C23A2E" strokeWidth={26} />
-          <circle cx={650} cy={1250} r={322} fill="#10131F" />
-          <circle cx={650} cy={1250} r={290} fill="#1B2440" /><circle cx={650} cy={1250} r={205} fill="#9AA6BA" />
-          {[0, 72, 144, 216, 288].map((a) => <rect key={a} x={624} y={1058} width={52} height={150} rx={20} fill="#C9D0DC" transform={`rotate(${a} 650 1250)`} />)}
-          <circle cx={650} cy={1250} r={56} fill="#3B4A5E" />
-        </g>
-        <g transform={`translate(${770 + Math.sin(f * 1.3) * 5},1000) rotate(-7)`}>
-          <text textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={96} fill="#fff" stroke="#1B2440" strokeWidth={10} paintOrder="stroke">ñiii…</text>
+        {/* auto completo, de lado */}
+        <g transform={`translate(${520 + tiembla},1340) scale(1.6)`}><AutoLado /></g>
+        {/* ñiii saliendo de la rueda delantera */}
+        <g transform={`translate(${860 + Math.sin(f * 1.3) * 5},1010) rotate(-7)`}>
+          <text textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={92} fill="#fff" stroke="#1B2440" strokeWidth={10} paintOrder="stroke">ñiii…</text>
           {[0, 1, 2].map((k) => <path key={k} d={`M${150 + k * 26} ${-60 + k * -6} q${18 + k * 4} ${28} 0 ${56 + k * 8}`} stroke="#fff" strokeWidth={9} strokeLinecap="round" fill="none" opacity={0.9 - k * 0.2} />)}
         </g>
-        {/* cuñado agachado, oreja junto a la rueda */}
-        <g transform="translate(150,1760) scale(1.2)"><Perfil {...CUN} frame={f} agachado={0.85} inclinacion={22} manoD={[110, -30]} manoT={[-40, 150]} animo="concentrado" /></g>
+        {/* cuñado agachado junto a la rueda delantera, mirando a la derecha, oreja pegada a la llanta */}
+        <g transform="translate(575,1700) scale(1.0)"><Perfil {...CUN} frame={f} agachado={0.85} inclinacion={22} manoD={[92, -158]} manoT={[-40, 150]} animo="concentrado" /></g>
       </svg>
     </>
   );
