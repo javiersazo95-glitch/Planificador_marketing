@@ -1,0 +1,39 @@
+{
+  "id": "20261113-bf2a",
+  "creada": "2026-11-13T19:33:55.655Z",
+  "fecha": "2026-11-13",
+  "tipo": "reel",
+  "titulo": "Reel: Recorriste tiendas... busca por tu patente (35 s, con voz y cierre L2)",
+  "red": "instagram,facebook,tiktok,youtube",
+  "publico": "compradores",
+  "estado": "lista",
+  "archivos": [
+    "contenido/2026-11-13-reel-patente/final/reel_patente_final.mp4"
+  ],
+  "notas": "35 s. Animacion 2D en codigo (estudio/src/reel_patente.jsx), pantalla grabada en dev con patente de prueba ABCD11. Falta voz Fer (estudio/guion_voz_reel_patente.md) y re-grabar en produccion o tapar datos de dev (Temu, precios de prueba). Claim 'unico en Chile' reemplazado por 'el marketplace de repuestos de Chile': confirmar con el equipo. | 13-nov 18:30: PROGRAMADO en Metricool para el domingo 15-nov 12:30 en Instagram (Reel), Facebook (Reel), TikTok y YouTube Shorts. El usuario asume el riesgo: la voz (Fer) y el cierre (El Faraon) son del plan Free de ElevenLabs, sin licencia comercial. Salen con datos de prueba de dev visibles (vendedor 'Temu', precios de prueba, patente ABCD11) y con la frase 'el marketplace de repuestos de Chile' sin aprobacion del equipo. Subido a Metricool como copia comprimida (6,7 MB). Cuando salga: node scripts/tareas.mjs estado 20261113-bf2a publicada.",
+  "resultado": {
+    "medido": "2026-11-13",
+    "vistas": 0,
+    "interacciones": 0,
+    "clics": 0,
+    "notas": ""
+  },
+  "historial": [
+    {
+      "fecha": "2026-11-13",
+      "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-13",
+      "estado": "en_produccion"
+    },
+    {
+      "fecha": "2026-11-13",
+      "estado": "aprobada"
+    },
+    {
+      "fecha": "2026-11-13",
+      "estado": "lista"
+    }
+  ]
+}

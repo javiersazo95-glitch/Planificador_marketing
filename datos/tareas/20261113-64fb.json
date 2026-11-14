@@ -1,0 +1,25 @@
+{
+  "id": "20261113-64fb",
+  "creada": "2026-11-13T13:42:20.079Z",
+  "fecha": "2026-11-13",
+  "tipo": "imagen",
+  "titulo": "Diseno fijo de post: intermedia M2",
+  "red": "instagram,facebook",
+  "publico": "todos",
+  "estado": "aprobada",
+  "archivos": [
+    "contenido/2026-11-13-diseno-intermedia-M2/final/intermedia_M2.png"
+  ],
+  "notas": "Aprobado el 13-nov.",
+  "resultado": null,
+  "historial": [
+    {
+      "fecha": "2026-11-13",
+      "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-13",
+      "estado": "aprobada"
+    }
+  ]
+}

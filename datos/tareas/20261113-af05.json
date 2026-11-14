@@ -1,0 +1,27 @@
+{
+  "id": "20261113-af05",
+  "creada": "2026-11-13T21:38:00.680Z",
+  "fecha": "2026-11-13",
+  "tipo": "reel",
+  "titulo": "Reel R1 'El cuñado mecánico' en animación 2D (borrador v1, con voces)",
+  "red": "",
+  "publico": "",
+  "estado": "en_produccion",
+  "archivos": [],
+  "notas": "34 s: animación 2D (estudio/src/reel_r1.jsx), voces ElevenLabs (cuñado: Cristian Cornejo, dueño: Ignacio chileno, narración: Fer), música Pixabay, cierre L2 compradores. Pantalla real: sección Fallas de dev (los diagnósticos son privados). Pendiente: datos de dev en pantalla (Prueba P5 / prueba 3), aprobar elenco y voces, plan ElevenLabs, cerveza del cuñado, grabación del lado del dueño con 'Ver diagnósticos' si se quiere mostrar precio estimado.",
+  "resultado": null,
+  "historial": [
+    {
+      "fecha": "2026-11-13",
+      "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-14",
+      "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-14",
+      "estado": "en_produccion"
+    }
+  ]
+}

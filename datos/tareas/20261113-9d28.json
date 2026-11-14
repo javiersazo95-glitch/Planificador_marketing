@@ -1,0 +1,25 @@
+{
+  "id": "20261113-9d28",
+  "creada": "2026-11-13T13:42:19.761Z",
+  "fecha": "2026-11-13",
+  "tipo": "reel",
+  "titulo": "Reel R11 'El comercial prohibido' (cierre L2)",
+  "red": "instagram,tiktok,youtube",
+  "publico": "todos",
+  "estado": "aprobada",
+  "archivos": [
+    "contenido/2026-11-13-reel-r11-comercial-prohibido/final/r11_comercial_prohibido_cierreL2.mp4"
+  ],
+  "notas": "Aprobada el 13-nov. Pendiente regenerar voces con ElevenLabs Starter antes de publicar.",
+  "resultado": null,
+  "historial": [
+    {
+      "fecha": "2026-11-13",
+      "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-13",
+      "estado": "aprobada"
+    }
+  ]
+}

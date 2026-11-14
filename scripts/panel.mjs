@@ -17,9 +17,14 @@ const marca = leer('config/marca.json', {});
 const x = leer('datos/panel-extra.json', {});
 const porId = Object.fromEntries(tareas.map(t => [t.id, t]));
 
-// Mascota (solo lectura desde la ruta de la marca)
+// Mascota (solo lectura): primero la ruta de la marca; si no existe en este computador, la copia del repo Market de config/local.json
 let mascota = '';
-try { const p = marca.logos?.mascota_repuestin; if (p && existsSync(p)) mascota = `data:image/webp;base64,${readFileSync(p).toString('base64')}`; } catch {}
+try {
+  const local = leer('config/local.json', {});
+  const candidatas = [marca.logos?.mascota_repuestin, local.repos?.market && join(local.repos.market, 'public', 'repuestin.webp')].filter(Boolean);
+  const p = candidatas.find(r => existsSync(r));
+  if (p) mascota = `data:image/webp;base64,${readFileSync(p).toString('base64')}`;
+} catch {}
 
 const ahora = new Date();
 const fechaLarga = ahora.toLocaleDateString('es-CL', { weekday: 'long', day: 'numeric', month: 'long' });

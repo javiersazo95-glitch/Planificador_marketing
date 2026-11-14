@@ -1,0 +1,26 @@
+{
+  "id": "20261113-05de",
+  "creada": "2026-11-13T13:42:20.234Z",
+  "fecha": "2026-11-13",
+  "tipo": "imagen",
+  "titulo": "Diseno fijo de post: final L2 (post y reel)",
+  "red": "instagram,facebook",
+  "publico": "todos",
+  "estado": "aprobada",
+  "archivos": [
+    "contenido/2026-11-13-diseno-final-L2/final/final_L2_post.png",
+    "contenido/2026-11-13-diseno-final-L2/final/final_L2_reel.png"
+  ],
+  "notas": "Aprobado el 13-nov.",
+  "resultado": null,
+  "historial": [
+    {
+      "fecha": "2026-11-13",
+      "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-13",
+      "estado": "aprobada"
+    }
+  ]
+}

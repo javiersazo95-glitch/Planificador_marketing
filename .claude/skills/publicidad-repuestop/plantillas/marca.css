@@ -1,0 +1,176 @@
+/* Estilos de marca RepuesTop para piezas de redes.
+   Lo usa scripts/pieza.py. Tamaños en px reales de la pieza (post 1080x1350, historia 1080x1920).
+   Línea visual aprobada el 10-nov: blanco arriba, ola azul abajo, íconos de línea blanca sin cuadros de color. */
+:root {
+  --azul: #0F4EC2;
+  --azul2: #3F7AE0;
+  --navy: #1B2440;
+  --gris: #3B4A5E;
+  --ambar: #F8C805;
+  --ambar-claro: #FFD25A;
+  --blanco: #FFFFFF;
+  --pad: 84px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--blanco); }
+body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--navy); -webkit-font-smoothing: antialiased; }
+h1, h2, p { text-wrap: balance; }   /* evita palabras sueltas en la última línea */
+.pieza { width: 1080px; position: relative; overflow: hidden; background: var(--blanco); }
+.post { height: 1350px; }
+.historia { height: 1920px; }
+
+/* Cabecera con la marca */
+.marca { position: absolute; left: var(--pad); display: flex; align-items: center; gap: 18px; }
+.post .marca { top: 70px; }
+.historia .marca { top: 260px; }          /* zona segura superior de historias */
+.marca img { height: 58px; display: block; }
+.wordmark { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 40px; letter-spacing: -0.02em; color: var(--gris); line-height: 1; }
+.wordmark b { color: var(--azul); font-weight: 700; }
+.sobre-azul .wordmark, .sobre-azul .wordmark b { color: var(--blanco); }
+.indice { position: absolute; right: var(--pad); font-size: 26px; font-weight: 700; color: var(--gris); opacity: .7; }
+.post .indice { top: 84px; }
+.historia .indice { top: 274px; }
+
+/* Bloque del dolor (arriba, fondo blanco) */
+.dolor { position: absolute; left: var(--pad); right: var(--pad); }
+.post .dolor { top: 210px; }
+.historia .dolor { top: 430px; }
+.dolor h1 { font-size: 84px; font-weight: 800; line-height: 1.04; letter-spacing: -0.03em; color: var(--navy); }
+.historia .dolor h1 { font-size: 96px; }
+.dolor p { font-size: 36px; font-weight: 600; line-height: 1.3; color: var(--gris); margin-top: 30px; max-width: 860px; }
+.dolor .quien { display: inline-block; font-size: 28px; font-weight: 700; color: var(--azul); margin-bottom: 26px; }
+
+/* Ola azul (abajo) con la solución */
+.ola { position: absolute; left: 0; right: 0; bottom: 0; background: var(--azul); }
+.ola::before { content: ""; position: absolute; left: 0; right: 0; top: -118px; height: 120px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 120' preserveAspectRatio='none'%3E%3Cpath d='M0 70 C 260 10 620 140 1080 34 L1080 120 L0 120Z' fill='%233F7AE0'/%3E%3Cpath d='M0 92 C 280 32 640 160 1080 58 L1080 120 L0 120Z' fill='%230F4EC2'/%3E%3C/svg%3E") no-repeat center / 100% 100%; }
+.post .ola { height: 560px; }
+.historia .ola { height: 900px; }
+.ola-in { position: absolute; left: var(--pad); right: var(--pad); top: 30px; color: var(--blanco); }
+.historia .ola-in { top: 60px; }
+.ola h2 { font-size: 50px; font-weight: 800; line-height: 1.12; letter-spacing: -0.02em; }
+.historia .ola h2 { font-size: 58px; }
+.raya { width: 120px; height: 8px; border-radius: 4px; background: var(--ambar); margin: 26px 0 30px; }
+
+/* Puntos de la solución con íconos de línea blanca */
+.puntos { list-style: none; display: flex; flex-direction: column; gap: 22px; }
+.puntos li { display: flex; align-items: center; gap: 22px; font-size: 32px; font-weight: 700; line-height: 1.2; }
+.historia .puntos { gap: 30px; }
+.historia .puntos li { font-size: 38px; }
+.puntos svg { width: 52px; height: 52px; flex: none; fill: none; stroke: var(--blanco); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.historia .puntos svg { width: 60px; height: 60px; }
+
+/* Pie con oferta y CTA */
+.pie { position: absolute; left: var(--pad); right: var(--pad); display: flex; align-items: center; justify-content: space-between; gap: 24px; color: var(--blanco); }
+.post .pie { bottom: 64px; }
+.historia .pie { bottom: 290px; }        /* zona segura inferior de historias */
+.oferta { font-size: 27px; font-weight: 700; line-height: 1.25; color: var(--ambar-claro); max-width: 520px; }
+.cta { flex: none; background: var(--ambar); color: var(--navy); font-size: 34px; font-weight: 800; padding: 20px 36px; border-radius: 999px; letter-spacing: -0.01em; }
+.historia .cta { font-size: 40px; padding: 24px 44px; }
+
+/* Lámina de texto (carrusel): todo blanco, una idea por lámina */
+.texto .cuerpo { position: absolute; left: var(--pad); right: var(--pad); top: 50%; transform: translateY(-46%); }
+.texto h1 { font-size: 76px; font-weight: 800; line-height: 1.06; letter-spacing: -0.03em; }
+.texto .raya { margin: 34px 0; }
+.texto p { font-size: 38px; font-weight: 600; line-height: 1.35; color: var(--gris); }
+.texto .puntos li { color: var(--navy); }
+.texto p + .puntos { margin-top: 40px; }
+/* Textura de marca (aprobada el 11-nov para reels): patrón tenue de repuestos + ola con línea amarilla.
+   Solo en historias/tarjetas verticales de texto y cierre, y en el fondo de la demo (.fondo). */
+.historia.texto { background: #FFFFFF url("assets/patron_azul.svg") repeat; background-size: 420px; }
+.historia.cierre, .fondo { background:
+  url("assets/patron_blanco.svg") repeat 0 0 / 420px,
+  radial-gradient(circle at 85% 12%, rgba(255,255,255,.13), transparent 34%),
+  radial-gradient(circle at 8% 62%, rgba(255,255,255,.08), transparent 30%),
+  linear-gradient(160deg, #1650C8 0%, #0F4EC2 45%, #0A348C 100%); }
+/* 12-nov: el usuario no quiere la ola con franja amarilla en las tarjetas de texto; queda solo en el fondo de la demo. */
+.historia.cierre::after, .fondo::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 250px;
+  background: url("assets/ola_reel.svg") no-repeat bottom / 100% 100%; }
+.fondo { width: 1080px; height: 1920px; position: relative; overflow: hidden; }
+.historia.texto h1, .historia.cierre h1 { font-size: 104px; }   /* en vertical (historias y tarjetas de reel) el texto va más grande */
+.historia.texto p, .historia.cierre p { font-size: 46px; }
+.historia.cierre .oferta { font-size: 40px; }
+.historia.cierre .cta { font-size: 48px; padding: 28px 52px; }
+.texto .puntos svg { stroke: var(--azul); }
+
+/* Lámina de cierre: fondo azul completo */
+.cierre { background: var(--azul); color: var(--blanco); }
+.cierre .indice { color: var(--blanco); }
+.cierre .cuerpo { position: absolute; left: var(--pad); right: var(--pad); top: 50%; transform: translateY(-50%); }
+.cierre h1 { font-size: 80px; font-weight: 800; line-height: 1.06; letter-spacing: -0.03em; }
+.cierre p { font-size: 36px; font-weight: 600; line-height: 1.35; margin-top: 10px; }
+.cierre .cta { display: inline-block; margin-top: 46px; }
+.cierre .oferta { margin-top: 30px; max-width: none; }
+.cierre .eslogan { position: absolute; left: var(--pad); font-size: 30px; font-weight: 700; color: var(--ambar-claro); }
+.post.cierre .eslogan { bottom: 70px; }
+.historia.cierre .eslogan { bottom: 290px; }
+
+/* Aviso de recreación (obligatorio si la escena es actuada) */
+.aviso { position: absolute; right: var(--pad); font-size: 22px; font-weight: 600; color: var(--gris); opacity: .8; }
+.post .aviso { top: 150px; }
+.historia .aviso { top: 340px; }
+
+/* Cierre claro (aprobado 12-nov, opción C): blanco con textura, sin ola; el amarillo solo en la etiqueta. */
+.cierre-claro { background: #FFFFFF url("assets/patron_azul.svg") repeat; background-size: 420px; color: var(--navy); }
+.cierre-claro .arriba { position: absolute; left: 80px; right: 80px; top: 140px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 44px; }
+.cierre-claro .marca { position: static; display: flex; align-items: center; gap: 18px; }
+.cierre-claro .marca img { height: 64px; }
+.cierre-claro .marca .wordmark { font-size: 52px; }
+.cierre-claro h1 { font-size: 104px; font-weight: 800; line-height: 1.02; letter-spacing: -0.03em; }
+.cierre-claro .etiqueta { background: var(--ambar); color: var(--navy); font-weight: 800; font-size: 44px; padding: 16px 34px; border-radius: 18px; }
+.cierre-claro .cta { background: var(--azul); color: var(--blanco); font-size: 64px; padding: 34px 70px; }
+.cierre-claro.con-celu h1 { font-size: 96px; }
+.cierre-claro .celu { position: absolute; left: 160px; right: 160px; bottom: 0; top: 920px; overflow: hidden; border: 14px solid var(--navy); border-bottom: 0; border-radius: 60px 60px 0 0; box-shadow: 0 -10px 60px rgba(27,36,64,.18); }
+.cierre-claro .celu img { width: 100%; display: block; }
+.cierre-claro .lema { font-size: 40px; font-weight: 800; color: var(--azul); margin-top: -14px; }
+.cierre-claro .eslogan { position: absolute; left: 0; right: 0; bottom: 150px; text-align: center; font-size: 38px; font-weight: 700; color: var(--azul); }
+.post.cierre-claro .arriba { top: 110px; gap: 34px; }
+.post.cierre-claro .celu { top: 760px; }
+
+/* Serie «Diccionario del repuestero» (R10, 12-nov): blanco con textura, sin ola. */
+.diccionario { background: #FFFFFF url("assets/patron_azul.svg") repeat; background-size: 420px; color: var(--navy); }
+.dic-serie { position: absolute; left: var(--pad); top: 380px; font-size: 34px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--azul); }
+.dic-cuerpo { position: absolute; left: var(--pad); right: var(--pad); top: 880px; }
+.diccionario h1 { font-size: 150px; font-weight: 800; line-height: 1; letter-spacing: -0.04em; }
+.diccionario h1 em { font-size: 56px; font-weight: 600; font-style: italic; color: var(--azul); letter-spacing: 0; vertical-align: middle; }
+.diccionario .raya { margin: 40px 0 44px; }
+.dic-def { font-size: 60px; font-weight: 600; line-height: 1.25; }
+.dic-ver { margin-top: 44px; font-size: 42px; font-style: italic; font-weight: 500; color: #5B6480; }
+.dic-burbuja { position: absolute; left: var(--pad); top: 520px; background: #EEF1F6; border-radius: 34px 34px 34px 8px; padding: 30px 40px 22px; font-size: 56px; font-weight: 600; display: flex; align-items: flex-end; gap: 22px; box-shadow: 0 10px 30px rgba(27,36,64,.10); }
+.dic-burbuja small { font-size: 28px; font-weight: 600; color: #7A8299; }
+.dic-portada { position: absolute; left: var(--pad); right: var(--pad); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 40px; }
+.dic-portada svg { width: 200px; height: 200px; fill: none; stroke: var(--azul); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.dic-portada h1 { font-size: 120px; line-height: 1.02; }
+.dic-cap { background: var(--ambar); color: var(--navy); font-weight: 800; font-size: 48px; padding: 14px 36px; border-radius: 18px; }
+
+/* Chat simulado genérico (R7, 12-nov): sin colores ni íconos de apps reales. */
+.chat { background: #E9EEF5; color: var(--navy); }
+.ch-head { position: absolute; left: 0; right: 0; top: 0; height: 250px; padding: 110px 50px 0; background: #FFFFFF; display: flex; align-items: center; gap: 26px; box-shadow: 0 2px 12px rgba(27,36,64,.08); }
+.ch-back { font-size: 90px; line-height: 1; color: var(--azul); margin-top: -12px; }
+.ch-avatar { width: 96px; height: 96px; border-radius: 50%; background: #C9D1DE url("assets/logo_icono.svg") no-repeat center / 0; }
+.ch-head b { display: block; font-size: 46px; font-weight: 800; }
+.ch-head small { display: block; font-size: 32px; color: #5B6480; }
+.ch-lista { position: absolute; left: 50px; right: 50px; top: 760px; display: flex; flex-direction: column; gap: 30px; }
+.ch-msg { max-width: 800px; padding: 30px 38px 20px; border-radius: 38px; font-size: 50px; font-weight: 500; line-height: 1.25; box-shadow: 0 4px 14px rgba(27,36,64,.08); display: flex; flex-direction: column; gap: 8px; }
+.ch-msg.otro { align-self: flex-start; background: #FFFFFF; border-bottom-left-radius: 10px; }
+.ch-msg.yo { align-self: flex-end; background: #D6E5FF; border-bottom-right-radius: 10px; }
+.ch-msg small { align-self: flex-end; font-size: 28px; color: #7A8299; font-weight: 600; }
+.ch-vistos { color: var(--azul); font-weight: 800; }
+.ch-comp { display: grid; grid-template-columns: 70px 1fr; column-gap: 20px; align-items: center; background: #FFFFFF; border-radius: 24px; padding: 26px 30px; min-width: 560px; }
+.ch-comp svg { grid-row: span 3; width: 70px; height: 70px; fill: none; stroke: #1F9D55; stroke-width: 1.8; }
+.ch-comp span { font-size: 36px; font-weight: 700; color: #1F9D55; }
+.ch-comp strong { font-size: 64px; font-weight: 800; }
+.ch-comp em { font-size: 30px; font-style: normal; color: #7A8299; }
+.ch-sis { align-self: center; background: #FFF4C2; color: #6B5300; font-size: 38px; font-weight: 700; padding: 18px 36px; border-radius: 22px; margin-top: 10px; }
+.ch-tp { position: absolute; left: 50px; right: 50px; top: 360px; text-align: center; }
+.ch-tp { font-size: 96px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; color: var(--navy); }
+
+/* Fondos de la demo sin ola (12-nov): claro = como las tarjetas; navy = azul marino con textura sutil. */
+.fondo-claro, .fondo-navy { width: 1080px; height: 1920px; }
+.fondo-claro { background: #FFFFFF url("assets/patron_azul.svg") repeat; background-size: 420px; }
+.fondo-navy { background: url("assets/patron_blanco.svg") repeat 0 0 / 420px, linear-gradient(170deg, #22305A 0%, #1B2440 55%, #121a33 100%); }
+.fondo-azul-sin-ola, .fondo-pizarra, .fondo-celeste, .fondo-acero { width: 1080px; height: 1920px; }
+.fondo-azul-sin-ola { background: url("assets/patron_blanco.svg") repeat 0 0 / 420px, linear-gradient(160deg,#1650C8 0%,#0F4EC2 45%,#0A348C 100%); }
+.fondo-pizarra { background: url("assets/patron_blanco.svg") repeat 0 0 / 420px, linear-gradient(165deg,#3563B5 0%,#2A4F96 55%,#223F7A 100%); }
+.fondo-celeste { background: url("assets/patron_azul.svg") repeat 0 0 / 420px, linear-gradient(170deg,#EAF1FF 0%,#D6E4FF 100%); }
+.fondo-acero { background: url("assets/patron_blanco.svg") repeat 0 0 / 420px, linear-gradient(165deg,#4A5F86 0%,#3A4D70 60%,#2F405E 100%); }

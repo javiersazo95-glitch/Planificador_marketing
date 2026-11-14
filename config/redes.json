@@ -6,23 +6,25 @@
       "existe": true,
       "handle": "repuestop_oficial",
       "url": "https://www.instagram.com/repuestop_oficial/",
-      "conectada": false
+      "conectada": true,
+      "nota": "Cuenta profesional conectada a Metricool el 13-nov-2026."
     },
     "facebook": {
       "existe": true,
       "url": "https://www.facebook.com/people/RepuesTop/61592575473272/",
-      "conectada": false
+      "conectada": true
     },
     "tiktok": {
       "existe": true,
-      "handle": "pendiente",
-      "conectada": false
+      "handle": "repuestop_oficial",
+      "conectada": true,
+      "url": "https://www.tiktok.com/@repuestop_oficial"
     },
     "youtube": {
       "existe": true,
       "handle": "pendiente",
       "nota": "El video tutorial actual esta en YouTube (id QGvfVGSFOAA)",
-      "conectada": false
+      "conectada": true
     },
     "google_ads": {
       "existe": false

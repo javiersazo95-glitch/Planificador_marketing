@@ -24,6 +24,24 @@ Mensajes al equipo: simples, sin jerga. Pocas opciones, una recomendada.
    si no, dejar la carpeta lista en `contenido/AAAA-MM-DD-tema/` con instrucciones para que el equipo suba.
 8. **Registrar** en `datos/tareas.json` con `node scripts/tareas.mjs` y medir a los 3 y 7 días.
 
+## Herramientas de producción (decisión 13-nov: son las oficiales)
+Todas en `.claude/skills/publicidad-repuestop/scripts/` (Python + ffmpeg + Chrome o Edge; Pillow, numpy, scipy, OpenCV).
+- `pieza.py`, `reel.py`, `sfx.py`, `demo_celular.py`: piezas, reels, sonidos y demo de celular (vienen del audit-kit).
+- `diseno/portadas.py` (portada A), `diseno/intermedias.py` (M2), `diseno/finales.py` (final L2 post y reel),
+  `diseno/anim_final.py` (cierre L2 animado), `diseno/sonido_real.py` (motor + voz «El Faraon»),
+  `diseno/cierre_reels.py` (pega el cierre a cada reel). Rutas comunes en `diseno/rutas.py`
+  (variables `REPUESTOP_NAVEGADOR` y `REPUESTOP_EDICION` si hay que cambiarlas).
+- `plantillas/` trae logos, fondos y sonidos. Los créditos de sonido (BigSoundBank CC0, Mixkit) están en `creditos_sonido.md`
+  (copia en Drive: `contenido/2026-11-13-cierre-animado-L2/final/`).
+- Ejecutar con `python -I <script>`. Las salidas caen junto al script: moverlas a `<Drive>/contenido/AAAA-MM-DD-tema/final/`.
+- Respaldo: la skill original del audit-kit (`C:/ProyectoRepuestop/audit-kit/skills/publicidad-repuestop`) queda intacta;
+  solo se usa si algo de aquí falla. No mantener dos versiones con reglas distintas: las reglas válidas son las de este repo.
+  - TikTok con fotos: poner `"alto": 1920` en la ficha del carrusel (9:16, con más aire arriba y abajo por la interfaz de TikTok). Metricool lo programa como carrusel de imágenes con título.
+- `diseno/historias.py`: historias de Instagram 1080×1920 con la mascota Repuestín (`python -I historias.py encuesta <carpeta>`). Deja libre el espacio para los stickers nativos (pregunta, enlace), que pone el equipo al subir. Zonas seguras: 250 px arriba y 340 abajo. La mascota se lee (solo lectura) del repo Market según `config/local.json`.
+- `diseno/carrusel.py` + `diseno/carruseles/*.json`: carruseles de 6 láminas 1080×1350 (portada A, 4 intermedias M2, final L2) desde una ficha de textos. Uso: `python -I carrusel.py carruseles/c1_patente.json <carpeta>`. Línea final según el público (compradores: «Pago seguro con Flow»; talleres: «Registrarte es gratis»).
+- `censura/censurar_pantalla.py`: tapa patente, chasis, direcciones y nombres de tiendas en grabaciones de pantalla del equipo (guía en `censura/LEEME.md`). **Todo video grabado con datos reales se censura y se revisa a ojo antes de usarlo.**
+- Remotion (`estudio/`) queda como opción para escenas simples; ya usa la paleta nueva.
+
 ## Material que entrega el equipo
 Revisar `recursos/entrantes/`: describir lo que llegó (qué se ve, qué se escucha), proponer cómo usarlo
 (recorte, fondo, audio como voz en off, subtítulos) y editarlo. Si falta algo, pedirlo con un ejemplo concreto y
@@ -33,6 +51,23 @@ sugerir de dónde sacarlo (grabación de pantalla, fotos de tienda, reseñas rea
 - Mostrar el producto real (capturas reales, pantalla del celular); nada de pantallas inventadas.
 - Cero cifras de tiendas o usuarios sin aprobación; cero descuentos o plazos de despacho no confirmados.
 - Fundador: confirmar vigencia (1 mes desde el 11-nov; 2 meses para quien postuló hasta el 10-nov) antes de usarlo.
+- **Compradores:** nunca hablar de retención del pago ni de cuándo cobra la tienda; solo «Pago seguro con Flow». Sin «Webpay».
+- **Repuestín** nunca muestra cuántas casas de repuestos hay; sí puede decir «Le escribí a N casas».
+- **Cierre de todo reel = cierre L2 animado:** logo grande, «Movemos Chile juntos» con franja amarilla, botón repuestop.cl y una línea según el público (tiendas: «1 mes gratis para tiendas nuevas»; compradores: «Pago seguro con Flow»). Con sonido real de motor y la voz «El Faraon»: «Repuestop, movemos Chile juntos». Ya no se usa cierre con mascota ni «Descarga gratis».
+- **Posts fijos:** portada A, intermedia M2, final L2.
+- **Paleta de redes:** azul #0F4EC2, azul noche #1B2440, gris #3B4A5E, amarillo #F8C805, blanco; Plus Jakarta Sans y Montserrat 700 en el wordmark (la web usa #0056BF + Outfit, no va en redes).
+- Voces: regenerar con ElevenLabs Starter antes de publicar (las aprobadas el 13-nov son de plan Free).
+- **Voces de ElevenLabs (nombre exacto en la cuenta; decisión del equipo, 13-nov):**
+  - **Fer – Chilean, Laid-back & Natural:** la mejor y la que se usa más (voz chilena, relajada y natural). Es la voz por defecto de los reels nuevos. Escribir «Repuestop» (no «RepuesTop») en el texto para la voz.
+  - Gerardo – Cool Latin American voice: narrador cercano y latino (T-1 «Cotizaciones» y R10 «Precio»).
+  - Zabra – Energetic and Engaging Announcer: locutor de comercial con energía (R11).
+  - El Faraon – Full, Clear, Mellow: solo para el lema del cierre L2, «Repuestop, movemos Chile juntos».
+  - **Nunca programar ni publicar una pieza con voces del plan Free** (sin licencia comercial). Antes de `/publicar`, confirmar que la cuenta de ElevenLabs tiene Starter o superior. El 13-nov R7 y T-1 salieron con voz Free por error: están pendientes de reemplazo.
+- **Grabaciones de pantalla del celular (regla del equipo, 13-nov):**
+  - Nunca mostrar la barra superior del celular (notificaciones, reloj, íconos de otras apps), salvo notificaciones de RepuesTop. En `demo_celular.py`: `"quitar_franjas": [[0, 92]]` y `"pantalla": [1080, 2248]` en grabaciones de 1080×2340.
+  - En el chat, el movimiento siempre va hacia abajo: nunca usar tramos donde el chat sube. Elegir tramos sin teclado ni saltos.
+  - No acelerar el chat ni meter todo: mostrar solo lo más relevante, a ritmo normal y con una pausa final para leer (cuadro congelado). Es mejor un reel más corto que uno apurado.
+  - Subtítulos fuera de los botones de la app: celular más chico (`"alto": 1250, "sy": 250`).
 - Marca en trámite: "RepuesTop" sin ®. Música con licencia libre o de la biblioteca de cada red.
 - Personas reales (mecánicos, clientes): pedir permiso por escrito antes de mostrar rostro o nombre.
 - Repuestín es la mascota: voz amable, ayuda sin presionar; nunca promete lo que la plataforma no hace.
