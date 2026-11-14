@@ -46,20 +46,21 @@ export const TomaCapo = ({ Fondo }) => {
   const f = useCurrentFrame();
   const burbuja = spring({ frame: f - 12, fps: FPS, config: { damping: 11, stiffness: 140 } });
   const mete = spring({ frame: f - 4, fps: FPS, config: { damping: 14, stiffness: 90 } });
-  const inc = lerp(8, 42, mete);
-  const mano = [lerp(70, 62, mete), lerp(120, -92, mete)];
+  const inc = lerp(8, 30, mete);
+  const mano = [lerp(70, 66, mete), lerp(120, 63, mete)];
   const sacude = Math.sin(f / 2.6) * 3 * mete;
   return (
     <>
       <Fondo />
       <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{ position: 'absolute', inset: 0 }}>
-        <g transform="translate(340,1440) scale(1.35)"><AutoAbierto /></g>
+        <g transform="translate(520,1330) scale(1.0)"><AutoAbierto /></g>
+        <g transform="translate(655,1385)"><rect x={-60} y={-34} width={120} height={50} rx={8} fill="#B4492F" /><rect x={-60} y={-34} width={120} height={14} rx={6} fill="#8E3722" /><rect x={-14} y={-46} width={28} height={16} rx={6} fill="#10131F" /></g>
         {/* dueño mirando con los brazos cruzados */}
-        <g transform="translate(135,1720) scale(1.1)"><Humano {...DUE} mochila={false} boletas={false} brazosCruzados animo="cansado" frame={f} /></g>
+        <g transform="translate(190,1440) scale(0.9)"><Humano {...DUE} mochila={false} boletas={false} brazosCruzados animo="cansado" frame={f} /></g>
         {/* cuñado de perfil mirando a la izquierda, inclinado sobre el motor */}
-        <g transform="translate(940,1650) scale(-1.2,1.2)"><Perfil {...CUN} frame={f} inclinacion={inc} manoD={[mano[0] + sacude, mano[1]]} animo="concentrado" manoT={[-40, 160]} /></g>
+        <g transform="translate(930,1400) scale(-0.95,0.95)"><Perfil {...CUN} frame={f} inclinacion={inc} manoD={[mano[0] + sacude, mano[1]]} animo="concentrado" manoT={[-40, 160]} /></g>
         {/* lupa sobre el alternador */}
-        <g transform={`translate(270,800) scale(${0.55 + burbuja * 0.3})`} opacity={burbuja}>
+        <g transform={`translate(300,710) scale(${0.5 + burbuja * 0.3})`} opacity={burbuja}>
           <circle r={200} fill="#fff" stroke={C.marino} strokeWidth={10} />
           <rect x={-150} y={-90} width={300} height={190} rx={18} fill="#2A3140" />
           <rect x={-120} y={-60} width={170} height={110} rx={10} fill="#4A5568" />{[-100, -62, -24, 14].map((x) => <rect key={x} x={x} y={-76} width={26} height={30} rx={5} fill="#7B8798" />)}
@@ -67,7 +68,7 @@ export const TomaCapo = ({ Fondo }) => {
           <g transform="translate(95,10)"><circle r={54} fill="#F8C805" /><circle r={40} fill="#E5483A" />{[0, 60, 120, 180, 240, 300].map((a) => <circle key={a} cx={Math.cos(a * Math.PI / 180) * 26} cy={Math.sin(a * Math.PI / 180) * 26} r={5} fill="#fff" />)}<circle r={9} fill="#fff" /></g>
           <g transform="translate(40,150)"><rect x={-140} y={-34} width={280} height={64} rx={20} fill={C.amarillo} /><text x={0} y={12} textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={40} fill={C.marino}>¿el alternador?</text></g>
         </g>
-        <path d="M390 930 Q540 1000 690 1100" stroke={C.marino} strokeWidth={6} strokeDasharray="14 12" fill="none" opacity={burbuja} />
+        <path d="M420 800 Q600 900 760 1040" stroke={C.marino} strokeWidth={6} strokeDasharray="14 12" fill="none" opacity={burbuja} />
       </svg>
     </>
   );
