@@ -1,14 +1,15 @@
 // ESCENA DE PRUEBA «Nico y Repuestín» (historia 2 de Nico Primer Cambio, elenco R3).
 // Personajes: recortes de las láminas generadas con ChatGPT (entregas/imagen gpt). Sin cierre L2: se pega después con ffmpeg.
 import React from 'react';
-import { AbsoluteFill, Sequence, OffthreadVideo, Img, staticFile, useCurrentFrame, interpolate, spring } from 'remotion';
+import { AbsoluteFill, Sequence, OffthreadVideo, Audio, Img, staticFile, useCurrentFrame, interpolate, spring } from 'remotion';
 import { C, FUENTE, lerp, clamp01, Subtitulo } from './prueba_patente.jsx';
 
 const FPS = 30;
 const S = (x) => Math.round(x * FPS);
-const CUERPO = S(14.6);
+const CUERPO = S(24.2);
 export const NICO_FRAMES = CUERPO + S(5.6);
-const T = { a: 0, b: 4.2, c: 10.4 };
+const T = { a: 0, b: 5.6, c: 13.8 };
+const VOZ = [['n1', 0.3], ['n2', 5.9], ['n3', 14.0]]; // narración (voz provisional de Windows; reemplazar por Fer de ElevenLabs con el mismo nombre)
 
 const img = (n) => staticFile(`gpt/${n}.png`);
 const BG = '#E6EFFD';
@@ -105,7 +106,7 @@ const EscC = () => {
   return (
     <AbsoluteFill>
       <Pill texto="Tú esperas tranquilo" />
-      <div style={{ position: 'absolute', left: 80, top: 390, width: 640, height: 1010, transform: `translateY(${(1 - e) * 140}px) scale(${lerp(0.9, 1, e)})`, opacity: clamp01(e * 1.5), mixBlendMode: 'multiply', WebkitMaskImage: 'linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 5%, #000 97%, transparent 100%)', WebkitMaskComposite: 'source-in', maskComposite: 'intersect' }}>
+      <div style={{ position: 'absolute', left: 80, top: 390, width: 640, height: 1010, transform: `translateY(${(1 - e) * 140 + Math.sin(f / 14) * 8}px) scale(${lerp(0.9, 1, e)})`, opacity: clamp01(e * 1.5), mixBlendMode: 'multiply', WebkitMaskImage: 'linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 5%, #000 97%, transparent 100%)', WebkitMaskComposite: 'source-in', maskComposite: 'intersect' }}>
         <Img src={img('nico_cuerpo')} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
       </div>
       <div style={{ position: 'absolute', left: 540, top: 430, transform: `scale(${ck}) rotate(${(1 - ck) * 12}deg)`, transformOrigin: 'left bottom' }}>
@@ -127,6 +128,7 @@ export const EscenaNico = () => (
     <Sequence from={S(T.b)} durationInFrames={S(T.c - T.b)}><EscB /></Sequence>
     <Sequence from={S(T.c)} durationInFrames={CUERPO - S(T.c)}><EscC /></Sequence>
     <Sequence from={0} durationInFrames={CUERPO}><Recreacion /></Sequence>
+    {VOZ.map(([n, t]) => <Sequence key={n} from={S(t)}><Audio src={staticFile(`voz_nico/${n}.wav`)} /></Sequence>)}
     <Sequence from={CUERPO} durationInFrames={S(5.6)}><OffthreadVideo src={staticFile('cierre_L2.mp4')} style={{ width: 1080, height: 1920 }} /></Sequence>
   </AbsoluteFill>
 );

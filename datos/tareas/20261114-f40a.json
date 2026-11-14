@@ -9,7 +9,13 @@
   "estado": "propuesta",
   "archivos": [],
   "notas": "Prueba con personajes R3 generados en ChatGPT. Falta aprobacion. Gorra de Repuestin sale borrosa.",
-  "resultado": null,
+  "resultado": {
+    "medido": "2026-11-14",
+    "vistas": 0,
+    "interacciones": 0,
+    "clics": 0,
+    "notas": "v2 con narracion provisional (voz Windows)"
+  },
   "historial": [
     {
       "fecha": "2026-11-14",
