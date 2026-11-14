@@ -151,13 +151,21 @@ export const TomaRueda = ({ Fondo }) => {
       <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{ position: 'absolute', inset: 0 }}>
         {/* costado del auto */}
         <g transform={`translate(${tiembla},0)`}>
-          <path d="M120 1180 L120 940 Q160 880 300 860 L1100 860 L1100 1180 Z" fill="#E5483A" />
-          <path d="M120 1070 L1100 1070" stroke="#C23A2E" strokeWidth={26} />
+          <path d="M250 890 L330 724 Q346 702 382 702 L760 702 Q802 702 822 744 L905 890 Z" fill="#E5483A" />
+          <path d="M300 890 L362 748 L562 748 L562 890 Z M592 890 L592 748 L770 748 L842 890 Z" fill="#1B2440" />
+          <path d="M120 1190 L120 990 Q130 910 230 890 L1100 890 L1100 1190 Z" fill="#E5483A" />
+          <path d="M577 760 L577 1100" stroke="#C23A2E" strokeWidth={8} />
+          <rect x={540} y={1010} width={72} height={14} rx={7} fill="#C23A2E" />
+          <path d="M120 1100 L1100 1100" stroke="#C23A2E" strokeWidth={26} />
+          <circle cx={650} cy={1250} r={322} fill="#10131F" />
           <circle cx={650} cy={1250} r={290} fill="#1B2440" /><circle cx={650} cy={1250} r={205} fill="#9AA6BA" />
           {[0, 72, 144, 216, 288].map((a) => <rect key={a} x={624} y={1058} width={52} height={150} rx={20} fill="#C9D0DC" transform={`rotate(${a} 650 1250)`} />)}
           <circle cx={650} cy={1250} r={56} fill="#3B4A5E" />
         </g>
-        {[0, 1, 2].map((i) => { const r = ruido(i); return <text key={i} x={r.x} y={r.y} opacity={r.o} fontFamily={FUENTE} fontWeight={800} fontSize={74} fill="#E5483A">ñiii…</text>; })}
+        <g transform={`translate(${770 + Math.sin(f * 1.3) * 5},1000) rotate(-7)`}>
+          <text textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={96} fill="#fff" stroke="#1B2440" strokeWidth={10} paintOrder="stroke">ñiii…</text>
+          {[0, 1, 2].map((k) => <path key={k} d={`M${150 + k * 26} ${-60 + k * -6} q${18 + k * 4} ${28} 0 ${56 + k * 8}`} stroke="#fff" strokeWidth={9} strokeLinecap="round" fill="none" opacity={0.9 - k * 0.2} />)}
+        </g>
         {/* cuñado agachado, oreja junto a la rueda */}
         <g transform="translate(150,1760) scale(1.2)"><Perfil {...CUN} frame={f} agachado={0.85} inclinacion={22} manoD={[110, -30]} manoT={[-40, 150]} animo="concentrado" /></g>
       </svg>
