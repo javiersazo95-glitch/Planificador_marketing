@@ -5,6 +5,7 @@ import { useCurrentFrame, spring } from 'remotion';
 import { C, FUENTE, lerp } from './prueba_patente.jsx';
 import { Humano } from './personajes.jsx';
 import { Perfil } from './perfil.jsx';
+import { Perfil2 } from './perfil2.jsx';
 import { ELENCO } from './elenco_r1.jsx';
 
 const CUN = ELENCO.cunado.props, DUE = ELENCO.dueno.props;
@@ -215,7 +216,7 @@ export const TomaRueda = ({ Fondo }) => {
           {[0, 1, 2].map((k) => <path key={k} d={`M${150 + k * 26} ${-60 + k * -6} q${18 + k * 4} ${28} 0 ${56 + k * 8}`} stroke="#fff" strokeWidth={9} strokeLinecap="round" fill="none" opacity={0.9 - k * 0.2} />)}
         </g>
         {/* cuñado agachado junto a la rueda delantera, mirando a la derecha, oreja pegada a la llanta */}
-        <g transform="translate(575,1700) scale(1.0)"><Perfil {...CUN} frame={f} agachado={0.85} inclinacion={22} manoD={[92, -158]} manoT={[-40, 150]} animo="concentrado" /></g>
+        <g transform="translate(565,1490) scale(1.05)"><Perfil2 {...CUN} ancho={1} frame={f} agachado={0.9} inclinacion={22} manoCerca={[160, -300]} manoLejos={[-40, -120]} animo="concentrado" /></g>
       </svg>
     </>
   );
