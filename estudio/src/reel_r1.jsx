@@ -107,13 +107,25 @@ const S3 = () => {
   const f = useCurrentFrame();
   const sube = spring({ frame: f, fps: FPS, config: { damping: 15, stiffness: 110 } });
   const cartel = spring({ frame: f - 10, fps: FPS, config: { damping: 11, stiffness: 150 } });
+  const caja = spring({ frame: f - 6, fps: FPS, config: { damping: 12, stiffness: 120 } });
+  const suspira = Math.sin(f / 14) * 4;
   return (
     <AbsoluteFill>
-      <Garage blur={14} />
-      <AbsoluteFill style={{ background: 'rgba(27,36,64,0.35)' }} />
+      <Garage blur={5} />
+      <AbsoluteFill style={{ background: 'rgba(27,36,64,0.22)' }} />
       <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{ position: 'absolute', inset: 0 }}>
-        <g transform={`translate(540,${1880 + (1 - sube) * 300}) scale(1.9)`}><Humano {...DUE} mochila boletas={false} animo="cansado" frame={f} /></g>
-        <g transform={`translate(540,${480 - (1 - cartel) * 300})`} opacity={cartel}>
+        {/* el auto del drama, al fondo */}
+        <g transform="translate(790,1250) scale(0.95)" opacity={0.95}><Auto capo={false} /></g>
+        {/* dueño, de cuerpo completo */}
+        <g transform={`translate(320,${1430 + (1 - sube) * 300}) scale(1.22)`}><Humano {...DUE} mochila boletas animo="cansado" frame={f} /></g>
+        {/* caja con los tres alternadores usados */}
+        <g transform={`translate(800,${1440 + (1 - caja) * 200})`}>
+          <ellipse cx={0} cy={4} rx={190} ry={20} fill="#000" opacity={0.2} />
+          <rect x={-150} y={-150} width={300} height={150} rx={10} fill="#C79A62" /><rect x={-150} y={-150} width={300} height={34} rx={10} fill="#B5854F" />
+          <rect x={-60} y={-100} width={120} height={50} rx={6} fill="#fff" opacity={0.9} /><text x={0} y={-66} textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={24} fill={C.marino}>ALTERNADOR</text>
+          {[[-82, -168, 0.5], [0, -190, 0.8], [82, -168, 1.1]].map(([x, y, t], k) => (<g key={k} transform={`translate(${x},${y}) scale(1.35)`}><Alternador n={0} f0={S(t)} /></g>))}
+        </g>
+        <g transform={`translate(540,${470 - (1 - cartel) * 300})`} opacity={cartel}>
           <rect x={-70} y={-230} width={10} height={90} fill={C.gris} /><rect x={60} y={-230} width={10} height={90} fill={C.gris} />
           <rect x={-440} y={-150} width={880} height={330} rx={40} fill="#fff" stroke={C.azul} strokeWidth={12} />
           <text x={0} y={-60} textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={54} fill={C.marino}>Costo hasta ahora:</text>
