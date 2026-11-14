@@ -5,6 +5,7 @@ import { AbsoluteFill, Sequence, OffthreadVideo, Img, staticFile, useCurrentFram
 import { C, FUENTE, lerp, clamp01, Subtitulo } from './prueba_patente.jsx';
 import { Humano } from './personajes.jsx';
 import { ELENCO } from './elenco_r1.jsx';
+import { TomaCapo, TomaRadio, TomaRueda, TomaBencina } from './tomas_r1.jsx';
 
 const FPS = 30;
 const S = (x) => Math.round(x * FPS);
@@ -73,96 +74,19 @@ const Auto = ({ capo = true }) => (
   </g>
 );
 
-/* ---------- Escena 1: capo abierto ---------- */
-const S1 = () => {
-  const f = useCurrentFrame();
-  const burbuja = spring({ frame: f - 14, fps: FPS, config: { damping: 11, stiffness: 140 } });
-  return (
-    <AbsoluteFill>
-      <Garage />
-      <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{ position: 'absolute', inset: 0 }}>
-        <g transform="translate(700,1500) scale(1.3)"><Auto capo /></g>
-        <g transform={`translate(330,900) scale(${0.8 + burbuja * 0.35})`} opacity={burbuja}>
-          <circle cx={0} cy={0} r={190} fill="#fff" stroke={C.marino} strokeWidth={10} />
-          <g transform="scale(0.95)"><Motor /></g>
-          <g transform="translate(110,150)"><rect x={-130} y={-34} width={260} height={64} rx={20} fill={C.amarillo} /><text x={0} y={12} textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={40} fill={C.marino}>¿alternador?</text></g>
-        </g>
-        <g transform="translate(250,1760) scale(1.3)"><Humano {...CUN} animo="canchero" frame={f} /></g>
-      </svg>
-      <Pill texto={<>TODOS TENEMOS UN CUÑADO QUE <span style={{ color: C.amarillo }}>«SABE DE AUTOS»</span></>} top={300} desde={4} />
-      <Recreacion />
-      <Subtitulo palabras={[['Eso', 0], ['es', 0], ['el', 0], ['alternador,', 1], ['po.', 0]]} desde={S(0.7)} />
-    </AbsoluteFill>
-  );
-};
-
-/* ---------- Escenas 2: interior (radio / bencina) ---------- */
-const Interior = ({ foco }) => {
-  const f = useCurrentFrame();
-  const parpadeo = Math.floor(f / 6) % 2 === 0;
-  const tiembla = foco === 'radio' ? Math.sin(f * 1.7) * 2 : 0;
-  return (
-    <AbsoluteFill>
-      <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{ position: 'absolute', inset: 0 }}>
-        <defs><linearGradient id="parab" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#8EC8FF" /><stop offset="1" stopColor="#DCEEFF" /></linearGradient></defs>
-        <rect width={1080} height={1000} fill="url(#parab)" />
-        <rect x={0} y={860} width={1080} height={160} fill="#5A6577" />
-        <rect x={0} y={880} width={1080} height={10} fill="#fff" opacity={0.4} />
-        {/* personajes */}
-        <g transform="translate(250,1480) scale(1.38)"><Humano {...DUE} mochila={false} boletas={false} animo={foco === 'radio' ? 'cansado' : 'triste'} frame={f} /></g>
-        <g transform="translate(830,1480) scale(1.38)"><Humano {...CUN} cerveza={false} guaipe={false} animo="canchero" frame={f} /></g>
-        {/* tablero */}
-        <path d="M0 1010 Q540 940 1080 1010 L1080 1920 L0 1920 Z" fill="#232A3A" />
-        <path d="M0 1010 Q540 940 1080 1010 L1080 1040 Q540 972 0 1040 Z" fill="#3A4458" />
-        {/* volante */}
-        <g transform="translate(250,1260)"><circle r={175} fill="none" stroke="#10131F" strokeWidth={34} /><circle r={52} fill="#10131F" /><path d="M-170 0 H-52 M170 0 H52 M0 52 V170" stroke="#10131F" strokeWidth={26} /></g>
-        {/* reloj de bencina */}
-        <g transform="translate(250,1090)"><rect x={-110} y={-48} width={220} height={96} rx={24} fill="#10131F" />
-          <path d="M-70 18 A70 70 0 0 1 70 18" stroke="#9AA6BA" strokeWidth={8} fill="none" />
-          <text x={-84} y={38} fontFamily={FUENTE} fontWeight={800} fontSize={24} fill="#E5483A">E</text><text x={70} y={38} fontFamily={FUENTE} fontWeight={800} fontSize={24} fill="#fff">F</text>
-          <g transform={`rotate(${foco === 'bencina' ? -78 + Math.sin(f / 3) * 3 : -10} 0 14)`}><rect x={-3} y={-50} width={6} height={64} fill="#E5483A" /></g>
-          {foco === 'bencina' && parpadeo ? <circle cx={0} cy={-26} r={11} fill="#F8C805" /> : null}
-        </g>
-        {/* radio */}
-        <g transform={`translate(${540 + tiembla},1130)`}>
-          <rect x={-130} y={-60} width={260} height={130} rx={18} fill="#10131F" />
-          <rect x={-100} y={-40} width={140} height={46} rx={8} fill="#1C2433" />
-          <text x={-30} y={-8} textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={30} fill={foco === 'radio' ? '#3A4458' : '#2A9D5B'}>{foco === 'radio' ? 'OFF' : '98.1'}</text>
-          <circle cx={78} cy={-18} r={22} fill="#3A4458" /><circle cx={-60} cy={44} r={12} fill="#3A4458" /><circle cx={-20} cy={44} r={12} fill="#3A4458" /><circle cx={20} cy={44} r={12} fill="#3A4458" />
-        </g>
-        {foco === 'radio' ? <g transform="translate(540,980)" opacity={parpadeo ? 1 : 0.4}><text textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={70} fill="#E5483A">✕</text></g> : null}
-      </svg>
-    </AbsoluteFill>
-  );
-};
-
-const Rueda = () => {
-  const f = useCurrentFrame();
-  const tiembla = Math.sin(f * 2.1) * 4;
-  const ruido = (i) => ({ x: 560 + i * 130 + Math.sin((f + i * 9) / 5) * 8, y: 760 - ((f * 5 + i * 40) % 140), o: 1 - ((f * 5 + i * 40) % 140) / 140 });
-  return (
-    <AbsoluteFill>
-      <Garage blur={0} />
-      <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{ position: 'absolute', inset: 0 }}>
-        <rect x={0} y={1240} width={1080} height={680} fill="#5A6577" />
-        <g transform={`translate(${540 + tiembla},1340)`}>
-          <path d="M-700 -170 L-700 -520 Q-640 -620 -500 -640 L420 -640 L700 -420 L700 -170 Z" fill="#E5483A" />
-          <path d="M-700 -330 L700 -330" stroke="#C23A2E" strokeWidth={30} />
-          <circle r={330} fill="#10131F" /><circle r={230} fill="#9AA6BA" />
-          {[0, 72, 144, 216, 288].map((a) => <rect key={a} x={-26} y={-220} width={52} height={170} rx={20} fill="#C9D0DC" transform={`rotate(${a})`} />)}
-          <circle r={64} fill="#3B4A5E" />
-        </g>
-        {[0, 1, 2].map((i) => { const r = ruido(i); return <text key={i} x={r.x} y={r.y} opacity={r.o} fontFamily={FUENTE} fontWeight={800} fontSize={74} fill="#E5483A">ñiii…</text>; })}
-        <g transform="translate(230,1830) scale(1.22)"><Humano {...DUE} mochila={false} boletas={false} animo="triste" frame={f} /></g>
-        <g transform="translate(860,1830) scale(1.22)"><Humano {...CUN} animo="canchero" frame={f} /></g>
-      </svg>
-    </AbsoluteFill>
-  );
-};
+/* ---------- Escena 1 y cortes (tomas nuevas en tomas_r1.jsx) ---------- */
+const S1 = () => (
+  <AbsoluteFill>
+    <TomaCapo Fondo={Garage} />
+    <Pill texto={<>TODOS TENEMOS UN CUÑADO QUE <span style={{ color: C.amarillo }}>«SABE DE AUTOS»</span></>} top={300} desde={4} />
+    <Recreacion />
+    <Subtitulo palabras={[['Eso', 0], ['es', 0], ['el', 0], ['alternador.', 1]]} desde={S(0.7)} />
+  </AbsoluteFill>
+);
 
 const Corte2 = ({ foco, texto, palabras, desde }) => (
   <AbsoluteFill>
-    {foco === 'rueda' ? <Rueda /> : <Interior foco={foco} />}
+    {foco === 'rueda' ? <TomaRueda Fondo={Garage} /> : foco === 'radio' ? <TomaRadio /> : <TomaBencina />}
     <Pill texto={texto} top={290} desde={2} />
     <Recreacion />
     <Subtitulo palabras={palabras} desde={desde} />
@@ -292,7 +216,7 @@ export const ReelR1 = () => (
   <AbsoluteFill style={{ background: C.marino }}>
     <Sequence from={S(T.s1)} durationInFrames={S(T.s2a - T.s1)}><S1 /></Sequence>
     <Sequence from={S(T.s2a)} durationInFrames={S(T.s2b - T.s2a)}><Corte2 foco="radio" texto="La radio no prende" palabras={[['Alternador.', 1]]} desde={S(0.65)} /></Sequence>
-    <Sequence from={S(T.s2b)} durationInFrames={S(T.s2c - T.s2b)}><Corte2 foco="rueda" texto="Ruido raro en la rueda" palabras={[['Alternador,', 1], ['po.', 0]]} desde={S(0.6)} /></Sequence>
+    <Sequence from={S(T.s2b)} durationInFrames={S(T.s2c - T.s2b)}><Corte2 foco="rueda" texto="Ruido raro en la rueda" palabras={[['Alternador.', 1]]} desde={S(0.6)} /></Sequence>
     <Sequence from={S(T.s2c)} durationInFrames={S(T.s3 - T.s2c)}><Corte2 foco="bencina" texto="Se quedó sin bencina" palabras={[['Sin', 0], ['duda…', 0], ['alternador.', 1]]} desde={S(0.6)} /></Sequence>
     <Sequence from={S(T.s3)} durationInFrames={S(T.s4 - T.s3)}><S3 /></Sequence>
     <Sequence from={S(T.s4)} durationInFrames={S(T.s5 - T.s4)}><S4 /></Sequence>

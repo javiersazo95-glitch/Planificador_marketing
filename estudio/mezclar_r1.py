@@ -19,7 +19,7 @@ TOTAL = 28.6   # = T.total de src/reel_r1.jsx
 
 # (archivo, segundo en que entra, dB)
 VOCES = [
-    ("c1_eso_es_el_alternador.mp3", 0.70, 0), ("c2_alternador.mp3", 3.90, 0), ("c3_alternador_po.mp3", 5.55, 0),
+    ("c1_eso_es_el_alternador.mp3", 0.70, 0), ("c2_alternador.mp3", 3.90, 0), ("c3_alternador.mp3", 5.55, 0),
     ("c4_sin_duda_alternador.mp3", 7.20, 0), ("d1_ya_cambie_tres.mp3", 9.10, 2), ("v1_narracion_app.mp3", 12.90, 1),
     ("c5_yo_dije_electrico.mp3", 22.40, 0),
 ]

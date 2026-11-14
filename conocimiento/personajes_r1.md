@@ -13,3 +13,9 @@ Propuesta v2 (13-nov-2026) · código en `estudio/src/elenco_r1.jsx` y `estudio/
 
 El maestro del taller es **la solución** del reel (taller acreditado): sus mañas son cariñosas, nunca lo dejan como poco confiable.
 Pendiente: elegir las voces (cuñado, dueño y maestro necesitan voces distintas y chilenas).
+
+## Actualización 13-nov (noche): sin modismos
+El usuario desaprobó el borrador v1: los modismos chilenos («po», «cacho», «pucha», «estoy chato», «no te preocupí») sonaron forzados en las voces.
+**Regla nueva:** los diálogos van en español neutro y simple, sin modismos. Las mañas se muestran con la acción (poses, planos de detalle), no con muletillas.
+Líneas vigentes: cuñado «Eso es el alternador.» / «Alternador.» / «Sin duda… alternador.» / «…Bueno, yo dije que podía ser eléctrico.»; dueño «Ya cambié… tres.»; narración de Fer.
+Tomas rehechas según referencias (gente inclinada sobre el motor con el capó levantado, manos sobre el tablero, oreja junto a la rueda, reloj de bencina en E).

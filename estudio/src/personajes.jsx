@@ -28,7 +28,7 @@ export const Humano = ({
   camisa = C.azul, franja = null, pantalon = C.marino, zapatos = '#fff',
   lentes = false, bigote = false, barba = false, gorra = null, cerveza = false, overol = false, ancho = 1,
   chalas = false, guaipe = false, boletas = false, mochila = false, lapiz = false,
-  cara = 'redonda', nariz = 1, canas = false, cejasGrosor = 7,
+  cara = 'redonda', nariz = 1, canas = false, cejasGrosor = 7, brazosCruzados = false,
 }) => {
   const forma = {
     redonda: <circle cx={0} cy={-520} r={92} fill={piel} />,
@@ -56,11 +56,11 @@ export const Humano = ({
       ))}
       {mochila ? (<g><rect x={-118} y={-420} width={236} height={190} rx={34} fill="#3B4A5E" /><rect x={-118} y={-300} width={236} height={14} fill="#2A3544" /></g>) : null}
       {/* brazo de atras */}
-      <g transform={`translate(${-82 * ancho},-400) rotate(${-paso * 28})`}>
+      {!brazosCruzados ? <g transform={`translate(${-82 * ancho},-400) rotate(${-paso * 28})`}>
         <rect x={-20} y={0} width={40} height={170} rx={20} fill={ropa} />
         <circle cx={0} cy={178} r={24} fill={piel} />
         {boletas ? (<g transform="translate(6,150)">{[-14, 0, 14].map((r, i) => (<g key={i} transform={`rotate(${r} 0 40)`}><rect x={-26} y={-30} width={52} height={74} rx={4} fill="#fff" stroke="#C9D3E3" strokeWidth={3} /><rect x={-16} y={-18} width={32} height={4} fill="#9AA6BA" /><rect x={-16} y={-8} width={24} height={4} fill="#9AA6BA" /><rect x={-16} y={2} width={30} height={4} fill="#E5483A" /></g>))}</g>) : null}
-      </g>
+      </g> : null}
       {/* torso */}
       <rect x={-92 * ancho} y={-430} width={184 * ancho} height={200} rx={44} fill={ropa} />
       {franja ? <rect x={-92 * ancho} y={-340} width={184 * ancho} height={22} fill={franja} opacity={0.95} /> : null}
@@ -70,11 +70,16 @@ export const Humano = ({
       {guaipe ? (<g transform={`translate(${46 * ancho},0)`}><path d="M10 -440 L84 -424 L96 -300 L58 -312 L40 -372 Z" fill="#E5483A" /><path d="M24 -430 L88 -416 M32 -402 L92 -388 M44 -372 L94 -356" stroke="#fff" strokeOpacity={0.55} strokeWidth={5} /></g>) : null}
       {lapiz ? <rect x={46} y={-352} width={10} height={44} rx={3} fill={C.amarillo} /> : null}
       {/* brazo de adelante (con cerveza si corresponde) */}
-      <g transform={`translate(${82 * ancho},-400) rotate(${cerveza ? -38 : paso * 28})`}>
+      {!brazosCruzados ? <g transform={`translate(${82 * ancho},-400) rotate(${cerveza ? -38 : paso * 28})`}>
         <rect x={-20} y={0} width={40} height={170} rx={20} fill={ropa} />
         <circle cx={0} cy={178} r={24} fill={piel} />
         {cerveza ? (<g transform="translate(-4,150)"><rect x={-18} y={-30} width={36} height={62} rx={7} fill="#E3A82B" /><rect x={-18} y={-12} width={36} height={22} fill="#fff" /><rect x={-18} y={-30} width={36} height={8} rx={4} fill="#C9C9C9" /></g>) : null}
-      </g>
+      </g> : null}
+      {brazosCruzados ? (<g>
+        <rect x={-96 * ancho} y={-368} width={192 * ancho} height={40} rx={20} fill={ropa} />
+        <rect x={-96 * ancho} y={-330} width={192 * ancho} height={38} rx={19} fill={ropa} opacity={0.94} />
+        <circle cx={-78 * ancho} cy={-348} r={23} fill={piel} /><circle cx={78 * ancho} cy={-312} r={23} fill={piel} />
+      </g>) : null}
       {/* cuello y cabeza */}
       <rect x={-22} y={-452} width={44} height={40} fill={piel} />
       <g transform={`translate(0,${respira * 0.5})`}>
