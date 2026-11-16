@@ -6,6 +6,8 @@ import { PruebaPatente, PRUEBA_FRAMES } from './prueba_patente.jsx';
 import { ReelPatente, REEL_PATENTE_FRAMES } from './reel_patente.jsx';
 import { LaminaPersonajes } from './lamina_personajes.jsx';
 import { ReelR1, R1_FRAMES } from './reel_r1.jsx';
+import { ReelManual, MANUAL_FRAMES } from './reel_manual.jsx';
+import { ReelPatenteProd, PATENTE_PROD_FRAMES } from './reel_patente_prod.jsx';
 import { EscenaNico, NICO_FRAMES } from './escena_nico.jsx';
 import { registerRoot, Composition, Still, AbsoluteFill, Sequence, Img, staticFile, useCurrentFrame, interpolate } from 'remotion';
 
@@ -76,6 +78,8 @@ const Raiz = () => (
     <Still id="ElencoR1" component={LaminaPersonajes} width={1920} height={1480} />
     <Composition id="ReelR1" component={ReelR1} width={1080} height={1920} fps={FPS} durationInFrames={R1_FRAMES} />
     <Composition id="EscenaNico" component={EscenaNico} width={1080} height={1920} fps={FPS} durationInFrames={NICO_FRAMES} />
+    <Composition id="ReelManual" component={ReelManual} width={1080} height={1920} fps={FPS} durationInFrames={MANUAL_FRAMES} />
+    <Composition id="ReelPatenteProd" component={ReelPatenteProd} width={1080} height={1920} fps={FPS} durationInFrames={PATENTE_PROD_FRAMES} />
     <Still id="Lamina" component={Lamina} width={1080} height={1350} />
   </>
 );

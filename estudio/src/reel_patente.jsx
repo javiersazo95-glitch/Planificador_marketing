@@ -32,7 +32,7 @@ export const GUION_VOZ = [
 ];
 
 /* ---------------- Escena 1 + 2: tienda ---------------- */
-const Tienda12 = () => {
+export const Tienda12 = () => {
   const f = useCurrentFrame();
   const idea = S(TIEMPOS.idea);
   const esIdea = f >= idea;
@@ -179,7 +179,7 @@ const Estacionamiento = ({ frame }) => (
     <g transform="translate(700,1400) scale(1.25)"><Auto /></g>
   </svg>
 );
-const Final = () => {
+export const Final = () => {
   const f = useCurrentFrame();
   const x = interpolate(f, [0, 60], [-80, 160], { extrapolateRight: 'clamp' });
   const llega = f > 60;
