@@ -42,8 +42,9 @@ def main():
     ap.add_argument("--seg", type=float, default=3.4)
     ap.add_argument("--oferta", default="Pago seguro con Flow")
     ap.add_argument("--inicio", type=float, default=0)
-    ap.add_argument("--voz-cierre", action="store_true",
-                    help="deja la voz «Repuestop, movemos Chile juntos» del cierre L2 (solo con ElevenLabs de pago: el plan Free no tiene licencia comercial)")
+    ap.add_argument("--sin-voz-cierre", dest="voz_cierre", action="store_false",
+                    help="quita la voz «Repuestop, movemos Chile juntos» del cierre L2 (por defecto se deja; el plan Free de ElevenLabs "
+                         "no tiene licencia comercial: el usuario decidió asumir ese riesgo el 16-nov-2026)")
     a = ap.parse_args()
 
     ficha = json.load(open(a.ficha, encoding="utf-8"))
