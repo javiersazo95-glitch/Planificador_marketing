@@ -6,7 +6,7 @@
   "titulo": "Carrusel T2: Conductores cuentan su falla, tu taller responde (todas las redes)",
   "red": "",
   "publico": "",
-  "estado": "propuesta",
+  "estado": "aprobada",
   "archivos": [],
   "notas": "16-nov. Carrusel 4:5 + 9:16 + video con música solo para YouTube. Carpeta en Drive contenido/2026-11-16-...",
   "resultado": null,
@@ -14,6 +14,10 @@
     {
       "fecha": "2026-11-16",
       "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-16",
+      "estado": "aprobada"
     }
   ]
 }

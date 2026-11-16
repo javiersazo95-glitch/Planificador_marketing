@@ -6,7 +6,7 @@
   "titulo": "Post Facebook tiendas: tus clientes te encuentran por la patente (G3)",
   "red": "",
   "publico": "",
-  "estado": "lista",
+  "estado": "aprobada",
   "archivos": [],
   "notas": "Semana W47, jueves 19 10:00. Sin Fundador ni cifras. Compartir en grupos de repuesteras.",
   "resultado": null,
@@ -18,6 +18,10 @@
     {
       "fecha": "2026-11-16",
       "estado": "lista"
+    },
+    {
+      "fecha": "2026-11-16",
+      "estado": "aprobada"
     }
   ]
 }
