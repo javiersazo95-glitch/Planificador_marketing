@@ -6,7 +6,7 @@
   "titulo": "Carrusel IG: 3 datos para no comprar el repuesto equivocado (G1)",
   "red": "",
   "publico": "",
-  "estado": "propuesta",
+  "estado": "lista",
   "archivos": [],
   "notas": "Semana W47, martes 17 12:00. Repite el gancho que mejor funcionó (carrusel patente 13-nov: 356 vistas, 3 compartidos, +3 seguidores). Guion en datos/planes/semana/2026-W47-guiones.md",
   "resultado": null,
@@ -14,6 +14,10 @@
     {
       "fecha": "2026-11-16",
       "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-16",
+      "estado": "lista"
     }
   ]
 }
