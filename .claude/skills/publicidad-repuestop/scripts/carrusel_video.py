@@ -42,6 +42,8 @@ def main():
     ap.add_argument("--seg", type=float, default=3.4)
     ap.add_argument("--oferta", default="Pago seguro con Flow")
     ap.add_argument("--inicio", type=float, default=0)
+    ap.add_argument("--voz-cierre", action="store_true",
+                    help="deja la voz «Repuestop, movemos Chile juntos» del cierre L2 (solo con ElevenLabs de pago: el plan Free no tiene licencia comercial)")
     a = ap.parse_args()
 
     ficha = json.load(open(a.ficha, encoding="utf-8"))
@@ -77,6 +79,10 @@ def main():
         mudo = cr.TMP / "anim_carrusel_video.mp4"
         cr.video_cierre(a.oferta, 5.6, mudo, con_capas=True)
         cierre = cr.TMP / "cierre_carrusel_video.mp4"
+        if not a.voz_cierre:                      # por defecto: cierre solo con el motor, sin voz sintetizada
+            silencio = t / "sin_voz.wav"
+            correr("ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", "anullsrc=r=48000:cl=mono", "-t", "6", silencio)
+            cr.LEMA = silencio
         cr.audio_cierre(mudo, [], 2.75, 5.6, cierre)
         cr.unir(sin_cierre, duracion(sin_cierre), cierre, salida)
         hoja = sin_cierre.with_name(sin_cierre.stem + "_hoja.png")
