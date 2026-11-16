@@ -514,6 +514,11 @@
       "titulo": "Revisar categorías del catálogo con 0 repuestos",
       "porque": "Si traemos compradores y no encuentran nada, se van y no vuelven.",
       "resultado": "Que quien llegue a buscar encuentre repuestos y vuelva."
+    },
+    {
+      "titulo": "Corregir datos de prueba de dev para grabar los videos",
+      "porque": "Para el reel de la patente (ABCD11) hay productos de dev con la foto equivocada: «Conjunto de masa y rodamiento delantero» (foto de amortiguador), un «Filtro de aceite Toyota Yaris» y un «Filtro de combustible Toyota Yaris» (foto de motor), y «Filtro de aceite de motor, registro demostrativo» (se nota que es de prueba). En Fallas hay títulos como «Prueba P5…» y «prueba 3». Además la ubicación sale «Temu» y los precios son de prueba.",
+      "resultado": "Podemos grabar videos reales con nombres, fotos y precios que se vean bien, sin tapar nada."
     }
   ],
   "material": [
