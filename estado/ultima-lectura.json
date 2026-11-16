@@ -1,8 +1,8 @@
 {
   "repos": {
     "monorepo": {
-      "produccion": "08a6f71c",
-      "trabajo": "73ab41fb"
+      "produccion": "e44bc03d",
+      "trabajo": "e44bc03d"
     },
     "market": {
       "produccion": "ecd2d0fc",
@@ -13,5 +13,5 @@
       "trabajo": "6f233029"
     }
   },
-  "actualizado": "2026-11-14T05:10:17.707Z"
+  "actualizado": "2026-11-16T11:50:28.968Z"
 }
