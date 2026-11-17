@@ -6,6 +6,7 @@ const raiz = join(dirname(fileURLToPath(import.meta.url)), '..');
 const { chromium } = await import(pathToFileURL(join(raiz, 'node_modules/playwright/index.mjs')).href);
 const out = join(raiz, 'capturas-tmp/video/slides');
 import { readFileSync } from 'node:fs';
+const mascota = 'data:image/png;base64,' + readFileSync(join(raiz, 'capturas-tmp/video/mascota/repuestin_ok.png')).toString('base64');
 const logo = 'data:image/svg+xml;base64,' + readFileSync(join(raiz, '.claude/skills/publicidad-repuestop/plantillas/assets/logo_icono.svg')).toString('base64');
 const css = `@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Montserrat:wght@700&display=swap');
 *{box-sizing:border-box;margin:0}body{width:1920px;height:1080px;font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:#1B2440;position:relative;overflow:hidden}
@@ -24,7 +25,7 @@ const S = {
   '01_titulo': L('Para casas de repuestos', 'RepuesTop: <mark>vende más</mark> por patente', 'Así funciona la plataforma y cómo cargar tus productos.'),
   '02_b1': L('Beneficio 1', 'Clientes que llegan con su <mark>patente</mark>', 'Ven solo los repuestos que le sirven a su auto.'),
   '03_b2': L('Beneficio 2', 'Un <mark>panel web</mark> para tu inventario', 'Precios, stock y estado de cada producto, sincronizado con la web y la app.'),
-  '04_b3': L('Beneficio 3', '<mark>Chat</mark> y cotización en PDF', 'Responde preguntas de disponibilidad y cotiza en el mismo chat. Repuestín ayuda a conectar compradores y tiendas.'),
+  '04_b3': L('Beneficio 3', '<mark>Chat</mark> y cotización en PDF', 'Responde preguntas de disponibilidad y cotiza en el mismo chat. Repuestín ayuda a conectar compradores y tiendas.', `<img src="${mascota}" style="position:absolute;right:-20px;top:215px;width:390px;filter:drop-shadow(0 14px 22px rgba(15,78,194,.35))">`).replace('<p>', '<p style="max-width:1080px">'),
   '05_b4': L('Beneficio 4', 'Un <mark>asistente</mark> para tu tienda', 'Ranking semanal y las búsquedas que perdiste.'),
   '06_b5': L('Beneficio 5', '<mark>Destaca</mark> tus productos', 'Con Moneda RepuesTop y Top Ventas.'),
   '07_b6': L('Beneficio 6', 'Pago seguro con <mark>Flow</mark>', 'Compra protegida para tus clientes.'),
