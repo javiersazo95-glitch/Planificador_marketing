@@ -25,3 +25,11 @@ Feedback de Elías al v1: (1) quitar «desarmadurías» (salió de `conocimiento
 3. Regrabar con tiempos tomados del audio (resalte de las 3 formas de cargar, Mercado con lista de resultados sin zona en blanco, paso 3 con «Completar todas», paso 4 con fotos).
 4. Sincronizar las diapositivas de beneficios con las frases del audio (silencios cortos).
 5. Montar v2 y revisar fotograma a fotograma.
+
+## Estado al cerrar la noche del 16 al 17-nov
+Hecho: audio nuevo generado (`capturas-tmp/video/narr_A.mp3` = intro nueva 22 s; `narr_B.mp3` = pasos Excel, venta, retiro, preguntas, encargos y cierre, 145 s; para beneficios, costos, panel y 3 formas se reutiliza `narracion.mp3` v1 cortando 25,94–144,31 s). Tiempos de cada frase en este archivo más arriba y en el script `scripts/grabar-video-tiendas.mjs` (escenas con duración igual al audio). Encargo de prueba creado (+2 de repuesto) y 2 preguntas pendientes creadas con la cuenta compradora.
+Falta:
+1. Panel: en `scripts/grabar-video-tiendas.mjs` el paso «Garantía» (Completar todas con chip «6 meses») no queda aplicado y por eso fallan las fotos del paso 4. Ejecutar `SOLO=panel` hasta que `fallas.json` salga limpio (antes: `node` de limpieza del borrador).
+2. Mercado/vendedor: ejecutar `SOLO=market` (ventas con boleta, retiro, preguntas, encargos). Consume un pedido «Pagado» y una oferta por ejecución.
+3. Rehacer el montaje (`scripts/montar-video-tiendas.py`) con: audio = A + (v1 25,94–144,31 con pausas de 1,5 s) + B; diapositivas de beneficios sincronizadas (cambios en 29,96 / 38,56 / 55,26 / 63,26 / 67,96 s de la línea nueva); resalte de «3 formas» por frase; difuminar correo del panel y del encabezado del vendedor; clics con sonido; cierre.
+4. Revisar fotogramas y entregar en Drive (`contenido/2026-11-16-video-tiendas/final/`).
