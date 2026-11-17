@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Video v4 de tiendas: voz femenina nueva (2 generaciones: narr4_G1.mp3 y narr4_G2.mp3 en capturas-tmp/video), escena de soporte,
-clic realista (clic2.wav) y música de fondo con ducking. Cada grupo de la narración se mide y las escenas grabadas se estiran por tramos
+clic realista (clic3.wav) y música de fondo con ducking. Cada grupo de la narración se mide y las escenas grabadas se estiran por tramos
 para coincidir con su frase. Uso: python -I scripts/montar-video-tiendas-v4.py"""
 import json, re, subprocess, pathlib
 R = pathlib.Path(__file__).resolve().parent.parent
@@ -23,7 +23,24 @@ def intervalos(archivo):
         ini = b
     if dur - ini > 0.25: voz.append([ini, dur])
     return voz
-IV = {a: intervalos(a) for a in ["narr4_G1.mp3", "narr4_G2.mp3"]}
+def fusionar(voz):
+    fus = [voz[0]]
+    for a, b in voz[1:]:
+        if a - fus[-1][1] < 1.0: fus[-1][1] = b
+        else: fus.append([a, b])
+    return fus
+CRUDO = {a: intervalos(a) for a in ["narr4_G1.mp3", "narr4_G2.mp3"]}
+# G1: la voz tiene pausas naturales largas; se asignan los intervalos crudos a cada grupo según el recorrido revisado a mano
+MAPA_G1 = {"A": range(0, 5), "s2g1": range(5, 7), "s2g2": range(7, 9), "s2g3": range(9, 13), "s2g4": [13], "s2g5": [14], "s2g6": [15], "s3g1": [16], "s3g2": range(17, 22),
+           "s4g1": range(22, 25), "s4g2": range(25, 27), "s4g3": [27], "s4g4": [28], "s4g5": [29], "s5g0": [30], "s5g1": [31], "s5g2": [32], "s5g3": [33, 34]}
+if len(CRUDO["narr4_G1.mp3"]) == 35:
+    IV = {"narr4_G1.mp3": [[CRUDO["narr4_G1.mp3"][min(v)][0], CRUDO["narr4_G1.mp3"][max(v)][1]] for k, v in MAPA_G1.items()]}
+else:
+    IV = {"narr4_G1.mp3": fusionar(CRUDO["narr4_G1.mp3"])}
+_g2 = fusionar(CRUDO["narr4_G2.mp3"])
+if len(_g2) == 11:   # «ventas» tiene una pausa larga a mitad: se une
+    _g2 = _g2[:5] + [[_g2[5][0], _g2[6][1]]] + _g2[7:]
+IV["narr4_G2.mp3"] = _g2
 esperados = {a: sum(1 for x in ORDEN if x[0] == a) for a in IV}
 for a in IV:
     print(a, "grupos detectados", len(IV[a]), "esperados", esperados[a])
@@ -88,7 +105,7 @@ run("-f", "concat", "-safe", 0, "-i", T / "lista.txt", "-c", "copy", V / "video4
 print("clics:", len(pos), "duración", round(total_video, 2), "(voz+tarjeta", round(TOTAL, 2), ")")
 
 # ---------- 4) audio: voz recortada por grupo, clics y música con ducking
-ins = ["-i", V / "narr4_G1.mp3", "-i", V / "narr4_G2.mp3", "-i", V / "clic2.wav", "-i", V / "musica_fondo.wav"]
+ins = ["-i", V / "narr4_G1.mp3", "-i", V / "narr4_G2.mp3", "-i", V / "clic3.wav", "-i", V / "musica_fondo.wav"]
 fc = ""; etq = ""
 for k, (id_, arch, a, b, hueco) in enumerate(grupos):
     src = "[0:a]" if arch == "narr4_G1.mp3" else "[1:a]"
