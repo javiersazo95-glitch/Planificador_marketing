@@ -33,3 +33,7 @@ Falta:
 2. Mercado/vendedor: ejecutar `SOLO=market` (ventas con boleta, retiro, preguntas, encargos). Consume un pedido «Pagado» y una oferta por ejecución.
 3. Rehacer el montaje (`scripts/montar-video-tiendas.py`) con: audio = A + (v1 25,94–144,31 con pausas de 1,5 s) + B; diapositivas de beneficios sincronizadas (cambios en 29,96 / 38,56 / 55,26 / 63,26 / 67,96 s de la línea nueva); resalte de «3 formas» por frase; difuminar correo del panel y del encabezado del vendedor; clics con sonido; cierre.
 4. Revisar fotogramas y entregar en Drive (`contenido/2026-11-16-video-tiendas/final/`).
+
+## v4 (17-nov): voz femenina, música, clic realista y soporte — estado
+Hecho: escena de soporte grabada (`SOLO` aparte: `scripts/grabar-soporte.mjs` → `capturas-tmp/panel6`); clic nuevo y música sintetizados sin descargar nada (`scripts/sintetizar-audio.py` → `capturas-tmp/video/clic2.wav`, `musica_fondo.wav`, 7 min); textos de las 2 generaciones de voz listos en `capturas-tmp/video/guion_v4.json` (campos `G1` y `G2`, con pausas `<break>`); montaje v4 listo: `scripts/montar-video-tiendas-v4.py` (mide cada grupo de la narración y estira las escenas por tramos; música con ducking).
+Falta: generar con ElevenLabs (cuenta de repuestop, voz femenina en español) `narr4_G1.mp3` (campo G1) y `narr4_G2.mp3` (campo G2) y guardarlos en `capturas-tmp/video/`; luego `python -I scripts/montar-video-tiendas-v4.py`. Si el script dice «DISTINTO», ajustar los grupos detectados. Claude in Chrome estaba desconectado al cerrar.
