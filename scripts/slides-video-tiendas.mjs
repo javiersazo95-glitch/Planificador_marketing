@@ -21,7 +21,7 @@ const top = `<div class="top"><img src="${logo}"><span>Repues<b>Top</b></span></
 const L = (k, h, p, extra = '') => `<style>${css}</style>${top}<div class="w"><div class="k">${k}</div><h1>${h}</h1>${p ? `<p>${p}</p>` : ''}${extra}</div><div class="ola"></div>`;
 const steps = (on) => `<div class="steps">${[['Sube tu archivo','Tu Excel y tus fotos'],['Relaciona','Tus columnas con las de RepuesTop'],['Completa','Lo que falta, en amarillo'],['Revisa y publica','Cómo quedará en tu tienda']].map((s, i) => `<div class="s ${i + 1 === on ? 'on' : ''}"><div class="n">${i + 1}</div><h3>${s[0]}</h3><p style="font-size:30px;margin-top:10px;color:inherit">${s[1]}</p></div>`).join('')}</div>`;
 const S = {
-  '01_titulo': L('Para casas de repuestos y desarmadurías', 'RepuesTop: <mark>vende más</mark> por patente', 'Así funciona la plataforma y cómo cargar tus productos.'),
+  '01_titulo': L('Para casas de repuestos', 'RepuesTop: <mark>vende más</mark> por patente', 'Así funciona la plataforma y cómo cargar tus productos.'),
   '02_b1': L('Beneficio 1', 'Clientes que llegan con su <mark>patente</mark>', 'Ven solo los repuestos que le sirven a su auto.'),
   '03_b2': L('Beneficio 2', 'Un <mark>panel web</mark> para tu inventario', 'Precios, stock y estado de cada producto, sincronizado con la web y la app.'),
   '04_b3': L('Beneficio 3', '<mark>Chat</mark> y cotización en PDF', 'Responde preguntas de disponibilidad y cotiza en el mismo chat. Repuestín ayuda a conectar compradores y tiendas.'),

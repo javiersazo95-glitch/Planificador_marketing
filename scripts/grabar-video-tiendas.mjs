@@ -10,7 +10,7 @@ import { join, dirname } from 'node:path';
 const raiz = join(dirname(fileURLToPath(import.meta.url)), '..');
 const { chromium } = await import(pathToFileURL(join(raiz, 'node_modules/playwright/index.mjs')).href);
 const SOLO = process.env.SOLO || 'todo';
-const out = join(raiz, SOLO === 'market' ? 'capturas-tmp/panel3' : 'capturas-tmp/panel2');
+const out = join(raiz, SOLO === 'market' ? 'capturas-tmp/panel3' : SOLO === 'encargos' ? 'capturas-tmp/panel4' : 'capturas-tmp/panel2');
 rmSync(out, { recursive: true, force: true }); mkdirSync(join(out, 'cuadros'), { recursive: true });
 const A = join(raiz, 'capturas-tmp/panel');   // archivos de demo
 const excel = join(A, 'demo_catalogo.xlsx'), zipFotos = join(A, 'fotos_demo.zip'), boleta = join(A, 'boleta_demo.pdf');
@@ -64,7 +64,7 @@ async function escena(nombre, dur, beats) {
 const ini = (frases, dur, habla) => { const tot = frases.reduce((a, f) => a + f.length, 0); let a = 0; return frases.map(f => { const t = a / tot * habla; a += f.length; return +t.toFixed(2); }); };
 
 // ================= MERCADO PÚBLICO =================
-if (SOLO !== 'market') {
+if (SOLO === 'todo' || SOLO === 'panel') {
 await p.goto('https://dev-repuestop.repuestop.cl/', { waitUntil: 'networkidle', timeout: 60000 });
 await esp(1.5); { const ok = p.getByRole('button', { name: 'Entendido' }); if (await ok.count()) await ok.first().click(); }
 await esp(1);
@@ -130,8 +130,8 @@ await intentar('columnas_resto', async () => {
     await p.screenshot({ path: join(out, 'dbg_dialogo' + i + '.png') });
     const sel = p.locator('select:visible').filter({ has: p.locator('option', { hasText: 'Elige un valor' }) }); const ns = await sel.count(); console.log('  selects visibles', ns);
     if (ns) await sel.first().selectOption({ index: 1 }, { timeout: 5000 });
-    else { const chip = p.locator('button:visible').filter({ hasText: /6 meses|Todos|Cualquier|Universal/ }).first(); console.log('  chips', await chip.count()); await chip.click({ force: true, timeout: 5000 }); }
-    await esp(0.8); { const ap = p.getByRole('button', { name: /Aplicar a las filas vac/ }); if (await ap.count()) await ap.first().click({ force: true, timeout: 4000 }).catch(() => {}); } await esp(1.4); console.log('  aplicado');
+    else { const inp = p.getByPlaceholder(/Elige de la lista o escribe/); await inp.first().fill('6 meses (garantía legal)', { timeout: 5000 }); await p.keyboard.press('Enter'); }
+    await esp(0.8); { const ap = p.getByRole('button', { name: /Aplicar a las filas vac/ }); if (await ap.count()) await ap.first().click({ timeout: 5000 }).catch(() => {}); } await esp(1.4); console.log('  aplicado');
   }
 });
 await intentar('fotos_resto', async () => {
@@ -161,6 +161,7 @@ await p.getByText('Iniciar manualmente').first().click(); await esp(1.2);
 await p.locator('input[type=email]').first().fill(process.env.PU); await p.locator('input[type=password]').first().fill(process.env.PP);
 await p.keyboard.press('Enter'); await esp(7); await p.mouse.click(800, 746); await esp(1.5);
 
+if (SOLO !== 'encargos') {
 const vf = ['Ahora, cómo avanzar una venta.', 'Cuando un cliente paga, el pedido aparece en Pedidos recibidos con la boleta pendiente.', 'Presiona Confirmar pedido.', 'Son tres pasos.', 'Primero, confirmas que tienes el stock y puedes cumplir la entrega.', 'Segundo, revisas que el repuesto sea compatible con el vehículo del comprador.', 'Y tercero, adjuntas la boleta o factura en PDF.', 'Con eso el pedido queda en preparación, y ya puedes avisar que está listo para retirar.'];
 const T = ini(vf, 29.6, 27.8);
 let idxPedido = 0;
@@ -202,12 +203,13 @@ await escena('preguntas', 10.3, [
   [5.3, async () => { const t = p.getByPlaceholder(/Escribe la respuesta pública/).first(); await clic(t); await t.pressSequentially('Hola, sí tenemos stock disponible. ¡Te esperamos!', { delay: 45 }); }],
   [8.9, async () => { await clic(p.getByRole('button', { name: 'Responder' }).first()); }],
 ]);
+}
 const ef = ['En Encargos puedes ver lo que los compradores necesitan y enviar tu oferta.', 'Entra al mural público, elige un encargo, revisa el vehículo y el repuesto que piden, selecciona el producto de tu inventario que lo cubre, y envía tu oferta.', 'Después puedes seguirla en Mis ofertas.'];
 const E = ini(ef, 18.8, 17);
 await p.goto('https://dev-repuestop.repuestop.cl/subastas', { waitUntil: 'networkidle' }); await esp(2);
 await escena('encargos', 18.8, [
   [0.4, async () => { await p.mouse.move(900, 620, { steps: 25 }); }],
-  [E[1] + 0.2, async () => { await clic(p.getByRole('button', { name: /Ver encargo/ }).first()); await p.waitForLoadState('networkidle').catch(() => {}); }],
+  [E[1] + 0.2, async () => { await clic(p.getByRole('button', { name: /Ver encargo/ }).nth(1)); await p.waitForLoadState('networkidle').catch(() => {}); }],
   [E[1] + 2.6, async () => { await clic(p.getByRole('button', { name: 'Enviar oferta' }).first()); }],
   [E[1] + 4.2, async () => { await clic(p.getByText('Juego de pastillas de freno delanteras').first()); }],
   [E[1] + 5.8, async () => { const pr = p.getByPlaceholder('Ej: 45000').first(); await clic(pr); await pr.fill('18990'); }],
