@@ -198,3 +198,7 @@ h1, h2, p { text-wrap: balance; }   /* evita palabras sueltas en la última lín
 .historia .prod-pie { height: 360px; padding-top: 30px; }
 .prod-pie p { font-size: 22px; font-weight: 600; opacity: .92; margin-bottom: 18px; }
 .prod-pie div { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+/* Con solo 2 productos, tarjetas más altas */
+.post .prod-lista li:first-child:nth-last-child(2), .post .prod-lista li:first-child:nth-last-child(2) ~ li { height: 356px; }
+.historia .prod-lista li:first-child:nth-last-child(2), .historia .prod-lista li:first-child:nth-last-child(2) ~ li { height: 415px; }
+.prod-lista li:first-child:nth-last-child(2) .foto, .prod-lista li:first-child:nth-last-child(2) ~ li .foto { width: 340px; }
