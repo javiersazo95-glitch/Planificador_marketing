@@ -15,6 +15,8 @@ La ficha:
      "solucion": "...", "puntos": [["chat", "..."], ["check", "..."]],
      "oferta": "...", "cta": "repuestop.cl", "recreacion": false},
     {"tipo": "texto", "titulo": "...", "texto": "...", "puntos": [...]},
+    {"tipo": "productos", "quien": "...", "titulo": "...", "nota": "Precios al ...", "oferta": "...", "cta": "repuestop.cl",
+     "productos": [{"foto": "https://img.repuestop.cl/...", "nombre": "...", "auto": "...", "precio": "$..."}]},  # máx. 3
     {"tipo": "cierre", "titulo": "...", "texto": "...", "cta": "...", "oferta": "..."},
     {"tipo": "cierre_claro", "titulo": "...", "oferta": "...", "cta": "...",
      "celular": "pantalla.png"},  # cierre de reels (aprobado 12-nov): blanco con textura, sin ola;
@@ -121,6 +123,19 @@ def lamina(formato, l, i, total):
                   f'{puntos(l.get("puntos"))}</div>'
                   f'<div class="pie">{oferta or "<span></span>"}{cta}</div></div>')
         clase = ""
+    elif tipo == "productos":
+        quien = f'<span class="quien">{e(l["quien"])}</span>' if l.get("quien") else ""
+        tarjetas = []
+        for p in l.get("productos", []):
+            foto = str(p.get("foto", ""))
+            if not foto.startswith("https://img.repuestop.cl/"):
+                sys.exit(f"La foto debe venir de https://img.repuestop.cl/: {foto}")
+            tarjetas.append(f'<li><div class="foto"><img src="{e(foto)}" alt=""></div><div><b>{e(p["nombre"])}</b>'
+                            f'<small>{e(p.get("auto"))}</small><strong>{e(p["precio"])}</strong></div></li>')
+        cuerpo = (f'{marca()}<div class="prod-top">{quien}<h1>{e(l["titulo"])}</h1></div>'
+                  f'<ul class="prod-lista">{"".join(tarjetas)}</ul>'
+                  f'<div class="prod-pie"><p>{e(l.get("nota"))}</p><div>{oferta or "<span></span>"}{cta}</div></div>')
+        clase = "productos"
     elif tipo == "texto":
         texto = f'<p>{e(l["texto"])}</p>' if l.get("texto") else ""
         cuerpo = (f'{marca()}{indice}{aviso}<div class="cuerpo"><h1>{e(l["titulo"])}</h1>'
@@ -183,7 +198,7 @@ def lamina(formato, l, i, total):
                   f'<span class="eslogan">Movemos Chile juntos</span>')
         clase = "cierre"
     else:
-        sys.exit(f"Tipo de lámina desconocido: {tipo} (usa dolor, texto, diccionario, chat, cierre o cierre_claro)")
+        sys.exit(f"Tipo de lámina desconocido: {tipo} (usa dolor, productos, texto,diccionario, chat, cierre o cierre_claro)")
     css = uri(PLANTILLAS / "marca.css")
     return (f'<!doctype html><html lang="es"><head><meta charset="utf-8">'
             f'<link href="{FUENTES}" rel="stylesheet"><link href="{css}" rel="stylesheet"></head>'

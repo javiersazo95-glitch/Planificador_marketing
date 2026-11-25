@@ -174,3 +174,27 @@ h1, h2, p { text-wrap: balance; }   /* evita palabras sueltas en la última lín
 .fondo-pizarra { background: url("assets/patron_blanco.svg") repeat 0 0 / 420px, linear-gradient(165deg,#3563B5 0%,#2A4F96 55%,#223F7A 100%); }
 .fondo-celeste { background: url("assets/patron_azul.svg") repeat 0 0 / 420px, linear-gradient(170deg,#EAF1FF 0%,#D6E4FF 100%); }
 .fondo-acero { background: url("assets/patron_blanco.svg") repeat 0 0 / 420px, linear-gradient(165deg,#4A5F86 0%,#3A4D70 60%,#2F405E 100%); }
+
+/* Productos publicados: hasta 3 tarjetas con foto y precio */
+.prod-top { position: absolute; left: var(--pad); right: var(--pad); }
+.post .prod-top { top: 168px; }
+.historia .prod-top { top: 368px; }
+.prod-top .quien { display: block; font-size: 28px; font-weight: 700; color: var(--azul); margin-bottom: 12px; }
+.prod-top h1 { font-size: 62px; font-weight: 800; line-height: 1.06; letter-spacing: -0.03em; }
+.historia .prod-top h1 { font-size: 66px; }
+.prod-lista { position: absolute; left: var(--pad); right: var(--pad); list-style: none; display: flex; flex-direction: column; }
+.post .prod-lista { top: 398px; gap: 20px; }
+.historia .prod-lista { top: 640px; gap: 28px; }
+.prod-lista li { display: flex; align-items: center; gap: 34px; border: 3px solid #E3E9F4; border-radius: 26px; padding: 14px 24px 14px 14px; }
+.post .prod-lista li { height: 232px; }
+.historia .prod-lista li { height: 274px; }
+.prod-lista .foto { flex: none; width: 250px; height: 100%; display: flex; align-items: center; justify-content: center; }
+.prod-lista .foto img { max-width: 100%; max-height: 100%; border-radius: 14px; }
+.prod-lista b { display: block; font-size: 33px; font-weight: 800; line-height: 1.15; }
+.prod-lista small { display: block; font-size: 25px; font-weight: 600; color: var(--gris); margin: 6px 0 10px; }
+.prod-lista strong { display: block; font-size: 54px; font-weight: 800; color: var(--azul); line-height: 1; }
+.prod-pie { position: absolute; left: 0; right: 0; bottom: 0; background: var(--azul); color: var(--blanco); padding: 0 var(--pad); }
+.post .prod-pie { height: 190px; padding-top: 24px; }
+.historia .prod-pie { height: 360px; padding-top: 30px; }
+.prod-pie p { font-size: 22px; font-weight: 600; opacity: .92; margin-bottom: 18px; }
+.prod-pie div { display: flex; align-items: center; justify-content: space-between; gap: 24px; }

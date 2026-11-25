@@ -6,14 +6,21 @@
   "titulo": "Post productos Spark bajo 20.000",
   "red": "facebook,instagram,tiktok",
   "publico": "compradores",
-  "estado": "propuesta",
-  "archivos": [],
+  "estado": "lista",
+  "archivos": [
+    "G:/Mi unidad/RepuesTop Marketing/contenido/2026-11-26-posts-semana48/p1-jue26-spark.png",
+    "G:/Mi unidad/RepuesTop Marketing/contenido/2026-11-26-posts-semana48/tiktok_9x16/p1-jue26-spark_9x16.png"
+  ],
   "notas": "Propuesta 25-nov, ver datos/planes/semana/2026-W48.md",
   "resultado": null,
   "historial": [
     {
       "fecha": "2026-11-25",
       "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-25",
+      "estado": "lista"
     }
   ]
 }

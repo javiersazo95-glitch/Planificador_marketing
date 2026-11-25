@@ -6,14 +6,21 @@
   "titulo": "Post tiendas: sube tu catalogo desde Excel",
   "red": "facebook,instagram,tiktok",
   "publico": "tiendas",
-  "estado": "propuesta",
-  "archivos": [],
+  "estado": "lista",
+  "archivos": [
+    "G:/Mi unidad/RepuesTop Marketing/contenido/2026-11-26-posts-semana48/p4-dom29-excel.png",
+    "G:/Mi unidad/RepuesTop Marketing/contenido/2026-11-26-posts-semana48/tiktok_9x16/p4-dom29-excel_9x16.png"
+  ],
   "notas": "Propuesta 25-nov, ver datos/planes/semana/2026-W48.md",
   "resultado": null,
   "historial": [
     {
       "fecha": "2026-11-25",
       "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-25",
+      "estado": "lista"
     }
   ]
 }
