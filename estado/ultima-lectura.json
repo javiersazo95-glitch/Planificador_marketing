@@ -1,17 +1,17 @@
 {
   "repos": {
     "monorepo": {
-      "produccion": "e44bc03d",
-      "trabajo": "e44bc03d"
+      "produccion": "5e84e147",
+      "trabajo": "32d8bfe9"
     },
     "market": {
-      "produccion": "ecd2d0fc",
-      "trabajo": "ecd2d0fc"
+      "produccion": "bab01652",
+      "trabajo": "9c9a0bca"
     },
     "panel": {
-      "produccion": "6f233029",
-      "trabajo": "6f233029"
+      "produccion": "d841bcfe",
+      "trabajo": "0ca4c9be"
     }
   },
-  "actualizado": "2026-11-16T11:50:28.968Z"
+  "actualizado": "2026-11-25T20:10:09.818Z"
 }

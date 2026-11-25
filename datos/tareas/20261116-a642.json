@@ -6,7 +6,7 @@
   "titulo": "Carrusel C2: No encuentras tu repuesto? Pidelo a Repuestin (todas las redes)",
   "red": "",
   "publico": "",
-  "estado": "aprobada",
+  "estado": "publicada",
   "archivos": [],
   "notas": "16-nov. Carrusel 4:5 + 9:16 + video con música solo para YouTube. Carpeta en Drive contenido/2026-11-16-...",
   "resultado": null,
@@ -22,6 +22,10 @@
     {
       "fecha": "2026-11-16",
       "estado": "aprobada"
+    },
+    {
+      "fecha": "2026-11-25",
+      "estado": "publicada"
     }
   ]
 }
