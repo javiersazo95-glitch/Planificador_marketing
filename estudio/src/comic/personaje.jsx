@@ -9,7 +9,7 @@ const G = 7;                // grosor de linea
 export const EXPRESIONES = {
   neutro:     { parpado: 0.22, cejaA: 0,   cejaB: 0,   alza: 0,   pupila: 11, boca: 'recta' },
   feliz:      { parpado: 0.1,  cejaA: -4,  cejaB: 4,   alza: -10, pupila: 12, boca: 'risa' },
-  sorpresa:   { parpado: 0,    cejaA: -8,  cejaB: 8,   alza: -26, pupila: 7,  boca: 'o' },
+  sorpresa:   { parpado: 0,    cejaA: -8,  cejaB: 8,   alza: -18, pupila: 7,  boca: 'o' },
   preocupado: { parpado: 0.12, cejaA: -20, cejaB: 20,  alza: -8,  pupila: 8,  boca: 'mueca', gota: true },
   canchero:   { parpado: 0.48, cejaA: 4,   cejaB: -12, alza: -4,  pupila: 11, boca: 'ladeada' },
   enojado:    { parpado: 0.28, cejaA: 20,  cejaB: -20, alza: 8,   pupila: 9,  boca: 'abajo' },
@@ -40,7 +40,7 @@ const Mano = ({ x, y, tipo = 'abierta', rot = 0, piel, flip = false }) => {
 };
 
 /* Un brazo: hombro -> codo -> muneca, con manga opcional (corta deja ver la piel) */
-export const Brazo = ({ hombro, codo, muneca, mano = 'abierta', rot = 0, piel, manga, corta = false, flip = false, puno = null }) => {
+export const Brazo = ({ hombro, codo, muneca, mano = 'abierta', rot = 0, piel, manga, corta = false, flip = false, puno = null, tapa = false }) => {
   const d = `M${hombro[0]} ${hombro[1]} L${codo[0]} ${codo[1]} L${muneca[0]} ${muneca[1]}`;
   const m = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
   const hastaManga = m(hombro, codo, 0.85);
@@ -48,6 +48,7 @@ export const Brazo = ({ hombro, codo, muneca, mano = 'abierta', rot = 0, piel, m
     <g>
       <Tubo d={d} color={corta ? piel : manga} w={42} />
       {corta ? <Tubo d={`M${hombro[0]} ${hombro[1]} L${hastaManga[0]} ${hastaManga[1]}`} color={manga} w={50} /> : null}
+      {tapa ? <circle cx={hombro[0]} cy={hombro[1]} r={(corta ? 25 : 21) + G} fill={manga} /> : null}
       {puno ? <Tubo d={`M${m(codo, muneca, 0.82).join(' ')} L${m(codo, muneca, 0.9).join(' ')}`} color={puno} w={46} /> : null}
       <Mano x={muneca[0]} y={muneca[1]} tipo={mano} rot={rot} piel={piel} flip={flip} />
     </g>
@@ -74,7 +75,7 @@ export const Ojos = ({ x, y, rx = 40, ry = 46, sep = 74, piel, e, mirada = [0.35
               <path d={`M${cx - a - 4} ${lid} L${cx + a + 4} ${lid}`} stroke={L} strokeWidth={G} /></g>) : null}
           </g>
           <ellipse cx={cx} cy={y} rx={a} ry={b} fill="none" stroke={L} strokeWidth={G} />
-          {pestanas ? <path d={i ? `M${cx + a - 8} ${lid + 2} l20 -14 M${cx + a - 1} ${lid + 16} l22 -6` : `M${cx - a + 8} ${lid + 2} l-20 -14 M${cx - a + 1} ${lid + 16} l-22 -6`} stroke={L} strokeWidth={G} strokeLinecap="round" /> : null}
+          {pestanas ? <path d={i ? `M${cx + a * 0.62} ${y - b * 0.76} l13 -15 M${cx + a * 0.88} ${y - b * 0.46} l17 -9` : `M${cx - a * 0.62} ${y - b * 0.76} l-13 -15 M${cx - a * 0.88} ${y - b * 0.46} l-17 -9`} stroke={L} strokeWidth={G} strokeLinecap="round" /> : null}
         </g>
       );
     })}
@@ -85,8 +86,10 @@ const cy0 = (y, b, p) => y - b + 2 * b * p;
 export const Cejas = ({ x, y, sep = 74, e, color, w = 56, h = 14 }) => (
   <g>
     {[0, 1].map((i) => (
-      <path key={i} transform={`translate(${x + i * sep},${y + e.alza}) rotate(${i ? e.cejaB : e.cejaA})`}
-        d={`M${-w / 2} 4 Q0 ${-h} ${w / 2} 0`} stroke={color} strokeWidth={h} strokeLinecap="round" fill="none" />
+      <g key={i} transform={`translate(${x + i * sep},${y + e.alza}) rotate(${i ? e.cejaB : e.cejaA})`} fill="none" strokeLinecap="round">
+        <path d={`M${-w / 2} 4 Q0 ${-h} ${w / 2} 0`} stroke={L} strokeWidth={h + 9} />
+        <path d={`M${-w / 2} 4 Q0 ${-h} ${w / 2} 0`} stroke={color} strokeWidth={h} />
+      </g>
     ))}
   </g>
 );

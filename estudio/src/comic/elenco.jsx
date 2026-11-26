@@ -34,27 +34,27 @@ const POSES = {
   muestra: (h) => ({ a: { codo: [h[0][0] - 52, h[0][1] + 105], muneca: [h[0][0] - 36, h[0][1] + 205], mano: 'abierta' }, b: { codo: [h[1][0] + 70, h[1][1] + 100], muneca: [h[1][0] + 128, h[1][1] + 34], mano: 'puno' } }),
 };
 
-const dosBrazos = (hombros, pose, comun) => {
+const dosBrazos = (hombros, pose, comun, tapa = false) => {
   const p = POSES[pose](hombros);
   return {
     p,
     a: <Brazo hombro={hombros[0]} {...p.a} {...comun} />,
-    b: <Brazo hombro={hombros[1]} {...p.b} {...comun} />,
+    b: <Brazo hombro={hombros[1]} {...p.b} {...comun} tapa={tapa} />,
   };
 };
 
 /* ===================== 1. SEBA, el dueno del auto ===================== */
 const Seba = ({ e, pose, habla, id, mirada }) => {
   const piel = '#EDB48C', pelo = '#4A2C1D', poleron = '#2E7D6B';
-  const br = dosBrazos([[-82, -548], [92, -548]], pose, { piel, manga: poleron, puno: '#215C4F' });
+  const br = dosBrazos([[-82, -548], [74, -540]], pose, { piel, manga: poleron, puno: '#215C4F' }, true);
   return (
     <g>
       <Sombra />
       <Piernas color="#4C6A92" zapato="#E5483A" />
       {br.a}
+      <Cuello x={6} y={-620} piel={piel} />
       <path d="M-112 -330 Q-128 -500 -80 -576 Q4 -616 92 -576 Q138 -500 120 -330 Q4 -306 -112 -330 Z" fill={poleron} {...S} />
       <path d="M-70 -392 Q4 -420 80 -392 L92 -334 Q4 -318 -82 -334 Z" fill="#256757" {...S} />
-      <Cuello x={6} y={-620} piel={piel} />
       <path d="M-66 -578 Q4 -516 84 -578 Q50 -604 6 -602 Q-36 -604 -66 -578 Z" fill="#256757" {...S} />
       <path d="M-18 -548 L-26 -478 M36 -548 L46 -480" {...linea} stroke="#fff" strokeWidth={9} />
       {br.b}
@@ -74,12 +74,13 @@ const Seba = ({ e, pose, habla, id, mirada }) => {
 /* ===================== 2. EL CUNADO, "sabe de autos" ===================== */
 const Cunado = ({ e, pose, habla, id, mirada }) => {
   const piel = '#D59A6A', pelo = '#241B18', camisa = '#D9463E';
-  const br = dosBrazos([[-112, -540], [118, -540]], pose, { piel, manga: camisa, corta: true });
+  const br = dosBrazos([[-112, -540], [114, -534]], pose, { piel, manga: camisa, corta: true }, true);
   return (
     <g>
       <Sombra rx={220} />
       <Piernas color="#B79B6C" xa={-70} xb={66} y={-300} w={76} zapato="#7A4E2E" suela="#4F321F" />
       {br.a}
+      <Cuello x={10} y={-626} piel={piel} w={78} />
       <path d="M-118 -576 Q-4 -622 128 -576 Q196 -430 164 -336 Q130 -258 4 -262 Q-132 -262 -156 -338 Q-180 -440 -118 -576 Z" fill={camisa} {...S} />
       {[[-104, -420], [-60, -500], [108, -446], [80, -320], [-70, -316], [130, -366]].map(([x, y], i) => (
         <g key={i} transform={`translate(${x},${y}) rotate(${i * 37})`} fill="#FFD9A0">{[0, 72, 144, 216, 288].map((r) => <ellipse key={r} cx={0} cy={-14} rx={8} ry={14} transform={`rotate(${r})`} />)}<circle r={6} fill={AM} /></g>
@@ -88,7 +89,6 @@ const Cunado = ({ e, pose, habla, id, mirada }) => {
       {[-500, -430, -360].map((y) => <circle key={y} cx={40} cy={y} r={8} fill="#fff" stroke={L} strokeWidth={4} />)}
       <path d="M-150 -318 Q4 -278 162 -316 L156 -282 Q4 -244 -146 -284 Z" fill="#5A3A22" {...S} />
       <rect x={4} y={-290} width={50} height={38} rx={6} fill={AM} {...S} />
-      <Cuello x={10} y={-626} piel={piel} w={78} />
       <path d="M-48 -590 L16 -540 L-6 -602 Z M76 -590 L16 -540 L40 -604 Z" fill={camisa} {...S} />
       {br.b}
       {/* cabeza: mandibula ancha */}
@@ -119,6 +119,7 @@ const Lucho = ({ e, pose, habla, id, mirada }) => {
       <Sombra rx={210} />
       <Piernas color={overol} xa={-66} xb={64} y={-340} w={80} zapato="#5B4636" suela="#2E241D" />
       {br.a}
+      <Cuello x={8} y={-622} piel={piel} w={70} />
       <path d="M-110 -576 Q4 -612 120 -576 Q152 -460 136 -330 Q4 -298 -128 -330 Q-146 -460 -110 -576 Z" fill="#F2F4F8" {...S} />
       <path d="M-72 -480 L84 -480 L96 -410 L134 -400 Q142 -350 136 -330 Q4 -298 -128 -330 Q-134 -362 -126 -400 L-84 -410 Z" fill={overol} {...S} />
       <path d="M-66 -476 L-88 -580 M76 -476 L100 -580" {...linea} stroke={L} strokeWidth={40} /><path d="M-66 -476 L-88 -580 M76 -476 L100 -580" {...linea} stroke={overol} strokeWidth={28} />
@@ -126,19 +127,18 @@ const Lucho = ({ e, pose, habla, id, mirada }) => {
       <rect x={-34} y={-440} width={84} height={58} rx={10} fill="#0B3C98" {...S} />
       <rect x={-12} y={-478} width={12} height={56} rx={4} fill={AM} {...S} strokeWidth={4} />
       <path d="M18 -440 L18 -470 M10 -486 Q4 -470 18 -466 Q32 -470 26 -486" {...linea} stroke="#C7CDD8" strokeWidth={10} />
-      <Cuello x={8} y={-622} piel={piel} w={70} />
       {br.b}
       {/* cabeza redonda */}
       <ellipse cx={8} cy={-728} rx={116} ry={128} fill={piel} {...S} />
       <path d="M-106 -770 C-134 -760 -132 -690 -102 -668 C-96 -690 -70 -700 -74 -722 C-66 -746 -80 -772 -106 -770 Z" fill={cana} {...S} />
       <Oreja x={-96} y={-718} piel={piel} s={1.15} />
       <Ojos x={-8} y={-758} rx={34} ry={37} sep={68} piel={piel} e={e} id={id} mirada={mirada} />
-      <Cejas x={-10} y={-806} sep={70} e={e} color={cana} h={18} />
       {/* gorra amarilla */}
       <path d="M-108 -800 C-116 -916 -40 -938 14 -936 C92 -932 126 -878 120 -812 Q10 -846 -108 -800 Z" fill={AM} {...S} />
       <path d="M-14 -832 Q80 -870 178 -808 Q178 -786 150 -792 Q74 -824 -14 -808 Z" fill="#E0AE00" {...S} />
       <circle cx={8} cy={-936} r={12} fill={AZ} {...S} strokeWidth={5} />
       <circle cx={44} cy={-884} r={26} fill={AZ} {...S} strokeWidth={5} /><path d="M30 -884 L41 -873 L60 -896" {...linea} stroke="#fff" strokeWidth={8} />
+      <Cejas x={-10} y={-802} sep={70} e={e} color={cana} h={16} />
       {/* nariz grande y bigote canoso */}
       <ellipse cx={80} cy={-702} rx={42} ry={32} fill="#AE6C46" {...S} />
       <path d="M-16 -652 C-4 -692 44 -694 70 -676 C96 -696 138 -678 140 -642 C124 -656 114 -640 96 -648 C80 -632 64 -648 56 -652 C40 -632 20 -646 12 -650 C2 -640 -8 -644 -16 -652 Z" fill={cana} {...S} />
@@ -164,11 +164,11 @@ const Carmen = ({ e, pose, habla, id, mirada }) => {
       <Sombra rx={180} />
       <Piernas color="#2F3A57" xa={-52} xb={50} y={-320} w={60} zapato="#26324F" suela="#26324F" />
       {br.a}
+      <Cuello x={6} y={-616} piel={piel} w={44} />
       <path d="M-86 -566 Q6 -602 96 -566 Q118 -480 92 -420 Q130 -360 124 -308 Q6 -284 -114 -308 Q-120 -360 -82 -420 Q-108 -480 -86 -566 Z" fill={blusa} {...S} />
       {/* chaleco de la tienda */}
       <path d="M-86 -566 Q-52 -584 -34 -582 L-14 -470 L-26 -306 Q-76 -296 -114 -308 Q-120 -360 -82 -420 Q-108 -480 -86 -566 Z M96 -566 Q62 -584 44 -582 L26 -470 L36 -306 Q86 -296 124 -308 Q130 -360 92 -420 Q118 -480 96 -566 Z" fill={GR} {...S} />
       <rect x={46} y={-478} width={46} height={28} rx={6} fill="#fff" {...S} strokeWidth={4} /><rect x={54} y={-468} width={30} height={8} rx={4} fill={AZ} />
-      <Cuello x={6} y={-616} piel={piel} w={44} />
       {br.b}
       {pose === 'muestra' ? tablet : null}
       {/* mono (tomate) */}
@@ -182,7 +182,7 @@ const Carmen = ({ e, pose, habla, id, mirada }) => {
       <Ojos x={-6} y={-746} rx={34} ry={40} sep={68} piel={piel} e={e} id={id} mirada={mirada} pestanas />
       <Cejas x={-8} y={-806} sep={70} e={e} color={pelo} h={10} />
       {/* anteojos */}
-      <g fill="none" stroke={AZ} strokeWidth={9}><circle cx={-6} cy={-736} r={45} /><circle cx={66} cy={-736} r={49} /><path d="M-50 -742 L-92 -734" /></g>
+      <g fill="none" stroke={AZ} strokeWidth={7}><circle cx={-6} cy={-736} r={45} /><circle cx={66} cy={-736} r={49} /><path d="M-50 -742 L-92 -734" /></g>
       <path d="M50 -698 C72 -692 98 -674 80 -664 C70 -660 60 -664 52 -668" fill={piel} {...S} />
       <Boca x={34} y={-638} tipo={e.boca} habla={habla} s={0.82} labio="#B8324F" />
       {e.gota ? <Gota x={-56} y={-822} /> : null}
@@ -202,12 +202,12 @@ const Cata = ({ e, pose, habla, id, mirada }) => {
       {/* cola de pelo */}
       <path d="M-60 -846 C-190 -880 -236 -760 -178 -680 C-160 -652 -190 -620 -214 -616 C-150 -580 -92 -640 -108 -700 C-122 -750 -100 -776 -62 -770 Z" fill={pelo} {...S} />
       {br.a}
+      <Cuello x={4} y={-604} piel={piel} w={42} />
       <path d="M-78 -548 Q4 -584 86 -548 Q112 -450 98 -318 Q4 -296 -92 -318 Q-106 -450 -78 -548 Z" fill="#fff" {...S} />
       <path d="M-78 -548 Q-50 -566 -28 -566 L-6 -460 L-16 -308 Q-56 -306 -92 -318 Q-106 -450 -78 -548 Z M86 -548 Q58 -566 36 -566 L16 -460 L24 -308 Q64 -306 98 -318 Q112 -450 86 -548 Z" fill={chaqueta} {...S} />
       <path d="M-66 -390 L-40 -380 M48 -380 L74 -390" {...linea} />
       <path d="M-70 -556 L66 -330" {...linea} strokeWidth={24} /><path d="M-70 -556 L66 -330" {...linea} stroke={AZ} strokeWidth={12} />
       <rect x={42} y={-360} width={92} height={72} rx={20} fill={AZ} {...S} />
-      <Cuello x={4} y={-604} piel={piel} w={42} />
       {br.b}
       {pose === 'muestra' ? (
         <g transform={`translate(${m[0] + 12},${m[1] - 32}) rotate(8)`}><rect x={-34} y={-66} width={72} height={124} rx={16} fill="#26324F" {...S} /><rect x={-24} y={-52} width={52} height={92} rx={6} fill="#fff" /><rect x={-18} y={-32} width={40} height={22} rx={6} fill={AZ} /><rect x={-18} y={0} width={40} height={16} rx={4} fill={AM} /></g>
@@ -229,19 +229,19 @@ const Cata = ({ e, pose, habla, id, mirada }) => {
 /* ===================== 6. NANDO, el desarmador ===================== */
 const Nando = ({ e, pose, habla, id, mirada }) => {
   const piel = '#E8A67E', pelo = '#C4561F', polera = GR;
-  const br = dosBrazos([[-70, -566], [78, -566]], pose, { piel, manga: polera, corta: true });
+  const br = dosBrazos([[-70, -566], [54, -556]], pose, { piel, manga: polera, corta: true }, true);
   const m = br.p.b.muneca;
   return (
     <g>
       <Sombra rx={170} />
       <Piernas color="#5C6B4A" xa={-52} xb={50} y={-370} w={58} zapato="#8A6A3F" suela="#3B2C1B" />
       {br.a}
+      <Cuello x={6} y={-668} piel={piel} w={40} alto={86} />
       <path d="M-74 -592 Q4 -622 82 -592 Q100 -480 80 -356 Q4 -336 -74 -356 Q-92 -480 -74 -592 Z" fill={polera} {...S} />
       <circle cx={6} cy={-476} r={40} fill="#fff" {...S} strokeWidth={5} />
       <g stroke={L} strokeWidth={9} fill="none"><circle cx={6} cy={-476} r={18} />{[0, 45, 90, 135, 180, 225, 270, 315].map((r) => <path key={r} d="M6 -500 L6 -512" transform={`rotate(${r} 6 -476)`} />)}</g>
       <path d="M-82 -372 Q4 -346 86 -372 L84 -338 Q4 -316 -80 -338 Z" fill="#6B4A2B" {...S} />
       <g transform="translate(-52,-352) rotate(14)"><rect x={-8} y={0} width={16} height={92} rx={8} fill="#C7CDD8" {...S} strokeWidth={5} /><circle cx={0} cy={96} r={20} fill="#C7CDD8" {...S} strokeWidth={5} /></g>
-      <Cuello x={6} y={-668} piel={piel} w={40} alto={86} />
       {br.b}
       {pose === 'muestra' ? (
         <g transform={`translate(${m[0] + 18},${m[1] - 40}) rotate(-12)`} {...S}><circle r={52} fill="#9AA6BA" /><circle r={30} fill="#C7CDD8" /><circle r={10} fill={L} />{[0, 60, 120, 180, 240, 300].map((r) => <circle key={r} cx={0} cy={-41} r={6} fill={L} stroke="none" transform={`rotate(${r})`} />)}</g>

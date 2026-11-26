@@ -16,8 +16,8 @@ export const LaminaComic = () => (
       const p = ELENCO_COMIC[k];
       const x = 60 + (i % 3) * 610, y = 196 + Math.floor(i / 3) * 800;
       return (
-        <div key={k} style={{ position: 'absolute', left: x, top: y, width: 580, height: 770, background: '#fff', border: `6px solid ${L}`, borderRadius: 34, overflow: 'hidden', boxShadow: `10px 10px 0 ${L}` }}>
-          <svg width={568} height={570} viewBox="-330 -1040 660 1085" style={{ display: 'block', background: '#E6EEFB' }}>
+        <div key={k} style={{ position: 'absolute', left: x, top: y, width: 580, height: 770, boxSizing: 'border-box', background: '#fff', border: `6px solid ${L}`, borderRadius: 34, overflow: 'hidden', boxShadow: `10px 10px 0 ${L}` }}>
+          <svg width={568} height={570} viewBox="-300 -1030 600 1070" style={{ display: 'block', background: '#E6EEFB' }}>
             <circle cx={10} cy={-600} r={300} fill={p.color} opacity={0.16} />
             <Personaje quien={k} />
           </svg>
@@ -46,7 +46,7 @@ export const ExpresionesComic = () => {
         <React.Fragment key={k}>
           <div style={{ position: 'absolute', left: 40, top: 270 + i * 270, width: 230, fontSize: 32, fontWeight: 800 }}>{ELENCO_COMIC[k].nombre}</div>
           {ex.map((n, j) => (
-            <svg key={n} width={250} height={250} viewBox={k === 'nando' ? '-180 -1030 400 420' : '-200 -980 420 420'} style={{ position: 'absolute', left: 280 + j * 270, top: 170 + i * 270, background: '#E6EEFB', border: `5px solid ${L}`, borderRadius: 24 }}>
+            <svg key={n} width={250} height={250} viewBox={k === 'nando' ? '-180 -1030 400 420' : k === 'cata' ? '-250 -980 420 420' : '-200 -980 420 420'} style={{ position: 'absolute', left: 280 + j * 270, top: 170 + i * 270, background: '#E6EEFB', border: `5px solid ${L}`, borderRadius: 24 }}>
               <Personaje quien={k} expresion={n} pose="quieto" uid="cara" />
             </svg>
           ))}
