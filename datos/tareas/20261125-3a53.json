@@ -6,7 +6,7 @@
   "titulo": "Post Black Friday: compara antes de pagar",
   "red": "facebook,instagram,tiktok",
   "publico": "compradores",
-  "estado": "lista",
+  "estado": "descartada",
   "archivos": [
     "G:/Mi unidad/RepuesTop Marketing/contenido/2026-11-26-posts-semana48/p2-vie27-blackfriday.png",
     "G:/Mi unidad/RepuesTop Marketing/contenido/2026-11-26-posts-semana48/tiktok_9x16/p2-vie27-blackfriday_9x16.png"
@@ -21,6 +21,10 @@
     {
       "fecha": "2026-11-25",
       "estado": "lista"
+    },
+    {
+      "fecha": "2026-11-26",
+      "estado": "descartada"
     }
   ]
 }

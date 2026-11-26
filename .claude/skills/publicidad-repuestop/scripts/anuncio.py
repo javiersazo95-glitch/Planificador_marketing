@@ -12,7 +12,7 @@ La ficha:
   "titulo": "¿Tienes un Spark?", "bajada": "Repuestos desde $19.021",
   "nota": "Precios al 25-nov, IVA incluido. Sujeto a stock.",
   "productos": [{"foto": "https://img.repuestop.cl/...", "nombre": "...", "auto": "...", "precio": "$...",
-                 "zoom": 1.3}],  # 2 o 3 productos; zoom es opcional
+                 "zoom": 1.3}],  # 2 o 3 productos; zoom es opcional. Sin "foto": solo texto y sin carrusel
   "final": {"titulo": "...", "puntos": [["lupa", "..."]]} }
 """
 import argparse
@@ -38,6 +38,8 @@ def envio(f):
 
 
 def foto(p):
+    if not p.get("foto"):
+        return ""  # la tienda aún no sube foto: la tarjeta va solo con texto (nunca una foto inventada)
     if not str(p.get("foto", "")).startswith("https://img.repuestop.cl/"):
         sys.exit(f"La foto debe venir de https://img.repuestop.cl/: {p.get('foto')}")
     zoom = float(p.get("zoom", 1))  # acerca fotos con mucho margen; se recorta lo que sobra
@@ -55,6 +57,7 @@ def vende(f):
 
 
 def portada(f, formato):
+    lista = f'n{len(f["productos"])}' if all(p.get("foto") for p in f["productos"]) else "lista"
     tarjetas = "".join(f'<li>{foto(p)}<div class="info"><b>{e(p["nombre"])}</b><small>{e(p["auto"])}</small>'
                        f'{precio(p)}</div></li>' for p in f["productos"])
     chip = '<span class="chip">Pago seguro con Flow</span>'
@@ -62,7 +65,7 @@ def portada(f, formato):
            + ('<span class="web">repuestop.cl</span>' if formato == "feed" else "") + "</div>")
     cola = '<span class="lema">Movemos Chile juntos</span>' if formato == "vertical" else ""
     return (f'{marca(blanca=True)}{chip}<header><h1>{e(f["titulo"])}</h1><h2>{e(f["bajada"])}</h2></header>'
-            f'<ul class="n{len(f["productos"])}">{tarjetas}</ul>{pie}{cola}')
+            f'<ul class="{lista}">{tarjetas}</ul>{pie}{cola}')
 
 
 def tarjeta(f, p, i, total):
@@ -98,14 +101,17 @@ def main():
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
     exe = chrome()
+    largo = " largo" if len(f["tienda"]) > 24 else ""  # nombres largos: letra más chica para no encimarse
     with tempfile.TemporaryDirectory() as tmp:
         for formato in ("feed", "vertical"):
             w, h, sufijo = MEDIDAS[formato]
-            foto_png(exe, tmp, portada(f, formato), f"portada {formato}", w, h, out / f"{f['nombre']}_{sufijo}.png")
+            foto_png(exe, tmp, portada(f, formato), f"portada {formato}{largo}", w, h, out / f"{f['nombre']}_{sufijo}.png")
+        if not all(p.get("foto") for p in f["productos"]):
+            return  # el carrusel muestra un producto por tarjeta: sin fotos no se hace
         w, h, _ = MEDIDAS["carrusel"]
         total = len(f["productos"]) + 1
         for i, p in enumerate(f["productos"], 1):
-            foto_png(exe, tmp, tarjeta(f, p, i, total), "tarjeta", w, h, out / f"{f['nombre']}_carrusel_{i}.png")
+            foto_png(exe, tmp, tarjeta(f, p, i, total), f"tarjeta{largo}", w, h, out / f"{f['nombre']}_carrusel_{i}.png")
         foto_png(exe, tmp, final(f), "final", w, h, out / f"{f['nombre']}_carrusel_{total}.png")
 
 

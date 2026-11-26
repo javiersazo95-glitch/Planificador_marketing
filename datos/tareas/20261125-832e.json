@@ -6,7 +6,7 @@
   "titulo": "Post tiendas: sube tu catalogo desde Excel",
   "red": "facebook,instagram,tiktok",
   "publico": "tiendas",
-  "estado": "lista",
+  "estado": "descartada",
   "archivos": [
     "G:/Mi unidad/RepuesTop Marketing/contenido/2026-11-26-posts-semana48/p4-dom29-excel.png",
     "G:/Mi unidad/RepuesTop Marketing/contenido/2026-11-26-posts-semana48/tiktok_9x16/p4-dom29-excel_9x16.png"
@@ -21,6 +21,10 @@
     {
       "fecha": "2026-11-25",
       "estado": "lista"
+    },
+    {
+      "fecha": "2026-11-26",
+      "estado": "descartada"
     }
   ]
 }

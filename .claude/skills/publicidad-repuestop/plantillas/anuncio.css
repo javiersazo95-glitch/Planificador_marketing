@@ -65,6 +65,13 @@ ul { list-style: none; }
 .feed .n2 .precio { font-size: 66px; }
 .feed .n2 .precio.cotizar { font-size: 52px; }
 
+/* Sin fotos (la tienda aún no las sube): filas de texto */
+.feed ul.lista { grid-template-rows: repeat(3, 1fr); }
+.lista .info { padding: 0 48px; }
+.feed .lista b { font-size: 44px; }
+.feed .lista small { font-size: 29px; }
+.feed .lista .precio { font-size: 62px; }
+
 /* Vertical: arriba 270 px y abajo 670 px quedan libres de texto (botones de Meta) */
 .vertical { height: 1920px; }
 .vertical .marca { top: 282px; }
@@ -89,6 +96,13 @@ ul { list-style: none; }
 .vertical .pie p b { font-size: 23px; }
 .vertical .pie .envio { font-size: 23px; }
 .vertical .lema { position: absolute; left: 0; right: 0; top: 1420px; text-align: center; font-size: 44px; font-weight: 800; color: rgba(255,255,255,.85); }
+
+.vertical ul.lista { grid-template-rows: repeat(3, 194px); gap: 17px; }
+.vertical .lista .info { padding: 0 38px; }
+
+/* Tiendas de nombre largo */
+.feed.largo .pie p b { font-size: 22px; }
+.tarjeta.largo .chip { font-size: 19px; top: 50px; }
 
 /* Tarjeta de carrusel 1:1 */
 .tarjeta { height: 1080px; background: #fff; }
