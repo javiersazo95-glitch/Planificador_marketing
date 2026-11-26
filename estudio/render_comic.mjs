@@ -1,5 +1,5 @@
 // Exporta las laminas del elenco comic a PNG (Chrome + playwright).
-// Uso: node estudio/render_comic.mjs [carpeta_salida]
+// Uso: node estudio/render_comic.mjs [carpeta_salida] [cap1]   ("cap1" exporta solo las escenas del capitulo)
 import { build } from 'esbuild';
 import { chromium } from 'playwright';
 import { mkdirSync, rmSync } from 'node:fs';
@@ -16,9 +16,10 @@ await build({
     contents: `import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { LaminaComic, ExpresionesComic, EscenaComic, RecorteComic } from './laminas.jsx';
+import { Escena1 } from './cap1.jsx';
 import { ELENCO_COMIC } from './elenco.jsx';
 export const nombres = Object.keys(ELENCO_COMIC);
-const C = { LaminaComic, ExpresionesComic, EscenaComic, RecorteComic };
+const C = { LaminaComic, ExpresionesComic, EscenaComic, RecorteComic, Escena1 };
 export const html = (n, p = {}) => renderToStaticMarkup(React.createElement(C[n], p));`,
     resolveDir: join(aqui, 'src/comic'), loader: 'jsx',
   },
@@ -37,6 +38,8 @@ const foto = async (cuerpo, ancho, alto, archivo, transparente = false) => {
   console.log(join(salida, archivo));
 };
 
+await foto(m.html('Escena1'), 1080, 1920, 'cap1_escena1.png');
+if (process.argv[3] === 'cap1') { await nav.close(); rmSync(tmp); process.exit(0); }
 await foto(m.html('LaminaComic'), 1880, 1820, '01_elenco.png');
 await foto(m.html('ExpresionesComic'), 1920, 1800, '02_caras.png');
 await foto(m.html('EscenaComic'), 1080, 1920, '03_escena_reel.png');

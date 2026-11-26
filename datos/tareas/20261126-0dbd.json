@@ -6,7 +6,7 @@
   "titulo": "Elenco de comic: La pandilla RepuesTop (6 personajes) y serie El auto de Seba",
   "red": "instagram,tiktok,facebook",
   "publico": "compradores",
-  "estado": "propuesta",
+  "estado": "aprobada",
   "archivos": [
     "G:/Mi unidad/RepuesTop Marketing/contenido/2026-11-26-personajes-comic/final",
     "conocimiento/personajes_comic.md"
@@ -17,6 +17,10 @@
     {
       "fecha": "2026-11-26",
       "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-26",
+      "estado": "aprobada"
     }
   ]
 }

@@ -35,7 +35,7 @@ const POSES = {
 };
 
 const dosBrazos = (hombros, pose, comun, tapa = false) => {
-  const p = POSES[pose](hombros);
+  const p = typeof pose === 'string' ? POSES[pose](hombros) : pose;
   return {
     p,
     a: <Brazo hombro={hombros[0]} {...p.a} {...comun} />,
@@ -45,13 +45,14 @@ const dosBrazos = (hombros, pose, comun, tapa = false) => {
 
 /* ===================== 1. SEBA, el dueno del auto ===================== */
 const Seba = ({ e, pose, habla, id, mirada }) => {
+  const delante = !!pose.aDelante;
   const piel = '#EDB48C', pelo = '#4A2C1D', poleron = '#2E7D6B';
   const br = dosBrazos([[-82, -548], [74, -540]], pose, { piel, manga: poleron, puno: '#215C4F' }, true);
   return (
     <g>
       <Sombra />
       <Piernas color="#4C6A92" zapato="#E5483A" />
-      {br.a}
+      {delante ? null : br.a}
       <Cuello x={6} y={-620} piel={piel} />
       <path d="M-112 -330 Q-128 -500 -80 -576 Q4 -616 92 -576 Q138 -500 120 -330 Q4 -306 -112 -330 Z" fill={poleron} {...S} />
       <path d="M-70 -392 Q4 -420 80 -392 L92 -334 Q4 -318 -82 -334 Z" fill="#256757" {...S} />
@@ -66,19 +67,21 @@ const Seba = ({ e, pose, habla, id, mirada }) => {
       <Cejas x={-8} y={-806} e={e} color={pelo} />
       <path d="M52 -712 C70 -724 112 -702 106 -684 C100 -668 72 -674 56 -682" fill={piel} {...S} />
       <Boca x={36} y={-646} tipo={e.boca} habla={habla} />
-      {e.gota ? <Gota x={-62} y={-826} /> : null}
+      {delante ? br.a : null}
+      {e.gota ? <Gota x={delante ? 104 : -62} y={-826} /> : null}
     </g>
   );
 };
 
 /* ===================== 2. EL CUNADO, "sabe de autos" ===================== */
-const Cunado = ({ e, pose, habla, id, mirada }) => {
+const Cunado = ({ e, pose, habla, id, mirada, inclina = 0, cabeza = 0 }) => {
   const piel = '#D59A6A', pelo = '#241B18', camisa = '#D9463E';
   const br = dosBrazos([[-112, -540], [114, -534]], pose, { piel, manga: camisa, corta: true }, true);
   return (
     <g>
       <Sombra rx={220} />
       <Piernas color="#B79B6C" xa={-70} xb={66} y={-300} w={76} zapato="#7A4E2E" suela="#4F321F" />
+      <g transform={`rotate(${inclina} 0 -300)`}>
       {br.a}
       <Cuello x={10} y={-626} piel={piel} w={78} />
       <path d="M-118 -576 Q-4 -622 128 -576 Q196 -430 164 -336 Q130 -258 4 -262 Q-132 -262 -156 -338 Q-180 -440 -118 -576 Z" fill={camisa} {...S} />
@@ -91,6 +94,7 @@ const Cunado = ({ e, pose, habla, id, mirada }) => {
       <rect x={4} y={-290} width={50} height={38} rx={6} fill={AM} {...S} />
       <path d="M-48 -590 L16 -540 L-6 -602 Z M76 -590 L16 -540 L40 -604 Z" fill={camisa} {...S} />
       {br.b}
+      <g transform={`rotate(${cabeza} 20 -610)`}>
       {/* cabeza: mandibula ancha */}
       <path d="M-100 -776 C-98 -866 -34 -886 24 -882 C96 -878 112 -830 112 -764 C146 -716 154 -636 108 -612 C62 -586 -40 -588 -82 -618 C-122 -648 -102 -716 -100 -776 Z" fill={piel} {...S} />
       <path d="M-90 -668 C-60 -640 -30 -690 8 -672 C50 -696 100 -654 134 -678 C150 -622 108 -600 56 -596 C-10 -590 -92 -600 -90 -668 Z" fill={pelo} opacity={0.17} />
@@ -106,6 +110,8 @@ const Cunado = ({ e, pose, habla, id, mirada }) => {
       <path d="M-2 -668 C16 -696 52 -690 62 -678 C80 -694 124 -688 130 -658 C100 -668 84 -656 62 -662 C36 -648 20 -668 -2 -668 Z" fill={pelo} {...S} />
       <Boca x={50} y={-634} tipo={e.boca} habla={habla} s={0.9} />
       {e.gota ? <Gota x={-60} y={-836} /> : null}
+      </g>
+      </g>
     </g>
   );
 };
@@ -272,9 +278,9 @@ export const ELENCO_COMIC = {
 };
 
 /* Un personaje listo para usar: <Personaje quien="cata" expresion="feliz" pose="senala" /> */
-export const Personaje = ({ quien, expresion, pose, habla = null, espejo = false, mirada = [0.35, 0], uid = '' }) => {
+export const Personaje = ({ quien, expresion, pose, habla = null, espejo = false, mirada = [0.35, 0], uid = '', inclina = 0, cabeza = 0 }) => {
   const p = ELENCO_COMIC[quien];
   const e = EXPRESIONES[expresion || p.expr];
-  const id = `${quien}-${expresion || p.expr}-${pose || p.pose}-${uid}`;
-  return <g transform={espejo ? 'scale(-1,1)' : undefined}><p.C e={e} pose={pose || p.pose} habla={habla} id={id} mirada={mirada} /></g>;
+  const id = `${quien}-${expresion || p.expr}-${typeof pose === 'object' && pose ? 'libre' : pose || p.pose}-${uid}`;
+  return <g transform={espejo ? 'scale(-1,1)' : undefined}><p.C e={e} pose={pose || p.pose} habla={habla} id={id} mirada={mirada} inclina={inclina} cabeza={cabeza} /></g>;
 };

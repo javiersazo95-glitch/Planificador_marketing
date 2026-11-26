@@ -1,0 +1,26 @@
+{
+  "id": "20261126-4354",
+  "creada": "2026-11-26T15:45:00.890Z",
+  "fecha": "2026-11-26",
+  "tipo": "reel",
+  "titulo": "Reel comic cap. 1: El diagnostico del cunado (El auto de Seba)",
+  "red": "instagram,tiktok,facebook,youtube",
+  "publico": "compradores",
+  "estado": "en_produccion",
+  "archivos": [
+    "conocimiento/personajes_comic.md",
+    "estudio/src/comic/cap1.jsx"
+  ],
+  "notas": "Escena 1 de 5 en revision. Se aprueba escena por escena.",
+  "resultado": null,
+  "historial": [
+    {
+      "fecha": "2026-11-26",
+      "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-26",
+      "estado": "en_produccion"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 # La pandilla RepuesTop — elenco para cómics y series
-Propuesta 1 · 26-nov-2026 · **estado: por aprobar** · historia: no publicar nada sin el «sí».
+Propuesta 1 · 26-nov-2026 · **elenco aprobado el 26-nov** · capítulo 1 en producción, escena por escena · no publicar nada sin el «sí».
 
 ## Dónde está
 - Imágenes: Drive `contenido/2026-11-26-personajes-comic/final/` (elenco, caras, escena de prueba y recortes sin fondo).
@@ -31,7 +31,7 @@ Capítulo 1, «El diagnóstico del cuñado» (reaprovecha el guion R1).
 
 | Tiempo | Escena | Texto o voz |
 |---|---|---|
-| 0–3 s | Frente a la tienda, Cuñado señala, Seba preocupado | Texto: «Tres repuestos comprados y el auto sigue igual.» Cuñado: «Es el alternador.» |
+| 0–3 s | Auto con el capó levantado: Cuñado inclinado sobre el motor, Seba preocupado | Texto: «Tres repuestos comprados y el auto sigue igual.» Cuñado: «Es el alternador.» |
 | 3–8 s | Seba rodeado de cajas | Seba: «Ya cambié… tres.» |
 | 8–14 s | Cata muestra el celular y la pantalla real de Fallas | Cata: «Cuenta la falla en RepuesTop y los talleres te responden.» |
 | 14–18 s | Don Lucho revisa; Cuñado incómodo | Lucho: «Vamos a revisarlo con calma.» Cuñado: «Yo dije que podía ser eléctrico.» |
