@@ -6,12 +6,12 @@
   "titulo": "Post productos Spark bajo 20.000",
   "red": "facebook,instagram,tiktok",
   "publico": "compradores",
-  "estado": "lista",
+  "estado": "publicada",
   "archivos": [
     "G:/Mi unidad/RepuesTop Marketing/contenido/2026-11-26-posts-semana48/p1-jue26-spark.png",
     "G:/Mi unidad/RepuesTop Marketing/contenido/2026-11-26-posts-semana48/tiktok_9x16/p1-jue26-spark_9x16.png"
   ],
-  "notas": "Propuesta 25-nov, ver datos/planes/semana/2026-W48.md | Programado el 26-nov a las 14:00 en Facebook (Business Suite), Instagram web y TikTok (sonido Digital Horizon). Falta confirmar que salio.",
+  "notas": "Propuesta 25-nov, ver datos/planes/semana/2026-W48.md | Programado el 26-nov a las 14:00 en Facebook (Business Suite), Instagram web y TikTok (sonido Digital Horizon). Confirmado publicado el 26-nov a las 14:00 en las 3 redes (TikTok 18 vistas y 1 me gusta a media tarde). Texto de Instagram editado a «enlace en el perfil»; historia con enlace creada (real-spark_historia_9x16.png).",
   "resultado": null,
   "historial": [
     {
@@ -25,6 +25,10 @@
     {
       "fecha": "2026-11-26",
       "estado": "lista"
+    },
+    {
+      "fecha": "2026-11-26",
+      "estado": "publicada"
     }
   ]
 }
