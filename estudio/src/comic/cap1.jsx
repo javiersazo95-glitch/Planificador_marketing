@@ -46,10 +46,10 @@ export const AutoCapo = ({ color = '#3F86C9', sombra = '#2F6DA8' }) => (
     </g>
     {/* orilla del otro costado */}
     <path d="M-400 -384 L-386 -398 L-96 -368 Q-70 -356 -50 -304 L-92 -352 L-386 -382 Z" fill={color} />
-    {/* capo levantado: gira desde la base del parabrisas y muestra su cara de adentro */}
-    <path d="M-410 -356 L-372 -770 Q-366 -806 -330 -806 L-130 -770 Q-100 -758 -112 -728 L-300 -350 Z" fill={color} />
-    <path d="M-386 -386 L-350 -764 L-148 -730 L-312 -384 Z" fill={sombra} strokeWidth={5} />
-    <path d="M-358 -430 L-332 -722 L-184 -696 L-312 -430 Z M-346 -576 L-250 -562" fill="none" strokeWidth={5} opacity={0.55} />
+    {/* capo levantado, aprobado: visto de lado se ve angosto. No ensancharlo */}
+    <path d="M-392 -362 L-236 -800 Q-214 -830 -186 -806 L-178 -790 L-348 -368 Z" fill={color} />
+    <path d="M-366 -384 L-222 -776 L-206 -772 L-350 -392 Z" fill={sombra} strokeWidth={5} />
+    <path d="M-72 -318 L-322 -482" fill="none" strokeWidth={16} /><path d="M-72 -318 L-322 -482" fill="none" stroke="#C7CDD8" strokeWidth={6} />
     {/* cabina */}
     <path d="M-1250 -330 L-1250 -590 Q-1240 -610 -1180 -612 L-640 -612 Q-590 -606 -560 -570 L-388 -338 Z" fill={color} />
     <path d="M-622 -574 Q-596 -572 -576 -548 L-436 -356 L-700 -356 L-700 -574 Z" fill="#CDE8FA" />
@@ -110,7 +110,7 @@ export const Escena1 = () => (
       <ellipse cx={642} cy={1738} rx={190} ry={22} fill={L} opacity={0.18} />
       <Caja x={568} y={1734} rot={-2} n={1} /><Caja x={722} y={1738} rot={3} n={2} /><Caja x={646} y={1643} rot={-5} n={3} />
       <g transform="translate(208,1850) scale(1.0)"><SebaRasca uid="e1" /></g>
-      <Globo x={462} y={540} w={560} h={130} cola={[655, 606, 766]}>Es el alternador.</Globo>
+      <Globo x={462} y={505} w={560} h={130} cola={[655, 606, 766]}>Es el alternador.</Globo>
     </svg>
     <Cartel>Tres repuestos comprados<br />y <span style={{ color: AZ, fontStyle: 'italic' }}>el auto sigue igual.</span></Cartel>
     <div style={{ position: 'absolute', left: 108, top: 170, background: AM, border: `7px solid ${L}`, padding: '6px 24px', fontSize: 38, fontWeight: 800, transform: 'rotate(-3deg)', boxShadow: `7px 7px 0 ${L}` }}>CAPÍTULO 1</div>
