@@ -243,38 +243,48 @@ export const SebaSentado = ({ expresion = 'preocupado', habla = null, uid = 'p' 
 /* ===================== CATA de perfil, muestra el celular ===================== */
 export const CataMuestra = ({ expresion = 'feliz', habla = null, uid = 'p' }) => {
   const e = EXPRESIONES[expresion];
-  const piel = '#9A6240', pelo = '#1F1512', pant = '#26324F';
+  const piel = '#9A6240', pelo = '#1F1512', pant = '#26324F', sombra = '#D9A900';
+  const chaqueta = 'M-48 -330 C-58 -410 -70 -498 -44 -540 Q-26 -568 2 -570 L22 -568 C52 -556 68 -522 66 -486 C64 -448 48 -420 48 -388 L52 -330 Q2 -316 -48 -330 Z';
   return (
     <g>
       <Sombra rx={140} />
-      <BrazoLado hombro={[-4, -512]} codo={[-46, -420]} muneca={[-62, -334]} piel="#835134" manga="#D9A900" puno="#B88F00" mano="abierta" rot={8} r={[27, 20, 15]} />
-      <Pierna cadera={[-14, -330]} rodilla={[-34, -182]} tobillo={[-58, -44]} color="#1A2238" zapato="#D9DEE8" suela="#B93931" r={[36, 27, 20]} />
-      <Pierna cadera={[6, -326]} rodilla={[16, -182]} tobillo={[14, -44]} color={pant} zapato="#fff" suela="#E5483A" r={[40, 29, 21]} />
+      <Pierna cadera={[-12, -328]} rodilla={[-34, -182]} tobillo={[-58, -44]} color="#1A2238" zapato="#D9DEE8" suela="#B93931" r={[34, 26, 19]} />
+      {/* pierna de adelante con la cadera, en una sola pieza */}
+      <Union color={pant} formas={['M-46 -322 a46 36 0 1 0 92 0 a46 36 0 1 0 -92 0 Z', tramo([6, -318], 40, [16, -182], 28), tramo([16, -182], 28, [14, -44], 21)]} />
+      <Zapato x={14} color="#fff" suela="#E5483A" />
       {/* cuello */}
       <path d={tramo([2, -548], 21, [12, -626], 20)} fill={piel} {...S} />
-      {/* chaqueta amarilla abierta sobre polera blanca */}
-      <path d="M-54 -316 C-68 -400 -80 -494 -46 -546 Q-24 -576 8 -572 C48 -566 64 -518 68 -468 C62 -430 52 -382 60 -316 Q4 -296 -54 -316 Z" fill={AM} {...S} />
-      <path d="M28 -564 C58 -542 68 -500 68 -468 C62 -430 52 -382 60 -316 L28 -308 C20 -400 28 -494 12 -562 Z" fill="#fff" {...S} />
-      <path d="M-22 -562 L26 -552 L8 -524 Z" fill="#D9A900" {...S} />
-      <path d="M-56 -336 Q-16 -322 28 -330 L28 -308 Q-14 -302 -54 -316 Z" fill="#D9A900" {...S} />
-      {/* bolso cruzado */}
-      <path d="M-30 -562 L-30 -360" {...linea} strokeWidth={22} /><path d="M-30 -562 L-30 -360" {...linea} stroke="#0F4EC2" strokeWidth={10} />
-      <rect x={-88} y={-380} width={86} height={70} rx={20} fill="#0F4EC2" {...S} />
+      {/* chaqueta corta cerrada, con pretina, cierre y bolsillo */}
+      <path d={chaqueta} fill={AM} {...S} />
+      <path d="M-50 -354 Q2 -340 50 -354 L52 -326 Q2 -310 -48 -326 Z" fill={sombra} {...S} />
+      <path d="M40 -552 C58 -520 48 -470 38 -430 C30 -400 32 -376 34 -346" {...linea} strokeWidth={5} />
+      {/* solapa: una sola pieza, limpia */}
+      <path d="M-20 -566 Q2 -556 24 -569 L50 -546 L22 -526 Q12 -548 -20 -566 Z" fill={sombra} {...S} />
       {/* cabeza de perfil */}
       <g transform="translate(14,-694)">
-        <path d="M-62 -92 C-178 -120 -218 -8 -160 56 C-146 76 -170 104 -196 106 C-132 150 -74 96 -90 40 C-104 -6 -90 -34 -60 -38 Z" fill={pelo} {...S} />
+        {/* cola de pelo */}
+        <path d="M-84 -78 C-152 -110 -206 -50 -178 18 C-164 52 -176 80 -206 94 C-148 124 -94 82 -100 34 C-106 4 -96 -18 -76 -30 Z" fill={pelo} {...S} />
         <path d="M-86 -10 C-90 -78 -40 -108 10 -104 C62 -100 82 -64 80 -24 C78 -4 82 14 80 40 C76 80 52 108 20 108 C-20 108 -48 90 -62 66 C-76 48 -84 20 -86 -10 Z" fill={piel} {...S} />
         <path d="M-80 42 C-114 6 -112 -88 -56 -116 C-10 -146 66 -128 88 -80 C98 -60 92 -48 82 -42 C70 -70 46 -82 22 -78 C-4 -56 -32 -66 -42 -42 C-56 -20 -46 6 -60 30 Z" fill={pelo} {...S} />
-        <path d="M-74 -70 Q-14 -140 72 -94" {...linea} strokeWidth={30} /><path d="M-74 -70 Q-14 -140 72 -94" {...linea} stroke="#E5483A" strokeWidth={18} />
+        <path d="M-58 -88 Q-18 -126 44 -110 M-84 -36 Q-80 -62 -64 -78 M-160 -30 Q-154 -62 -118 -70" {...linea} stroke="#5A3F35" strokeWidth={6} />
+        {/* colet rojo donde nace la cola */}
+        <ellipse cx={-92} cy={-56} rx={14} ry={31} transform="rotate(32 -92 -56)" fill="#E5483A" {...S} />
         <OrejaLado x={-38} y={14} piel={piel} s={0.85} />
-        <circle cx={-40} cy={58} r={22} fill="none" stroke={L} strokeWidth={17} /><circle cx={-40} cy={58} r={22} fill="none" stroke={AM} strokeWidth={8} />
+        <circle cx={-40} cy={56} r={19} fill="none" stroke={L} strokeWidth={15} /><circle cx={-40} cy={56} r={19} fill="none" stroke={AM} strokeWidth={7} />
         <Ojo x={40} y={-6} rx={27} ry={37} e={e} piel={piel} id={`ojo-cata-${uid}`} mirada={[0.7, 0.05]} pestanas />
-        <Ceja x={36} y={-56 + e.alza} ang={e.cejaB} color={pelo} w={52} h={11} />
+        <Ceja x={36} y={-54 + e.alza} ang={e.cejaB} color={pelo} w={50} h={10} />
         <path d="M76 12 C94 18 112 32 102 44 C94 52 82 46 74 44" fill={piel} {...S} />
         <BocaLado x={56} y={72} habla={habla} tipo={e.boca} />
       </g>
       {/* brazo de adelante con el celular a la vista */}
-      <BrazoLado hombro={[-10, -508]} codo={[46, -412]} muneca={[136, -438]} piel={piel} manga={AM} puno="#D9A900" mano={null} tapa r={[30, 22, 16]} />
+      <BrazoLado hombro={[-4, -508]} codo={[48, -414]} muneca={[136, -438]} piel={piel} manga={AM} puno={sombra} mano={null} tapa r={[29, 22, 16]} />
+      {/* cartera: la correa pasa por el hombro y el bolso descansa en la cadera */}
+      <path d="M-16 -561 C-40 -536 -56 -470 -64 -388" {...linea} strokeWidth={21} />
+      <path d="M-16 -561 C-40 -536 -56 -470 -64 -388" {...linea} stroke="#0F4EC2" strokeWidth={9} />
+      <path d="M-112 -388 Q-66 -402 -20 -388 L-14 -328 Q-16 -304 -40 -302 L-92 -302 Q-116 -304 -118 -328 Z" fill="#0F4EC2" {...S} />
+      <path d="M-112 -388 Q-66 -402 -20 -388 L-24 -356 Q-66 -330 -108 -356 Z" fill="#0B3C98" {...S} />
+      <circle cx={-66} cy={-348} r={9} fill={AM} {...S} strokeWidth={4} />
+      {/* mano y celular */}
       <path d="M126 -452 C142 -478 190 -470 196 -444 C192 -418 150 -410 130 -424 Z" fill={piel} {...S} />
       <g transform="translate(184,-490) rotate(9)" {...S}>
         <rect x={-44} y={-82} width={88} height={164} rx={17} fill={L} />
