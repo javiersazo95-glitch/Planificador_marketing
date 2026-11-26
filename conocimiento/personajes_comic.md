@@ -14,7 +14,7 @@ Capó aprobado: angosto, visto de lado. El Cuñado de lado tiene trasero bien ma
 Escena 1, versión 4, **aprobada el 26-nov**: `contenido/2026-11-26-reel-comic-cap1/escenas/cap1_escena1_v4.png`.
 Escena 2, **aprobada el 26-nov**: `contenido/2026-11-26-reel-comic-cap1/escenas/cap1_escena2.png` (texto de arriba nuevo: «Batería, bujías, filtro… y nada.»).
 Escena 3, **aprobada el 26-nov** (con la frase nueva): `contenido/2026-11-26-reel-comic-cap1/escenas/cap1_escena3_v2.png`. Cata de lado sin cintillo (colet rojo en la cola), chaqueta cerrada y cartera de hombro con tapa. Captura real de repuestop.cl/fallas (`node estudio/capturar_fallas.mjs`). Frase propuesta: «Cuenta la falla en RepuesTop antes de comprar otro repuesto», porque el 26-nov producción mostraba 0 talleres publicados y no conviene prometer que «los talleres te responden».
-Escena 4 (26-nov), en revisión: `contenido/2026-11-26-reel-comic-cap1/escenas/cap1_escena4.png` (texto nuevo arriba «Llega Don Lucho, el maestro del taller»; el Cuñado bota las cajas con el trasero).
+Escena 4, versión 2 (26-nov), en revisión (zapato corregido, llave en vez de linterna: de día no va linterna): `contenido/2026-11-26-reel-comic-cap1/escenas/cap1_escena4_v2.png` (texto nuevo arriba «Llega Don Lucho, el maestro del taller»; el Cuñado bota las cajas con el trasero).
 Caricatura plana de comedia, borde azul noche (#1B2440), ojos grandes con párpado, vista 3/4.
 **No copiar series existentes:** sin piel amarilla ni la boca/ojos típicos de Los Simpson (marca de Disney; podrían reclamar).
 
@@ -40,6 +40,7 @@ Capítulo 1, «El diagnóstico del cuñado» (reaprovecha el guion R1).
 | 0–3 s | Auto con el capó levantado: Cuñado inclinado sobre el motor, Seba preocupado | Texto: «Tres repuestos comprados y el auto sigue igual.» Cuñado: «Es el alternador.» |
 | 3–8 s | Seba rodeado de cajas | Seba: «Ya cambié… tres.» |
 | 8–14 s | Cata muestra el celular y la pantalla real de Fallas | Cata: «Cuenta la falla en RepuesTop y los talleres te responden.» |
+| Por crear (pedida el 26-nov) | Seba publica la falla en la app y le llega el diagnóstico (pantalla real, con un ejemplo de prueba) | Texto por definir |
 | 14–18 s | Don Lucho revisa; Cuñado incómodo | Lucho: «Vamos a revisarlo con calma.» Cuñado: «Yo dije que podía ser eléctrico.» |
 | 18–22 s | Cierre L2 compradores | «Pago seguro con Flow» + motor + voz de cierre |
 

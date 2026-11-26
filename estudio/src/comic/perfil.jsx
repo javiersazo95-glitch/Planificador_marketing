@@ -326,9 +326,9 @@ export const CunadoRetrocede = ({ expresion = 'preocupado', habla = null, uid = 
       {/* brazo de atras, mano abierta: «yo no fui» */}
       <BrazoLado hombro={[-14, -528]} codo={[88, -462]} muneca={[150, -540]} piel="#BE855A" manga="#B93931" corta mano="abierta" rot={-142} r={[31, 23, 16]} />
       <Pierna cadera={[-30, -322]} rodilla={[-70, -178]} tobillo={[-62, -44]} color="#9C8158" zapato="#653F25" suela="#3D2718" />
-      {/* pie de adelante en el aire */}
-      <g transform="translate(108,-34) rotate(-20)"><Zapato x={0} color="#7A4E2E" suela="#4F321F" /></g>
-      <Union color={pant} formas={['M-94 -326 a82 62 0 1 0 164 0 a82 62 0 1 0 -164 0 Z', 'M-56 -392 C-112 -410 -164 -374 -162 -320 C-160 -270 -124 -244 -80 -250 C-42 -260 -4 -294 -2 -328 Z', tramo([8, -318], 56, [74, -190], 40), tramo([74, -190], 40, [104, -76], 29)]} />
+      <Union color={pant} formas={['M-94 -326 a82 62 0 1 0 164 0 a82 62 0 1 0 -164 0 Z', 'M-56 -392 C-112 -410 -164 -374 -162 -320 C-160 -270 -124 -244 -80 -250 C-42 -260 -4 -294 -2 -328 Z', tramo([8, -318], 56, [74, -190], 40), tramo([74, -190], 40, [96, -68], 29)]} />
+      {/* pie de adelante dando el paso hacia atras: se calza sobre el tobillo */}
+      <g transform="translate(96,-68) rotate(-16) translate(0,44)"><Zapato x={0} color="#7A4E2E" suela="#4F321F" /></g>
       <path d="M-144 -340 L-96 -320 Q-92 -286 -112 -276 Q-140 -282 -144 -340 Z" {...linea} strokeWidth={5} opacity={0.6} />
       <path d="M-112 -246 Q-86 -244 -64 -262" {...linea} strokeWidth={5} />
       <path d={tramo([-40, -572], 46, [-38, -646], 40)} fill={piel} {...S} />
@@ -339,7 +339,7 @@ export const CunadoRetrocede = ({ expresion = 'preocupado', habla = null, uid = 
   );
 };
 
-/* ===================== DON LUCHO revisa con linterna ===================== */
+/* ===================== DON LUCHO revisa el motor con una llave ===================== */
 export const LuchoRevisa = ({ expresion = 'feliz', habla = null, uid = 'p' }) => {
   const e = EXPRESIONES[expresion];
   const piel = '#B9784F', cana = '#D7D9E0', azul = '#0F4EC2', azulSombra = '#0B3C98';
@@ -384,9 +384,8 @@ export const LuchoRevisa = ({ expresion = 'feliz', habla = null, uid = 'p' }) =>
       {/* brazo de adelante con la linterna */}
       <BrazoLado hombro={[116, -482]} codo={[196, -398]} muneca={[270, -420]} piel={piel} manga="#F2F4F8" corta mano={null} r={[34, 25, 18]} />
       <g transform="translate(286,-418) rotate(34)" {...S}>
-        <path d="M58 -22 L196 -62 L196 62 L58 22 Z" fill="#FFF1B8" stroke="none" opacity={0.45} />
-        <rect x={-38} y={-14} width={76} height={28} rx={9} fill="#454C5E" />
-        <path d="M36 -18 L60 -26 L60 26 L36 18 Z" fill="#7B8798" />
+        <path d="M-52 -10 L74 -10 C80 -32 112 -34 128 -18 L102 -9 L102 9 L128 18 C112 34 80 32 74 10 L-52 10 C-66 10 -66 -10 -52 -10 Z" fill="#C7CDD8" />
+        <path d="M30 0 H62" fill="none" strokeWidth={4} opacity={0.5} />
       </g>
       <path d="M262 -440 C282 -458 312 -440 306 -416 C300 -398 274 -394 258 -406 Z" fill={piel} {...S} />
       <path d="M274 -420 Q292 -416 304 -424" {...linea} strokeWidth={4} />
