@@ -10,8 +10,8 @@ Propuesta 1 · 26-nov-2026 · **elenco aprobado el 26-nov** · capítulo 1 en pr
 
 ## Estilo
 Escenas de acción: **vista de lado completa** (poses en `estudio/src/comic/perfil.jsx`), sin mezclar frente y lado.
-Capó aprobado: angosto, visto de lado. El Cuñado de lado tiene trasero grande, reservado para un chiste de situación (por ejemplo, bota las cajas al agacharse).
-Escena 1, versión 3 (26-nov), en revisión: `contenido/2026-11-26-reel-comic-cap1/escenas/cap1_escena1_v3.png`.
+Capó aprobado: angosto, visto de lado. El Cuñado de lado tiene trasero bien marcado (sin exagerar), reservado para un chiste de situación (por ejemplo, bota las cajas al agacharse).
+Escena 1, versión 4 (26-nov), en revisión: `contenido/2026-11-26-reel-comic-cap1/escenas/cap1_escena1_v4.png`.
 Caricatura plana de comedia, borde azul noche (#1B2440), ojos grandes con párpado, vista 3/4.
 **No copiar series existentes:** sin piel amarilla ni la boca/ojos típicos de Los Simpson (marca de Disney; podrían reclamar).
 

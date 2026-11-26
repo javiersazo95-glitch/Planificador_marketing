@@ -107,10 +107,10 @@ export const CunadoInclinado = ({ expresion = 'canchero', habla = null, inclina 
       {/* brazo de atras: se apoya en el borde del auto */}
       <BrazoLado hombro={[150, -460]} codo={[226, -388]} muneca={[208, -314]} piel="#BE855A" manga="#B93931" corta mano="abierta" rot={8} r={[32, 24, 17]} />
       <Pierna cadera={[-26, -322]} rodilla={[-66, -180]} tobillo={[-104, -44]} color={pantAtras} zapato="#653F25" suela="#3D2718" />
-      <Union color={pant} formas={['M-86 -330 a82 66 0 1 0 164 0 a82 66 0 1 0 -164 0 Z', 'M-34 -398 C-112 -452 -206 -404 -198 -324 C-192 -246 -118 -218 -48 -254 C-6 -268 26 -300 20 -334 Z', tramo([8, -318], 56, [30, -172], 40), tramo([30, -172], 40, [4, -44], 29)]} />
+      <Union color={pant} formas={['M-86 -330 a82 66 0 1 0 164 0 a82 66 0 1 0 -164 0 Z', 'M-38 -398 C-94 -418 -142 -382 -140 -328 C-138 -276 -102 -248 -58 -254 C-22 -264 18 -300 20 -334 Z', tramo([8, -318], 56, [30, -172], 40), tramo([30, -172], 40, [4, -44], 29)]} />
       <Zapato x={4} color="#7A4E2E" suela="#4F321F" />
-      <path d="M-170 -356 L-98 -330 Q-94 -284 -122 -272 Q-162 -276 -170 -356 Z" {...linea} strokeWidth={5} opacity={0.6} />
-      <path d="M-96 -238 Q-62 -240 -38 -264" {...linea} strokeWidth={5} />
+      <path d="M-122 -352 L-74 -332 Q-70 -298 -90 -288 Q-118 -294 -122 -352 Z" {...linea} strokeWidth={5} opacity={0.6} />
+      <path d="M-90 -252 Q-64 -250 -44 -268" {...linea} strokeWidth={5} />
       {/* cuello */}
       <path d={tramo([160, -512], 46, [248, -570], 40)} fill={piel} {...S} />
       <g transform={`rotate(${inclina} 0 -330)`}>
