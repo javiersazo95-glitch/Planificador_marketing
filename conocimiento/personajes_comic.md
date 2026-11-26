@@ -9,6 +9,8 @@ Propuesta 1 · 26-nov-2026 · **elenco aprobado el 26-nov** · capítulo 1 en pr
   `habla` (0 a 1) abre la boca para sincronizar la voz. El teléfono, la tablet y la pieza solo salen en la pose `muestra`.
 
 ## Estilo
+Escenas de acción: **vista de lado completa** (poses en `estudio/src/comic/perfil.jsx`), sin mezclar frente y lado.
+Escena 1, versión 2 (26-nov), en revisión: `contenido/2026-11-26-reel-comic-cap1/escenas/cap1_escena1_v2.png`.
 Caricatura plana de comedia, borde azul noche (#1B2440), ojos grandes con párpado, vista 3/4.
 **No copiar series existentes:** sin piel amarilla ni la boca/ojos típicos de Los Simpson (marca de Disney; podrían reclamar).
 

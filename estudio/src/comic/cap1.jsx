@@ -2,7 +2,7 @@
 // Referencias: la persona se inclina desde el frente del auto, con el capo levantado atras.
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
-import { Personaje } from './elenco.jsx';
+import { CunadoInclinado, SebaRasca } from './perfil.jsx';
 import { L, G } from './personaje.jsx';
 
 const FUENTE = "'Plus Jakarta Sans','Segoe UI',Arial,sans-serif";
@@ -24,7 +24,6 @@ export const Entrada = () => (
     <rect x={50} y={810} width={420} height={530} fill="#D9DEE8" />
     {[890, 970, 1050, 1130, 1210].map((y) => <path key={y} d={`M50 ${y} H470`} strokeWidth={5} />)}
     <rect x={560} y={830} width={190} height={200} fill="#33507A" /><path d="M655 830 V1030 M560 930 H750" fill="none" />
-    <path d="M540 1042 H770" strokeWidth={16} />
     {/* piso */}
     <rect x={-20} y={1340} width={1120} height={600} fill="#B9BECA" />
     <path d="M-20 1450 H1100 M200 1340 L40 1930 M760 1340 L900 1930" fill="none" strokeWidth={5} opacity={0.28} />
@@ -35,18 +34,22 @@ export const Entrada = () => (
 export const AutoCapo = ({ color = '#3F86C9', sombra = '#2F6DA8' }) => (
   <g {...S}>
     <ellipse cx={-520} cy={4} rx={640} ry={34} fill={L} opacity={0.22} stroke="none" />
-    {/* hueco del motor */}
-    <path d="M-390 -336 L-372 -396 L-84 -366 L-44 -300 Z" fill="#26324F" />
-    <rect x={-336} y={-388} width={96} height={58} rx={10} fill="#7B8798" />
-    {[-322, -296, -270].map((x) => <rect key={x} x={x} y={-402} width={18} height={22} rx={5} fill="#C7CDD8" />)}
-    <path d="M-244 -352 C-200 -408 -170 -330 -128 -352" fill="none" strokeWidth={20} />
-    <rect x={-132} y={-374} width={58} height={50} rx={8} fill="#2B2F3A" /><rect x={-122} y={-386} width={12} height={14} fill="#E5483A" /><rect x={-96} y={-386} width={12} height={14} fill="#C7CDD8" />
-    <circle cx={-192} cy={-342} r={30} fill="#C7CDD8" /><circle cx={-192} cy={-342} r={11} fill={AM} />
+    {/* hueco del motor: queda DENTRO del auto, entre la orilla de atras y la de adelante */}
+    <clipPath id="hueco-motor"><path d="M-392 -336 L-386 -382 L-92 -352 L-50 -300 Z" /></clipPath>
+    <path d="M-392 -336 L-386 -382 L-92 -352 L-50 -300 Z" fill="#26324F" />
+    <g clipPath="url(#hueco-motor)">
+      <rect x={-352} y={-360} width={96} height={50} rx={12} fill="#7B8798" />
+      {[-338, -312, -286].map((x) => <rect key={x} x={x} y={-366} width={16} height={20} rx={5} fill="#C7CDD8" />)}
+      <path d="M-252 -340 C-220 -372 -190 -322 -160 -338" fill="none" strokeWidth={14} />
+      <circle cx={-208} cy={-322} r={28} fill="#C7CDD8" /><circle cx={-208} cy={-322} r={10} fill={AM} />
+      <rect x={-150} y={-346} width={56} height={46} rx={8} fill="#454C5E" /><rect x={-140} y={-354} width={12} height={14} fill="#E5483A" />
+    </g>
+    {/* orilla del otro costado */}
+    <path d="M-400 -384 L-386 -398 L-96 -368 Q-70 -356 -50 -304 L-92 -352 L-386 -382 Z" fill={color} />
     {/* capo levantado: gira desde la base del parabrisas y muestra su cara de adentro */}
     <path d="M-410 -356 L-372 -770 Q-366 -806 -330 -806 L-130 -770 Q-100 -758 -112 -728 L-300 -350 Z" fill={color} />
     <path d="M-386 -386 L-350 -764 L-148 -730 L-312 -384 Z" fill={sombra} strokeWidth={5} />
     <path d="M-358 -430 L-332 -722 L-184 -696 L-312 -430 Z M-346 -576 L-250 -562" fill="none" strokeWidth={5} opacity={0.55} />
-    <path d="M-72 -318 L-196 -620" fill="none" strokeWidth={16} /><path d="M-72 -318 L-196 -620" fill="none" stroke="#C7CDD8" strokeWidth={6} />
     {/* cabina */}
     <path d="M-1250 -330 L-1250 -590 Q-1240 -610 -1180 -612 L-640 -612 Q-590 -606 -560 -570 L-388 -338 Z" fill={color} />
     <path d="M-622 -574 Q-596 -572 -576 -548 L-436 -356 L-700 -356 L-700 -574 Z" fill="#CDE8FA" />
@@ -97,28 +100,17 @@ export const Cartel = ({ children, top = 240 }) => (
   <div style={{ position: 'absolute', left: 80, right: 80, top, background: '#FFF9EC', border: `7px solid ${L}`, borderRadius: 30, boxShadow: `10px 10px 0 ${L}`, padding: '20px 30px', fontSize: 60, fontWeight: 800, lineHeight: 1.15, textAlign: 'center' }}>{children}</div>
 );
 
-/* Poses propias de la escena */
-const CUN_MOTOR = {
-  a: { codo: [20, -420], muneca: [196, -462], mano: 'puno', rot: -40 },
-  b: { codo: [186, -466], muneca: [250, -556], mano: 'senala', rot: -12 },
-};
-const SEBA_RASCA = {
-  aDelante: true,
-  a: { codo: [-192, -636], muneca: [-134, -798], mano: 'abierta', rot: 228 },
-  b: { codo: [120, -432], muneca: [116, -322], mano: 'abierta', flip: true },
-};
-
 export const Escena1 = () => (
   <AbsoluteFill style={{ fontFamily: FUENTE, color: L }}>
     <svg width={1080} height={1920} viewBox="0 0 1080 1920">
       <Entrada />
-      <g transform="translate(668,1480)"><AutoCapo /></g>
-      <g transform="translate(928,1520) scale(0.95)"><Personaje quien="cunado" espejo expresion="canchero" pose={CUN_MOTOR} inclina={36} cabeza={-20} mirada={[0.3, -0.2]} uid="e1" /></g>
+      <g transform="translate(726,1480)"><AutoCapo /></g>
+      <g transform="translate(868,1500) scale(-1,1)"><CunadoInclinado uid="e1" /></g>
       {/* las tres cajas ya compradas, en primer plano */}
-      <ellipse cx={602} cy={1668} rx={190} ry={22} fill={L} opacity={0.18} />
-      <Caja x={528} y={1664} rot={-2} n={1} /><Caja x={682} y={1668} rot={3} n={2} /><Caja x={606} y={1573} rot={-5} n={3} />
-      <g transform="translate(262,1990) scale(1.12)"><Personaje quien="seba" expresion="preocupado" pose={SEBA_RASCA} mirada={[0.75, -0.25]} uid="e1" /></g>
-      <Globo x={462} y={530} w={560} h={130} cola={[760, 728, 732]}>Es el alternador.</Globo>
+      <ellipse cx={642} cy={1738} rx={190} ry={22} fill={L} opacity={0.18} />
+      <Caja x={568} y={1734} rot={-2} n={1} /><Caja x={722} y={1738} rot={3} n={2} /><Caja x={646} y={1643} rot={-5} n={3} />
+      <g transform="translate(208,1850) scale(1.0)"><SebaRasca uid="e1" /></g>
+      <Globo x={462} y={540} w={560} h={130} cola={[655, 606, 766]}>Es el alternador.</Globo>
     </svg>
     <Cartel>Tres repuestos comprados<br />y <span style={{ color: AZ, fontStyle: 'italic' }}>el auto sigue igual.</span></Cartel>
     <div style={{ position: 'absolute', left: 108, top: 170, background: AM, border: `7px solid ${L}`, padding: '6px 24px', fontSize: 38, fontWeight: 800, transform: 'rotate(-3deg)', boxShadow: `7px 7px 0 ${L}` }}>CAPÍTULO 1</div>
