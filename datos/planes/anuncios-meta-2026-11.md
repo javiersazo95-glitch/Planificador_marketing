@@ -14,7 +14,7 @@ Se rehacen con `.claude/skills/publicidad-repuestop/scripts/anuncio.py <ficha> -
 |---|---|---|
 | Jue 26, 14:00 (publicado) | Spark | real-spark_feed_4x5 (TikTok: vertical_9x16) |
 | Vie 27, 12:30 (programado) | Corsa | real-corsa_feed_4x5 (TikTok: vertical_9x16) |
-| Sáb 28, 12:30 | MAVE | mave-cotiza, carrusel 1 a 3 |
+| Sáb 28, 12:30 (programado) | MAVE | mave-cotiza, carrusel 1 a 3 |
 | Cuando la tienda diga sí | Amortiguadores y Tren Delantero (reserva) | carpeta 2026-11-26-reserva-amortiguadores-tren-delantero (ver LEEME.md) |
 
 Desde el 26-nov se publica **solo publicidad de repuestos**. Black Friday, Excel y patente quedan en pausa.
