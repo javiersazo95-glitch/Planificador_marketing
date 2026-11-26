@@ -29,6 +29,14 @@ MEDIDAS = {"feed": (1080, 1350, "feed_4x5"), "vertical": (1080, 1920, "vertical_
            "carrusel": (1080, 1080, "carrusel")}
 
 
+# Regla del equipo (26-nov): ningún anuncio puede dar a entender que el envío viene incluido.
+ENVIO = "Envío no incluido. A regiones se paga al recibir."
+
+
+def envio(f):
+    return f'<span class="envio">{e(f.get("envio") or ENVIO)}</span>'
+
+
 def foto(p):
     if not str(p.get("foto", "")).startswith("https://img.repuestop.cl/"):
         sys.exit(f"La foto debe venir de https://img.repuestop.cl/: {p.get('foto')}")
@@ -50,7 +58,7 @@ def portada(f, formato):
     tarjetas = "".join(f'<li>{foto(p)}<div class="info"><b>{e(p["nombre"])}</b><small>{e(p["auto"])}</small>'
                        f'{precio(p)}</div></li>' for p in f["productos"])
     chip = '<span class="chip">Pago seguro con Flow</span>'
-    pie = (f'<div class="pie"><p><b>{vende(f)}</b><br>{e(f["nota"])}</p>'
+    pie = (f'<div class="pie"><p><b>{vende(f)}</b><br>{e(f["nota"])}{envio(f)}</p>'
            + ('<span class="web">repuestop.cl</span>' if formato == "feed" else "") + "</div>")
     cola = '<span class="lema">Movemos Chile juntos</span>' if formato == "vertical" else ""
     return (f'{marca(blanca=True)}{chip}<header><h1>{e(f["titulo"])}</h1><h2>{e(f["bajada"])}</h2></header>'
@@ -60,13 +68,13 @@ def portada(f, formato):
 def tarjeta(f, p, i, total):
     return (f'{marca()}<span class="chip">{e(f["tienda"])} · {e(f["ciudad"])}</span>{foto(p)}'
             f'<div class="banda"><b>{e(p["nombre"])}</b><small>{e(p["auto"])}</small>'
-            f'<div class="fila">{precio(p)}<span class="nota">{e(f["nota"])}</span></div></div>')
+            f'<div class="fila">{precio(p)}<span class="nota">{e(f["nota"])}{envio(f).replace(". ", ".<br>")}</span></div></div>')
 
 
 def final(f):
     puntos = "".join(f"<li>{ICONOS[i]}<span>{e(t)}</span></li>" for i, t in f["final"]["puntos"])
     return (f'{marca(blanca=True)}<div class="cuerpo"><h1>{e(f["final"]["titulo"])}</h1><ul>{puntos}</ul>'
-            f'<span class="web">repuestop.cl</span></div><p class="vende">{vende(f)}</p>')
+            f'<span class="web">repuestop.cl</span></div><p class="vende">{vende(f)}{envio(f)}</p>')
 
 
 def foto_png(exe, tmp, cuerpo, clase, w, h, destino):

@@ -7,6 +7,32 @@ MAVE debe ver las imágenes nuevas: cambiaron los productos (radiador en vez de 
 Imágenes: Drive `RepuesTop Marketing/contenido/2026-11-25-anuncios-meta/` (una carpeta por anuncio).
 Se rehacen con `.claude/skills/publicidad-repuestop/scripts/anuncio.py <ficha> --out <carpeta>`.
 
+## Primero gratis, después pagado
+**Fase 1 · gratis (26 al 30-nov).** Publicar en Instagram, Facebook y TikTok, con «sí» por pieza.
+
+| Día y hora | Pieza | Imagen (carpeta del anuncio) |
+|---|---|---|
+| Jue 26, 12:30 | Spark | real-spark_feed_4x5 (TikTok: vertical_9x16) |
+| Vie 27, 10:00 | Black Friday | carpeta de la semana 48 |
+| Sáb 28, 12:30 | Corsa | real-corsa_feed_4x5 (TikTok: vertical_9x16) |
+| Dom 29, 12:30 | Tiendas: Excel | carpeta de la semana 48 |
+| Lun 30, 12:30 | MAVE | mave-cotiza, carrusel 1 a 3 |
+
+Para llegar a más gente sin pagar:
+- Pedir a cada tienda que comparta la publicación (muro y estados de WhatsApp).
+- En Instagram, invitar a la tienda como «colaborador»: la publicación sale en los dos perfiles.
+- Compartir en grupos de Facebook de dueños de Spark y Corsa, si las reglas del grupo lo permiten.
+- Responder comentarios y mensajes el mismo día (respuestas con aprobación del equipo).
+
+**Lunes 30 · decidir.** Comparar vistas, comentarios, mensajes y consultas que cuente cada tienda.
+
+**Fase 2 · pagada (1 al 5-dic).** Promocionar la **misma publicación** de Spark con «usar publicación
+existente»: conserva los me gusta y comentarios. Agregar botón y enlace; si Meta no lo permite en esa
+publicación, crear el anuncio nuevo con la misma imagen. Si otra pieza gana por mucho, pagar esa.
+
+**Regla de envío (equipo, 26-nov):** el envío a regiones se paga al recibir. Toda pieza y texto lo dice.
+Nunca «envío gratis» ni «envío incluido».
+
 ## Campaña recomendada
 - Objetivo: **Tráfico** (llevar gente a la web), optimizar por «clics en el enlace».
 - Presupuesto disponible (dicho por Elías el 25-nov): **$23.000 en total**. En Meta poner presupuesto
@@ -33,7 +59,7 @@ Ambas tiendas muestran «Envío fuera de la comuna» (courier por pagar en la fi
 Base de enlaces: `https://repuestop.cl` + ruta + `?utm_source=meta&utm_medium=paid_social&utm_campaign=<conjunto>&utm_content=<anuncio>`
 
 ### Spark (carpeta real-spark)
-- Texto: ¿Tienes un Chevrolet Spark? 🚗 Repuestos desde $19.021: amortiguadores traseros, cazoletas y empaquetaduras de motor. Vende REAL REPUESTOS, con envío por courier por pagar. Revisa que le sirvan a tu auto y paga seguro con Flow.
+- Texto: ¿Tienes un Chevrolet Spark? 🚗 Repuestos desde $19.021: amortiguadores traseros, cazoletas y empaquetaduras de motor. Vende REAL REPUESTOS. Envío no incluido: a regiones se paga al recibir. Revisa que le sirvan a tu auto y paga seguro con Flow.
 - Título: Repuestos para tu Spark
 - Descripción: Precios publicados
 - Botón: Comprar
@@ -47,7 +73,7 @@ Base de enlaces: `https://repuestop.cl` + ruta + `?utm_source=meta&utm_medium=pa
 | 4 | Mira la tienda en RepuesTop | /tiendas/3-real-repuestos |
 
 ### Peugeot y Citroën (carpeta mave-cotiza)
-- Texto: ¿Manejas un Peugeot o un Citroën? 🔧 Radiador para Peugeot 206 y amortiguadores delanteros para C-Elysée y 301. Cotiza directo con MAVE REPUESTOS Y ACC en RepuesTop.
+- Texto: ¿Manejas un Peugeot o un Citroën? 🔧 Radiador para Peugeot 206 y amortiguadores delanteros para C-Elysée y 301. Cotiza directo con MAVE REPUESTOS Y ACC en RepuesTop. Envío no incluido: a regiones se paga al recibir.
 - Título: Cotiza tu repuesto en línea
 - Descripción: Pago seguro con Flow
 - Botón: Obtener cotización (o «Más información» si no aparece)
@@ -60,7 +86,7 @@ Base de enlaces: `https://repuestop.cl` + ruta + `?utm_source=meta&utm_medium=pa
 | 3 | Cotiza con la tienda | /tiendas/6-mave-repuestos-y-acc |
 
 ### Corsa (carpeta real-corsa, reserva)
-- Texto: ¿Tienes un Chevrolet Corsa? 🚗 Kit de distribución con bomba de agua a $32.000 y empaquetaduras con retenes a $19.733. Vende REAL REPUESTOS. Revisa la compatibilidad y paga seguro con Flow.
+- Texto: ¿Tienes un Chevrolet Corsa? 🚗 Kit de distribución con bomba de agua a $32.000 y empaquetaduras con retenes a $19.733. Vende REAL REPUESTOS. Envío no incluido: a regiones se paga al recibir. Revisa la compatibilidad y paga seguro con Flow.
 - Título: Repuestos para tu Corsa
 - Descripción: Precios publicados
 - Botón: Comprar
@@ -73,7 +99,7 @@ Base de enlaces: `https://repuestop.cl` + ruta + `?utm_source=meta&utm_medium=pa
 | 3 | Mira la tienda en RepuesTop | /tiendas/3-real-repuestos |
 
 ## El día del lanzamiento
-1. Revisar precio y stock, y cambiar la fecha «Precios al 25-nov» en las imágenes.
+1. Revisar precio y stock, y cambiar la fecha «Precios al 26-nov» en las imágenes.
 2. Poner un medio de pago en Meta (lo hace el equipo; el agente no escribe datos de pago).
 3. Pausar el anuncio si un producto se agota o cambia de precio.
 
