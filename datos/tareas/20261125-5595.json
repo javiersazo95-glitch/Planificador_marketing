@@ -6,7 +6,7 @@
   "titulo": "Carrusel MAVE: precio publicado o a cotizar",
   "red": "facebook,instagram,tiktok",
   "publico": "compradores",
-  "estado": "propuesta",
+  "estado": "lista",
   "archivos": [
     "G:/Mi unidad/RepuesTop Marketing/contenido/2026-11-26-posts-semana48/p6-lun30-mave_01.png",
     "G:/Mi unidad/RepuesTop Marketing/contenido/2026-11-26-posts-semana48/p6-lun30-mave_02.png"
@@ -17,6 +17,10 @@
     {
       "fecha": "2026-11-25",
       "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-26",
+      "estado": "lista"
     }
   ]
 }

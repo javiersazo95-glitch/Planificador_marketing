@@ -1,0 +1,112 @@
+/* Anuncios pagados de productos (Meta Ads). Lo usa scripts/anuncio.py. Misma marca que marca.css. */
+:root { --azul: #0F4EC2; --navy: #1B2440; --gris: #3B4A5E; --ambar: #F8C805; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--navy); -webkit-font-smoothing: antialiased; }
+h1, h2, p, b, span, small { text-wrap: balance; }
+ul { list-style: none; }
+.ad { width: 1080px; position: relative; overflow: hidden; }
+.marca { position: absolute; left: 56px; display: flex; align-items: center; gap: 16px; }
+.marca img { height: 56px; display: block; }
+.wordmark { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 40px; letter-spacing: -0.02em; color: var(--gris); line-height: 1; }
+.wordmark b { color: var(--azul); }
+.web { background: var(--ambar); color: var(--navy); font-weight: 800; font-size: 34px; padding: 16px 32px; border-radius: 999px; flex: none; }
+
+/* Portada (feed 4:5 y vertical 9:16) */
+.portada, .final { color: #fff; background:
+  url("assets/patron_blanco.svg") repeat 0 0 / 420px,
+  radial-gradient(circle at 88% 6%, rgba(255,255,255,.16), transparent 32%),
+  linear-gradient(165deg, #1B5BD6 0%, #0F4EC2 45%, #0A2F7E 100%); }
+.portada .wordmark, .portada .wordmark b, .final .wordmark, .final .wordmark b { color: #fff; }
+.portada .chip { position: absolute; right: 56px; border: 3px solid rgba(255,255,255,.55); border-radius: 999px; padding: 10px 22px; font-size: 25px; font-weight: 700; }
+.portada header { position: absolute; left: 56px; right: 56px; }
+.portada h1 { font-weight: 800; line-height: 1; letter-spacing: -0.035em; }
+.portada h2 { font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; color: var(--ambar); margin-top: 14px; }
+.portada ul { position: absolute; left: 48px; right: 48px; display: grid; gap: 18px; }
+.portada li { background: #fff; color: var(--navy); border-radius: 32px; box-shadow: 0 18px 44px rgba(4,20,60,.32); display: flex; align-items: center; overflow: hidden; min-height: 0; }
+.foto { display: flex; align-items: center; justify-content: center; min-height: 0; min-width: 0; overflow: hidden; }
+.foto img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.info b { display: block; font-weight: 800; line-height: 1.12; letter-spacing: -0.01em; }
+.info small { display: block; font-weight: 600; color: var(--gris); line-height: 1.25; margin-top: 8px; }
+.precio { display: inline-block; background: var(--ambar); color: var(--navy); font-weight: 800; letter-spacing: -0.02em; line-height: 1; border-radius: 16px; padding: 12px 20px; margin-top: 16px; white-space: nowrap; }
+.portada .pie { position: absolute; left: 56px; right: 56px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.portada .pie p { font-size: 22px; font-weight: 600; line-height: 1.4; opacity: .95; }
+.portada .pie p b { font-size: 25px; }
+
+.feed { height: 1350px; }
+.feed .marca { top: 48px; }
+.feed .chip { top: 50px; }
+.feed header { top: 142px; }
+.feed h1 { font-size: 90px; }
+.feed h2 { font-size: 50px; }
+.feed ul { top: 354px; height: 872px; }
+.feed .pie { bottom: 26px; height: 80px; }
+/* 3 productos: uno grande y dos abajo */
+.feed ul.n3 { grid-template-columns: 1fr 1fr; grid-template-rows: 408px 446px; }
+.feed .n3 li:first-child { grid-column: 1 / -1; }
+.feed .n3 li:first-child .foto { width: 500px; height: 100%; padding: 18px; }
+.feed .n3 li:first-child .info { flex: 1; padding: 0 34px 0 14px; }
+.feed .n3 li:first-child b { font-size: 40px; }
+.feed .n3 li:first-child small { font-size: 27px; }
+.feed .n3 li:first-child .precio { font-size: 66px; }
+.feed .n3 li:not(:first-child) { flex-direction: column; text-align: center; padding: 14px 18px 20px; }
+.feed .n3 li:not(:first-child) .foto { width: 100%; height: 232px; flex: none; }
+.feed .n3 li:not(:first-child) .info { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
+.feed .n3 li:not(:first-child) b { font-size: 29px; margin-top: 8px; }
+.feed .n3 li:not(:first-child) small { font-size: 21px; margin-top: 4px; }
+.feed .n3 li:not(:first-child) .precio { font-size: 46px; margin-top: 10px; }
+/* 2 productos: dos tarjetas anchas */
+.feed ul.n2 { grid-template-rows: 427px 427px; }
+.feed .n2 .foto { width: 500px; height: 100%; padding: 18px; }
+.feed .n2 .info { flex: 1; padding: 0 34px 0 14px; }
+.feed .n2 b { font-size: 41px; }
+.feed .n2 small { font-size: 27px; }
+.feed .n2 .precio { font-size: 66px; }
+.feed .n2 .precio.cotizar { font-size: 52px; }
+
+/* Vertical: arriba 270 px y abajo 670 px quedan libres de texto (botones de Meta) */
+.vertical { height: 1920px; }
+.vertical .marca { top: 282px; }
+.vertical .chip { top: 284px; }
+.vertical header { top: 368px; }
+.vertical h1 { font-size: 82px; }
+.vertical h2 { font-size: 46px; margin-top: 8px; }
+.vertical ul { top: 548px; height: 616px; }
+.vertical ul.n3 { grid-template-rows: repeat(3, 194px); gap: 17px; }
+.vertical ul.n2 { grid-template-rows: repeat(2, 299px); }
+.vertical .foto { width: 300px; height: 100%; padding: 12px; flex: none; }
+.vertical .n2 .foto { width: 400px; }
+.vertical .info { flex: 1; padding: 0 24px 0 10px; }
+.vertical .info b { font-size: 31px; }
+.vertical .info small { font-size: 22px; margin-top: 4px; }
+.vertical .precio { font-size: 40px; margin-top: 8px; padding: 8px 16px; }
+.vertical .n2 .info b { font-size: 36px; }
+.vertical .n2 .info small { font-size: 25px; margin-top: 8px; }
+.vertical .n2 .precio { font-size: 52px; margin-top: 16px; }
+.vertical .pie { top: 1176px; justify-content: center; text-align: center; }
+.vertical .pie p { font-size: 20px; }
+.vertical .pie p b { font-size: 23px; }
+.vertical .lema { position: absolute; left: 0; right: 0; top: 1420px; text-align: center; font-size: 44px; font-weight: 800; color: rgba(255,255,255,.85); }
+
+/* Tarjeta de carrusel 1:1 */
+.tarjeta { height: 1080px; background: #fff; }
+.tarjeta .marca { top: 42px; }
+.tarjeta .chip { position: absolute; right: 56px; top: 46px; background: #E8F0FF; color: var(--azul); border-radius: 999px; padding: 13px 24px; font-size: 24px; font-weight: 800; }
+.tarjeta > .foto { position: absolute; left: 40px; right: 40px; top: 128px; height: 596px; }
+.banda { position: absolute; left: 0; right: 0; bottom: 0; height: 340px; background: var(--azul); color: #fff; padding: 34px 56px 0; border-top: 10px solid var(--ambar); }
+.banda b { display: block; font-size: 48px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; white-space: nowrap; }
+.banda small { display: block; font-size: 30px; font-weight: 600; opacity: .92; margin-top: 10px; }
+.banda .fila { position: absolute; left: 56px; right: 56px; bottom: 40px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.banda .precio { font-size: 80px; margin: 0; padding: 18px 30px; }
+.banda .precio.cotizar { font-size: 62px; padding: 24px 30px; }
+.banda .nota { font-size: 22px; font-weight: 600; opacity: .92; max-width: 440px; text-align: right; line-height: 1.4; }
+
+/* Tarjeta final del carrusel */
+.final { height: 1080px; }
+.final .marca { top: 56px; }
+.final .cuerpo { position: absolute; left: 80px; right: 80px; top: 190px; }
+.final h1 { font-size: 84px; font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; }
+.final ul { display: flex; flex-direction: column; gap: 22px; margin: 52px 0 58px; }
+.final li { display: flex; align-items: center; gap: 28px; background: #fff; color: var(--navy); border-radius: 26px; padding: 24px 32px; font-size: 36px; font-weight: 800; }
+.final li svg { width: 62px; height: 62px; flex: none; fill: none; stroke: var(--azul); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.final .web { display: inline-block; font-size: 46px; padding: 24px 52px; }
+.final .vende { position: absolute; left: 80px; bottom: 50px; font-size: 26px; font-weight: 600; opacity: .9; }

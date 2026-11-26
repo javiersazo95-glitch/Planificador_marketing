@@ -6,7 +6,7 @@
   "titulo": "Post productos Corsa (REAL REPUESTOS)",
   "red": "facebook,instagram,tiktok",
   "publico": "compradores",
-  "estado": "propuesta",
+  "estado": "lista",
   "archivos": [
     "G:/Mi unidad/RepuesTop Marketing/contenido/2026-11-26-posts-semana48/p3-sab28-corsa.png",
     "G:/Mi unidad/RepuesTop Marketing/contenido/2026-11-26-posts-semana48/tiktok_9x16/p3-sab28-corsa_9x16.png"
@@ -17,6 +17,10 @@
     {
       "fecha": "2026-11-25",
       "estado": "propuesta"
+    },
+    {
+      "fecha": "2026-11-26",
+      "estado": "lista"
     }
   ]
 }

@@ -1,0 +1,22 @@
+{
+  "id": "20261126-7fc5",
+  "creada": "2026-11-26T01:47:31.651Z",
+  "fecha": "2026-12-01",
+  "tipo": "imagen",
+  "titulo": "Anuncios Meta: Spark, Corsa y MAVE (imagenes y textos)",
+  "red": "facebook,instagram",
+  "publico": "compradores",
+  "estado": "propuesta",
+  "archivos": [
+    "G:/Mi unidad/RepuesTop Marketing/contenido/2026-11-25-anuncios-meta",
+    "datos/planes/anuncios-meta-2026-11.md"
+  ],
+  "notas": "Borrador. Falta presupuesto y si del equipo. Sugerido 5.000 al dia por 7 dias.",
+  "resultado": null,
+  "historial": [
+    {
+      "fecha": "2026-11-26",
+      "estado": "propuesta"
+    }
+  ]
+}
