@@ -51,7 +51,7 @@ const BrazoLado = ({ hombro, codo, muneca, piel, manga, corta, puno, mano, rot =
       ) : null}
       {tapa ? <circle cx={hombro[0]} cy={hombro[1]} r={r[0] + G + 1} fill={manga} /> : null}
       {puno ? <path d={tramo(mezcla(codo, muneca, 0.76), r[2] + 5, muneca, r[2] + 3)} fill={puno} {...S} /> : null}
-      <Mano x={muneca[0]} y={muneca[1]} tipo={mano} rot={rot} piel={piel} flip={flip} />
+      {mano ? <Mano x={muneca[0]} y={muneca[1]} tipo={mano} rot={rot} piel={piel} flip={flip} /> : null}
     </g>
   );
 };
@@ -153,10 +153,27 @@ export const CunadoInclinado = ({ expresion = 'canchero', habla = null, inclina 
   );
 };
 
+/* cabeza de Seba de perfil. (0,0) = centro de la cabeza */
+const CabezaSeba = ({ e, habla, uid, mirada = [0.75, -0.2] }) => {
+  const piel = '#EDB48C', pelo = '#4A2C1D';
+  return (
+    <g>
+      <path d="M-92 -10 C-96 -84 -44 -118 12 -112 C68 -108 90 -70 88 -28 C86 -4 90 20 88 46 C86 90 58 114 20 114 C-26 112 -52 92 -66 68 C-82 50 -90 22 -92 -10 Z" fill={piel} {...S} />
+      <path d="M-82 56 C-126 10 -126 -82 -74 -114 C-72 -150 -22 -162 -4 -140 C28 -170 84 -152 82 -120 C118 -122 120 -98 96 -86 C84 -100 62 -102 40 -96 C16 -82 -12 -88 -24 -62 C-40 -44 -34 -18 -40 -6 C-62 -14 -78 8 -62 32 Z" fill={pelo} {...S} />
+      <OrejaLado x={-38} y={14} piel={piel} />
+      <Ojo x={46} y={-10} rx={30} ry={40} e={e} piel={piel} id={`ojo-seba-${uid}`} mirada={mirada} />
+      <Ceja x={46} y={-56 + e.alza} ang={e.cejaB} color={pelo} />
+      <path d="M82 14 C104 20 138 38 128 54 C118 66 98 56 82 52" fill={piel} {...S} />
+      <BocaLado x={66} y={80} habla={habla} tipo={e.boca} />
+      {e.gota ? <Gota x={106} y={-66} /> : null}
+    </g>
+  );
+};
+
 /* ===================== SEBA de perfil, rascandose la cabeza ===================== */
 export const SebaRasca = ({ expresion = 'preocupado', habla = null, uid = 'p' }) => {
   const e = EXPRESIONES[expresion];
-  const piel = '#EDB48C', pelo = '#4A2C1D', poleron = '#2E7D6B', jean = '#4C6A92';
+  const piel = '#EDB48C', poleron = '#2E7D6B', jean = '#4C6A92';
   return (
     <g>
       <Sombra rx={150} />
@@ -173,18 +190,49 @@ export const SebaRasca = ({ expresion = 'preocupado', habla = null, uid = 'p' })
       <path d="M-30 -596 Q8 -560 52 -588 Q30 -612 4 -610 Q-18 -610 -30 -596 Z" fill="#256757" {...S} />
       <path d="M42 -576 Q58 -540 52 -496" {...linea} stroke="#fff" strokeWidth={9} />
       {/* cabeza de perfil */}
-      <g transform="translate(20,-724) rotate(-4)">
-        <path d="M-92 -10 C-96 -84 -44 -118 12 -112 C68 -108 90 -70 88 -28 C86 -4 90 20 88 46 C86 90 58 114 20 114 C-26 112 -52 92 -66 68 C-82 50 -90 22 -92 -10 Z" fill={piel} {...S} />
-        <path d="M-82 56 C-126 10 -126 -82 -74 -114 C-72 -150 -22 -162 4 -140 C28 -170 84 -152 82 -120 C118 -122 120 -98 96 -86 C84 -100 62 -102 40 -96 C16 -82 -12 -88 -24 -62 C-40 -44 -34 -18 -40 -6 C-62 -14 -78 8 -62 32 Z" fill={pelo} {...S} />
-        <OrejaLado x={-38} y={14} piel={piel} />
-        <Ojo x={46} y={-10} rx={30} ry={40} e={e} piel={piel} id={`ojo-seba-${uid}`} mirada={[0.75, -0.2]} />
-        <Ceja x={46} y={-56 + e.alza} ang={e.cejaB} color={pelo} />
-        <path d="M82 14 C104 20 138 38 128 54 C118 66 98 56 82 52" fill={piel} {...S} />
-        <BocaLado x={66} y={80} habla={habla} tipo={e.boca} />
-        {e.gota ? <Gota x={106} y={-66} /> : null}
-      </g>
+      <g transform="translate(20,-724) rotate(-4)"><CabezaSeba e={e} habla={habla} uid={uid} /></g>
       {/* brazo de adelante: se rasca la nuca */}
       <BrazoLado hombro={[-14, -540]} codo={[-146, -558]} muneca={[-108, -682]} piel={piel} manga={poleron} puno="#215C4F" mano="abierta" rot={214} flip tapa r={[36, 27, 19]} />
+    </g>
+  );
+};
+
+/* mano mostrando tres dedos, hacia arriba. (0,0) = muneca */
+const ManoTres = ({ x, y, piel, rot = 0 }) => (
+  <g transform={`translate(${x},${y}) rotate(${rot})`}>
+    {[[[-15, -34], [-28, -92]], [[2, -38], [3, -104]], [[17, -32], [33, -86]]].map(([a, b], i) => <path key={i} d={tramo(a, 11, b, 9)} fill={piel} {...S} />)}
+    <path d="M-22 6 C-34 -14 -30 -40 -12 -48 C8 -54 28 -42 28 -24 C30 -6 20 10 2 12 C-10 13 -18 12 -22 6 Z" fill={piel} {...S} />
+    <path d="M24 -16 C8 -26 -12 -24 -16 -10 C-10 -2 4 -4 20 -2" fill={piel} {...S} />
+  </g>
+);
+
+/* ===================== SEBA sentado, muestra tres dedos ===================== */
+export const SebaSentado = ({ expresion = 'preocupado', habla = null, uid = 'p' }) => {
+  const e = EXPRESIONES[expresion];
+  const piel = '#EDB48C', poleron = '#2E7D6B', jean = '#4C6A92';
+  return (
+    <g>
+      <Sombra rx={220} />
+      {/* caja en la que se sienta */}
+      <g {...S}><rect x={-206} y={-164} width={190} height={164} rx={10} fill="#B9854F" /><rect x={-134} y={-164} width={44} height={54} fill="#E7C99A" strokeWidth={5} /></g>
+      {/* brazo de atras, apoyado en la rodilla */}
+      <BrazoLado hombro={[-52, -392]} codo={[-6, -286]} muneca={[62, -272]} piel="#D99C78" manga="#215C4F" puno="#1B4D42" mano="abierta" rot={-70} r={[30, 23, 17]} />
+      <Pierna cadera={[-92, -212]} rodilla={[34, -250]} tobillo={[26, -44]} color="#3D5779" zapato="#B93931" suela="#D9DEE8" r={[46, 36, 25]} />
+      <g transform="translate(-96,150) rotate(10 0 -350)">
+        <path d={tramo([6, -566], 32, [18, -650], 30)} fill={piel} {...S} />
+        <path d="M-24 -604 C-86 -616 -118 -574 -92 -528 C-70 -504 -40 -520 -20 -552 Z" fill="#256757" {...S} />
+        <path d="M-60 -352 C-84 -430 -92 -520 -56 -574 Q-30 -606 12 -602 C60 -596 76 -540 78 -486 C80 -434 74 -386 68 -346 Q6 -322 -60 -352 Z" fill={poleron} {...S} />
+        <path d="M-62 -366 Q6 -338 68 -362 L66 -338 Q6 -314 -58 -342 Z" fill="#215C4F" {...S} />
+        <path d="M-30 -596 Q8 -560 52 -588 Q30 -612 4 -610 Q-18 -610 -30 -596 Z" fill="#256757" {...S} />
+        <path d="M42 -576 Q58 -540 52 -496" {...linea} stroke="#fff" strokeWidth={9} />
+      </g>
+      {/* pierna de adelante, con la cadera */}
+      <Union color={jean} formas={['M-150 -214 a54 50 0 1 0 108 0 a54 50 0 1 0 -108 0 Z', tramo([-96, -208], 52, [92, -236], 40), tramo([92, -236], 40, [116, -44], 28)]} />
+      <Zapato x={116} color="#E5483A" suela="#fff" />
+      <g transform="translate(-6,-560) rotate(2)"><CabezaSeba e={e} habla={habla} uid={uid} mirada={[0.8, -0.1]} /></g>
+      {/* brazo de adelante: codo en la rodilla y tres dedos arriba */}
+      <BrazoLado hombro={[-72, -392]} codo={[66, -282]} muneca={[196, -352]} piel={piel} manga={poleron} puno="#215C4F" mano={null} tapa r={[36, 27, 19]} />
+      <ManoTres x={202} y={-356} piel={piel} rot={14} />
     </g>
   );
 };

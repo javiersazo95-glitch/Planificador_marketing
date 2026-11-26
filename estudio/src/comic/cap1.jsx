@@ -2,7 +2,7 @@
 // Referencias: la persona se inclina desde el frente del auto, con el capo levantado atras.
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
-import { CunadoInclinado, SebaRasca } from './perfil.jsx';
+import { CunadoInclinado, SebaRasca, SebaSentado } from './perfil.jsx';
 import { L, G } from './personaje.jsx';
 
 const FUENTE = "'Plus Jakarta Sans','Segoe UI',Arial,sans-serif";
@@ -115,5 +115,50 @@ export const Escena1 = () => (
     <Cartel>Tres repuestos comprados<br />y <span style={{ color: AZ, fontStyle: 'italic' }}>el auto sigue igual.</span></Cartel>
     <div style={{ position: 'absolute', left: 108, top: 170, background: AM, border: `7px solid ${L}`, padding: '6px 24px', fontSize: 38, fontWeight: 800, transform: 'rotate(-3deg)', boxShadow: `7px 7px 0 ${L}` }}>CAPÍTULO 1</div>
     <div style={{ position: 'absolute', right: 90, top: 450, fontSize: 26, fontWeight: 700, background: '#ffffffcc', padding: '4px 14px', borderRadius: 10 }}>Recreación</div>
+  </AbsoluteFill>
+);
+
+/* Caja abierta con el repuesto asomado. (0,0) = apoyo en el suelo */
+const Repuesto = ({ tipo }) => {
+  if (tipo === 'bateria') return (<g><rect x={-62} y={-168} width={124} height={90} rx={10} fill="#454C5E" /><rect x={-46} y={-188} width={26} height={22} rx={5} fill="#E5483A" /><rect x={20} y={-188} width={26} height={22} rx={5} fill="#C7CDD8" /><path d="M-62 -140 H62" fill="none" strokeWidth={5} /></g>);
+  if (tipo === 'bujias') return (<g>{[-44, 0, 44].map((x, i) => (<g key={x} transform={`translate(${x},-112) rotate(${(i - 1) * 14})`}><rect x={-5} y={-92} width={10} height={20} rx={3} fill="#C7CDD8" strokeWidth={5} /><rect x={-11} y={-74} width={22} height={36} rx={7} fill="#fff" strokeWidth={5} /><rect x={-18} y={-40} width={36} height={22} rx={4} fill="#9AA6BA" strokeWidth={5} /><rect x={-11} y={-18} width={22} height={30} fill="#7B8798" strokeWidth={5} /></g>))}</g>);
+  return (<g><rect x={-58} y={-178} width={116} height={100} rx={14} fill="#FFF1B8" />{[-38, -19, 0, 19, 38].map((x) => <path key={x} d={`M${x} -170 V-96`} fill="none" strokeWidth={5} />)}<rect x={-64} y={-190} width={128} height={22} rx={9} fill="#E5483A" /></g>);
+};
+const CajaAbierta = ({ x, y, n, tipo, s = 1, rot = 0 }) => (
+  <g transform={`translate(${x},${y}) scale(${s}) rotate(${rot})`} {...S}>
+    <ellipse cx={0} cy={2} rx={124} ry={18} fill={L} opacity={0.18} stroke="none" />
+    <path d="M-92 -110 L-128 -150 L-70 -146 L-62 -110 Z M92 -110 L128 -150 L70 -146 L62 -110 Z" fill="#B9854F" />
+    <path d="M-92 -110 L-76 -132 H76 L92 -110 Z" fill="#6B4A2B" />
+    <Repuesto tipo={tipo} />
+    <rect x={-92} y={-110} width={184} height={110} rx={8} fill="#C99763" />
+    <circle cx={0} cy={-52} r={32} fill="#fff" strokeWidth={5} />
+    <text x={0} y={-37} textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={44} fill={L} stroke="none">{n}</text>
+  </g>
+);
+
+/* Boleta de compra, sin cifras */
+const Boleta = ({ x, y, rot = 0, s = 1 }) => (
+  <g transform={`translate(${x},${y}) rotate(${rot}) scale(${s})`} {...S}>
+    <path d="M-40 -64 H40 V56 L27 46 L13 58 L0 46 L-13 58 L-27 46 L-40 58 Z" fill="#fff" strokeWidth={5} />
+    <path d="M-22 -40 H22 M-22 -20 H12 M-22 0 H22 M-22 20 H6" fill="none" strokeWidth={5} opacity={0.6} />
+  </g>
+);
+
+export const Escena2 = () => (
+  <AbsoluteFill style={{ fontFamily: FUENTE, color: L }}>
+    <svg width={1080} height={1920} viewBox="0 0 1080 1920">
+      <Entrada />
+      {/* al fondo, el cunado sigue metido en el motor */}
+      <g transform="translate(784,1420) scale(0.8)"><AutoCapo /></g>
+      <g transform="translate(898,1436) scale(-0.8,0.8)"><CunadoInclinado uid="e2" /></g>
+      <CajaAbierta x={900} y={1622} n={3} tipo="filtro" s={0.95} rot={3} />
+      <g transform="translate(330,1832) scale(1.42)"><SebaSentado uid="e2" /></g>
+      <Boleta x={640} y={1650} rot={-24} s={0.9} /><Boleta x={575} y={1868} rot={72} />
+      <CajaAbierta x={750} y={1852} n={1} tipo="bateria" s={1.04} rot={-3} />
+      <CajaAbierta x={944} y={1874} n={2} tipo="bujias" s={1.0} rot={4} />
+      <Globo x={90} y={490} w={600} h={140} cola={[300, 340, 720]}>Ya cambié… tres.</Globo>
+    </svg>
+    <Cartel top={200}>Batería, bujías, filtro…<br /><span style={{ color: AZ, fontStyle: 'italic' }}>y nada.</span></Cartel>
+    <div style={{ position: 'absolute', right: 90, top: 410, fontSize: 26, fontWeight: 700, background: '#ffffffcc', padding: '4px 14px', borderRadius: 10 }}>Recreación</div>
   </AbsoluteFill>
 );
