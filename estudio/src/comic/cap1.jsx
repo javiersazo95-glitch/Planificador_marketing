@@ -2,7 +2,7 @@
 // Referencias: la persona se inclina desde el frente del auto, con el capo levantado atras.
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
-import { CunadoInclinado, SebaRasca, SebaSentado } from './perfil.jsx';
+import { CunadoInclinado, SebaRasca, SebaSentado, CataMuestra } from './perfil.jsx';
 import { L, G } from './personaje.jsx';
 
 const FUENTE = "'Plus Jakarta Sans','Segoe UI',Arial,sans-serif";
@@ -86,13 +86,13 @@ const Caja = ({ x, y, rot = 0, n }) => (
 );
 
 /* Globo de dialogo con cola hacia quien habla */
-export const Globo = ({ x, y, w, h, cola, children }) => (
+export const Globo = ({ x, y, w, h, cola, children, lineas = null, letra = 56 }) => (
   <g>
     <rect x={x + 9} y={y + 9} width={w} height={h} rx={52} fill={L} />
     <rect x={x} y={y} width={w} height={h} rx={52} fill="#fff" {...S} />
     <path d={`M${cola[0] - 44} ${y + h - 4} L${cola[1]} ${cola[2]} L${cola[0] + 34} ${y + h - 4}`} fill="#fff" {...S} />
     <rect x={cola[0] - 52} y={y + h - 16} width={92} height={12} fill="#fff" />
-    <text x={x + w / 2} y={y + h / 2 + 20} textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={56} fill={L}>{children}</text>
+    {(lineas || [children]).map((t, i, todas) => <text key={i} x={x + w / 2} y={y + h / 2 + letra * 0.36 + (i - (todas.length - 1) / 2) * letra * 1.18} textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={letra} fill={L}>{t}</text>)}
   </g>
 );
 
@@ -160,5 +160,22 @@ export const Escena2 = () => (
     </svg>
     <Cartel top={200}>Batería, bujías, filtro…<br /><span style={{ color: AZ, fontStyle: 'italic' }}>y nada.</span></Cartel>
     <div style={{ position: 'absolute', right: 90, top: 410, fontSize: 26, fontWeight: 700, background: '#ffffffcc', padding: '4px 14px', borderRadius: 10 }}>Recreación</div>
+  </AbsoluteFill>
+);
+
+/* pantalla = captura real de Fallas (data URI). Sale ampliada, como zoom del celular de Cata */
+export const Escena3 = ({ pantalla }) => (
+  <AbsoluteFill style={{ fontFamily: FUENTE, color: L }}>
+    <svg width={1080} height={1920} viewBox="0 0 1080 1920">
+      <Entrada />
+      <g transform="translate(868,1850) scale(-0.95,0.95)"><SebaRasca expresion="sorpresa" uid="e3" /></g>
+      <g transform="translate(262,1850) scale(1.12)"><CataMuestra uid="e3" /></g>
+      <Globo x={396} y={745} w={634} h={240} letra={47} cola={[500, 418, 1128]} lineas={['Cuenta la falla en', 'RepuesTop antes de', 'comprar otro repuesto.']} />
+    </svg>
+    <div style={{ position: 'absolute', left: 70, top: 180, width: 920, border: `10px solid ${L}`, borderRadius: 42, overflow: 'hidden', background: '#fff', boxShadow: `12px 12px 0 ${L}`, lineHeight: 0 }}>
+      <img src={pantalla} style={{ width: 920, display: 'block' }} />
+    </div>
+    <div style={{ position: 'absolute', left: 110, top: 652, background: AM, border: `7px solid ${L}`, padding: '4px 24px', fontSize: 36, fontWeight: 800, transform: 'rotate(-2deg)', boxShadow: `7px 7px 0 ${L}` }}>repuestop.cl/fallas</div>
+    <div style={{ position: 'absolute', right: 70, top: 112, fontSize: 26, fontWeight: 700, background: '#ffffffcc', padding: '4px 14px', borderRadius: 10 }}>Recreación</div>
   </AbsoluteFill>
 );

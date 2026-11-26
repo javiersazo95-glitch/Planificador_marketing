@@ -2,7 +2,7 @@
 // Uso: node estudio/render_comic.mjs [carpeta_salida] [cap1]   ("cap1" exporta solo las escenas del capitulo)
 import { build } from 'esbuild';
 import { chromium } from 'playwright';
-import { mkdirSync, rmSync } from 'node:fs';
+import { mkdirSync, rmSync, readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -16,10 +16,10 @@ await build({
     contents: `import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { LaminaComic, ExpresionesComic, EscenaComic, RecorteComic } from './laminas.jsx';
-import { Escena1, Escena2 } from './cap1.jsx';
+import { Escena1, Escena2, Escena3 } from './cap1.jsx';
 import { ELENCO_COMIC } from './elenco.jsx';
 export const nombres = Object.keys(ELENCO_COMIC);
-const C = { LaminaComic, ExpresionesComic, EscenaComic, RecorteComic, Escena1, Escena2 };
+const C = { LaminaComic, ExpresionesComic, EscenaComic, RecorteComic, Escena1, Escena2, Escena3 };
 export const html = (n, p = {}) => renderToStaticMarkup(React.createElement(C[n], p));`,
     resolveDir: join(aqui, 'src/comic'), loader: 'jsx',
   },
@@ -40,6 +40,8 @@ const foto = async (cuerpo, ancho, alto, archivo, transparente = false) => {
 
 await foto(m.html('Escena1'), 1080, 1920, 'cap1_escena1.png');
 await foto(m.html('Escena2'), 1080, 1920, 'cap1_escena2.png');
+const pantalla = 'data:image/png;base64,' + readFileSync(join(aqui, 'public/comic/fallas_arriba.png'), 'base64');
+await foto(m.html('Escena3', { pantalla }), 1080, 1920, 'cap1_escena3.png');
 if (process.argv[3] === 'cap1') { await nav.close(); rmSync(tmp); process.exit(0); }
 await foto(m.html('LaminaComic'), 1880, 1820, '01_elenco.png');
 await foto(m.html('ExpresionesComic'), 1920, 1800, '02_caras.png');

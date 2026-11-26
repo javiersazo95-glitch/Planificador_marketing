@@ -57,7 +57,7 @@ const BrazoLado = ({ hombro, codo, muneca, piel, manga, corta, puno, mano, rot =
 };
 
 /* un solo ojo, visto de lado */
-const Ojo = ({ x, y, rx, ry, e, piel, id, mirada }) => {
+const Ojo = ({ x, y, rx, ry, e, piel, id, mirada, pestanas = false }) => {
   const tapa = y - ry + 2 * ry * e.parpado;
   const px = x + mirada[0] * (rx - e.pupila - 5), py = y + mirada[1] * (ry - e.pupila - 6) + (e.parpado > 0.3 ? 8 : 0);
   return (
@@ -70,6 +70,7 @@ const Ojo = ({ x, y, rx, ry, e, piel, id, mirada }) => {
         {e.parpado ? <g><rect x={x - rx - 4} y={y - ry - 10} width={rx * 2 + 8} height={tapa - (y - ry - 10)} fill={piel} /><path d={`M${x - rx - 4} ${tapa} L${x + rx + 4} ${tapa}`} {...linea} /></g> : null}
       </g>
       <ellipse cx={x} cy={y} rx={rx} ry={ry} fill="none" stroke={L} strokeWidth={G} />
+      {pestanas ? <path d={`M${x + rx * 0.6} ${y - ry * 0.78} l14 -15 M${x + rx * 0.9} ${y - ry * 0.45} l18 -8`} {...linea} /> : null}
     </g>
   );
 };
@@ -91,6 +92,8 @@ const OrejaLado = ({ x, y, piel, s = 1 }) => (
 /* boca de perfil, junto al borde de la cara */
 const BocaLado = ({ x, y, habla, tipo }) => {
   if (habla !== null) return <path d={`M${x - 30} ${y} L${x + 20} ${y - 8} Q${x + 8} ${y + 8 + habla * 28} ${x - 12} ${y + 4 + habla * 20} Z`} fill="#5A1F2E" {...S} />;
+  if (tipo === 'risa') return <path d={`M${x - 36} ${y - 8} Q${x - 8} ${y + 6} ${x + 20} ${y - 8} Q${x + 8} ${y + 28} ${x - 14} ${y + 24} Q${x - 30} ${y + 14} ${x - 36} ${y - 8} Z`} fill="#5A1F2E" {...S} />;
+  if (tipo === 'o') return <ellipse cx={x - 18} cy={y} rx={13} ry={18} fill="#5A1F2E" {...S} />;
   if (tipo === 'mueca') return <path d={`M${x - 34} ${y + 6} Q${x - 20} ${y - 8} ${x - 6} ${y + 4} Q${x + 8} ${y + 14} ${x + 20} ${y - 2}`} {...linea} />;
   return <path d={`M${x - 34} ${y - 8} Q${x - 24} ${y + 12} ${x + 20} ${y}`} {...linea} />;
 };
@@ -233,6 +236,55 @@ export const SebaSentado = ({ expresion = 'preocupado', habla = null, uid = 'p' 
       {/* brazo de adelante: codo en la rodilla y tres dedos arriba */}
       <BrazoLado hombro={[-72, -392]} codo={[66, -282]} muneca={[196, -352]} piel={piel} manga={poleron} puno="#215C4F" mano={null} tapa r={[36, 27, 19]} />
       <ManoTres x={202} y={-356} piel={piel} rot={14} />
+    </g>
+  );
+};
+
+/* ===================== CATA de perfil, muestra el celular ===================== */
+export const CataMuestra = ({ expresion = 'feliz', habla = null, uid = 'p' }) => {
+  const e = EXPRESIONES[expresion];
+  const piel = '#9A6240', pelo = '#1F1512', pant = '#26324F';
+  return (
+    <g>
+      <Sombra rx={140} />
+      <BrazoLado hombro={[-4, -512]} codo={[-46, -420]} muneca={[-62, -334]} piel="#835134" manga="#D9A900" puno="#B88F00" mano="abierta" rot={8} r={[27, 20, 15]} />
+      <Pierna cadera={[-14, -330]} rodilla={[-34, -182]} tobillo={[-58, -44]} color="#1A2238" zapato="#D9DEE8" suela="#B93931" r={[36, 27, 20]} />
+      <Pierna cadera={[6, -326]} rodilla={[16, -182]} tobillo={[14, -44]} color={pant} zapato="#fff" suela="#E5483A" r={[40, 29, 21]} />
+      {/* cuello */}
+      <path d={tramo([2, -548], 21, [12, -626], 20)} fill={piel} {...S} />
+      {/* chaqueta amarilla abierta sobre polera blanca */}
+      <path d="M-54 -316 C-68 -400 -80 -494 -46 -546 Q-24 -576 8 -572 C48 -566 64 -518 68 -468 C62 -430 52 -382 60 -316 Q4 -296 -54 -316 Z" fill={AM} {...S} />
+      <path d="M28 -564 C58 -542 68 -500 68 -468 C62 -430 52 -382 60 -316 L28 -308 C20 -400 28 -494 12 -562 Z" fill="#fff" {...S} />
+      <path d="M-22 -562 L26 -552 L8 -524 Z" fill="#D9A900" {...S} />
+      <path d="M-56 -336 Q-16 -322 28 -330 L28 -308 Q-14 -302 -54 -316 Z" fill="#D9A900" {...S} />
+      {/* bolso cruzado */}
+      <path d="M-30 -562 L-30 -360" {...linea} strokeWidth={22} /><path d="M-30 -562 L-30 -360" {...linea} stroke="#0F4EC2" strokeWidth={10} />
+      <rect x={-88} y={-380} width={86} height={70} rx={20} fill="#0F4EC2" {...S} />
+      {/* cabeza de perfil */}
+      <g transform="translate(14,-694)">
+        <path d="M-62 -92 C-178 -120 -218 -8 -160 56 C-146 76 -170 104 -196 106 C-132 150 -74 96 -90 40 C-104 -6 -90 -34 -60 -38 Z" fill={pelo} {...S} />
+        <path d="M-86 -10 C-90 -78 -40 -108 10 -104 C62 -100 82 -64 80 -24 C78 -4 82 14 80 40 C76 80 52 108 20 108 C-20 108 -48 90 -62 66 C-76 48 -84 20 -86 -10 Z" fill={piel} {...S} />
+        <path d="M-80 42 C-114 6 -112 -88 -56 -116 C-10 -146 66 -128 88 -80 C98 -60 92 -48 82 -42 C70 -70 46 -82 22 -78 C-4 -56 -32 -66 -42 -42 C-56 -20 -46 6 -60 30 Z" fill={pelo} {...S} />
+        <path d="M-74 -70 Q-14 -140 72 -94" {...linea} strokeWidth={30} /><path d="M-74 -70 Q-14 -140 72 -94" {...linea} stroke="#E5483A" strokeWidth={18} />
+        <OrejaLado x={-38} y={14} piel={piel} s={0.85} />
+        <circle cx={-40} cy={58} r={22} fill="none" stroke={L} strokeWidth={17} /><circle cx={-40} cy={58} r={22} fill="none" stroke={AM} strokeWidth={8} />
+        <Ojo x={40} y={-6} rx={27} ry={37} e={e} piel={piel} id={`ojo-cata-${uid}`} mirada={[0.7, 0.05]} pestanas />
+        <Ceja x={36} y={-56 + e.alza} ang={e.cejaB} color={pelo} w={52} h={11} />
+        <path d="M76 12 C94 18 112 32 102 44 C94 52 82 46 74 44" fill={piel} {...S} />
+        <BocaLado x={56} y={72} habla={habla} tipo={e.boca} />
+      </g>
+      {/* brazo de adelante con el celular a la vista */}
+      <BrazoLado hombro={[-10, -508]} codo={[46, -412]} muneca={[136, -438]} piel={piel} manga={AM} puno="#D9A900" mano={null} tapa r={[30, 22, 16]} />
+      <path d="M126 -452 C142 -478 190 -470 196 -444 C192 -418 150 -410 130 -424 Z" fill={piel} {...S} />
+      <g transform="translate(184,-490) rotate(9)" {...S}>
+        <rect x={-44} y={-82} width={88} height={164} rx={17} fill={L} />
+        <rect x={-33} y={-68} width={66} height={134} rx={6} fill="#fff" stroke="none" />
+        <rect x={-27} y={-56} width={54} height={40} rx={9} fill="#E5570C" stroke="none" />
+        {[0, 1, 2].map((i) => <circle key={i} cx={-18 + i * 18} cy={4} r={7} fill="#0F4EC2" stroke="none" />)}
+        <rect x={-27} y={26} width={54} height={14} rx={6} fill="#D9DEE8" stroke="none" />
+      </g>
+      {[-478, -452].map((y) => <path key={y} d={tramo([222, y], 10, [204, y + 4], 11)} fill={piel} {...S} />)}
+      <path d={tramo([142, -438], 15, [170, -466], 11)} fill={piel} {...S} />
     </g>
   );
 };
