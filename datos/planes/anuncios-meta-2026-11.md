@@ -12,7 +12,9 @@ Se rehacen con `.claude/skills/publicidad-repuestop/scripts/anuncio.py <ficha> -
 - Presupuesto sugerido (decide el equipo): **$5.000 al día por 7 días = $35.000**. Meta puede sumar IVA.
   Conjunto Spark $2.500 y conjunto MAVE $2.500. Corsa queda de reserva (del kit quedan 3 unidades).
 - Fecha: partir el **martes 1-dic**, pasado Black Friday (en esos días los anuncios suelen salir más caros).
-- Ubicaciones: automáticas. Subir el 4:5 para muro y el 9:16 para historias y reels («editar por ubicación»).
+- Ubicaciones: elegir a mano **solo Facebook** (muro, historias, reels, Marketplace) **e Instagram** (muro,
+  historias, reels, explorar). Sin Messenger ni Audience Network (otras apps; suelen traer clics de poco valor).
+  Subir el 4:5 para muro y el 9:16 para historias y reels («editar por ubicación»).
 - **Apagar las mejoras automáticas** de Meta (recortes, música, textos): pueden alterar precios.
 - En carrusel: apagar «mostrar primero las tarjetas con mejor rendimiento» y la tarjeta final automática.
 - Cada conjunto lleva 2 anuncios: imagen y carrusel.
