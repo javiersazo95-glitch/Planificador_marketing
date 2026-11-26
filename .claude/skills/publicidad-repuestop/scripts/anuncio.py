@@ -64,6 +64,9 @@ def portada(f, formato):
     pie = (f'<div class="pie"><p><b>{vende(f)}</b><br>{e(f["nota"])}{envio(f)}</p>'
            + ('<span class="web">repuestop.cl</span>' if formato == "feed" else "") + "</div>")
     cola = '<span class="lema">Movemos Chile juntos</span>' if formato == "vertical" else ""
+    if formato == "historia":  # abajo queda libre para pegar el sticker «Enlace» de Instagram
+        cola = ('<div class="toca"><b>Míralos aquí</b><svg viewBox="0 0 24 24"><path d="M12 4v15M5 13l7 7 7-7"/>'
+                '</svg></div>')
     return (f'{marca(blanca=True)}{chip}<header><h1>{e(f["titulo"])}</h1><h2>{e(f["bajada"])}</h2></header>'
             f'<ul class="{lista}">{tarjetas}</ul>{pie}{cola}')
 
@@ -96,6 +99,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("ficha")
     ap.add_argument("--out", required=True)
+    ap.add_argument("--historia", action="store_true", help="genera solo la historia 9:16 con espacio para el enlace")
     a = ap.parse_args()
     f = json.loads(Path(a.ficha).read_text(encoding="utf-8"))
     out = Path(a.out)
@@ -103,6 +107,10 @@ def main():
     exe = chrome()
     largo = " largo" if len(f["tienda"]) > 24 else ""  # nombres largos: letra más chica para no encimarse
     with tempfile.TemporaryDirectory() as tmp:
+        if a.historia:
+            foto_png(exe, tmp, portada(f, "historia"), f"portada vertical historia{largo}", 1080, 1920,
+                     out / f"{f['nombre']}_historia_9x16.png")
+            return
         for formato in ("feed", "vertical"):
             w, h, sufijo = MEDIDAS[formato]
             foto_png(exe, tmp, portada(f, formato), f"portada {formato}{largo}", w, h, out / f"{f['nombre']}_{sufijo}.png")
