@@ -98,25 +98,13 @@ const BocaLado = ({ x, y, habla, tipo }) => {
   return <path d={`M${x - 34} ${y - 8} Q${x - 24} ${y + 12} ${x + 20} ${y}`} {...linea} />;
 };
 
-/* ===================== EL CUNADO inclinado sobre el motor ===================== */
-export const CunadoInclinado = ({ expresion = 'canchero', habla = null, inclina = 40, uid = 'p' }) => {
-  const e = EXPRESIONES[expresion];
-  const piel = '#D59A6A', pelo = '#241B18', camisa = '#D9463E', pant = '#B79B6C', pantAtras = '#9C8158';
+/* torso del Cunado de lado, derecho. La cadera queda en (0,-330) */
+const TorsoCunado = ({ uid }) => {
+  const camisa = '#D9463E';
   const torso = 'M-82 -342 C-124 -420 -118 -540 -58 -598 Q-26 -626 18 -620 C66 -612 82 -560 90 -524 C152 -486 168 -384 118 -318 Q20 -286 -82 -342 Z';
   const flores = [[-70, -470], [40, -430], [-48, -388], [96, -440], [66, -352], [2, -468]];
   return (
     <g>
-      <Sombra rx={200} />
-      {/* brazo de atras: se apoya en el borde del auto */}
-      <BrazoLado hombro={[150, -460]} codo={[226, -388]} muneca={[208, -314]} piel="#BE855A" manga="#B93931" corta mano="abierta" rot={8} r={[32, 24, 17]} />
-      <Pierna cadera={[-26, -322]} rodilla={[-66, -180]} tobillo={[-104, -44]} color={pantAtras} zapato="#653F25" suela="#3D2718" />
-      <Union color={pant} formas={['M-86 -330 a82 66 0 1 0 164 0 a82 66 0 1 0 -164 0 Z', 'M-38 -398 C-94 -418 -142 -382 -140 -328 C-138 -276 -102 -248 -58 -254 C-22 -264 18 -300 20 -334 Z', tramo([8, -318], 56, [30, -172], 40), tramo([30, -172], 40, [4, -44], 29)]} />
-      <Zapato x={4} color="#7A4E2E" suela="#4F321F" />
-      <path d="M-122 -352 L-74 -332 Q-70 -298 -90 -288 Q-118 -294 -122 -352 Z" {...linea} strokeWidth={5} opacity={0.6} />
-      <path d="M-90 -252 Q-64 -250 -44 -268" {...linea} strokeWidth={5} />
-      {/* cuello */}
-      <path d={tramo([160, -512], 46, [248, -570], 40)} fill={piel} {...S} />
-      <g transform={`rotate(${inclina} 0 -330)`}>
         <clipPath id={`torso-${uid}`}><path d={torso} /></clipPath>
         <path d={torso} fill={camisa} />
         <g clipPath={`url(#torso-${uid})`}>
@@ -132,16 +120,22 @@ export const CunadoInclinado = ({ expresion = 'canchero', habla = null, inclina 
         <rect x={76} y={-336} width={40} height={32} rx={6} fill={AM} {...S} />
         {/* cuello de la camisa */}
         <path d="M-30 -616 L34 -566 L26 -626 Z" fill={camisa} {...S} />
-      </g>
-      {/* cabeza de perfil */}
-      <g transform="translate(282,-606) rotate(10)">
+    </g>
+  );
+};
+
+/* cabeza del Cunado de perfil. (0,0) = centro de la cabeza */
+const CabezaCunado = ({ e, habla, uid, mirada = [0.7, 0.25] }) => {
+  const piel = '#D59A6A', pelo = '#241B18';
+  return (
+    <g>
         <path d="M-96 -14 C-104 -86 -54 -118 4 -116 C62 -114 86 -82 86 -42 L84 -8 C86 22 90 50 100 66 C122 90 108 120 66 122 C20 126 -34 108 -58 82 C-82 62 -94 30 -96 -14 Z" fill={piel} {...S} />
         <path d="M-36 66 C-6 86 22 54 54 62 C80 56 100 70 108 84 C108 108 92 118 62 118 C18 120 -22 102 -36 66 Z" fill={pelo} opacity={0.17} />
         {/* pelo engominado, con patilla */}
         <path d="M-92 36 C-124 -20 -122 -92 -66 -120 C-20 -150 62 -140 84 -86 C58 -100 32 -94 20 -80 C6 -102 -30 -94 -34 -68 C-28 -42 -26 -16 -34 4 L-48 -6 C-62 -16 -78 -4 -72 20 Z" fill={pelo} {...S} />
         <path d="M-88 -78 Q-50 -128 20 -122 M-94 -36 Q-84 -72 -56 -88" {...linea} stroke="#6C5A52" strokeWidth={6} />
         <OrejaLado x={-48} y={18} piel={piel} s={1.1} />
-        <Ojo x={46} y={-26} rx={28} ry={36} e={e} piel={piel} id={`ojo-cun-${uid}`} mirada={[0.7, 0.25]} />
+        <Ojo x={46} y={-26} rx={28} ry={36} e={e} piel={piel} id={`ojo-cun-${uid}`} mirada={mirada} />
         <Ceja x={48} y={-66 + e.alza} ang={e.cejaB} color={pelo} h={18} />
         {/* lentes de sol sobre la frente */}
         <g transform="translate(-10,-22)" {...S}><path d="M26 -108 C48 -118 76 -108 86 -94 C84 -76 62 -72 44 -80 C32 -86 26 -96 26 -108 Z" fill="#26324F" /><path d="M30 -104 C-6 -92 -36 -52 -40 2" {...linea} strokeWidth={7} /><path d="M46 -102 L62 -100" stroke="#fff" strokeWidth={5} /></g>
@@ -149,7 +143,30 @@ export const CunadoInclinado = ({ expresion = 'canchero', habla = null, inclina 
         <path d="M80 -14 C100 -4 144 12 140 34 C136 56 104 52 84 46" fill={piel} {...S} />
         <path d="M44 64 C50 40 82 34 98 46 C114 38 132 50 130 76 C116 66 106 76 92 68 C76 80 58 70 44 64 Z" fill={pelo} {...S} />
         <BocaLado x={84} y={92} habla={habla} tipo={e.boca} />
-      </g>
+      {e.gota ? <Gota x={96} y={-96} /> : null}
+    </g>
+  );
+};
+
+/* ===================== EL CUNADO inclinado sobre el motor ===================== */
+export const CunadoInclinado = ({ expresion = 'canchero', habla = null, inclina = 40, uid = 'p' }) => {
+  const e = EXPRESIONES[expresion];
+  const piel = '#D59A6A', pelo = '#241B18', camisa = '#D9463E', pant = '#B79B6C', pantAtras = '#9C8158';
+  return (
+    <g>
+      <Sombra rx={200} />
+      {/* brazo de atras: se apoya en el borde del auto */}
+      <BrazoLado hombro={[150, -460]} codo={[226, -388]} muneca={[208, -314]} piel="#BE855A" manga="#B93931" corta mano="abierta" rot={8} r={[32, 24, 17]} />
+      <Pierna cadera={[-26, -322]} rodilla={[-66, -180]} tobillo={[-104, -44]} color={pantAtras} zapato="#653F25" suela="#3D2718" />
+      <Union color={pant} formas={['M-86 -330 a82 66 0 1 0 164 0 a82 66 0 1 0 -164 0 Z', 'M-38 -398 C-94 -418 -142 -382 -140 -328 C-138 -276 -102 -248 -58 -254 C-22 -264 18 -300 20 -334 Z', tramo([8, -318], 56, [30, -172], 40), tramo([30, -172], 40, [4, -44], 29)]} />
+      <Zapato x={4} color="#7A4E2E" suela="#4F321F" />
+      <path d="M-122 -352 L-74 -332 Q-70 -298 -90 -288 Q-118 -294 -122 -352 Z" {...linea} strokeWidth={5} opacity={0.6} />
+      <path d="M-90 -252 Q-64 -250 -44 -268" {...linea} strokeWidth={5} />
+      {/* cuello */}
+      <path d={tramo([160, -512], 46, [248, -570], 40)} fill={piel} {...S} />
+      <g transform={`rotate(${inclina} 0 -330)`}><TorsoCunado uid={uid} /></g>
+      {/* cabeza de perfil */}
+      <g transform="translate(282,-606) rotate(10)"><CabezaCunado e={e} habla={habla} uid={uid} /></g>
       {/* brazo de adelante: apunta dentro del motor */}
       <BrazoLado hombro={[134, -486]} codo={[222, -424]} muneca={[312, -410]} piel={piel} manga={camisa} corta tapa mano="senala" rot={36} r={[34, 25, 18]} />
     </g>
@@ -295,6 +312,84 @@ export const CataMuestra = ({ expresion = 'feliz', habla = null, uid = 'p' }) =>
       </g>
       {[-478, -452].map((y) => <path key={y} d={tramo([222, y], 10, [204, y + 4], 11)} fill={piel} {...S} />)}
       <path d={tramo([142, -438], 15, [170, -466], 11)} fill={piel} {...S} />
+    </g>
+  );
+};
+
+/* ===================== EL CUNADO retrocede incomodo y empuja las cajas ===================== */
+export const CunadoRetrocede = ({ expresion = 'preocupado', habla = null, uid = 'p' }) => {
+  const e = EXPRESIONES[expresion];
+  const piel = '#D59A6A', camisa = '#D9463E', pant = '#B79B6C';
+  return (
+    <g>
+      <Sombra rx={200} />
+      {/* brazo de atras, mano abierta: «yo no fui» */}
+      <BrazoLado hombro={[-14, -528]} codo={[88, -462]} muneca={[150, -540]} piel="#BE855A" manga="#B93931" corta mano="abierta" rot={-142} r={[31, 23, 16]} />
+      <Pierna cadera={[-30, -322]} rodilla={[-70, -178]} tobillo={[-62, -44]} color="#9C8158" zapato="#653F25" suela="#3D2718" />
+      {/* pie de adelante en el aire */}
+      <g transform="translate(108,-34) rotate(-20)"><Zapato x={0} color="#7A4E2E" suela="#4F321F" /></g>
+      <Union color={pant} formas={['M-94 -326 a82 62 0 1 0 164 0 a82 62 0 1 0 -164 0 Z', 'M-56 -392 C-112 -410 -164 -374 -162 -320 C-160 -270 -124 -244 -80 -250 C-42 -260 -4 -294 -2 -328 Z', tramo([8, -318], 56, [74, -190], 40), tramo([74, -190], 40, [104, -76], 29)]} />
+      <path d="M-144 -340 L-96 -320 Q-92 -286 -112 -276 Q-140 -282 -144 -340 Z" {...linea} strokeWidth={5} opacity={0.6} />
+      <path d="M-112 -246 Q-86 -244 -64 -262" {...linea} strokeWidth={5} />
+      <path d={tramo([-40, -572], 46, [-38, -646], 40)} fill={piel} {...S} />
+      <g transform="rotate(-12 0 -330)"><TorsoCunado uid={uid} /></g>
+      <g transform="translate(-34,-716) rotate(-6)"><CabezaCunado e={e} habla={habla} uid={uid} mirada={[0.8, -0.1]} /></g>
+      <BrazoLado hombro={[-48, -522]} codo={[24, -416]} muneca={[128, -452]} piel={piel} manga={camisa} corta tapa mano="abierta" rot={-118} flip r={[34, 25, 18]} />
+    </g>
+  );
+};
+
+/* ===================== DON LUCHO revisa con linterna ===================== */
+export const LuchoRevisa = ({ expresion = 'feliz', habla = null, uid = 'p' }) => {
+  const e = EXPRESIONES[expresion];
+  const piel = '#B9784F', cana = '#D7D9E0', azul = '#0F4EC2', azulSombra = '#0B3C98';
+  const torso = 'M-70 -344 C-106 -420 -102 -536 -52 -592 Q-24 -620 16 -612 C60 -602 82 -560 88 -516 C112 -470 112 -396 88 -328 Q12 -302 -70 -344 Z';
+  return (
+    <g>
+      <Sombra rx={200} />
+      <BrazoLado hombro={[128, -466]} codo={[222, -398]} muneca={[216, -320]} piel="#A66B45" manga="#D9DEE8" corta mano="abierta" rot={8} r={[32, 24, 17]} />
+      <Pierna cadera={[-26, -322]} rodilla={[-62, -180]} tobillo={[-96, -44]} color={azulSombra} zapato="#46362A" suela="#1F1813" />
+      <Union color={azul} formas={['M-78 -330 a74 58 0 1 0 148 0 a74 58 0 1 0 -148 0 Z', tramo([8, -318], 54, [32, -172], 40), tramo([32, -172], 40, [8, -44], 30)]} />
+      <Zapato x={8} color="#5B4636" suela="#2E241D" />
+      <path d={tramo([132, -506], 44, [208, -566], 38)} fill={piel} {...S} />
+      <g transform="rotate(34 0 -330)">
+        <clipPath id={`torso-lucho-${uid}`}><path d={torso} /></clipPath>
+        <path d={torso} fill="#F2F4F8" />
+        <g clipPath={`url(#torso-lucho-${uid})`}>
+          {/* pechera del overol */}
+          <path d="M-120 -428 L14 -428 L30 -522 L130 -522 L130 -280 L-120 -280 Z" fill={azul} {...S} />
+          <path d="M44 -520 L-34 -618" {...linea} strokeWidth={36} /><path d="M44 -520 L-34 -618" {...linea} stroke={azul} strokeWidth={22} />
+        </g>
+        <path d={torso} {...linea} />
+        <rect x={50} y={-484} width={13} height={52} rx={4} fill={AM} {...S} strokeWidth={4} />
+        <path d="M34 -450 L96 -450 L90 -396 Q64 -384 40 -396 Z" fill={azulSombra} {...S} />
+        <circle cx={46} cy={-506} r={11} fill={AM} {...S} strokeWidth={4} />
+      </g>
+      {/* cabeza de perfil */}
+      <g transform="translate(244,-602) rotate(8)">
+        <path d="M-92 -10 C-98 -80 -48 -112 6 -110 C66 -108 90 -74 86 -30 C84 -6 88 20 86 46 C82 90 50 114 12 112 C-30 110 -58 90 -70 66 C-86 46 -90 20 -92 -10 Z" fill={piel} {...S} />
+        <path d="M-90 -44 C-112 -6 -102 50 -66 68 C-62 44 -40 38 -44 16 C-30 -8 -42 -34 -60 -46 Z" fill={cana} {...S} />
+        <OrejaLado x={-44} y={16} piel={piel} s={1.15} />
+        <Ojo x={42} y={-6} rx={24} ry={29} e={e} piel={piel} id={`ojo-lucho-${uid}`} mirada={[0.65, 0.35]} />
+        <Ceja x={42} y={-42 + e.alza * 0.3} ang={e.cejaB} color={cana} w={56} h={14} />
+        {/* gorra */}
+        <path d="M-96 -46 C-104 -132 -42 -160 12 -156 C70 -152 96 -112 92 -66 Q4 -88 -96 -46 Z" fill={AM} {...S} />
+        <path d="M44 -74 Q112 -98 164 -62 Q162 -44 140 -48 Q96 -68 46 -56 Z" fill="#E0AE00" {...S} />
+        <circle cx={22} cy={-116} r={22} fill={azul} {...S} strokeWidth={5} /><path d="M34 -116 L25 -106 L9 -125" {...linea} stroke="#fff" strokeWidth={7} />
+        {/* nariz grande y bigote canoso */}
+        <path d="M74 -4 C104 -14 146 8 140 38 C132 66 98 60 76 46" fill="#AE6C46" {...S} />
+        <path d="M30 60 C40 36 74 34 94 46 C112 36 134 50 134 78 C118 68 108 80 94 70 C76 84 62 70 52 76 C46 70 38 68 30 60 Z" fill={cana} {...S} />
+        <BocaLado x={76} y={92} habla={habla} tipo={habla === null ? 'ladeada' : e.boca} />
+      </g>
+      {/* brazo de adelante con la linterna */}
+      <BrazoLado hombro={[116, -482]} codo={[196, -398]} muneca={[270, -420]} piel={piel} manga="#F2F4F8" corta mano={null} r={[34, 25, 18]} />
+      <g transform="translate(286,-418) rotate(34)" {...S}>
+        <path d="M58 -22 L196 -62 L196 62 L58 22 Z" fill="#FFF1B8" stroke="none" opacity={0.45} />
+        <rect x={-38} y={-14} width={76} height={28} rx={9} fill="#454C5E" />
+        <path d="M36 -18 L60 -26 L60 26 L36 18 Z" fill="#7B8798" />
+      </g>
+      <path d="M262 -440 C282 -458 312 -440 306 -416 C300 -398 274 -394 258 -406 Z" fill={piel} {...S} />
+      <path d="M274 -420 Q292 -416 304 -424" {...linea} strokeWidth={4} />
     </g>
   );
 };

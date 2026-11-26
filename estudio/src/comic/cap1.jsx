@@ -2,7 +2,7 @@
 // Referencias: la persona se inclina desde el frente del auto, con el capo levantado atras.
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
-import { CunadoInclinado, SebaRasca, SebaSentado, CataMuestra } from './perfil.jsx';
+import { CunadoInclinado, SebaRasca, SebaSentado, CataMuestra, LuchoRevisa, CunadoRetrocede } from './perfil.jsx';
 import { L, G } from './personaje.jsx';
 
 const FUENTE = "'Plus Jakarta Sans','Segoe UI',Arial,sans-serif";
@@ -177,5 +177,33 @@ export const Escena3 = ({ pantalla }) => (
     </div>
     <div style={{ position: 'absolute', left: 110, top: 652, background: AM, border: `7px solid ${L}`, padding: '4px 24px', fontSize: 36, fontWeight: 800, transform: 'rotate(-2deg)', boxShadow: `7px 7px 0 ${L}` }}>repuestop.cl/fallas</div>
     <div style={{ position: 'absolute', right: 70, top: 112, fontSize: 26, fontWeight: 700, background: '#ffffffcc', padding: '4px 14px', borderRadius: 10 }}>Recreación</div>
+  </AbsoluteFill>
+);
+
+/* estrella de golpe y lineas de movimiento */
+const Golpe = ({ x, y, s = 1 }) => (
+  <g transform={`translate(${x},${y}) scale(${s})`} {...S}>
+    <path d="M0 -66 L16 -24 L60 -40 L34 -2 L72 22 L26 24 L28 70 L0 34 L-30 62 L-24 18 L-66 10 L-26 -12 L-48 -52 L-10 -26 Z" fill={AM} />
+  </g>
+);
+
+export const Escena4 = () => (
+  <AbsoluteFill style={{ fontFamily: FUENTE, color: L }}>
+    <svg width={1080} height={1920} viewBox="0 0 1080 1920">
+      <Entrada />
+      <g transform="translate(330,1632) scale(0.9)"><AutoCapo /></g>
+      <g transform="translate(452,1652) scale(-0.9,0.9)"><LuchoRevisa uid="e4" /></g>
+      {/* las cajas salen volando */}
+      <CajaAbierta x={968} y={1352} n={3} tipo="filtro" s={0.78} rot={34} />
+      <CajaAbierta x={992} y={1540} n={2} tipo="bujias" s={0.76} rot={-38} />
+      <CajaAbierta x={952} y={1758} n={1} tipo="bateria" s={0.86} rot={13} />
+      <g transform="translate(748,1732) scale(-0.94,0.94)"><CunadoRetrocede uid="e4" /></g>
+      <Golpe x={924} y={1422} s={0.7} />
+      <path d="M930 1196 q46 -20 94 2 M960 1166 q30 -10 56 2" fill="none" {...S} strokeWidth={8} />
+      <Globo x={60} y={490} w={600} h={190} letra={52} cola={[240, 222, 950]} lineas={['Vamos a revisarlo', 'con calma.']} />
+      <Globo x={430} y={720} w={590} h={180} letra={50} cola={[760, 782, 950]} lineas={['Yo dije que podía', 'ser eléctrico.']} />
+    </svg>
+    <Cartel top={200}>Llega Don Lucho,<br /><span style={{ color: AZ, fontStyle: 'italic' }}>el maestro del taller.</span></Cartel>
+    <div style={{ position: 'absolute', right: 90, top: 410, fontSize: 26, fontWeight: 700, background: '#ffffffcc', padding: '4px 14px', borderRadius: 10 }}>Recreación</div>
   </AbsoluteFill>
 );

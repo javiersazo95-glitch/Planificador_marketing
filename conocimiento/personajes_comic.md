@@ -13,7 +13,8 @@ Escenas de acción: **vista de lado completa** (poses en `estudio/src/comic/perf
 Capó aprobado: angosto, visto de lado. El Cuñado de lado tiene trasero bien marcado (sin exagerar), reservado para un chiste de situación (por ejemplo, bota las cajas al agacharse).
 Escena 1, versión 4, **aprobada el 26-nov**: `contenido/2026-11-26-reel-comic-cap1/escenas/cap1_escena1_v4.png`.
 Escena 2, **aprobada el 26-nov**: `contenido/2026-11-26-reel-comic-cap1/escenas/cap1_escena2.png` (texto de arriba nuevo: «Batería, bujías, filtro… y nada.»).
-Escena 3 (26-nov), en revisión: `contenido/2026-11-26-reel-comic-cap1/escenas/cap1_escena3_v2.png`. Cata de lado sin cintillo (colet rojo en la cola), chaqueta cerrada y cartera de hombro con tapa. Captura real de repuestop.cl/fallas (`node estudio/capturar_fallas.mjs`). Frase propuesta: «Cuenta la falla en RepuesTop antes de comprar otro repuesto», porque el 26-nov producción mostraba 0 talleres publicados y no conviene prometer que «los talleres te responden».
+Escena 3, **aprobada el 26-nov** (con la frase nueva): `contenido/2026-11-26-reel-comic-cap1/escenas/cap1_escena3_v2.png`. Cata de lado sin cintillo (colet rojo en la cola), chaqueta cerrada y cartera de hombro con tapa. Captura real de repuestop.cl/fallas (`node estudio/capturar_fallas.mjs`). Frase propuesta: «Cuenta la falla en RepuesTop antes de comprar otro repuesto», porque el 26-nov producción mostraba 0 talleres publicados y no conviene prometer que «los talleres te responden».
+Escena 4 (26-nov), en revisión: `contenido/2026-11-26-reel-comic-cap1/escenas/cap1_escena4.png` (texto nuevo arriba «Llega Don Lucho, el maestro del taller»; el Cuñado bota las cajas con el trasero).
 Caricatura plana de comedia, borde azul noche (#1B2440), ojos grandes con párpado, vista 3/4.
 **No copiar series existentes:** sin piel amarilla ni la boca/ojos típicos de Los Simpson (marca de Disney; podrían reclamar).
 
