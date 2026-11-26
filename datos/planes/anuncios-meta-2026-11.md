@@ -9,9 +9,11 @@ Se rehacen con `.claude/skills/publicidad-repuestop/scripts/anuncio.py <ficha> -
 
 ## Campaña recomendada
 - Objetivo: **Tráfico** (llevar gente a la web), optimizar por «clics en el enlace».
-- Presupuesto sugerido (decide el equipo): **$5.000 al día por 7 días = $35.000**. Meta puede sumar IVA.
-  Conjunto Spark $2.500 y conjunto MAVE $2.500. Corsa queda de reserva (del kit quedan 3 unidades).
-- Fecha: partir el **martes 1-dic**, pasado Black Friday (en esos días los anuncios suelen salir más caros).
+- Presupuesto disponible (dicho por Elías el 25-nov): **$23.000 en total**. En Meta poner presupuesto
+  **total de $19.300** por si suma 19 % de IVA ($22.967). Revisar en la facturación cómo lo cobra.
+- Recomendado: **todo a Spark, 5 días (1 al 5-dic)**, unos $3.860 diarios. MAVE y Corsa quedan para la
+  siguiente tanda: dividir un monto chico deja cada anuncio con muy poco para saber qué funciona.
+- Fecha: pasado Black Friday (en esos días los anuncios suelen salir más caros).
 - Ubicaciones: elegir a mano **solo Facebook** (muro, historias, reels, Marketplace) **e Instagram** (muro,
   historias, reels, explorar). Sin Messenger ni Audience Network (otras apps; suelen traer clics de poco valor).
   Subir el 4:5 para muro y el 9:16 para historias y reels («editar por ubicación»).
@@ -21,15 +23,17 @@ Se rehacen con `.claude/skills/publicidad-repuestop/scripts/anuncio.py <ficha> -
 
 | Conjunto | Lugar | Edad | Intereses sugeridos |
 |---|---|---|---|
-| Spark | Región Metropolitana | 22 a 60 | Chevrolet, mecánica automotriz |
-| MAVE | Ñuble y Biobío | 22 a 65 | Peugeot, Citroën |
-| Corsa (reserva) | Región Metropolitana | 25 a 65 | Chevrolet, mecánica automotriz |
+| Spark (esta tanda) | Todo Chile | 22 a 60 | Chevrolet, mecánica automotriz |
+| MAVE (después) | Todo Chile | 22 a 65 | Peugeot, Citroën |
+| Corsa (después) | Todo Chile | 25 a 65 | Chevrolet, mecánica automotriz |
+
+Ambas tiendas muestran «Envío fuera de la comuna» (courier por pagar en la ficha revisada de REAL).
 
 ## Textos
 Base de enlaces: `https://repuestop.cl` + ruta + `?utm_source=meta&utm_medium=paid_social&utm_campaign=<conjunto>&utm_content=<anuncio>`
 
 ### Spark (carpeta real-spark)
-- Texto: ¿Tienes un Chevrolet Spark? 🚗 Repuestos desde $19.021: amortiguadores traseros, cazoletas y empaquetaduras de motor. Vende REAL REPUESTOS. Revisa que le sirvan a tu auto y paga seguro con Flow.
+- Texto: ¿Tienes un Chevrolet Spark? 🚗 Repuestos desde $19.021: amortiguadores traseros, cazoletas y empaquetaduras de motor. Vende REAL REPUESTOS, con envío por courier por pagar. Revisa que le sirvan a tu auto y paga seguro con Flow.
 - Título: Repuestos para tu Spark
 - Descripción: Precios publicados
 - Botón: Comprar
