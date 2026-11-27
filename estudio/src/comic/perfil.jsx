@@ -257,23 +257,25 @@ export const SebaSentado = ({ expresion = 'preocupado', habla = null, uid = 'p' 
   );
 };
 
-/* mano derecha con el celular, vista desde el lado del pulgar (correccion del usuario, 27-nov): se ve SOLO el
-   pulgar, cruzando por delante; los demas dedos quedan escondidos detras del celular. (100,-452) = muneca */
-const ManoCelular = ({ piel }) => (
-  <g>
-    {/* celular inclinado, con la pantalla hacia Seba */}
-    <g transform="translate(160,-518) rotate(24)" {...S}>
-      <rect x={-17} y={-70} width={34} height={138} rx={12} fill={L} />
-      <rect x={-11} y={-60} width={9} height={84} rx={4.5} fill="#BFE0F7" stroke="none" />
+/* mano derecha con el celular, vista desde el lado del pulgar (correcciones del 27-nov): UNA sola mano mas
+   grande que antes; la palma acuna el celular por abajo y atras, y adelante asoma solo el pulgar, corto.
+   Se dibuja encima del puno, con la muneca cerrada en linea recta. (100,-452) = muneca del dibujo */
+const ManoCelular = ({ piel, k = 1.24 }) => {
+  const trazo = { ...S, strokeWidth: G / k };
+  return (
+    <g transform={`translate(112,-461) scale(${k}) translate(-100,452)`}>
+      {/* celular inclinado, con la pantalla hacia Seba */}
+      <g transform="translate(160,-519) rotate(24)" {...trazo}>
+        <rect x={-16} y={-66} width={32} height={128} rx={11} fill={L} />
+        <rect x={-10} y={-56} width={8} height={76} rx={4} fill="#BFE0F7" stroke="none" />
+      </g>
+      {/* la mano en una sola silueta: tapa la base del celular y solo asoma el pulgar */}
+      <path d="M93 -474 C102 -486 113 -493 125 -496 C130 -505 133 -517 142 -519 C152 -520 156 -510 152 -500 C149 -493 148 -487 149 -482 C161 -484 171 -476 170 -465 C168 -449 153 -436 136 -433 C126 -431 118 -434 112 -439 Z" fill={piel} {...trazo} />
+      {/* pliegue corto en la base del pulgar */}
+      <path d="M149 -481 C145 -473 138 -468 129 -466" {...linea} strokeWidth={4 / k} />
     </g>
-    {/* palma y pulgar en una sola pieza; abierta atras para unirse con el antebrazo */}
-    <path d="M89 -467 C95 -489 111 -505 128 -522 C135 -534 150 -541 157 -532 C163 -523 155 -513 148 -504 C142 -496 140 -490 142 -484 C158 -486 172 -477 171 -463 C169 -444 146 -430 112 -434" fill={piel} {...S} />
-    {/* pliegue que marca la base del pulgar */}
-    <path d="M142 -484 C138 -470 126 -460 110 -458" {...linea} strokeWidth={4.5} />
-    {/* una del pulgar */}
-    <path d="M141 -528 C147 -533 153 -529 152 -524" {...linea} strokeWidth={3.5} />
-  </g>
-);
+  );
+};
 
 /* ===================== SEBA de perfil, mira el celular ===================== */
 export const SebaCelular = ({ expresion = 'feliz', habla = null, uid = 'p' }) => {
@@ -293,7 +295,9 @@ export const SebaCelular = ({ expresion = 'feliz', habla = null, uid = 'p' }) =>
       {/* cabeza inclinada mirando la pantalla */}
       <g transform="translate(34,-716) rotate(9)"><CabezaSeba e={e} habla={habla} uid={uid} mirada={[0.75, 0.55]} /></g>
       {/* brazo derecho (el de adelante): codo pegado al cuerpo y el celular frente a la cara */}
-      <BrazoLado hombro={[-14, -540]} codo={[24, -398]} muneca={[100, -452]} piel={piel} manga={poleron} puno="#215C4F" mano={null} tapa r={[36, 27, 19]} />
+      <BrazoLado hombro={[-14, -540]} codo={[24, -398]} muneca={[94, -451]} piel={piel} manga={poleron} mano={null} tapa r={[36, 27, 19]} />
+      {/* puno recto de la manga, donde nace la mano */}
+      <path d="M77 -466 L102 -486 L129 -447 L103 -431 Z" fill="#215C4F" {...S} />
       <ManoCelular piel={piel} />
     </g>
   );
