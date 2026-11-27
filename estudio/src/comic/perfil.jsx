@@ -328,12 +328,12 @@ const ManoAlto = ({ x, y, piel, rot = 0, s = 1.12 }) => (
 const Matraca = ({ x, y, rot = 0 }) => (
   <g transform={`translate(${x},${y}) rotate(${rot})`} {...S} strokeWidth={5}>
     {/* alargador y dado */}
-    <rect x={-7} y={10} width={14} height={12} fill="#AEB6C4" />
-    <rect x={-17} y={18} width={34} height={26} rx={5} fill="#C7CDD8" />
-    <path d="M-16 27 H16 M-5 31 V42 M7 31 V42" fill="none" strokeWidth={3.5} />
+    <rect x={-7} y={10} width={14} height={20} fill="#AEB6C4" />
+    <rect x={-17} y={25} width={34} height={32} rx={5} fill="#C7CDD8" />
+    <path d="M-16 36 H16 M-5 42 V55 M7 42 V55" fill="none" strokeWidth={3.5} />
     {/* mango con empunadura */}
     <path d="M-70 -10 L-12 -8 L-12 8 L-70 10 Z" fill="#C7CDD8" />
-    <rect x={-196} y={-14} width={156} height={28} rx={13} fill="#E5483A" />
+    <rect x={-160} y={-14} width={108} height={28} rx={13} fill="#E5483A" />
     {/* cabeza redonda con la perilla de cambio */}
     <rect x={-8} y={-30} width={18} height={14} rx={5} fill="#7B8798" />
     <circle r={22} fill="#C7CDD8" />
@@ -341,30 +341,14 @@ const Matraca = ({ x, y, rot = 0 }) => (
   </g>
 );
 
-/* mano derecha empunando un mango, copiada de la referencia del usuario (27-nov): muneca arriba, base del
-   pulgar cruzando por encima y dedos inclinados por delante. (0,0) = centro del mango; se dibuja mirando a la
-   izquierda y se refleja. «atras» es la palma (va antes del mango); sin «atras», lo que tapa el mango */
-const ManoAgarraDer = ({ x, y, piel, s = 1.1, atras = false }) => {
-  const dedo = { fill: piel, ...S, strokeWidth: 5.5 };
-  return (
-    <g transform={`translate(${x},${y}) scale(${-s},${s})`}>
-      {atras ? (
-        <path d="M-6 -40 C8 -46 28 -44 37 -36 C46 -24 48 -8 44 4 C40 16 28 20 16 16 L-18 0 C-24 -14 -20 -32 -6 -40 Z" {...dedo} />
-      ) : (
-        <g>
-          <path d={tramo([-18, -6], 11.5, [-12, 25], 11)} {...dedo} />
-          <path d={tramo([0, -9], 12, [9, 24], 11.5)} {...dedo} />
-          <path d={tramo([18, -11], 12, [30, 16], 11.5)} {...dedo} />
-          {/* punta del pulgar, por el borde de adelante */}
-          <path d={tramo([-34, -13], 10.5, [-32, 15], 9.5)} {...dedo} />
-          {/* base del pulgar: sale de la muneca; queda abierta arriba para unirse al brazo */}
-          <path d="M-5 -39 C-20 -39 -35 -29 -43 -17 C-48 -8 -43 0 -34 -2 C-25 -4 -17 -12 -5 -13 C8 -14 19 -17 20 -27" {...dedo} />
-          <path d="M-31 -14 Q-24 -22 -13 -24" {...linea} strokeWidth={3.5} />
-        </g>
-      )}
-    </g>
-  );
-};
+/* puno que envuelve un mango horizontal: dorso arriba, dedos por delante y pulgar sobre el mango */
+const ManoAgarra = ({ x, y, piel, rot = 0 }) => (
+  <g transform={`translate(${x},${y}) rotate(${rot})`}>
+    <path d="M-34 -14 C-28 -34 4 -36 20 -26 C32 -18 32 -2 22 6 L-20 10 C-34 8 -38 -4 -34 -14 Z" fill={piel} {...S} />
+    {[-18, -2, 14].map((dx) => <path key={dx} d={tramo([dx + 2, -10], 10, [dx - 3, 19], 9)} fill={piel} {...S} strokeWidth={5.5} />)}
+    <path d={tramo([-10, -24], 11, [30, -17], 8)} fill={piel} {...S} strokeWidth={5.5} />
+  </g>
+);
 
 /* mano apoyada en la orilla del auto, dedos hacia abajo y juntos */
 const ManoApoyada = ({ x, y, piel, rot = 0 }) => (
@@ -407,10 +391,8 @@ export const LuchoRevisa = ({ expresion = 'feliz', habla = null, uid = 'p' }) =>
   return (
     <g>
       <Sombra rx={200} />
-      {/* mecanico derecho: la mano derecha (la de atras) aprieta con la matraca */}
-      <BrazoLado hombro={[134, -490]} codo={[214, -460]} muneca={[303, -450]} piel="#A66B45" manga="#D9DEE8" corta mano={null} r={[32, 25, 20]} />
-      <ManoAgarraDer x={322} y={-411} piel="#A66B45" atras />
-      <Matraca x={440} y={-390} rot={10} />
+      <BrazoLado hombro={[128, -466]} codo={[222, -398]} muneca={[216, -330]} piel="#A66B45" manga="#D9DEE8" corta mano={null} r={[32, 24, 17]} />
+      <ManoApoyada x={216} y={-332} piel="#A66B45" rot={-6} />
       <Pierna cadera={[-26, -322]} rodilla={[-62, -180]} tobillo={[-96, -44]} color={azulSombra} zapato="#46362A" suela="#1F1813" />
       <Union color={azul} formas={['M-78 -330 a74 58 0 1 0 148 0 a74 58 0 1 0 -148 0 Z', tramo([8, -318], 54, [32, -172], 40), tramo([32, -172], 40, [8, -44], 30)]} />
       <Zapato x={8} color="#5B4636" suela="#2E241D" />
@@ -438,16 +420,16 @@ export const LuchoRevisa = ({ expresion = 'feliz', habla = null, uid = 'p' }) =>
         {/* gorra */}
         <path d="M-96 -46 C-104 -132 -42 -160 12 -156 C70 -152 96 -112 92 -66 Q4 -88 -96 -46 Z" fill={AM} {...S} />
         <path d="M44 -74 Q112 -98 164 -62 Q162 -44 140 -48 Q96 -68 46 -56 Z" fill="#E0AE00" {...S} />
-        <circle cx={22} cy={-116} r={22} fill={azul} {...S} strokeWidth={5} /><path d="M34 -116 L25 -106 L9 -125" {...linea} stroke="#fff" strokeWidth={7} />
+        <circle cx={22} cy={-116} r={22} fill={azul} {...S} strokeWidth={5} /><path d="M10 -116 L19 -106 L35 -125" {...linea} stroke="#fff" strokeWidth={7} />
         {/* nariz grande y bigote canoso */}
         <path d="M74 -4 C104 -14 146 8 140 38 C132 66 98 60 76 46" fill="#AE6C46" {...S} />
         <path d="M30 60 C40 36 74 34 94 46 C112 36 134 50 134 78 C118 68 108 80 94 70 C76 84 62 70 52 76 C46 70 38 68 30 60 Z" fill={cana} {...S} />
         <BocaLado x={76} y={92} habla={habla} tipo={habla === null ? 'ladeada' : e.boca} />
       </g>
-      <ManoAgarraDer x={322} y={-411} piel="#A66B45" />
-      {/* la mano izquierda (la de adelante) se apoya en la orilla del auto */}
-      <BrazoLado hombro={[116, -482]} codo={[146, -392]} muneca={[198, -340]} piel={piel} manga="#F2F4F8" corta mano={null} r={[34, 25, 18]} />
-      <ManoApoyada x={197} y={-342} piel={piel} rot={-24} />
+      {/* mecanico derecho: mira a la derecha, asi su brazo derecho es el de adelante y aprieta con la matraca */}
+      <Matraca x={384} y={-406} rot={9} />
+      <BrazoLado hombro={[116, -482]} codo={[186, -408]} muneca={[244, -432]} piel={piel} manga="#F2F4F8" corta mano={null} r={[34, 25, 18]} />
+      <ManoAgarra x={266} y={-426} piel={piel} rot={9} />
     </g>
   );
 };
