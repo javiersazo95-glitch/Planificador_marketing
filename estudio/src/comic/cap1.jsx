@@ -193,18 +193,18 @@ export const EscenaApp = ({ falla, diagnostico }) => (
   <AbsoluteFill style={{ fontFamily: FUENTE, color: L }}>
     <svg width={1080} height={1920} viewBox="0 0 1080 1920">
       <Entrada />
-      <g transform="translate(250,1882) scale(0.8)"><SebaCelular uid="app" /></g>
+      <g transform="translate(250,1885) scale(0.76)"><SebaCelular uid="app" /></g>
       {/* globo con la cola hacia la boca, por el costado */}
-      <rect x={529} y={1259} width={500} height={190} rx={52} fill={L} />
-      <rect x={520} y={1250} width={500} height={190} rx={52} fill="#fff" {...S} />
-      <path d="M524 1316 L402 1368 L524 1380" fill="#fff" {...S} />
-      <rect x={518} y={1321} width={14} height={54} fill="#fff" />
-      {['¡Ya me llegó', 'un diagnóstico!'].map((t, i) => <text key={t} x={770} y={1336 + i * 62} textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={52} fill={L}>{t}</text>)}
+      <rect x={529} y={1289} width={500} height={190} rx={52} fill={L} />
+      <rect x={520} y={1280} width={500} height={190} rx={52} fill="#fff" {...S} />
+      <path d="M524 1346 L398 1396 L524 1410" fill="#fff" {...S} />
+      <rect x={518} y={1351} width={14} height={54} fill="#fff" />
+      {['¡Ya me llegó', 'un diagnóstico!'].map((t, i) => <text key={t} x={770} y={1366 + i * 62} textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={52} fill={L}>{t}</text>)}
     </svg>
-    <Pantalla src={falla} left={230} top={255} width={610} />
-    <Paso left={90} top={180}>1. Cuento la falla</Paso>
-    <Pantalla src={diagnostico} left={160} top={820} width={760} />
-    <Paso left={420} top={766} giro={2}>2. Llega el diagnóstico</Paso>
+    <Pantalla src={falla} left={265} top={245} width={540} />
+    <Paso left={110} top={172}>1. Cuento la falla</Paso>
+    <Pantalla src={diagnostico} left={180} top={776} width={710} />
+    <Paso left={420} top={700} giro={2}>2. Llega el diagnóstico</Paso>
     <div style={{ position: 'absolute', right: 60, top: 90, fontSize: 26, fontWeight: 700, background: '#ffffffcc', padding: '4px 14px', borderRadius: 10 }}>Recreación · ejemplo de prueba</div>
   </AbsoluteFill>
 );
