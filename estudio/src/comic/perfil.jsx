@@ -316,6 +316,48 @@ export const CataMuestra = ({ expresion = 'feliz', habla = null, uid = 'p' }) =>
   );
 };
 
+/* mano abierta en alto («yo no fui»): dedos arriba y pulgar hacia el cuerpo. (0,0) = muneca */
+const ManoAlto = ({ x, y, piel, rot = 0, s = 1.12 }) => (
+  <g transform={`translate(${x},${y}) rotate(${rot}) scale(${s})`}>
+    <path d="M-16 8 C-20 -6 -26 -10 -36 -18 C-52 -30 -52 -48 -41 -49 C-33 -50 -28 -38 -19 -32 C-22 -48 -22 -66 -13 -69 C-5 -71 -2 -64 -3 -57 C-3 -74 1 -82 8 -81 C16 -80 15 -68 14 -59 C17 -71 25 -75 30 -69 C35 -62 30 -46 29 -34 C29 -16 24 -2 15 8" fill={piel} {...S} strokeWidth={G / s} />
+    <path d="M-3 -57 L-3 -42 M14 -59 L13 -43 M-19 -32 Q-12 -22 -14 -12" {...linea} strokeWidth={4} />
+  </g>
+);
+
+/* matraca con alargador y dado. (0,0) = centro de la cabeza de la matraca; el mango sale hacia atras */
+const Matraca = ({ x, y, rot = 0 }) => (
+  <g transform={`translate(${x},${y}) rotate(${rot})`} {...S} strokeWidth={5}>
+    {/* alargador y dado */}
+    <rect x={-7} y={10} width={14} height={20} fill="#AEB6C4" />
+    <rect x={-17} y={25} width={34} height={32} rx={5} fill="#C7CDD8" />
+    <path d="M-16 36 H16 M-5 42 V55 M7 42 V55" fill="none" strokeWidth={3.5} />
+    {/* mango con empunadura */}
+    <path d="M-70 -10 L-12 -8 L-12 8 L-70 10 Z" fill="#C7CDD8" />
+    <rect x={-160} y={-14} width={108} height={28} rx={13} fill="#E5483A" />
+    {/* cabeza redonda con la perilla de cambio */}
+    <rect x={-8} y={-30} width={18} height={14} rx={5} fill="#7B8798" />
+    <circle r={22} fill="#C7CDD8" />
+    <circle r={9} fill="#7B8798" strokeWidth={4} />
+  </g>
+);
+
+/* puno que envuelve un mango horizontal: dorso arriba, dedos por delante y pulgar sobre el mango */
+const ManoAgarra = ({ x, y, piel, rot = 0 }) => (
+  <g transform={`translate(${x},${y}) rotate(${rot})`}>
+    <path d="M-34 -14 C-28 -34 4 -36 20 -26 C32 -18 32 -2 22 6 L-20 10 C-34 8 -38 -4 -34 -14 Z" fill={piel} {...S} />
+    {[-18, -2, 14].map((dx) => <path key={dx} d={tramo([dx + 2, -10], 10, [dx - 3, 19], 9)} fill={piel} {...S} strokeWidth={5.5} />)}
+    <path d={tramo([-10, -24], 11, [30, -17], 8)} fill={piel} {...S} strokeWidth={5.5} />
+  </g>
+);
+
+/* mano apoyada en la orilla del auto, dedos hacia abajo y juntos */
+const ManoApoyada = ({ x, y, piel, rot = 0 }) => (
+  <g transform={`translate(${x},${y}) rotate(${rot})`}>
+    <path d="M-17 -6 C-22 10 -20 28 -17 36 C-15 46 -4 47 -3 38 C-1 50 12 49 13 38 C17 46 28 42 27 32 C28 18 24 4 17 -6" fill={piel} {...S} />
+    <path d="M-3 38 L-3 22 M13 38 L12 22" {...linea} strokeWidth={4} />
+  </g>
+);
+
 /* ===================== EL CUNADO retrocede incomodo y empuja las cajas ===================== */
 export const CunadoRetrocede = ({ expresion = 'preocupado', habla = null, uid = 'p' }) => {
   const e = EXPRESIONES[expresion];
@@ -324,7 +366,8 @@ export const CunadoRetrocede = ({ expresion = 'preocupado', habla = null, uid = 
     <g>
       <Sombra rx={200} />
       {/* brazo de atras, mano abierta: «yo no fui» */}
-      <BrazoLado hombro={[-14, -528]} codo={[88, -462]} muneca={[150, -540]} piel="#BE855A" manga="#B93931" corta mano="abierta" rot={-142} r={[31, 23, 16]} />
+      <BrazoLado hombro={[-14, -528]} codo={[100, -484]} muneca={[160, -566]} piel="#BE855A" manga="#B93931" corta mano={null} r={[31, 23, 16]} />
+      <ManoAlto x={160} y={-566} piel="#BE855A" rot={22} s={1.05} />
       <Pierna cadera={[-30, -322]} rodilla={[-70, -178]} tobillo={[-62, -44]} color="#9C8158" zapato="#653F25" suela="#3D2718" />
       <Union color={pant} formas={['M-94 -326 a82 62 0 1 0 164 0 a82 62 0 1 0 -164 0 Z', 'M-56 -392 C-112 -410 -164 -374 -162 -320 C-160 -270 -124 -244 -80 -250 C-42 -260 -4 -294 -2 -328 Z', tramo([8, -318], 56, [74, -190], 40), tramo([74, -190], 40, [96, -68], 29)]} />
       {/* pie de adelante dando el paso hacia atras: se calza sobre el tobillo */}
@@ -334,12 +377,13 @@ export const CunadoRetrocede = ({ expresion = 'preocupado', habla = null, uid = 
       <path d={tramo([-40, -572], 46, [-38, -646], 40)} fill={piel} {...S} />
       <g transform="rotate(-12 0 -330)"><TorsoCunado uid={uid} /></g>
       <g transform="translate(-34,-716) rotate(-6)"><CabezaCunado e={e} habla={habla} uid={uid} mirada={[0.8, -0.1]} /></g>
-      <BrazoLado hombro={[-48, -522]} codo={[24, -416]} muneca={[128, -452]} piel={piel} manga={camisa} corta tapa mano="abierta" rot={-118} flip r={[34, 25, 18]} />
+      <BrazoLado hombro={[-48, -522]} codo={[24, -416]} muneca={[130, -446]} piel={piel} manga={camisa} corta tapa mano={null} r={[34, 25, 18]} />
+      <ManoAlto x={130} y={-446} piel={piel} rot={30} s={1.15} />
     </g>
   );
 };
 
-/* ===================== DON LUCHO revisa el motor con una llave ===================== */
+/* ===================== DON LUCHO revisa el motor con matraca y dado ===================== */
 export const LuchoRevisa = ({ expresion = 'feliz', habla = null, uid = 'p' }) => {
   const e = EXPRESIONES[expresion];
   const piel = '#B9784F', cana = '#D7D9E0', azul = '#0F4EC2', azulSombra = '#0B3C98';
@@ -347,7 +391,8 @@ export const LuchoRevisa = ({ expresion = 'feliz', habla = null, uid = 'p' }) =>
   return (
     <g>
       <Sombra rx={200} />
-      <BrazoLado hombro={[128, -466]} codo={[222, -398]} muneca={[216, -320]} piel="#A66B45" manga="#D9DEE8" corta mano="abierta" rot={8} r={[32, 24, 17]} />
+      <BrazoLado hombro={[128, -466]} codo={[222, -398]} muneca={[216, -330]} piel="#A66B45" manga="#D9DEE8" corta mano={null} r={[32, 24, 17]} />
+      <ManoApoyada x={216} y={-332} piel="#A66B45" rot={-6} />
       <Pierna cadera={[-26, -322]} rodilla={[-62, -180]} tobillo={[-96, -44]} color={azulSombra} zapato="#46362A" suela="#1F1813" />
       <Union color={azul} formas={['M-78 -330 a74 58 0 1 0 148 0 a74 58 0 1 0 -148 0 Z', tramo([8, -318], 54, [32, -172], 40), tramo([32, -172], 40, [8, -44], 30)]} />
       <Zapato x={8} color="#5B4636" suela="#2E241D" />
@@ -381,14 +426,10 @@ export const LuchoRevisa = ({ expresion = 'feliz', habla = null, uid = 'p' }) =>
         <path d="M30 60 C40 36 74 34 94 46 C112 36 134 50 134 78 C118 68 108 80 94 70 C76 84 62 70 52 76 C46 70 38 68 30 60 Z" fill={cana} {...S} />
         <BocaLado x={76} y={92} habla={habla} tipo={habla === null ? 'ladeada' : e.boca} />
       </g>
-      {/* brazo de adelante con la linterna */}
-      <BrazoLado hombro={[116, -482]} codo={[196, -398]} muneca={[270, -420]} piel={piel} manga="#F2F4F8" corta mano={null} r={[34, 25, 18]} />
-      <g transform="translate(286,-418) rotate(34)" {...S}>
-        <path d="M-52 -10 L74 -10 C80 -32 112 -34 128 -18 L102 -9 L102 9 L128 18 C112 34 80 32 74 10 L-52 10 C-66 10 -66 -10 -52 -10 Z" fill="#C7CDD8" />
-        <path d="M30 0 H62" fill="none" strokeWidth={4} opacity={0.5} />
-      </g>
-      <path d="M262 -440 C282 -458 312 -440 306 -416 C300 -398 274 -394 258 -406 Z" fill={piel} {...S} />
-      <path d="M274 -420 Q292 -416 304 -424" {...linea} strokeWidth={4} />
+      {/* brazo de adelante apretando con la matraca */}
+      <Matraca x={384} y={-406} rot={9} />
+      <BrazoLado hombro={[116, -482]} codo={[186, -408]} muneca={[244, -432]} piel={piel} manga="#F2F4F8" corta mano={null} r={[34, 25, 18]} />
+      <ManoAgarra x={266} y={-426} piel={piel} rot={9} />
     </g>
   );
 };
