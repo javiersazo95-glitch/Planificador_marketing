@@ -70,35 +70,62 @@ const DerPulgar = () => (
   </g>
 );
 
-export const PovFalla = ({ pantalla }) => (
+/* escena comun: entorno desenfocado, manos, celular y rotulos. «bajar» corre los pulgares hacia abajo */
+const Pov = ({ id, rotulo, children, toque = null, bajar = 0, encima = null }) => (
   <AbsoluteFill style={{ fontFamily: FUENTE, color: L }}>
     {/* el entorno queda desenfocado: la mirada esta en el celular */}
     <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{ position: 'absolute', filter: 'blur(13px)', transform: 'scale(1.1)' }}>
       <Entrada />
     </svg>
     <svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{ position: 'absolute' }}>
-      <IzqAtras />
-      <DerAtras />
+      <g transform={`translate(0,${bajar})`}><IzqAtras /><DerAtras /></g>
       {/* celular */}
       <rect x={232} y={342} width={640} height={1360} rx={72} fill={L} opacity={0.25} />
       <rect x={220} y={330} width={640} height={1360} rx={72} fill={L} />
-      <clipPath id="pantalla-pov"><rect x={P.x} y={P.y} width={P.w} height={P.h} rx={54} /></clipPath>
-      <g clipPath="url(#pantalla-pov)">
-        <rect x={P.x} y={P.y} width={P.w} height={P.h} fill="#F4F6F9" />
-        {/* captura real del formulario (version de pruebas), con el ejemplo sin enviar */}
-        <rect x={P.x} y={P.y} width={P.w} height={62} fill="#fff" />
-        <svg x={P.x} y={P.y + 62} width={P.w} height={TECLADO_Y - P.y - 62} viewBox="45 694 660 864" preserveAspectRatio="xMidYMin slice">
-          <image href={pantalla} x={0} y={0} width={750} height={1624} />
-        </svg>
-        <Teclado />
-      </g>
+      <clipPath id={`pantalla-${id}`}><rect x={P.x} y={P.y} width={P.w} height={P.h} rx={54} /></clipPath>
+      <g clipPath={`url(#pantalla-${id})`}>{children}</g>
       <rect x={470} y={362} width={140} height={30} rx={15} fill={L} />
-      {/* toque del pulgar derecho */}
-      <circle cx={640} cy={1560} r={58} fill="none" stroke={AM} strokeWidth={9} />
-      <IzqPulgar />
-      <DerPulgar />
+      {toque}
+      <g transform={`translate(0,${bajar})`}><IzqPulgar /><DerPulgar /></g>
+      {encima}
     </svg>
-    <div style={{ position: 'absolute', left: 90, top: 170, background: AM, border: `7px solid ${L}`, padding: '10px 34px', fontSize: 54, fontWeight: 800, transform: 'rotate(-2deg)', boxShadow: `8px 8px 0 ${L}` }}>1. Cuento la falla</div>
+    <div style={{ position: 'absolute', left: 90, top: 170, background: AM, border: `7px solid ${L}`, padding: '10px 34px', fontSize: 54, fontWeight: 800, transform: 'rotate(-2deg)', boxShadow: `8px 8px 0 ${L}` }}>{rotulo}</div>
     <div style={{ position: 'absolute', right: 50, top: 80, fontSize: 26, fontWeight: 700, background: '#ffffffd9', padding: '4px 14px', borderRadius: 10 }}>Recreación · ejemplo de prueba</div>
   </AbsoluteFill>
+);
+
+export const PovFalla = ({ pantalla }) => (
+  <Pov id="falla" rotulo="1. Cuento la falla" toque={<circle cx={640} cy={1560} r={58} fill="none" stroke={AM} strokeWidth={9} />}>
+    <rect x={P.x} y={P.y} width={P.w} height={P.h} fill="#F4F6F9" />
+    {/* captura real del formulario (version de pruebas), con el ejemplo sin enviar */}
+    <rect x={P.x} y={P.y} width={P.w} height={62} fill="#fff" />
+    <svg x={P.x} y={P.y + 62} width={P.w} height={TECLADO_Y - P.y - 62} viewBox="45 694 660 864" preserveAspectRatio="xMidYMin slice">
+      <image href={pantalla} x={0} y={0} width={750} height={1624} />
+    </svg>
+    <Teclado />
+  </Pov>
+);
+
+/* Seba habla desde fuera de cuadro: la cola del globo apunta hacia abajo, hacia quien mira */
+const GloboPov = () => (
+  <g>
+    <rect x={279} y={1069} width={540} height={180} rx={52} fill={L} />
+    <rect x={270} y={1060} width={540} height={180} rx={52} fill="#fff" {...S} />
+    <path d="M520 1236 L574 1344 L602 1236" fill="#fff" {...S} />
+    <rect x={514} y={1225} width={94} height={13} fill="#fff" />
+    {['¡Ya me llegó', 'un diagnóstico!'].map((t, i) => <text key={t} x={540} y={1138 + i * 62} textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={52} fill={L}>{t}</text>)}
+  </g>
+);
+
+export const PovDiagnostico = ({ pantalla }) => (
+  <Pov id="diagnostico" rotulo="2. Llega el diagnóstico" bajar={40} encima={<GloboPov />}>
+    <rect x={P.x} y={P.y} width={P.w} height={P.h} fill="#fff" />
+    {/* captura real del diagnostico (version de pruebas) */}
+    <svg x={P.x} y={P.y + 62} width={P.w} height={P.h - 62} viewBox="0 214 750 1480" preserveAspectRatio="xMidYMin meet">
+      <image href={pantalla} x={0} y={0} width={750} height={1624} />
+    </svg>
+    {/* tapa las esquinas grises que deja la ventana de la captura */}
+    {[P.x, P.x + P.w - 36].map((x) => <rect key={x} x={x} y={P.y + 56} width={36} height={32} fill="#fff" />)}
+    <rect x={P.x + 12} y={785} width={P.w - 24} height={212} rx={26} fill="none" stroke={AM} strokeWidth={9} />
+  </Pov>
 );

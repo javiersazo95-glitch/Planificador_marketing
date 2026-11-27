@@ -62,4 +62,8 @@ Diagnóstico enviado el 27-nov desde «Mecánica Tres Bujías» a la falla de pr
 El 27-nov eligió la versión **sin pantallas** y pidió que en la mano (vista desde el lado del pulgar) se vea **solo el pulgar**: en revisión `cap1_escena_celular_v2.png`.
 Rechazó la v2 («parece 2 manos en una», pulgar muy grande, mano chica) y pidió buscar referencias. En revisión `cap1_escena_celular_v3.png`: mano en una sola silueta más grande, pulgar corto y puño recto de la manga.
 `cap1_escena_celular_v3.png` **aprobada** el 27-nov. Sigue el POV de Seba usando la app: POV 1 escribe la falla; POV 2 le llega el diagnóstico («¡Ya me llegó un diagnóstico!»).
-POV 1 en revisión: `cap1_pov1_falla.png` (`estudio/src/comic/pov.jsx`; pantalla real `public/comic/pov_falla.jpg`; el teclado es dibujado; fondo desenfocado; pose de dos pulgares tomada de una referencia).
+POV 1 **aprobado** el 27-nov: `cap1_pov1_falla.png` (`estudio/src/comic/pov.jsx`; pantalla real `public/comic/pov_falla.jpg`; el teclado es dibujado; fondo desenfocado; pose de dos pulgares tomada de una referencia).
+POV 2 en revisión: `cap1_pov2_diagnostico.png`.
+
+**Orden final del capítulo 1** (archivos en Drive `.../escenas/`): 1 `cap1_escena1_v4` · 2 `cap1_escena2` · 3 `cap1_escena3_v2` · 4 `cap1_escena_celular_v3` · 5 `cap1_pov1_falla` · 6 `cap1_pov2_diagnostico` · 7 `cap1_escena4_v9` · 8 cierre L2 (`estudio/public/cierre_L2.mp4`). La imagen `cap1_escena_app*` con tarjetas quedó fuera. Después: voces, movimiento y montaje (subtítulos y música).
+
