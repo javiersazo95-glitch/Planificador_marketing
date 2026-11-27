@@ -324,17 +324,18 @@ const ManoAlto = ({ x, y, piel, rot = 0, s = 1.12 }) => (
   </g>
 );
 
-/* mano derecha empunando la matraca, calcada de la referencia del usuario (27-nov). Las coordenadas son las de
-   la referencia ampliada: antebrazo hacia la derecha, mango en diagonal, (592,780) = centro del agarre.
+/* mano derecha empunando la matraca. La pose sale de la referencia del usuario (27-nov), pero dibujada con el
+   estilo del comic (tres dedos y pulgar, sin unas ni pliegues). Coordenadas de la referencia ampliada: antebrazo hacia la derecha, mango en diagonal, (592,780) = centro del agarre.
    Orden: palma (atras), matraca, y encima pulgar y dedos. Se refleja para que en pantalla quede igual a la foto */
 const ManoMatraca = ({ x, y, piel, k = 0.215 }) => {
   const trazo = { fill: piel, ...S, strokeWidth: G / k };
   const fino = { ...linea, strokeWidth: 4.5 / k };
+  const dedo = { fill: piel, ...S, strokeWidth: 6 / k };
   const metal = { fill: '#C7CDD8', ...S, strokeWidth: 5 / k };
   return (
     <g transform={`translate(${x},${y}) scale(${-k},${k}) translate(-592,-780)`}>
       {/* palma y muneca: sin borde a la derecha, para unirse con el antebrazo */}
-      <path d="M945 743 L890 735 C850 722 805 695 765 655 C735 622 715 598 680 593 L590 589 C560 600 535 630 520 660 L640 900 L700 965 L735 968 C775 950 795 925 825 918 C860 913 895 925 945 933" {...trazo} />
+      <path d="M912 741 C868 735 830 718 790 680 C748 642 725 600 665 592 L590 595 C560 605 535 635 520 660 L600 880 L660 950 C700 975 760 962 800 940 C830 920 856 917 880 921" {...trazo} />
       {/* matraca: empunadura, barra, cabeza y dado apoyado en el motor */}
       <g transform="translate(592,780) rotate(-19.7)">
         <rect x={-34} y={230} width={68} height={110} {...metal} />
@@ -345,18 +346,12 @@ const ManoMatraca = ({ x, y, piel, k = 0.215 }) => {
         <circle cx={0} cy={350} r={90} {...metal} />
         <circle cx={0} cy={350} r={38} fill="#7B8798" {...S} strokeWidth={4 / k} />
       </g>
-      {/* pliegues de la palma y la muneca */}
-      <path d="M806 765 C780 802 745 828 697 836 M704 849 C730 842 755 846 777 861 M862 787 C857 835 853 880 852 914 M886 811 C880 855 874 895 868 924" {...fino} />
-      {/* pulgar cruzando sobre el mango */}
-      <path d="M735 622 C715 598 690 592 650 591 L590 589 C555 600 532 628 505 662 C488 686 490 704 512 710 C535 716 570 708 598 690 C618 677 628 660 627 642" {...trazo} />
-      <path d="M628 645 C628 668 645 685 670 689" {...fino} />
-      <ellipse cx={532} cy={662} rx={30} ry={17} transform="rotate(-42 532 662)" fill="#E3B394" {...S} strokeWidth={3 / k} />
-      {/* cuatro dedos que envuelven el mango, de arriba hacia abajo */}
-      <path d="M522 915 C515 940 535 965 568 971 C600 975 630 955 648 928 C662 905 645 888 612 892 L560 898 Z" {...trazo} />
-      <path d="M492 862 C486 890 505 915 545 916 C590 918 640 908 665 890 C685 872 678 845 650 840 L540 852 Z" {...trazo} />
-      <path d="M466 793 C458 825 470 852 505 860 C545 866 590 856 630 843 C665 830 668 800 645 785 C625 772 600 785 560 791 C520 798 490 780 466 793 Z" {...trazo} />
-      <path d="M495 692 C462 702 436 728 440 752 C446 778 480 797 530 798 C560 799 588 788 590 768 C592 748 565 732 520 728 C500 726 492 712 495 692 Z" {...trazo} />
-      {[[548, 766], [612, 818], [642, 872], [612, 933]].map(([cx, cy]) => <ellipse key={cy} cx={cx} cy={cy} rx={23} ry={16} transform={`rotate(-12 ${cx} ${cy})`} fill="#E3B394" {...S} strokeWidth={3 / k} />)}
+      {/* pulgar cruzando sobre el mango: abierto atras para unirse con la palma */}
+      <path d="M722 622 C690 596 638 584 590 592 C545 600 505 640 495 674 C488 704 515 722 548 711 C580 701 602 676 628 664 C645 657 660 657 676 662" {...trazo} />
+      {/* tres dedos redondos que envuelven el mango, como las demas manos del comic */}
+      <path d={tramo([528, 920], 47, [622, 902], 40)} {...dedo} />
+      <path d={tramo([495, 833], 52, [636, 826], 43)} {...dedo} />
+      <path d={tramo([492, 742], 52, [598, 766], 41)} {...dedo} />
     </g>
   );
 };
