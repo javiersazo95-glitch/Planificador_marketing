@@ -54,3 +54,5 @@ Capítulos siguientes: 2) Cata pide su primer repuesto con Repuestín. 3) Doña 
 
 **Escena de la app (27-nov):** pantallas de dev-repuestop.repuestop.cl con la cuenta de comprador de prueba (la sesión la inició el usuario; no se publicó nada). Recortes en `estudio/public/comic/app_falla.png` y `app_diagnostico.png` (se cortó el precio por ser dato de prueba). Quedan visibles el nombre del taller de prueba, su nota y «bateria» sin tilde.
 
+**Taller del ejemplo (27-nov):** el usuario rechazó que aparezca «Grua don Elias» (es una grúa). Fotos de perfil propuestas (`estudio/logos_taller.mjs`, en Drive `.../2026-11-26-reel-comic-cap1/taller/`): 1 Mecánica Pistón Ñielol, 2 Mecánica General Temuco City, 3 Mecánica Tres Bujías. Falta elegir. Un taller ya aprobado solo puede cambiar logo, teléfono y horario; el nombre no tiene botón para cambiarse (ni en el backoffice), así que se propone una cuenta de taller de prueba nueva.
+
