@@ -257,6 +257,31 @@ export const SebaSentado = ({ expresion = 'preocupado', habla = null, uid = 'p' 
   );
 };
 
+/* mano derecha con el celular, vista desde su costado derecho. La pose sale de una foto de referencia (27-nov):
+   dorso a la vista, indice estirado por detras del celular, dos dedos recogidos y el pulgar del lado de la pantalla.
+   Coordenadas de la foto, que se refleja; (522,557) = centro de la muneca */
+const ManoCelular = ({ x, y, piel, k = 0.25 }) => {
+  const dedo = { fill: piel, ...S, strokeWidth: 5 / k };
+  return (
+    <g transform={`translate(${x},${y}) scale(${-k},${k}) translate(-522,-557)`}>
+      {/* pulgar: asoma por el lado de la pantalla */}
+      <path d={tramo([420, 330], 50, [348, 218], 38)} {...dedo} />
+      {/* celular inclinado, con la pantalla hacia Seba */}
+      <g transform="translate(256,178) rotate(-33)">
+        <rect x={-52} y={-200} width={104} height={400} rx={32} fill={L} stroke={L} strokeWidth={G / k} />
+        <rect x={6} y={-170} width={30} height={330} rx={14} fill="#BFE0F7" />
+      </g>
+      {/* dorso de la mano: abierto abajo para unirse con el antebrazo */}
+      <path d="M455 603 C412 560 345 500 316 442 C296 400 296 365 308 336 L356 300 C410 305 478 362 520 408 C555 446 578 478 592 510" {...dedo} strokeWidth={G / k} />
+      {/* dos dedos recogidos sobre el dorso */}
+      <path d={tramo([396, 446], 50, [512, 398], 40)} {...dedo} />
+      <path d={tramo([342, 376], 50, [444, 300], 40)} {...dedo} />
+      {/* indice estirado, sosteniendo el celular por atras */}
+      <path d={tramo([326, 348], 50, [226, 192], 36)} {...dedo} />
+    </g>
+  );
+};
+
 /* ===================== SEBA de perfil, mira el celular ===================== */
 export const SebaCelular = ({ expresion = 'feliz', habla = null, uid = 'p' }) => {
   const e = EXPRESIONES[expresion];
@@ -274,18 +299,9 @@ export const SebaCelular = ({ expresion = 'feliz', habla = null, uid = 'p' }) =>
       <path d="M42 -576 Q58 -540 52 -496" {...linea} stroke="#fff" strokeWidth={9} />
       {/* cabeza inclinada mirando la pantalla */}
       <g transform="translate(34,-716) rotate(9)"><CabezaSeba e={e} habla={habla} uid={uid} mirada={[0.75, 0.55]} /></g>
-      {/* brazo de adelante: codo pegado al cuerpo y el celular a la altura del pecho */}
-      <BrazoLado hombro={[-14, -540]} codo={[2, -414]} muneca={[108, -450]} piel={piel} manga={poleron} puno="#215C4F" mano={null} tapa r={[36, 27, 19]} />
-      {/* palma bajo el celular */}
-      <path d="M104 -470 C128 -488 166 -480 176 -458 C182 -440 160 -428 136 -430 C120 -430 108 -434 102 -440 Z" fill={piel} {...S} />
-      {/* celular visto de lado, con la pantalla hacia Seba */}
-      <g transform="translate(164,-512) rotate(26)" {...S}>
-        <rect x={-23} y={-70} width={46} height={134} rx={14} fill={L} />
-        <rect x={-15} y={-58} width={15} height={110} rx={6} fill="#BFE0F7" stroke="none" />
-      </g>
-      {/* dedos que abrazan el borde de adelante y pulgar sobre la pantalla */}
-      {[[180, -492], [174, -468]].map(([x, y]) => <path key={y} d={tramo([x + 14, y], 11, [x - 6, y + 8], 11)} fill={piel} {...S} strokeWidth={5.5} />)}
-      <path d={tramo([116, -462], 15, [141, -500], 11)} fill={piel} {...S} strokeWidth={5.5} />
+      {/* brazo derecho (el de adelante): codo pegado al cuerpo y el celular frente a la cara */}
+      <BrazoLado hombro={[-14, -540]} codo={[24, -398]} muneca={[100, -452]} piel={piel} manga={poleron} puno="#215C4F" mano={null} tapa r={[36, 27, 19]} />
+      <ManoCelular x={100} y={-452} piel={piel} />
     </g>
   );
 };

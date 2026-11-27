@@ -209,6 +209,19 @@ export const EscenaApp = ({ falla, diagnostico }) => (
   </AbsoluteFill>
 );
 
+/* version sin pantallas: las pantallas se ven despues, desde los ojos de Seba */
+export const EscenaCelular = () => (
+  <AbsoluteFill style={{ fontFamily: FUENTE, color: L }}>
+    <svg width={1080} height={1920} viewBox="0 0 1080 1920">
+      <Entrada />
+      <g transform="translate(400,1850) scale(1.2)"><SebaCelular uid="cel" /></g>
+      <Globo x={440} y={520} w={580} h={190} letra={52} cola={[680, 614, 1062]} lineas={['Voy a contar', 'lo que le pasa.']} />
+    </svg>
+    <Cartel top={190}>Seba abre RepuesTop<br /><span style={{ color: AZ, fontStyle: 'italic' }}>y cuenta la falla.</span></Cartel>
+    <div style={{ position: 'absolute', right: 90, top: 400, fontSize: 26, fontWeight: 700, background: '#ffffffcc', padding: '4px 14px', borderRadius: 10 }}>Recreación</div>
+  </AbsoluteFill>
+);
+
 /* estrella de golpe y lineas de movimiento */
 const Golpe = ({ x, y, s = 1 }) => (
   <g transform={`translate(${x},${y}) scale(${s})`} {...S}>

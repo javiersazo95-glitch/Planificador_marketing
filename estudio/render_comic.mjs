@@ -16,10 +16,10 @@ await build({
     contents: `import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { LaminaComic, ExpresionesComic, EscenaComic, RecorteComic } from './laminas.jsx';
-import { Escena1, Escena2, Escena3, EscenaApp, Escena4 } from './cap1.jsx';
+import { Escena1, Escena2, Escena3, EscenaApp, EscenaCelular, Escena4 } from './cap1.jsx';
 import { ELENCO_COMIC } from './elenco.jsx';
 export const nombres = Object.keys(ELENCO_COMIC);
-const C = { LaminaComic, ExpresionesComic, EscenaComic, RecorteComic, Escena1, Escena2, Escena3, EscenaApp, Escena4 };
+const C = { LaminaComic, ExpresionesComic, EscenaComic, RecorteComic, Escena1, Escena2, Escena3, EscenaApp, EscenaCelular, Escena4 };
 export const html = (n, p = {}) => renderToStaticMarkup(React.createElement(C[n], p));`,
     resolveDir: join(aqui, 'src/comic'), loader: 'jsx',
   },
@@ -44,6 +44,7 @@ const pantalla = 'data:image/png;base64,' + readFileSync(join(aqui, 'public/comi
 await foto(m.html('Escena3', { pantalla }), 1080, 1920, 'cap1_escena3.png');
 const png = (n) => 'data:image/png;base64,' + readFileSync(join(aqui, 'public/comic', n), 'base64');
 await foto(m.html('EscenaApp', { falla: png('app_falla.png'), diagnostico: png('app_diagnostico.png') }), 1080, 1920, 'cap1_escena_app.png');
+await foto(m.html('EscenaCelular'), 1080, 1920, 'cap1_escena_celular.png');
 await foto(m.html('Escena4'), 1080, 1920, 'cap1_escena4.png');
 if (process.argv[3] === 'cap1') { await nav.close(); rmSync(tmp); process.exit(0); }
 await foto(m.html('LaminaComic'), 1880, 1820, '01_elenco.png');
