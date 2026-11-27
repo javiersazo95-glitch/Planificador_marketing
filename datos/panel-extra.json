@@ -519,6 +519,11 @@
       "titulo": "Corregir datos de prueba de dev para grabar los videos",
       "porque": "Para el reel de la patente (ABCD11) hay productos de dev con la foto equivocada: «Conjunto de masa y rodamiento delantero» (foto de amortiguador), un «Filtro de aceite Toyota Yaris» y un «Filtro de combustible Toyota Yaris» (foto de motor), y «Filtro de aceite de motor, registro demostrativo» (se nota que es de prueba). En Fallas hay títulos como «Prueba P5…» y «prueba 3». Además la ubicación sale «Temu» y los precios son de prueba.",
       "resultado": "Podemos grabar videos reales con nombres, fotos y precios que se vean bien, sin tapar nada."
+    },
+    {
+      "titulo": "Botón + de Fallas tapado en el celular",
+      "porque": "Visto el 27-nov en la web de pruebas, vista de celular: el botón + para registrar una falla queda casi todo detrás de la barra de abajo y al tocarlo se abre «Más». Falta confirmarlo en un teléfono real.",
+      "resultado": "Quien llegue desde un video podrá registrar su falla sin trabarse."
     }
   ],
   "material": [

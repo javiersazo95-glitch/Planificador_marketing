@@ -40,7 +40,7 @@ Capítulo 1, «El diagnóstico del cuñado» (reaprovecha el guion R1).
 | 0–3 s | Auto con el capó levantado: Cuñado inclinado sobre el motor, Seba preocupado | Texto: «Tres repuestos comprados y el auto sigue igual.» Cuñado: «Es el alternador.» |
 | 3–8 s | Seba rodeado de cajas | Seba: «Ya cambié… tres.» |
 | 8–14 s | Cata muestra el celular y la pantalla real de Fallas | Cata: «Cuenta la falla en RepuesTop y los talleres te responden.» |
-| Por crear (pedida el 26-nov) | Seba publica la falla en la app y le llega el diagnóstico (pantalla real, con un ejemplo de prueba) | Texto por definir |
+| Escena de la app (entre las anteriores; en revisión, 27-nov) | Seba mira el celular; formulario real con ejemplo sin enviar y diagnóstico real de la versión de pruebas (`cap1_escena_app.png`) | «1. Cuento la falla» · «2. Llega el diagnóstico» · Seba: «¡Ya me llegó un diagnóstico!» |
 | 14–18 s | Don Lucho revisa; Cuñado incómodo | Lucho: «Vamos a revisarlo con calma.» Cuñado: «Yo dije que podía ser eléctrico.» |
 | 18–22 s | Cierre L2 compradores | «Pago seguro con Flow» + motor + voz de cierre |
 
@@ -51,3 +51,6 @@ Capítulo 1, «El diagnóstico del cuñado» (reaprovecha el guion R1).
 - **Del equipo:** aprobar elenco y guion. Voces: ElevenLabs en plan pagado antes de publicar.
 
 Capítulos siguientes: 2) Cata pide su primer repuesto con Repuestín. 3) Doña Carmen sube su catálogo desde Excel (tiendas).
+
+**Escena de la app (27-nov):** pantallas de dev-repuestop.repuestop.cl con la cuenta de comprador de prueba (la sesión la inició el usuario; no se publicó nada). Recortes en `estudio/public/comic/app_falla.png` y `app_diagnostico.png` (se cortó el precio por ser dato de prueba). Quedan visibles el nombre del taller de prueba, su nota y «bateria» sin tilde.
+

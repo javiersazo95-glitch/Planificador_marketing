@@ -257,6 +257,39 @@ export const SebaSentado = ({ expresion = 'preocupado', habla = null, uid = 'p' 
   );
 };
 
+/* ===================== SEBA de perfil, mira el celular ===================== */
+export const SebaCelular = ({ expresion = 'feliz', habla = null, uid = 'p' }) => {
+  const e = EXPRESIONES[expresion];
+  const piel = '#EDB48C', poleron = '#2E7D6B', jean = '#4C6A92';
+  return (
+    <g>
+      <Sombra rx={150} />
+      <Pierna cadera={[-18, -356]} rodilla={[-40, -196]} tobillo={[-68, -44]} color="#3D5779" zapato="#B93931" suela="#D9DEE8" r={[44, 33, 25]} />
+      <Pierna cadera={[4, -352]} rodilla={[22, -196]} tobillo={[22, -44]} color={jean} zapato="#E5483A" suela="#fff" r={[48, 35, 26]} />
+      <path d={tramo([6, -566], 32, [26, -646], 30)} fill={piel} {...S} />
+      <path d="M-24 -604 C-86 -616 -118 -574 -92 -528 C-70 -504 -40 -520 -20 -552 Z" fill="#256757" {...S} />
+      <path d="M-60 -352 C-84 -430 -92 -520 -56 -574 Q-30 -606 12 -602 C60 -596 76 -540 78 -486 C80 -434 74 -386 68 -346 Q6 -322 -60 -352 Z" fill={poleron} {...S} />
+      <path d="M-62 -366 Q6 -338 68 -362 L66 -338 Q6 -314 -58 -342 Z" fill="#215C4F" {...S} />
+      <path d="M-30 -596 Q8 -560 52 -588 Q30 -612 4 -610 Q-18 -610 -30 -596 Z" fill="#256757" {...S} />
+      <path d="M42 -576 Q58 -540 52 -496" {...linea} stroke="#fff" strokeWidth={9} />
+      {/* cabeza inclinada mirando la pantalla */}
+      <g transform="translate(34,-716) rotate(9)"><CabezaSeba e={e} habla={habla} uid={uid} mirada={[0.75, 0.55]} /></g>
+      {/* brazo de adelante: codo pegado al cuerpo y el celular a la altura del pecho */}
+      <BrazoLado hombro={[-14, -540]} codo={[2, -414]} muneca={[108, -450]} piel={piel} manga={poleron} puno="#215C4F" mano={null} tapa r={[36, 27, 19]} />
+      {/* palma bajo el celular */}
+      <path d="M104 -470 C128 -488 166 -480 176 -458 C182 -440 160 -428 136 -430 C120 -430 108 -434 102 -440 Z" fill={piel} {...S} />
+      {/* celular visto de lado, con la pantalla hacia Seba */}
+      <g transform="translate(164,-512) rotate(26)" {...S}>
+        <rect x={-23} y={-70} width={46} height={134} rx={14} fill={L} />
+        <rect x={-15} y={-58} width={15} height={110} rx={6} fill="#BFE0F7" stroke="none" />
+      </g>
+      {/* dedos que abrazan el borde de adelante y pulgar sobre la pantalla */}
+      {[[180, -492], [174, -468]].map(([x, y]) => <path key={y} d={tramo([x + 14, y], 11, [x - 6, y + 8], 11)} fill={piel} {...S} strokeWidth={5.5} />)}
+      <path d={tramo([116, -462], 15, [141, -500], 11)} fill={piel} {...S} strokeWidth={5.5} />
+    </g>
+  );
+};
+
 /* ===================== CATA de perfil, muestra el celular ===================== */
 export const CataMuestra = ({ expresion = 'feliz', habla = null, uid = 'p' }) => {
   const e = EXPRESIONES[expresion];

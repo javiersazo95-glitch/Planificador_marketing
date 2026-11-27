@@ -2,7 +2,7 @@
 // Referencias: la persona se inclina desde el frente del auto, con el capo levantado atras.
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
-import { CunadoInclinado, SebaRasca, SebaSentado, CataMuestra, LuchoRevisa, CunadoRetrocede } from './perfil.jsx';
+import { CunadoInclinado, SebaRasca, SebaCelular, SebaSentado, CataMuestra, LuchoRevisa, CunadoRetrocede } from './perfil.jsx';
 import { L, G } from './personaje.jsx';
 
 const FUENTE = "'Plus Jakarta Sans','Segoe UI',Arial,sans-serif";
@@ -177,6 +177,35 @@ export const Escena3 = ({ pantalla }) => (
     </div>
     <div style={{ position: 'absolute', left: 110, top: 652, background: AM, border: `7px solid ${L}`, padding: '4px 24px', fontSize: 36, fontWeight: 800, transform: 'rotate(-2deg)', boxShadow: `7px 7px 0 ${L}` }}>repuestop.cl/fallas</div>
     <div style={{ position: 'absolute', right: 70, top: 112, fontSize: 26, fontWeight: 700, background: '#ffffffcc', padding: '4px 14px', borderRadius: 10 }}>Recreación</div>
+  </AbsoluteFill>
+);
+
+/* Seba publica la falla y le llega el diagnostico (pantallas reales de la version de pruebas) */
+const Pantalla = ({ src, left, top, width }) => (
+  <div style={{ position: 'absolute', left, top, width, border: `9px solid ${L}`, borderRadius: 36, overflow: 'hidden', background: '#fff', boxShadow: `11px 11px 0 ${L}`, lineHeight: 0 }}>
+    <img src={src} style={{ width, display: 'block' }} />
+  </div>
+);
+const Paso = ({ left, top, giro = -2, children }) => (
+  <div style={{ position: 'absolute', left, top, background: AM, border: `7px solid ${L}`, padding: '6px 26px', fontSize: 40, fontWeight: 800, transform: `rotate(${giro}deg)`, boxShadow: `7px 7px 0 ${L}` }}>{children}</div>
+);
+export const EscenaApp = ({ falla, diagnostico }) => (
+  <AbsoluteFill style={{ fontFamily: FUENTE, color: L }}>
+    <svg width={1080} height={1920} viewBox="0 0 1080 1920">
+      <Entrada />
+      <g transform="translate(250,1882) scale(0.8)"><SebaCelular uid="app" /></g>
+      {/* globo con la cola hacia la boca, por el costado */}
+      <rect x={529} y={1259} width={500} height={190} rx={52} fill={L} />
+      <rect x={520} y={1250} width={500} height={190} rx={52} fill="#fff" {...S} />
+      <path d="M524 1316 L402 1368 L524 1380" fill="#fff" {...S} />
+      <rect x={518} y={1321} width={14} height={54} fill="#fff" />
+      {['¡Ya me llegó', 'un diagnóstico!'].map((t, i) => <text key={t} x={770} y={1336 + i * 62} textAnchor="middle" fontFamily={FUENTE} fontWeight={800} fontSize={52} fill={L}>{t}</text>)}
+    </svg>
+    <Pantalla src={falla} left={230} top={255} width={610} />
+    <Paso left={90} top={180}>1. Cuento la falla</Paso>
+    <Pantalla src={diagnostico} left={160} top={820} width={760} />
+    <Paso left={420} top={766} giro={2}>2. Llega el diagnóstico</Paso>
+    <div style={{ position: 'absolute', right: 60, top: 90, fontSize: 26, fontWeight: 700, background: '#ffffffcc', padding: '4px 14px', borderRadius: 10 }}>Recreación · ejemplo de prueba</div>
   </AbsoluteFill>
 );
 
